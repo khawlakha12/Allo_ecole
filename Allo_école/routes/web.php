@@ -13,6 +13,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::get('/admin', function () {
+    return view('Admin.dashboard');
 });
+
+Route::get('/404', function () {
+    return view('Admin.404');
+});
+Route::get('/formateur', function () {
+    return view('Admin.team');
+});
+Route::get('/formateur', function () {
+    return view('Admin.team');
+});
+Route::get('/course', function () {
+    return view('Admin.file-manager');
+});
+Route::get('/detail_course', function () {
+    return view('Admin.filemanager-details');
+});
+Route::get('/liste_course', function () {
+    return view('Admin.filemanager-list');
+});
+Route::get('/to_do', function () {
+    return view('Admin.to-do-list');
+});
+
