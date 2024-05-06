@@ -1175,15 +1175,30 @@
                                 <span class="side-menu__label">Dashboard</span>
                             </a>
                         </li>
+                        <li class="slide">
+                            <a href="/profile" class="side-menu__item">
+                                <i class="fe fe-user side-menu__icon"></i>
+                                <span class="side-menu__label">Profile</span>
+                            </a>
+                        </li>
                         <!-- Start::slide__category -->
                         <li class="slide__category"><span class="category-name">les formations</span></li>
                         <!-- End::slide__category -->
 
                         <!-- Start::slide -->
                         <li class="slide has-sub">
+                            <a href="/formateur" class="side-menu__item">
+                                <i class="fe fe-users side-menu__icon"></i>
+                                <span class="side-menu__label">Formateurs</span>
+                            </a>
+                            <ul class="slide-menu child1">
+                            </ul>
+                        </li>
+                        <li class="slide has-sub">
                             <a href="javascript:void(0);" class="side-menu__item">
                                 <i class="fe fe-layers side-menu__icon"></i>
                                 <span class="side-menu__label">Formations</span>
+                                <i class="fe fe-chevron-right side-menu__angle"></i>
                             </a>
                             <ul class="slide-menu child1">
                                 <li class="slide side-menu__label1">
@@ -1207,178 +1222,90 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="slide">
-                                    <a href="chat.html" class="side-menu__item">Chat</a>
-                                </li>
-                                <li class="slide">
-                                    <a href="contacts.html" class="side-menu__item">Contacts</a>
+                            </ul>
+                        </li>
+ 
+                        <!-- End::slide -->
+                        <!-- Start::slide__category -->
+                        <li class="slide__category"><span class="category-name">Education</span></li>
+                        <!-- End::slide__category -->
+
+                        <!-- Courses -->
+                        <li class="slide has-sub">
+                            <a href="#" class="side-menu__item">
+                                <i class="fe fe-file-text side-menu__icon"></i>
+                                <span class="side-menu__label">Courses</span>
+                                <i class="fe fe-chevron-right side-menu__angle"></i>
+                            </a>
+                            <ul class="slide-menu child1">
+                                <li class="slide side-menu__label1">
+                                    <a href="javascript:void(0)">Courses</a>
                                 </li>
                                 <li class="slide has-sub">
-                                    <a href="javascript:void(0);" class="side-menu__item">Ecommerce
+                                    <a href="javascript:void(0);" class="side-menu__item">Form Elements
                                         <i class="fe fe-chevron-right side-menu__angle"></i></a>
                                     <ul class="slide-menu child2">
                                         <li class="slide">
-                                            <a href="add-products.html" class="side-menu__item">Add Products</a>
-                                        </li>
-                                        <li class="slide">
-                                            <a href="cart.html" class="side-menu__item">Cart</a>
-                                        </li>
-                                        <li class="slide">
-                                            <a href="checkout.html" class="side-menu__item">Checkout</a>
-                                        </li>
-                                        <li class="slide">
-                                            <a href="edit-products.html" class="side-menu__item">Edit Products</a>
-                                        </li>
-                                        <li class="slide">
-                                            <a href="order-details.html" class="side-menu__item">Order Details</a>
-                                        </li>
-                                        <li class="slide">
-                                            <a href="orders.html" class="side-menu__item">Orders</a>
-                                        </li>
-                                        <li class="slide">
-                                            <a href="products.html" class="side-menu__item">Products</a>
-                                        </li>
-                                        <li class="slide">
-                                            <a href="product-details.html" class="side-menu__item">Product Details</a>
-                                        </li>
-                                        <li class="slide">
-                                            <a href="products-list.html" class="side-menu__item">Products List</a>
-                                        </li>
-                                        <li class="slide">
-                                            <a href="wishlist.html" class="side-menu__item">Wishlist</a>
+                                            <a href="form_inputs.html" class="side-menu__item">Inputs</a>
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="slide has-sub">
-                                    <a href="javascript:void(0);" class="side-menu__item">Email
-                                        <i class="fe fe-chevron-right side-menu__angle"></i></a>
-                                    <ul class="slide-menu child2">
-                                        <li class="slide">
-                                            <a href="mail.html" class="side-menu__item">Mail Inbox</a>
-                                        </li>
-                                        <li class="slide">
-                                            <a href="mail-read.html" class="side-menu__item">Mail Read</a>
-                                        </li>
-                                        <li class="slide">
-                                            <a href="mail-settings.html" class="side-menu__item">Mail Settings</a>
-                                        </li>
-                                    </ul>
                                 </li>
                                 <li class="slide">
-                                    <a href="empty.html" class="side-menu__item">Empty</a>
-                                </li>
-                                <li class="slide">
-                                    <a href="faq's.html" class="side-menu__item">FAQ's</a>
-                                </li>
-                                <li class="slide has-sub">
-                                    <a href="javascript:void(0);" class="side-menu__item">File Manager
-                                        <i class="fe fe-chevron-right side-menu__angle"></i></a>
-                                    <ul class="slide-menu child2">
-                                        <li class="slide">
-                                            <a href="file-manager.html" class="side-menu__item">File Manager</a>
-                                        </li>
-                                        <li class="slide">
-                                            <a href="filemanager-list.html" class="side-menu__item"> File Manager List</a>
-                                        </li>
-                                        <li class="slide">
-                                            <a href="filemanager-details.html" class="side-menu__item"> File Details</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="slide has-sub">
-                                    <a href="javascript:void(0);" class="side-menu__item">Invoice
-                                        <i class="fe fe-chevron-right side-menu__angle"></i></a>
-                                    <ul class="slide-menu child2">
-                                        <li class="slide">
-                                            <a href="invoice-create.html" class="side-menu__item">Create Invoice</a>
-                                        </li>
-                                        <li class="slide">
-                                            <a href="invoice-details.html" class="side-menu__item">Invoice Details</a>
-                                        </li>
-                                        <li class="slide">
-                                            <a href="invoice-list.html" class="side-menu__item">Invoice List</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="slide">
-                                    <a href="landing.html" class="side-menu__item">Landing</a>
-                                </li>
-                                <li class="slide">
-                                    <a href="notifications.html" class="side-menu__item">Notifications</a>
-                                </li>
-                                <li class="slide">
-                                    <a href="pricing.html" class="side-menu__item">Pricing</a>
-                                </li>
-                                <li class="slide">
-                                    <a href="profile.html" class="side-menu__item">Profile</a>
-                                </li>
-                                <li class="slide">
-                                    <a href="reviews.html" class="side-menu__item">Reviews</a>
-                                </li>
-                                <li class="slide">
-                                    <a href="team.html" class="side-menu__item">Team</a>
-                                </li>
-                                <li class="slide">
-                                    <a href="terms_conditions.html" class="side-menu__item">Terms &amp; Conditions</a>
-                                </li>
-                                <li class="slide has-sub">
-                                    <a href="javascript:void(0);" class="side-menu__item">Timeline
-                                        <i class="fe fe-chevron-right side-menu__angle"></i></a>
-                                    <ul class="slide-menu child2">
-                                        <li class="slide">
-                                            <a href="timeline.html" class="side-menu__item">Timeline-1</a>
-                                        </li>
-                                        <li class="slide">
-                                            <a href="timeline2.html" class="side-menu__item">Timeline-2</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="slide">
-                                    <a href="to-do-list.html" class="side-menu__item">To Do List</a>
+                                    <a href="form_validation.html" class="side-menu__item">Validation</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="slide has-sub">
-                            <a href="/formateur" class="side-menu__item">
-                                <i class="fe fe-users side-menu__icon"></i>
-                                <span class="side-menu__label">Formateurs</span>
+                            <a href="#" class="side-menu__item">
+                                <i class="fe fe-file-text side-menu__icon"></i>
+                                <span class="side-menu__label">Courses</span>
+                                <i class="fe fe-chevron-right side-menu__angle"></i>
                             </a>
                             <ul class="slide-menu child1">
                                 <li class="slide side-menu__label1">
-                                    <a href="javascript:void(0)">Formateurs</a>
+                                    <a href="javascript:void(0)">Courses</a>
+                                </li>
+                                <li class="slide has-sub">
+                                    <a href="javascript:void(0);" class="side-menu__item">Form Elements
+                                        <i class="fe fe-chevron-right side-menu__angle"></i></a>
+                                    <ul class="slide-menu child2">
+                                        <li class="slide">
+                                            <a href="form_inputs.html" class="side-menu__item">Inputs</a>
+                                        </li>
+                                    </ul>
+                                </li>
                                 </li>
                                 <li class="slide">
-                                    <a href="coming-soon.html" class="side-menu__item">Coming Soon</a>
-                                </li>
-                                <li class="slide">
-                                    <a href="create-password.html" class="side-menu__item">Create Password</a>
-                                </li>
-                                <li class="slide">
-                                    <a href="lockscreen.html" class="side-menu__item">Lock Screen</a>
-                                </li>
-                                <li class="slide">
-                                    <a href="reset-password.html" class="side-menu__item">Reset Password</a>
-                                </li>
-                                <li class="slide">
-                                    <a href="sign-up.html" class="side-menu__item">Sign Up</a>
-                                </li>
-                                <li class="slide">
-                                    <a href="sign-in.html" class="side-menu__item">Sign In</a>
-                                </li>
-                                <li class="slide">
-                                    <a href="two-step-verification.html" class="side-menu__item">Two Step Verification</a>
-                                </li>
-                                <li class="slide">
-                                    <a href="under-maintenance.html" class="side-menu__item">Under Maintenance</a>
+                                    <a href="form_validation.html" class="side-menu__item">Validation</a>
                                 </li>
                             </ul>
                         </li>
-                        <!-- End::slide -->
-                        <!-- Start::slide__category -->
-                        <li class="slide__category"><span class="category-name">General</span></li>
-                        <!-- End::slide__category -->
-
-                        <!-- Courses -->
+                        <li class="slide has-sub">
+                            <a href="#" class="side-menu__item">
+                                <i class="fe fe-file-text side-menu__icon"></i>
+                                <span class="side-menu__label">Courses</span>
+                                <i class="fe fe-chevron-right side-menu__angle"></i>
+                            </a>
+                            <ul class="slide-menu child1">
+                                <li class="slide side-menu__label1">
+                                    <a href="javascript:void(0)">Courses</a>
+                                </li>
+                                <li class="slide has-sub">
+                                    <a href="javascript:void(0);" class="side-menu__item">Form Elements
+                                        <i class="fe fe-chevron-right side-menu__angle"></i></a>
+                                    <ul class="slide-menu child2">
+                                        <li class="slide">
+                                            <a href="form_inputs.html" class="side-menu__item">Inputs</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                </li>
+                                <li class="slide">
+                                    <a href="form_validation.html" class="side-menu__item">Validation</a>
+                                </li>
+                            </ul>
+                        </li>
                         <li class="slide has-sub">
                             <a href="/course" class="side-menu__item">
                                 <i class="fe fe-file-text side-menu__icon"></i>
@@ -1446,20 +1373,27 @@
                             </ul>
                         </li>
                         <li class="slide has-sub">
-                            <a href="javascript:void(0);" class="side-menu__item">
-                                <i class="fe fe-layout side-menu__icon"></i>
-                                <span class="side-menu__label">Tables</span>
+                            <a href="#" class="side-menu__item">
+                                <i class="fe fe-file-text side-menu__icon"></i>
+                                <span class="side-menu__label">Courses</span>
                                 <i class="fe fe-chevron-right side-menu__angle"></i>
                             </a>
                             <ul class="slide-menu child1">
                                 <li class="slide side-menu__label1">
-                                    <a href="javascript:void(0)">Tables</a>
+                                    <a href="javascript:void(0)">Courses</a>
+                                </li>
+                                <li class="slide has-sub">
+                                    <a href="javascript:void(0);" class="side-menu__item">Form Elements
+                                        <i class="fe fe-chevron-right side-menu__angle"></i></a>
+                                    <ul class="slide-menu child2">
+                                        <li class="slide">
+                                            <a href="form_inputs.html" class="side-menu__item">Inputs</a>
+                                        </li>
+                                    </ul>
+                                </li>
                                 </li>
                                 <li class="slide">
-                                    <a href="tables.html" class="side-menu__item">étudients</a>
-                                </li>
-                                <li class="slide">
-                                    <a href="grid-tables.html" class="side-menu__item">Courses</a>
+                                    <a href="form_validation.html" class="side-menu__item">Validation</a>
                                 </li>
                             </ul>
                         </li>

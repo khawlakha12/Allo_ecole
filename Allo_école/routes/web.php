@@ -17,7 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/admin', function () {
     return view('Admin.dashboard');
 });
-
+Route::get('/niveaux', function () {
+    return view('Admin.grid-tables');
+});
 Route::get('/404', function () {
     return view('Admin.404');
 });
@@ -39,4 +41,14 @@ Route::get('/liste_course', function () {
 Route::get('/to_do', function () {
     return view('Admin.to-do-list');
 });
+Route::get('/profile', function () {
+    return view('Admin.profile');
+});
+Route::get('/sign_in', function () {
+    return view('Auth.sign-in');
+});
+Route::get('/sign_up', function () {
+    return view('Auth.sign-up');
+});
+
 
