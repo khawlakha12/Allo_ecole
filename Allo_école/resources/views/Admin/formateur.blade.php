@@ -1090,17 +1090,19 @@
                     <!-- Start::header-element -->
                     <div class="header-element main-profile-user">
                         <!-- Start::header-link|dropdown-toggle -->
-                        <a href="#" class="header-link dropdown-toggle" id="mainHeaderProfile" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                            <div class="d-flex align-items-center">
-                                <div class="me-xxl-2 me-0">
-                                    <img src="../assets/images/faces/9.jpg" alt="img" width="32" height="32" class="rounded-circle">
+                        @auth
+                            <a href="#" class="header-link dropdown-toggle" id="mainHeaderProfile" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-xxl-2 me-0">
+                                        <img src="{{ Auth::user()->picture ?? '../assets/images/faces/default.jpg' }}" alt="img" width="32" height="32" class="rounded-circle">
+                                    </div>
+                                    <div class="d-xxl-block d-none my-auto">
+                                        <h6 class="fw-semibold mb-0 lh-1 fs-14">{{ Auth::user()->name}}</h6>
+                                        <span class="op-7 fw-normal d-block fs-11 text-muted">{{ Auth::user()->type}}</span>
+                                    </div>
                                 </div>
-                                <div class="d-xxl-block d-none my-auto">
-                                    <h6 class="fw-semibold mb-0 lh-1 fs-14">Json Taylor</h6>
-                                    <span class="op-7 fw-normal d-block fs-11 text-muted">Web Designer</span>
-                                </div>
-                            </div>
-                        </a>
+                            </a>
+                            @endauth
                         <!-- End::header-link|dropdown-toggle -->
                         <ul class="main-header-dropdown dropdown-menu pt-0 header-profile-dropdown dropdown-menu-end" aria-labelledby="mainHeaderProfile">
                             <li class="drop-heading d-xxl-none d-block">
@@ -1445,20 +1447,21 @@
                             </div>
                         </div>
                     </div>
+                    @foreach ($formateurs as $formateur)
                     <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-sm-12">
                         <div class="card custom-card ">
                             <div class="card-body">
                                 <div class="text-center">
                                     <span class="avatar avatar-xxl rounded">
-                                        <img src="../assets/images/faces/11.jpg" alt="" class="rounded-circle">
+                                    <img src="{{ $formateur->picture ?: '../assets/images/faces/11.jpg' }}" alt="" class="rounded-circle">
                                     </span>
                                 </div>
                                 <div class="d-flex  text-center justify-content-between mt-1 mb-3">
                                     <div class="flex-fill">
                                         <p class="mb-0 fw-semibold fs-16 text-truncate max-w-150 mx-auto">
-                                            <a href="javascript:void(0);">Alexander Smith</a>
+                                            <a href="javascript:void(0);">{{ $formateur->name }}</a>
                                         </p>
-                                        <p class="mb-0 fs-12 text-muted text-truncate max-w-150 mx-auto">alexandersmith2135@gmail.com</p>
+                                        <p class="mb-0 fs-12 text-muted text-truncate max-w-150 mx-auto">{{ $formateur->email }}</p>
                                     </div>
                                 </div>
                                 <div class="btn-list text-center">
@@ -1480,19 +1483,20 @@
                                     <div class="d-flex p-3 w-100 justify-content-center border-end">
                                         <div class="text-center ">
                                             <p class="fw-semibold mb-0">Projects</p>
-                                            <span class="text-muted fs-12">100</span>
+                                            <span class="text-muted fs-12">{{ $formateur->projects_count ?: '0' }}</span>
                                         </div>
                                     </div>
                                     <div class="d-flex p-3 w-100 justify-content-center">
                                         <div class="text-center">
                                             <p class="fw-semibold mb-0">Position</p>
-                                            <span class="text-muted fs-12">Associate</span>
+                                            <span class="text-muted fs-12">{{ $formateur->position ?: 'N/A' }}</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
                 <!-- Start: pagination -->
                 <div class="float-end mb-4 ms-auto">

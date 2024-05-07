@@ -1090,17 +1090,19 @@
                     <!-- Start::header-element -->
                     <div class="header-element main-profile-user">
                         <!-- Start::header-link|dropdown-toggle -->
-                        <a href="#" class="header-link dropdown-toggle" id="mainHeaderProfile" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                            <div class="d-flex align-items-center">
-                                <div class="me-xxl-2 me-0">
-                                    <img src="../assets/images/faces/9.jpg" alt="img" width="32" height="32" class="rounded-circle">
+                        @auth
+                            <a href="#" class="header-link dropdown-toggle" id="mainHeaderProfile" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-xxl-2 me-0">
+                                        <img src="{{ Auth::user()->picture ?? '../assets/images/faces/default.jpg' }}" alt="img" width="32" height="32" class="rounded-circle">
+                                    </div>
+                                    <div class="d-xxl-block d-none my-auto">
+                                        <h6 class="fw-semibold mb-0 lh-1 fs-14">{{ Auth::user()->name}}</h6>
+                                        <span class="op-7 fw-normal d-block fs-11 text-muted">{{ Auth::user()->type}}</span>
+                                    </div>
                                 </div>
-                                <div class="d-xxl-block d-none my-auto">
-                                    <h6 class="fw-semibold mb-0 lh-1 fs-14">Json Taylor</h6>
-                                    <span class="op-7 fw-normal d-block fs-11 text-muted">Web Designer</span>
-                                </div>
-                            </div>
-                        </a>
+                            </a>
+                            @endauth
                         <!-- End::header-link|dropdown-toggle -->
                         <ul class="main-header-dropdown dropdown-menu pt-0 header-profile-dropdown dropdown-menu-end" aria-labelledby="mainHeaderProfile">
                             <li class="drop-heading d-xxl-none d-block">

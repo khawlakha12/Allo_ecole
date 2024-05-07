@@ -1093,17 +1093,19 @@
                         <!-- Start::header-element -->
                         <div class="header-element main-profile-user">
                             <!-- Start::header-link|dropdown-toggle -->
+                            @auth
                             <a href="#" class="header-link dropdown-toggle" id="mainHeaderProfile" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                                 <div class="d-flex align-items-center">
                                     <div class="me-xxl-2 me-0">
-                                        <img src="../assets/images/faces/9.jpg" alt="img" width="32" height="32" class="rounded-circle">
+                                        <img src="{{ Auth::user()->picture ?? '../assets/images/faces/default.jpg' }}" alt="img" width="32" height="32" class="rounded-circle">
                                     </div>
                                     <div class="d-xxl-block d-none my-auto">
-                                        <h6 class="fw-semibold mb-0 lh-1 fs-14">Json Taylor</h6>
-                                        <span class="op-7 fw-normal d-block fs-11 text-muted">Web Designer</span>
+                                        <h6 class="fw-semibold mb-0 lh-1 fs-14">{{ Auth::user()->name}}</h6>
+                                        <span class="op-7 fw-normal d-block fs-11 text-muted">{{ Auth::user()->type}}</span>
                                     </div>
                                 </div>
                             </a>
+                            @endauth
                             <!-- End::header-link|dropdown-toggle -->
                             <ul class="main-header-dropdown dropdown-menu pt-0 header-profile-dropdown dropdown-menu-end" aria-labelledby="mainHeaderProfile">
                                 <li class="drop-heading d-xxl-none d-block">
@@ -1417,31 +1419,24 @@
                     <!-- PAGE-HEADER -->
                     <div class="page-header">
                       <h1 class="page-title my-auto">Profile</h1>
-                      <div>
-                        <ol class="breadcrumb mb-0">
-                          <li class="breadcrumb-item">
-                            <a href="javascript:void(0)">Pages</a>
-                          </li>
-                          <li class="breadcrumb-item active" aria-current="page">Profile</li>
-                        </ol>
-                      </div>
                     </div>
                     <!-- PAGE-HEADER END -->
 
 
                     <!-- Start::row-1 -->
+                    @auth
                     <div class="row">
-                        <div class="col-xxl-3">
+                        <div class="col">
                             <div class="card custom-card overflow-hidden">
                                 <div class="card-body border-bottom">
                                     <div class="d-sm-flex  main-profile-cover">
                                         <span class="avatar avatar-xxl online me-3">
-                                            <img src="../assets/images/faces/5.jpg" alt="" class="avatar avatar-xxl">
+                                            <img src="{{ Auth::user()->picture ?? '../assets/images/faces/default.jpg' }}" alt="" class="avatar avatar-xxl">
                                         </span>
                                         <div class="flex-fill main-profile-info my-auto">
-                                            <h5 class="fw-semibold mb-1 ">Json Taylor</h5>
+                                            <h5 class="fw-semibold mb-1 ">{{ Auth::user()->name }}</h5>
                                             <div>
-                                                <p class="mb-1 text-muted">Chief Executive Officer (C.E.O)</p>
+                                                <p class="mb-1 text-muted">{{ Auth::user()->type }}</p>
                                                 <p class="fs-12 op-7 mb-0">  
                                                     <span class="me-3 d-inline-flex align-items-center"><i class="ri-building-line me-1 align-middle"></i>Georgia</span> 
                                                     <span class="d-inline-flex align-items-center"><i class="ri-map-pin-line me-1 align-middle"></i>Washington D.C</span> 
@@ -1454,15 +1449,15 @@
                                     <div class="d-flex align-items-center justify-content-between w-100">
                                         <div class="py-3 border-end w-100 text-center">
                                             <p class="fw-bold fs-20  text-shadow mb-0">113</p>
-                                            <p class="mb-0 fs-12 text-muted ">Projects</p>
+                                            <p class="mb-0 fs-12 text-muted ">Formations</p>
                                         </div>
                                         <div class="py-3 border-end w-100 text-center">
                                             <p class="fw-bold fs-20  text-shadow mb-0">12.2k</p>
-                                            <p class="mb-0 fs-12 text-muted ">Followers</p>
+                                            <p class="mb-0 fs-12 text-muted ">Formateurs</p>
                                         </div>
                                         <div class="py-3 w-100 text-center">
                                             <p class="fw-bold fs-20  text-shadow mb-0">128</p>
-                                            <p class="mb-0 fs-12 text-muted ">Following</p>
+                                            <p class="mb-0 fs-12 text-muted ">les cours</p>
                                         </div>
                                     </div>
                                 </div>
@@ -1476,7 +1471,7 @@
                                                 <div class="me-2 fw-semibold">
                                                     Name :
                                                 </div>
-                                                <span class="fs-12 text-muted">Sonya Taylor</span>
+                                                <span class="fs-12 text-muted">{{ Auth::user()->name }}</span>
                                             </div>
                                         </li>
                                         <li class="list-group-item border-0">
@@ -1484,7 +1479,7 @@
                                                 <div class="me-2 fw-semibold">
                                                     Email :
                                                 </div>
-                                                <span class="fs-12 text-muted">sonyataylor231@gmail.com</span>
+                                                <span class="fs-12 text-muted">{{ Auth::user()->email }}</span>
                                             </div>
                                         </li>
                                         <li class="list-group-item border-0">
@@ -1492,7 +1487,7 @@
                                                 <div class="me-2 fw-semibold">
                                                     Phone :
                                                 </div>
-                                                <span class="fs-12 text-muted">+(555) 555-1234</span>
+                                                <span class="fs-12 text-muted">{{ Auth::user()->phone }}</span>
                                             </div>
                                         </li>
                                         <li class="list-group-item border-0">
@@ -1500,15 +1495,7 @@
                                                 <div class="me-2 fw-semibold">
                                                     Designation :
                                                 </div>
-                                                <span class="fs-12 text-muted">C.E.O</span>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item border-0">
-                                            <div class="d-flex flex-wrap align-items-center">
-                                                <div class="me-2 fw-semibold">
-                                                    Age :
-                                                </div>
-                                                <span class="fs-12 text-muted">28</span>
+                                                <span class="fs-12 text-muted">{{ Auth::user()->type }}</span>
                                             </div>
                                         </li>
                                         <li class="list-group-item border-0">
@@ -1521,6 +1508,7 @@
                                         </li>
                                     </ul>
                                 </div>
+                                @endauth
                                 <div class="p-4 border-bottom border-block-end-dashed">
                                     <p class="fs-15 mb-2 me-4 fw-semibold">Contact Information :</p>
                                     <div class="text-muted">
@@ -1528,24 +1516,14 @@
                                             <span class="avatar avatar-sm avatar-rounded me-2 bg-info-transparent">
                                                 <i class="ri-mail-line align-middle fs-14"></i>
                                             </span>
-                                            sonyataylor2531@gmail.com
+                                            {{ Auth::user()->email }}
                                         </p>
                                         <p class="mb-3">
                                             <span class="avatar avatar-sm avatar-rounded me-2 bg-warning-transparent">
                                                 <i class="ri-phone-line align-middle fs-14"></i>
                                             </span>
-                                            +(555) 555-1234
+                                            {{ Auth::user()->phone }}
                                         </p>
-                                        <div class="d-flex">
-                                            <p class="mb-0">
-                                                <span class="avatar avatar-sm avatar-rounded me-2 bg-success-transparent">
-                                                    <i class="ri-map-pin-line align-middle fs-14"></i>
-                                                </span>
-                                            </p>
-                                            <p class="mb-0">
-                                            MIG-1-11, Monroe Street, Georgetown, Washington D.C, USA,20071 </p>
-
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="p-4 border-bottom border-block-end-dashed">
@@ -1611,7 +1589,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xxl-6">
+                        <div class="col">
                             <div class="row">
                                 <div class="col-xl-12">
                                     <div class=" custom-card">
@@ -1620,200 +1598,30 @@
                                                 <div>
                                                     <ul class="nav nav-pills nav-justified gx-3 tab-style-6 d-sm-flex d-block " id="myTab" role="tablist">
                                                         <li class="nav-item rounded" role="presentation">
-                                                            <button class="nav-link active" id="activity-tab" data-bs-toggle="tab"
-                                                                data-bs-target="#activity-tab-pane" type="button" role="tab"
-                                                                aria-controls="activity-tab-pane" aria-selected="true"><i
-                                                                    class="ri-gift-line me-1 align-middle d-inline-block fs-16"></i>Activity</button>
-                                                        </li>
-                                                        <li class="nav-item rounded" role="presentation">
                                                             <button class="nav-link" id="gallery-tab" data-bs-toggle="tab"
                                                                 data-bs-target="#gallery-tab-pane" type="button" role="tab"
                                                                 aria-controls="gallery-tab-pane" aria-selected="false"><i
-                                                                    class="ri-exchange-box-line me-1 align-middle d-inline-block fs-16"></i>Gallery</button>
+                                                                    class="ri-exchange-box-line me-1 align-middle d-inline-block fs-16"></i>Courses</button>
                                                         </li>
                                                         <li class="nav-item rounded" role="presentation">
                                                             <button class="nav-link" id="posts-tab" data-bs-toggle="tab"
                                                                 data-bs-target="#posts-tab-pane" type="button" role="tab"
                                                                 aria-controls="posts-tab-pane" aria-selected="false"><i
-                                                                    class="ri-bill-line me-1 align-middle d-inline-block fs-16"></i>Projects</button>
+                                                                    class="ri-bill-line me-1 align-middle d-inline-block fs-16"></i>Formations</button>
                                                         </li>
+                                                        @auth
                                                         <li class="nav-item rounded" role="presentation">
                                                             <button class="nav-link" id="followers-tab" data-bs-toggle="tab"
                                                                 data-bs-target="#followers-tab-pane" type="button" role="tab"
                                                                 aria-controls="followers-tab-pane" aria-selected="false"><i
-                                                                    class="ri-money-dollar-box-line me-1 align-middle d-inline-block fs-16"></i>Friends</button>
+                                                                    class="ri-money-dollar-box-line me-1 align-middle d-inline-block fs-16"></i>Formateurs</button>
                                                         </li>
+                                                        @endauth
                                                     </ul>
                                                 </div>   
                                             </div>
                                             <div class="py-4">
                                                 <div class="tab-content" id="myTabContent">
-                                                    <div class="tab-pane show active fade p-0 border-0 bg-white p-4 rounded-3" id="activity-tab-pane"
-                                                        role="tabpanel" aria-labelledby="activity-tab" tabindex="0">
-                                                        <ul class="list-unstyled profile-timeline">
-                                                            <li>
-                                                                <span class="fs-12 text-muted fw-semibold text-end profile-timeline-time">16,Dec 2023</span>
-                                                                <div>
-                                                                    <span class="avatar avatar-sm avatar-rounded profile-timeline-avatar">
-                                                                        <img src="../assets/images/faces/1.jpg" alt="">
-                                                                    </span>
-                                                                    <p class="text-muted mb-2">
-                                                                        <span class="text-default"><b>Barnes vare</b> Shared project</span>
-                                                                    </p>
-                                                                    <p class="text-muted fs-12 mb-0">Added 1 attachment <strong>docfile.doc</strong></p>
-                                                                    <div class="btn-group file-attach mt-3" role="group" aria-label="Basic example">
-                                                                        <button type="button" class="btn btn-sm btn-primary-light">
-                                                                            <span class="ri-file-line me-2"></span> Image_file.jpg 
-                                                                        </button>
-                                                                        <button type="button" class="btn btn-sm btn-primary-light" aria-label="Close">
-                                                                            <span class="ri-download-2-line"></span>
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div>
-                                                                    <span class="fs-12 text-muted fw-semibold text-end profile-timeline-time">18,Dec 2023</span>
-                                                                    <span class="avatar avatar-sm avatar-rounded profile-timeline-avatar">
-                                                                        <img src="../assets/images/faces/3.jpg" alt="">
-                                                                    </span>
-                                                                    <p class="text-muted mb-2">
-                                                                        <span class="text-default"><b>Alzbeth Aren</b> Shared project</span>.
-                                                                    </p>
-                                                                    <p class="text-muted mb-0">
-                                                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, repellendus rem rerum excepturi aperiam ipsam temporibus inventore ullam tempora eligendi libero sequi dignissimos cumque, et a sint tenetur consequatur omnis!
-                                                                        rerum excepturi aperiam ipsam temporibus inventore ullam tempora eligendi libero sequi dignissimos cumque, et a sint tenetur consequatur omnis!
-                                                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, repellendus rem rerum excepturi aperiam ipsam temporibus inventore ullam tempora eligendi libero sequi dignissimos cumque, et a sint tenetur consequatur omnis!
-                                                                    </p>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div>
-                                                                    <span class="fs-12 text-muted fw-semibold text-end  ">11,Dec 2023</span>
-                                                                    <span class="avatar avatar-sm avatar-rounded profile-timeline-avatar">
-                                                                        <img src="../assets/images/faces/5.jpg" alt="">
-                                                                    </span>
-                                                                    <p class="text-muted mb-1">
-                                                                        <span class="text-default"><b>Melissa Blue</b> liked your post <b>travel excites</b></span>.
-                                                                    </p>
-                                                                    <p class="text-muted">you are already feeling the tense atmosphere of the video playing in the background</p>
-                                                                    <p class="profile-activity-media mb-0">
-                                                                        <a href="javascript:void(0);">
-                                                                            <img src="../assets/images/media/media-12.jpg" class="m-1" alt="">
-                                                                        </a>  
-                                                                        <a href="javascript:void(0);">
-                                                                            <img src="../assets/images/media/media-13.jpg" class="m-1" alt="">
-                                                                        </a>  
-                                                                        <a href="javascript:void(0);">
-                                                                            <img src="../assets/images/media/media-14.jpg" class="m-1" alt="">
-                                                                        </a>  
-                                                                    </p>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div>
-                                                                    <span class="fs-12 text-muted fw-semibold text-end profile-timeline-time">18,Dec 2023</span>
-                                                                    <span class="avatar avatar-sm avatar-rounded profile-timeline-avatar">
-                                                                        <img src="../assets/images/faces/11.jpg" alt="">
-                                                                    </span>
-                                                                    <p class="text-muted mb-2">
-                                                                        <span class="text-default"><b>Json Smith</b> reacted to the post 👍</span>.
-                                                                    </p>
-                                                                    <p class="text-muted mb-0">
-                                                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, repellendus rem rerum excepturi aperiam ipsam temporibus inventore ullam tempora eligendi libero sequi dignissimos cumque, et a sint tenetur consequatur omnis!
-                                                                    </p>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div>
-                                                                    <span class="fs-12 text-muted fw-semibold text-end  profile-timeline-time">21,Dec 2023</span>
-                                                                    <span class="avatar avatar-sm avatar-rounded profile-timeline-avatar">
-                                                                        <img src="../assets/images/faces/4.jpg" alt="">
-                                                                    </span>
-                                                                    <p class="text-muted mb-2">
-                                                                        <span class="text-default"><b>Alicia Keys</b> shared a document with <b>you</b></span>.
-                                                                    </p>
-                                                                    <p class="profile-activity-media mb-0">
-                                                                        <a href="javascript:void(0);">
-                                                                            <img src="../assets/images/media/media-10.jpg" alt="">
-                                                                        </a>  
-                                                                        <span class="fs-11 text-muted">432.87KB</span>
-                                                                    </p>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div>
-                                                                    <span class="fs-12 text-muted fw-semibold text-end  profile-timeline-time">24,Dec 2023</span>
-                                                                    <span class="avatar avatar-sm bg-primary-transparent avatar-rounded profile-timeline-avatar">
-                                                                        E
-                                                                    </span>
-                                                                    <p class="mb-2">
-                                                                        <b>You</b> Commented on <b>alexander taylor</b> post <a class="text-secondary" href="javascript:void(0);"><u>#beautiful day</u></a>.
-                                                                    </p>
-                                                                    <p class="profile-activity-media mb-0">
-                                                                        <a href="javascript:void(0);">
-                                                                            <img src="../assets/images/media/media-15.jpg" alt="">
-                                                                        </a>    
-                                                                        <a href="javascript:void(0);">
-                                                                            <img src="../assets/images/media/media-16.jpg" alt="">
-                                                                        </a>    
-                                                                    </p>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div>
-                                                                    <span class="fs-12 text-muted fw-semibold text-end profile-timeline-time">28,Dec 2023</span>
-                                                                    <span class="avatar avatar-sm bg-success-transparent avatar-rounded profile-timeline-avatar">
-                                                                        P
-                                                                    </span>
-                                                                    <p class="text-muted mb-2">
-                                                                        <span class="text-default"><b>You</b> shared a post with 4 people <b>Simon,Sasha,Anagha,Hishen</b></span>.
-                                                                    </p>
-                                                                    <p class="profile-activity-media mb-2">
-                                                                        <a href="javascript:void(0);">
-                                                                            <img src="../assets/images/media/media-17.jpg" alt="">
-                                                                        </a>   
-                                                                    </p>
-                                                                    <div>
-                                                                        <div class="avatar-list-stacked">
-                                                                            <span class="avatar avatar-sm avatar-rounded">
-                                                                                <img src="../assets/images/faces/2.jpg" alt="img">
-                                                                            </span>
-                                                                            <span class="avatar avatar-sm avatar-rounded">
-                                                                                <img src="../assets/images/faces/8.jpg" alt="img">
-                                                                            </span>
-                                                                            <span class="avatar avatar-sm avatar-rounded">
-                                                                                <img src="../assets/images/faces/2.jpg" alt="img">
-                                                                            </span>
-                                                                            <span class="avatar avatar-sm avatar-rounded">
-                                                                                <img src="../assets/images/faces/10.jpg" alt="img">
-                                                                            </span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div>
-                                                                    <span class="fs-12 text-muted fw-semibold text-end profile-timeline-time">24,Dec 2023 </span>
-                                                                    <span class="avatar avatar-sm avatar-rounded profile-timeline-avatar">
-                                                                        <img src="../assets/images/media/media-12.jpg" alt="">
-                                                                    </span>
-                                                                    <p class="mb-1">
-                                                                        <b>You</b> Commented on <b>Peter Engola</b> post <a class="text-secondary" href="javascript:void(0);"><u>#Mother Nature</u></a>.
-                                                                    </p>
-                                                                    <p class="text-muted">Technology id developing rapidly kepp uo your work 👌</p>
-                                                                    <p class="profile-activity-media mb-0">
-                                                                        <a href="javascript:void(0);">
-                                                                            <img src="../assets/images/media/media-18.jpg" alt="">
-                                                                        </a>    
-                                                                        <a href="javascript:void(0);">
-                                                                            <img src="../assets/images/media/media-13.jpg" alt="">
-                                                                        </a>    
-                                                                    </p>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
                                                     <div class="tab-pane fade p-0 border-0" id="gallery-tab-pane"
                                                         role="tabpanel" aria-labelledby="gallery-tab" tabindex="0">
                                                         <div class="row">
@@ -2512,323 +2320,33 @@
                                                     <div class="tab-pane fade p-0 border-0" id="followers-tab-pane"
                                                         role="tabpanel" aria-labelledby="followers-tab" tabindex="0">
                                                         <div class="row">
+                                                         @foreach ($formateurs as $formateur)
                                                             <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12">
                                                                 <div class="card custom-card shadow-none border">
                                                                     <div class="card-body p-4">
                                                                         <div class="text-center">
                                                                             <span class="avatar avatar-xl avatar-rounded">
-                                                                                <img src="../assets/images/faces/2.jpg" alt="">
+                                                                                <img src="{{ $formateur->picture ?: '../assets/images/faces/11.jpg' }}" alt="">
                                                                             </span>
                                                                             <div class="mt-2">
-                                                                                <p class="mb-0 fw-semibold">Samantha May</p>
-                                                                                <p class="fs-12 op-7 mb-1 text-muted">samanthamay2912@gmail.com</p>
-                                                                                <span class="badge bg-info-transparent rounded-pill">Team Member</span>
+                                                                                <p class="mb-0 fw-semibold">{{ $formateur->name }}</p>
+                                                                                <p class="fs-12 op-7 mb-1 text-muted">{{ $formateur->email }}</p>
+                                                                                <span class="badge bg-info-transparent rounded-pill">{{ $formateur->type }}</span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="card-footer text-center">
                                                                         <div class="btn-list">
                                                                             <button class="btn btn-sm btn-light btn-wave">Block</button>
-                                                                            <button class="btn btn-sm btn-primary btn-wave">Unfollow</button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                                                <div class="card custom-card shadow-none border">
-                                                                    <div class="card-body p-4">
-                                                                        <div class="text-center">
-                                                                            <span class="avatar avatar-xl avatar-rounded">
-                                                                                <img src="../assets/images/faces/15.jpg" alt="">
-                                                                            </span>
-                                                                            <div class="mt-2">
-                                                                                <p class="mb-0 fw-semibold">Andrew Garfield</p>
-                                                                                <p class="fs-12 op-7 mb-1 text-muted">andrewgarfield98@gmail.com</p>
-                                                                                <span class="badge bg-success-transparent rounded-pill">Team Lead</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="card-footer text-center">
-                                                                        <div class="btn-list">
-                                                                            <button class="btn btn-sm btn-light btn-wave">Block</button>
-                                                                            <button class="btn btn-sm btn-primary btn-wave">Unfollow</button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                                                <div class="card custom-card shadow-none border">
-                                                                    <div class="card-body p-4">
-                                                                        <div class="text-center">
-                                                                            <span class="avatar avatar-xl avatar-rounded">
-                                                                                <img src="../assets/images/faces/5.jpg" alt="">
-                                                                            </span>
-                                                                            <div class="mt-2">
-                                                                                <p class="mb-0 fw-semibold">Jessica Cashew</p>
-                                                                                <p class="fs-12 op-7 mb-1 text-muted">jessicacashew143@gmail.com</p>
-                                                                                <span class="badge bg-info-transparent rounded-pill">Team Member</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="card-footer text-center">
-                                                                        <div class="btn-list">
-                                                                            <button class="btn btn-sm btn-light btn-wave">Block</button>
-                                                                            <button class="btn btn-sm btn-primary btn-wave">Unfollow</button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                                                <div class="card custom-card shadow-none border">
-                                                                    <div class="card-body p-4">
-                                                                        <div class="text-center">
-                                                                            <span class="avatar avatar-xl avatar-rounded">
-                                                                                <img src="../assets/images/faces/11.jpg" alt="">
-                                                                            </span>
-                                                                            <div class="mt-2">
-                                                                                <p class="mb-0 fw-semibold">Simon Cowan</p>
-                                                                                <p class="fs-12 op-7 mb-1 text-muted">jessicacashew143@gmail.com</p>
-                                                                                <span class="badge bg-warning-transparent rounded-pill">Team Manager</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="card-footer text-center">
-                                                                        <div class="btn-list">
-                                                                            <button class="btn btn-sm btn-light btn-wave">Block</button>
-                                                                            <button class="btn btn-sm btn-primary btn-wave">Unfollow</button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                                                <div class="card custom-card shadow-none border">
-                                                                    <div class="card-body p-4">
-                                                                        <div class="text-center">
-                                                                            <span class="avatar avatar-xl avatar-rounded">
-                                                                                <img src="../assets/images/faces/7.jpg" alt="">
-                                                                            </span>
-                                                                            <div class="mt-2">
-                                                                                <p class="mb-0 fw-semibold">Amanda nunes</p>
-                                                                                <p class="fs-12 op-7 mb-1 text-muted">amandanunes45@gmail.com</p>
-                                                                                <span class="badge bg-info-transparent rounded-pill">Team Member</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="card-footer text-center">
-                                                                        <div class="btn-list">
-                                                                            <button class="btn btn-sm btn-light btn-wave">Block</button>
-                                                                            <button class="btn btn-sm btn-primary btn-wave">Unfollow</button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                                                <div class="card custom-card shadow-none border">
-                                                                    <div class="card-body p-4">
-                                                                        <div class="text-center">
-                                                                            <span class="avatar avatar-xl avatar-rounded">
-                                                                                <img src="../assets/images/faces/12.jpg" alt="">
-                                                                            </span>
-                                                                            <div class="mt-2">
-                                                                                <p class="mb-0 fw-semibold">Mahira Hose</p>
-                                                                                <p class="fs-12 op-7 mb-1 text-muted">mahirahose9456@gmail.com</p>
-                                                                                <span class="badge bg-info-transparent rounded-pill">Team Member</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="card-footer text-center">
-                                                                        <div class="btn-list">
-                                                                            <button class="btn btn-sm btn-light btn-wave">Block</button>
-                                                                            <button class="btn btn-sm btn-primary btn-wave">Unfollow</button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                                                <div class="card custom-card shadow-none border">
-                                                                    <div class="card-body p-4">
-                                                                        <div class="text-center">
-                                                                            <span class="avatar avatar-xl avatar-rounded">
-                                                                                <img src="../assets/images/faces/2.jpg" alt="">
-                                                                            </span>
-                                                                            <div class="mt-2">
-                                                                                <p class="mb-0 fw-semibold">Samantha May</p>
-                                                                                <p class="fs-12 op-7 mb-1 text-muted">samanthamay2912@gmail.com</p>
-                                                                                <span class="badge bg-info-transparent rounded-pill">Team Member</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="card-footer text-center">
-                                                                        <div class="btn-list">
-                                                                            <button class="btn btn-sm btn-light btn-wave">Block</button>
-                                                                            <button class="btn btn-sm btn-primary btn-wave">Unfollow</button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                                                <div class="card custom-card shadow-none border">
-                                                                    <div class="card-body p-4">
-                                                                        <div class="text-center">
-                                                                            <span class="avatar avatar-xl avatar-rounded">
-                                                                                <img src="../assets/images/faces/15.jpg" alt="">
-                                                                            </span>
-                                                                            <div class="mt-2">
-                                                                                <p class="mb-0 fw-semibold">Andrew Garfield</p>
-                                                                                <p class="fs-12 op-7 mb-1 text-muted">andrewgarfield98@gmail.com</p>
-                                                                                <span class="badge bg-success-transparent rounded-pill">Team Lead</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="card-footer text-center">
-                                                                        <div class="btn-list">
-                                                                            <button class="btn btn-sm btn-light btn-wave">Block</button>
-                                                                            <button class="btn btn-sm btn-primary btn-wave">Unfollow</button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                                                <div class="card custom-card shadow-none border">
-                                                                    <div class="card-body p-4">
-                                                                        <div class="text-center">
-                                                                            <span class="avatar avatar-xl avatar-rounded">
-                                                                                <img src="../assets/images/faces/5.jpg" alt="">
-                                                                            </span>
-                                                                            <div class="mt-2">
-                                                                                <p class="mb-0 fw-semibold">Jessica Cashew</p>
-                                                                                <p class="fs-12 op-7 mb-1 text-muted">jessicacashew143@gmail.com</p>
-                                                                                <span class="badge bg-info-transparent rounded-pill">Team Member</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="card-footer text-center">
-                                                                        <div class="btn-list">
-                                                                            <button class="btn btn-sm btn-light btn-wave">Block</button>
-                                                                            <button class="btn btn-sm btn-primary btn-wave">Unfollow</button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                        @endforeach
                                                         </div>
                                                     </div>
                                                 </div>    
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-3">
-                            <div class="card custom-card">
-                                <div class="p-4 border-bottom border-block-end-dashed">
-                                    <p class="fs-15 mb-2 fw-semibold">Profile Status :</p>
-                                    <p class="fw-semibold mb-2">Profile 60% completed - <a href="javscript:void(0);" class="text-primary fs-12">Finish now</a></p>
-                                    <div class="progress progress-sm progress-animate ">
-                                        <div class="progress-bar bg-primary  ronded-1" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card custom-card">
-                                <div class="card-header">
-                                    <div class="card-title">Followers</div>
-                                </div>
-                                <div class="card-body">
-                                    <ul class="list-group followers-list">
-                                        <li class="list-group-item">
-                                            <div class="d-sm-flex align-items-top">
-                                                <span class="avatar avatar-sm">
-                                                    <img src="../assets/images/faces/1.jpg" alt="img">
-                                                </span>
-                                                <div class="ms-sm-2 ms-0 mt-sm-0 mt-1 fw-semibold flex-fill">
-                                                    <p class="mb-0 lh-1">Alicia Sierra</p>
-                                                    <span class="fs-11 text-muted op-7">aliciasierra389@gmail.com</span>
-                                                </div>
-                                                <button class="btn btn-light btn-wave btn-sm ms-auto">Follow</button>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="d-sm-flex align-items-top">
-                                                <span class="avatar avatar-sm">
-                                                    <img src="../assets/images/faces/3.jpg" alt="img">
-                                                </span>
-                                                <div class="ms-sm-2 ms-0 mt-sm-0 mt-1 fw-semibold flex-fill">
-                                                    <p class="mb-0 lh-1">Samantha Mery</p>
-                                                    <span class="fs-11 text-muted op-7">samanthamery@gmail.com</span>
-                                                </div>
-                                                <button class="btn btn-light btn-wave btn-sm ms-auto">Follow</button>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="d-sm-flex align-items-top">
-                                                <span class="avatar avatar-sm">
-                                                    <img src="../assets/images/faces/6.jpg" alt="img">
-                                                </span>
-                                                <div class="ms-sm-2 ms-0 mt-sm-0 mt-1 fw-semibold flex-fill">
-                                                    <p class="mb-0 lh-1">Juliana Pena</p>
-                                                    <span class="fs-11 text-muted op-7">juliapena555@gmail.com</span>
-                                                </div>
-                                                <button class="btn btn-light btn-wave btn-sm ms-auto">Follow</button>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="d-sm-flex align-items-top">
-                                                <span class="avatar avatar-sm">
-                                                    <img src="../assets/images/faces/15.jpg" alt="img">
-                                                </span>
-                                                <div class="ms-sm-2 ms-0 mt-sm-0 mt-1 fw-semibold flex-fill">
-                                                    <p class="mb-0 lh-1">Adam Smith</p>
-                                                    <span class="fs-11 text-muted op-7">adamsmith99@gmail.com</span>
-                                                </div>
-                                                <button class="btn btn-light btn-wave btn-sm ms-auto">Follow</button>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="d-sm-flex align-items-top">
-                                                <span class="avatar avatar-sm">
-                                                    <img src="../assets/images/faces/13.jpg" alt="img">
-                                                </span>
-                                                <div class="ms-sm-2 ms-0 mt-sm-0 mt-1 fw-semibold flex-fill">
-                                                    <p class="mb-0 lh-1">Farhaan Amhed</p>
-                                                    <span class="fs-11 text-muted op-7">farhaanahmed989@gmail.com</span>
-                                                </div>
-                                                <button class="btn btn-light btn-wave btn-sm ms-auto">Follow</button>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card custom-card">
-                                <div class="card-header">
-                                    <div class="card-title">Our Latest New</div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="media media-xs overflow-visible">
-                                        <img class="avatar bradius avatar-xl me-3" src="../assets/images/faces/12.jpg" alt="avatar-img">
-                                        <div class="media-body valign-middle">
-                                            <a href="javascript:void(0)" class="fw-semibold text-dark">John Paige</a>
-                                            <p class="text-muted mb-0">There are many variations of passages of Lorem Ipsum available ...</p>
-                                        </div>
-                                    </div>
-                                    <div class="media media-xs overflow-visible mt-4">
-                                        <img class="avatar bradius avatar-xl me-3" src="../assets/images/faces/2.jpg" alt="avatar-img">
-                                        <div class="media-body valign-middle">
-                                            <a href="javascript:void(0)" class="fw-semibold text-dark">Peter Hill</a>
-                                            <p class="text-muted mb-0">There are many variations of passages of Lorem Ipsum available ...</p>
-                                        </div>
-                                    </div>
-                                    <div class="media media-xs overflow-visible mt-4">
-                                        <img class="avatar bradius avatar-xl me-3" src="../assets/images/faces/9.jpg" alt="avatar-img">
-                                        <div class="media-body valign-middle">
-                                            <a href="javascript:void(0)" class="fw-semibold text-dark">Irene Harris</a>
-                                            <p class="text-muted mb-0">There are many variations of passages of Lorem Ipsum available ...</p>
-                                        </div>
-                                    </div>
-                                    <div class="media media-xs overflow-visible mt-4">
-                                        <img class="avatar bradius avatar-xl me-3" src="../assets/images/faces/4.jpg" alt="avatar-img">
-                                        <div class="media-body valign-middle">
-                                            <a href="javascript:void(0)" class="fw-semibold text-dark">Harry Fisher</a>
-                                            <p class="text-muted mb-0">There are many variations of passages of Lorem Ipsum available ...</p>
                                         </div>
                                     </div>
                                 </div>

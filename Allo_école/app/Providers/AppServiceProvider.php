@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Providers;
-
+use App\Models\User;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +24,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        View::composer('*', function ($view) {
+            $formateurs = User::where('type', 'Formateur')->get(); 
+            $view->with('formateurs', $formateurs); 
+        });
     }
 }

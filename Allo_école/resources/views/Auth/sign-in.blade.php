@@ -508,7 +508,7 @@
                             <p class="h5 fw-semibold mb-2 text-center">Sign In</p>
                             <p class="mb-4 text-muted op-7 fw-normal text-center">Welcome back Jhon !</p>
                             <form action="{{ route('login') }}" method="post">
-    @csrf <!-- Security token for Laravel applications -->
+    @csrf 
     <div class="row gy-3">
         <div class="col-xl-12">
             <label for="signin-username" class="form-label text-default">Username</label>

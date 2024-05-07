@@ -1100,17 +1100,19 @@
                     <!-- Start::header-element -->
                     <div class="header-element main-profile-user">
                         <!-- Start::header-link|dropdown-toggle -->
-                        <a href="#" class="header-link dropdown-toggle" id="mainHeaderProfile" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                            <div class="d-flex align-items-center">
-                                <div class="me-xxl-2 me-0">
-                                    <img src="../assets/images/faces/9.jpg" alt="img" width="32" height="32" class="rounded-circle">
+                        @auth
+                            <a href="#" class="header-link dropdown-toggle" id="mainHeaderProfile" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-xxl-2 me-0">
+                                        <img src="{{ Auth::user()->picture ?? '../assets/images/faces/default.jpg' }}" alt="img" width="32" height="32" class="rounded-circle">
+                                    </div>
+                                    <div class="d-xxl-block d-none my-auto">
+                                        <h6 class="fw-semibold mb-0 lh-1 fs-14">{{ Auth::user()->name}}</h6>
+                                        <span class="op-7 fw-normal d-block fs-11 text-muted">{{ Auth::user()->type}}</span>
+                                    </div>
                                 </div>
-                                <div class="d-xxl-block d-none my-auto">
-                                    <h6 class="fw-semibold mb-0 lh-1 fs-14">Json Taylor</h6>
-                                    <span class="op-7 fw-normal d-block fs-11 text-muted">Web Designer</span>
-                                </div>
-                            </div>
-                        </a>
+                            </a>
+                            @endauth
                         <!-- End::header-link|dropdown-toggle -->
                         <ul class="main-header-dropdown dropdown-menu pt-0 header-profile-dropdown dropdown-menu-end" aria-labelledby="mainHeaderProfile">
                             <li class="drop-heading d-xxl-none d-block">
@@ -1590,9 +1592,35 @@
                 <div class="row">
                     <div class="col-xxl-4 col-md-12">
                         <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title fw-semibold">Daily Activity</h4>
-                            </div>
+                        <div class="card-header">
+    <h4 class="card-title fw-semibold d-flex justify-content-between align-items-center">
+        Niveaux Scolaire
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
+    <i class="bi bi-plus-lg"></i>
+</button>
+    </h4>
+    <div class="modal fade" id="exampleModalToggle" tabindex="-1" aria-labelledby="exampleModalToggleLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalToggleLabel">Ajouter Niveaux</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+               <div class="modal-body">
+                 <form action="{{ route('niveaux.store') }}" method="POST">
+                 @csrf
+                    <div class="mb-3">
+                        <input type="text" name="nom" class="form-control" placeholder="Exemple : Baccalauréat" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Ajouter</button>
+                    </div>
+                </form>
+             </div>
+        </div>
+    </div>
+</div>
+</div>
                             <div class="card-body pb-0">
                                 <ul class="task-list">
                                     <li class="d-sm-flex">
@@ -3208,6 +3236,18 @@
 
     <!-- Custom JS -->
     <script src="../assets/js/custom.js"></script>
+        <!-- Custom-Switcher JS -->
+        <script src="../assets/js/custom-switcher.min.js"></script>
+
+<!-- Prism JS -->
+<script src="../assets/libs/prismjs/prism.js"></script>
+<script src="../assets/js/prism-custom.js"></script>
+
+<!-- Modal JS -->
+<script src="../assets/js/modal.js"></script>
+
+<!-- Custom JS -->
+<script src="../assets/js/custom.js"></script>
 
 </body>
 
