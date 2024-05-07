@@ -8,26 +8,30 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title> Sash – Bootstrap 5  Admin &amp; Dashboard Template </title>
+    <title> Allo école </title>
     <meta name="Description" content="Bootstrap Responsive Admin Web Dashboard HTML5 Template">
     <meta name="Author" content="Spruko Technologies Private Limited">
 	<meta name="keywords" content="admin dashboard,dashboard design htmlbootstrap admin template,html admin panel,admin dashboard html,admin panel html template,bootstrap dashboard,html admin template,html dashboard,html admin dashboard template,bootstrap dashboard template,dashboard html template,bootstrap admin panel,dashboard admin bootstrap,bootstrap admin dashboard">
 
     <!-- Favicon -->
-    <link rel="icon" href="../assets/images/brand-logos/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/images/brand-logos/favicon.ico" type="image/x-icon">
 
     <!-- Main Theme Js -->
-    <script src="../assets/js/authentication-main.js"></script>
+    <script src="assets/js/authentication-main.js"></script>
 
     <!-- Bootstrap Css -->
-    <link id="style" href="../assets/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
+    <link id="style" href="assets/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
 
     <!-- Style Css -->
-    <link href="../assets/css/styles.min.css" rel="stylesheet" >
+    <link href="assets/css/styles.min.css" rel="stylesheet" >
 
     <!-- Icons Css -->
-    <link href="../assets/css/icons.min.css" rel="stylesheet" >
-
+    <link href="assets/css/icons.min.css" rel="stylesheet" >
+<style>
+#signup, #signup-role {
+    transition: all 0.3s ease;
+}
+</style>
 
 </head>
 
@@ -490,7 +494,7 @@
 
     <!-- Loader -->
     <div id="loader" >
-        <img src="../assets/images/media/loader.svg" alt="">
+        <img src="assets/images/media/loader.svg" alt="">
     </div>
     <!-- Loader -->
 
@@ -500,49 +504,84 @@
             <div class="row justify-content-center authentication authentication-basic align-items-center h-100">
                 <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-6 col-sm-8 col-12">
                     <div class="my-4 d-flex justify-content-center">
-                        <a href="index.html">
-                            <img src="../assets/images/brand-logos/desktop-white.png" alt="logo">
+                        <a href="/sign_in">
+                            <img src="assets/images/brand-logos/desktop-white.png" alt="logo">
                         </a>
                     </div>
                     <div class="card custom-card">
                         <div class="card-body p-5">
                             <p class="h5 fw-semibold mb-2 text-center">Sign Up</p>
                             <p class="mb-4 text-muted op-7 fw-normal text-center">Welcome &amp; Join us by creating a free account !</p>
-                            <div class="row gy-3">
-                                <div class="col-xl-12">
-                                    <label for="signup-firstname" class="form-label text-default">First Name</label>
-                                    <input type="text" class="form-control form-control-lg" id="signup-firstname" placeholder="first name">
-                                </div>
-                                <div class="col-xl-12">
-                                    <label for="signup-lastname" class="form-label text-default">Last Name</label>
-                                    <input type="text" class="form-control form-control-lg" id="signup-lastname" placeholder="last name">
-                                </div>
-                                <div class="col-xl-12">
-                                    <label for="signup-password" class="form-label text-default">Password</label>
-                                    <div class="input-group">
-                                        <input type="password" class="form-control form-control-lg" id="signup-password" placeholder="password">
-                                        <button aria-label="button" class="btn btn-light" onclick="createpassword('signup-password',this)" type="button" id="button-addon2"><i class="ri-eye-off-line align-middle"></i></button>
-                                    </div>
-                                </div>
-                                <div class="col-xl-12 mb-2">
-                                    <label for="signup-confirmpassword" class="form-label text-default">Confirm Password</label>
-                                    <div class="input-group">
-                                        <input type="password" class="form-control form-control-lg" id="signup-confirmpassword" placeholder="confirm password">
-                                        <button aria-label="button" class="btn btn-light" onclick="createpassword('signup-confirmpassword',this)" type="button" id="button-addon21"><i class="ri-eye-off-line align-middle"></i></button>
-                                    </div>
-                                    <div class="form-check mt-3">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                        <label class="form-check-label text-muted fw-normal" for="defaultCheck1">
-                                            By creating a account you agree to our <a href="terms_conditions.html" class="text-success"><u>Terms &amp; Conditions</u></a> and <a class="text-success"><u>Privacy Policy</u></a>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-xl-12 d-grid mt-2">
-                                    <button type="button" class="btn btn-lg btn-primary">Create Account</button>
-                                </div>
-                            </div>
+                            <div class="button-container" style="display: flex; justify-content: center; gap: 10px; margin: 20px 0;">
+    <button id="button1" class="rounded-button" style="padding: 10px 20px; border: none; background-color: #007BFF; color: white; font-size: 14px; cursor: pointer; border-radius: 20px; transition: background-color 0.3s;">1</button>
+    <button id="button2" class="rounded-button" style="padding: 10px 20px; border: none; background-color: #007BFF; color: white; font-size: 14px; cursor: pointer; border-radius: 20px; transition: background-color 0.3s;">2</button>
+</div>
+
+<form action="{{ route('register') }}" method="post" enctype="multipart/form-data">
+@csrf
+    <div class="row gy-3" id="signup">
+        <div class="col-xl-12">
+            <label for="signup-firstname" class="form-label text-default">First Name</label>
+            <input type="text" name="first_name" class="form-control form-control-lg" id="signup-firstname"  placeholder="first name">
+        </div>
+        <div class="col-xl-12">
+            <label for="signup-lastname" class="form-label text-default">Last Name</label>
+            <input type="text" name="last_name" class="form-control form-control-lg" id="signup-lastname" placeholder="last name">
+        </div>
+        <div class="col-xl-12">
+            <label for="signup-lastname" class="form-label text-default">Email</label>
+            <input type="email" name="email" class="form-control form-control-lg" id="signup-lastname" placeholder="Your email">
+        </div>
+        <div class="col-xl-12">
+            <label for="signup-password" class="form-label text-default">Password</label>
+            <div class="input-group">
+                <input type="password" name="password"  class="form-control form-control-lg" id="signup-password" placeholder="password">
+                <button aria-label="button" class="btn btn-light" onclick="createpassword('signup-password',this)" type="button" id="button-addon2"><i class="ri-eye-off-line align-middle"></i></button>
+            </div>
+        </div>
+        <div class="col-xl-12 mb-2">
+            <label for="signup-confirmpassword" class="form-label text-default">Confirm Password</label>
+            <div class="input-group">
+                <input type="password" class="form-control form-control-lg" id="signup-confirmpassword" name="confirm_password" placeholder="confirm password">
+                <button aria-label="button" class="btn btn-light" onclick="createpassword('signup-confirmpassword',this)" type="button" id="button-addon21"><i class="ri-eye-off-line align-middle"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="row gy-3" id="signup-role" style="display: none;">
+        <div class="col-xl-12">
+            <label for="signup-number" class="form-label text-default">Phone Number</label>
+            <input type="tel" name="phone" class="form-control form-control-lg" id="signup-number"  placeholder="Phone number">
+        </div>
+        <div class="col-xl-12">
+            <label for="signup-role-select" class="form-label text-default">Role</label>
+            <select name="type" class="form-control form-control-lg" id="signup-role-select">
+                <option value="">Select Role</option>
+                <option value="Admin">Admin</option>
+                <option value="Formateur">Formateur</option>
+            </select>
+        </div>
+        <div class="col-xl-12">
+            <label for="signup-image" class="form-label text-default">Upload Image</label>
+            <input type="file"name="picture"  class="form-control form-control-lg" id="signup-image">
+        </div>
+        <div class="col-xl-12">
+            <label for="signup-description" class="form-label text-default">Description</label>
+            <textarea name="description" class="form-control form-control-lg" id="signup-description"  placeholder="Enter description"></textarea>
+        </div>
+        <div class="form-check mt-3">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" name="terms">
+            <label class="form-check-label text-muted fw-normal" for="defaultCheck1">
+                By creating an account you agree to our <a href="terms_conditions.html" class="text-success"><u>Terms & Conditions</u></a> and <a href="#" class="text-success"><u>Privacy Policy</u></a>
+            </label>
+        </div>
+    </div>
+    <div class="col-xl-12 d-grid mt-2">
+        <button type="submit" class="btn btn-lg btn-primary" id="create-account-button" style="display: none;">Create Account</button>
+    </div>
+</form>
+
                             <div class="text-center">
-                                <p class="text-muted mt-3">Already have an account? <a href="sign-in.html" class="text-primary">Sign In</a></p>
+                                <p class="text-muted">Already have an account? <a href="/sign_in" class="text-primary">Sign In</a></p>
                             </div>
                             <div class="text-center my-3 authentication-barrier">
                                 <span>OR</span>
@@ -565,15 +604,54 @@
         </div>
     </div>
 
+    <script>
+
+document.getElementById('button2').addEventListener('click', function() {
+    var signupDiv = document.getElementById('signup');
+    var signupRoleDiv = document.getElementById('signup-role');
+    var createAccountButton = document.getElementById('create-account-button');
+
+    if (signupDiv.style.display === 'none') {
+        signupDiv.style.display = 'block'; 
+        signupRoleDiv.style.display = 'none'; 
+        createAccountButton.style.display = 'none'; 
+    } else {
+        signupDiv.style.display = 'none'; 
+        signupRoleDiv.style.display = 'block'; 
+        createAccountButton.style.display = 'block'; 
+    }
+});
+
+document.getElementById('button1').addEventListener('click', function() {
+    var signupDiv = document.getElementById('signup');
+    var signupRoleDiv = document.getElementById('signup-role');
+    var createAccountButton = document.getElementById('create-account-button');
+
+    // Toggle between showing and hiding forms
+    if (signupRoleDiv.style.display === 'none') {
+        signupRoleDiv.style.display = 'block'; 
+        signupDiv.style.display = 'none'; 
+
+    } else {
+        signupDiv.style.display = 'none'; 
+        signupRoleDiv.style.display = 'block';
+    }
+});
+
+
+</script>
+
+
+
 
     <!-- Custom-Switcher JS -->
-    <script src="../assets/js/custom-switcher.min.js"></script>
+    <script src="assets/js/custom-switcher.min.js"></script>
 
     <!-- Bootstrap JS -->
-    <script src="../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Show Password JS -->
-    <script src="../assets/js/show-password.js"></script>
+    <script src="assets/js/show-password.js"></script>
 
 </body>
 

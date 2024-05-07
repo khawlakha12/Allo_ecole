@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+
 Route::get('/admin', function () {
-    return view('Admin.dashboard');
-});
+        return view('Admin.dashboard');
+})->name('Dashboard');
+
 Route::get('/niveaux', function () {
     return view('Admin.grid-tables');
 });
@@ -27,7 +30,7 @@ Route::get('/formateur', function () {
     return view('Admin.team');
 });
 Route::get('/formateur', function () {
-    return view('Admin.team');
+    return view('Admin.formateur');
 });
 Route::get('/course', function () {
     return view('Admin.file-manager');
@@ -44,11 +47,13 @@ Route::get('/to_do', function () {
 Route::get('/profile', function () {
     return view('Admin.profile');
 });
+
+
+Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::get('/register', function () {
+    return view('Auth.register');
+});
+Route::post('/sign_in', [AuthController::class, 'login'])->name('login');
 Route::get('/sign_in', function () {
     return view('Auth.sign-in');
-});
-Route::get('/sign_up', function () {
-    return view('Auth.sign-up');
-});
-
-
+})->name('login');
