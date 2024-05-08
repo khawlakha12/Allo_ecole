@@ -1,658 +1,2356 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" data-nav-layout="vertical" data-theme-mode="light" data-header-styles="light" data-menu-styles="light" data-toggled="close">
+<html lang="en">
 
 <head>
-
-    <!-- Meta Data -->
-    <meta charset="UTF-8">
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title> Allo école </title>
-    <meta name="Description" content="Bootstrap Responsive Admin Web Dashboard HTML5 Template">
-    <meta name="Author" content="Spruko Technologies Private Limited">
-	<meta name="keywords" content="admin dashboard,dashboard design htmlbootstrap admin template,html admin panel,admin dashboard html,admin panel html template,bootstrap dashboard,html admin template,html dashboard,html admin dashboard template,bootstrap dashboard template,dashboard html template,bootstrap admin panel,dashboard admin bootstrap,bootstrap admin dashboard">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Allo école</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Favicon -->
-    <link rel="icon" href="assets/images/brand-logos/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" type="image/x-icon" href="assets_user/images/favicon.png">
 
-    <!-- Main Theme Js -->
-    <script src="assets/js/authentication-main.js"></script>
-
-    <!-- Bootstrap Css -->
-    <link id="style" href="assets/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
-
-    <!-- Style Css -->
-    <link href="assets/css/styles.min.css" rel="stylesheet" >
-
-    <!-- Icons Css -->
-    <link href="assets/css/icons.min.css" rel="stylesheet" >
-<style>
-#signup, #signup-role {
-    transition: all 0.3s ease;
-}
-</style>
-
+    <!-- CSS
+	============================================ -->
+    <link rel="stylesheet" href="assets_user/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets_user/css/vendor/slick.css">
+    <link rel="stylesheet" href="assets_user/css/vendor/slick-theme.css">
+    <link rel="stylesheet" href="assets_user/css/plugins/sal.css">
+    <link rel="stylesheet" href="assets_user/css/plugins/feather.css">
+    <link rel="stylesheet" href="assets_user/css/plugins/fontawesome.min.css">
+    <link rel="stylesheet" href="assets_user/css/plugins/euclid-circulara.css">
+    <link rel="stylesheet" href="assets_user/css/plugins/swiper.css">
+    <link rel="stylesheet" href="assets_user/css/plugins/magnify.css">
+    <link rel="stylesheet" href="assets_user/css/plugins/odometer.css">
+    <link rel="stylesheet" href="assets_user/css/plugins/animation.css">
+    <link rel="stylesheet" href="assets_user/css/plugins/bootstrap-select.min.css">
+    <link rel="stylesheet" href="assets_user/css/plugins/jquery-ui.css">
+    <link rel="stylesheet" href="assets_user/css/plugins/magnigy-popup.min.css">
+    <link rel="stylesheet" href="assets_user/css/plugins/plyr.css">
+    <link rel="stylesheet" href="assets_user/css/style.css">
 </head>
 
-<body>
+<body class="rbt-header-sticky">
 
-    <!-- Start Switcher -->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="switcher-canvas" aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header border-bottom">
-            <h5 class="offcanvas-title text-default" id="offcanvasRightLabel">Switcher</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <!-- Start Header Area -->
+    <header class="rbt-header rbt-header-10">
+        <div class="rbt-sticky-placeholder"></div>
+
+        <!-- End Header Top  -->
+        <div class="rbt-header-wrapper header-space-betwween header-sticky">
+            <div class="container-fluid">
+                <div class="mainbar-row rbt-navigation-center align-items-center">
+                    <div class="header-left rbt-header-content">
+                        <div class="header-info">
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img src="assets_user/images/logo/logo.png" alt="Education Logo Images">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="header-info">
+                            <div class="rbt-category-menu-wrapper">
+                                <div class="category-dropdown-menu d-none d-xl-block">
+                                    <div class="category-menu-item">
+                                        <div class="rbt-vertical-nav">
+                                            <ul class="rbt-vertical-nav-list-wrapper vertical-nav-menu">
+                                                <li class="vertical-nav-item active">
+                                                    <a href="#tab1">Course School</a>
+                                                </li>
+                                                <li class="vertical-nav-item">
+                                                    <a href="#tab2">Online School</a>
+                                                </li>
+                                                <li class="vertical-nav-item">
+                                                    <a href="#tab3">kindergarten</a>
+                                                </li>
+                                                <li class="vertical-nav-item">
+                                                    <a href="#tab4">Classic LMS</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="rbt-vertical-nav-content">
+                                            <!-- Start One Item  -->
+                                            <div class="rbt-vertical-inner tab-content" id="tab1" style="display: block">
+                                                <div class="rbt-vertical-single">
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-sm-6 col-6">
+                                                            <div class="vartical-nav-content-menu">
+                                                                <h3 class="rbt-short-title">Course Title</h3>
+                                                                <ul class="rbt-vertical-nav-list-wrapper">
+                                                                    <li><a href="#">Web Design</a></li>
+                                                                    <li><a href="#">Art</a></li>
+                                                                    <li><a href="#">Figma</a></li>
+                                                                    <li><a href="#">Adobe</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6 col-sm-6 col-6">
+                                                            <div class="vartical-nav-content-menu">
+                                                                <h3 class="rbt-short-title">Course Title</h3>
+                                                                <ul class="rbt-vertical-nav-list-wrapper">
+                                                                    <li><a href="#">Photo</a></li>
+                                                                    <li><a href="#">English</a></li>
+                                                                    <li><a href="#">Math</a></li>
+                                                                    <li><a href="#">Read</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End One Item  -->
+
+                                            <!-- Start One Item  -->
+                                            <div class="rbt-vertical-inner tab-content" id="tab2">
+                                                <div class="rbt-vertical-single">
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="vartical-nav-content-menu">
+                                                                <h3 class="rbt-short-title">Course Title</h3>
+                                                                <ul class="rbt-vertical-nav-list-wrapper">
+                                                                    <li><a href="#">Photo</a></li>
+                                                                    <li><a href="#">English</a></li>
+                                                                    <li><a href="#">Math</a></li>
+                                                                    <li><a href="#">Read</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="vartical-nav-content-menu">
+                                                                <h3 class="rbt-short-title">Course Title</h3>
+                                                                <ul class="rbt-vertical-nav-list-wrapper">
+                                                                    <li><a href="#">Web Design</a></li>
+                                                                    <li><a href="#">Art</a></li>
+                                                                    <li><a href="#">Figma</a></li>
+                                                                    <li><a href="#">Adobe</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End One Item  -->
+
+                                            <!-- Start One Item  -->
+                                            <div class="rbt-vertical-inner tab-content" id="tab3">
+                                                <div class="rbt-vertical-single">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="vartical-nav-content-menu">
+                                                                <h3 class="rbt-short-title">Course Title</h3>
+                                                                <ul class="rbt-vertical-nav-list-wrapper">
+                                                                    <li><a href="#">Photo</a></li>
+                                                                    <li><a href="#">English</a></li>
+                                                                    <li><a href="#">Math</a></li>
+                                                                </ul>
+                                                                <div class="read-more-btn">
+                                                                    <a class="rbt-btn-link" href="#">Learn More<i
+                                                                    class="feather-arrow-right"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End One Item  -->
+
+                                            <!-- Start One Item  -->
+                                            <div class="rbt-vertical-inner tab-content" id="tab4">
+                                                <div class="rbt-vertical-single">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="vartical-nav-content-menu">
+                                                                <h3 class="rbt-short-title">Course Title</h3>
+                                                                <ul class="rbt-vertical-nav-list-wrapper">
+                                                                    <li><a href="#">Photo</a></li>
+                                                                    <li><a href="#">English</a></li>
+                                                                    <li><a href="#">Math</a></li>
+                                                                    <li><a href="#">Read</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End One Item  -->
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rbt-main-navigation d-none d-xl-block">
+                        <nav class="mainmenu-nav">
+                            <ul class="mainmenu">
+                                <li class="with-megamenu has-menu-child-item position-static">
+                                    <a href="#">Home <i class="feather-chevron-down"></i></a>
+                                    <!-- Start Mega Menu  -->
+                                    <div class="rbt-megamenu menu-skin-dark">
+                                        <div class="wrapper">
+                                            <div class="row row--15 home-plesentation-wrapper single-dropdown-menu-presentation">
+
+                                                <!-- Start Single Demo  -->
+                                                <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                                    <div class="demo-single">
+                                                        <div class="inner">
+                                                            <div class="thumbnail">
+                                                                <a href="01-main-demo.html"><img src="assets_user/images/splash/demo/h1.jpg" alt="Demo Images"></a>
+                                                            </div>
+                                                            <div class="content">
+                                                                <h4 class="title"><a href="01-main-demo.html">Home Demo <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- End Single Demo  -->
+
+                                                <!-- Start Single Demo  -->
+                                                <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                                    <div class="demo-single">
+                                                        <div class="inner">
+                                                            <div class="thumbnail">
+                                                                <a href="12-marketplace.html"><img src="assets_user/images/splash/demo/h12.jpg" alt="Demo Images"></a>
+                                                            </div>
+                                                            <div class="content">
+                                                                <h4 class="title"><a href="12-marketplace.html">Marketplace <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- End Single Demo  -->
+                                                <!-- Start Single Demo  -->
+                                                <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                                    <div class="demo-single">
+                                                        <div class="inner">
+                                                            <div class="thumbnail">
+                                                                <a href="04-kindergarten.html"><img src="assets_user/images/splash/demo/h4.jpg" alt="Demo Images"></a>
+                                                            </div>
+                                                            <div class="content">
+                                                                <h4 class="title"><a href="04-kindergarten.html">kindergarten <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- End Single Demo  -->
+                                                <!-- Start Single Demo  -->
+                                                <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                                    <div class="demo-single">
+                                                        <div class="inner">
+                                                            <div class="thumbnail">
+                                                                <a href="13-university-classic.html"><img src="assets_user/images/splash/demo/h13.jpg" alt="Demo Images"></a>
+                                                            </div>
+                                                            <div class="content">
+                                                                <h4 class="title"><a href="13-university-classic.html">University Classic <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- End Single Demo  -->
+
+                                                <!-- Start Single Demo  -->
+                                                <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                                    <div class="demo-single">
+                                                        <div class="inner">
+                                                            <div class="thumbnail">
+                                                                <a href="14-home-elegant.html"><img src="assets_user/images/splash/demo/h14.jpg" alt="Demo Images"></a>
+                                                            </div>
+                                                            <div class="content">
+                                                                <h4 class="title"><a href="14-home-elegant.html">Home Elegant <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- End Single Demo  -->
+
+                                                <!-- Start Single Demo  -->
+                                                <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                                    <div class="demo-single">
+                                                        <div class="inner">
+                                                            <div class="thumbnail">
+                                                                <a href="09-gym-coaching.html"><img src="assets_user/images/splash/demo/h9.jpg" alt="Demo Images"></a>
+                                                            </div>
+                                                            <div class="content">
+                                                                <h4 class="title"><a href="09-gym-coaching.html">Gym Coaching <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- End Single Demo  -->
+
+                                                <!-- Start Single Demo  -->
+                                                <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                                    <div class="demo-single">
+                                                        <div class="inner">
+                                                            <div class="thumbnail">
+                                                                <a href="03-online-school.html"><img src="assets_user/images/splash/demo/h3.jpg" alt="Demo Images"></a>
+                                                            </div>
+                                                            <div class="content">
+                                                                <h4 class="title"><a href="03-online-school.html">Online School <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- End Single Demo  -->
+
+                                                <!-- Start Single Demo  -->
+                                                <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                                    <div class="demo-single">
+                                                        <div class="inner">
+                                                            <div class="thumbnail">
+                                                                <a href="06-university-status.html"><img src="assets_user/images/splash/demo/h6.jpg" alt="Demo Images"></a>
+                                                            </div>
+                                                            <div class="content">
+                                                                <h4 class="title"><a href="06-university-status.html">University Status <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- End Single Demo  -->
+
+                                                <!-- Start Single Demo  -->
+                                                <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                                    <div class="demo-single">
+                                                        <div class="inner">
+                                                            <div class="thumbnail">
+                                                                <a href="15-home-technology.html"><img src="assets_user/images/splash/demo/h15.jpg" alt="Demo Images"></a>
+                                                            </div>
+                                                            <div class="content">
+                                                                <h4 class="title"><a href="15-home-technology.html">Home Technology <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- End Single Demo  -->
+
+                                                <!-- Start Single Demo  -->
+                                                <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                                    <div class="demo-single">
+                                                        <div class="inner">
+                                                            <div class="thumbnail">
+                                                                <a href="07-instructor-portfolio.html"><img src="assets_user/images/splash/demo/h7.jpg" alt="Demo Images"></a>
+                                                            </div>
+                                                            <div class="content">
+                                                                <h4 class="title"><a href="07-instructor-portfolio.html">Instructor Portfolio <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- End Single Demo  -->
+
+                                                <!-- Start Single Demo  -->
+                                                <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                                    <div class="demo-single">
+                                                        <div class="inner">
+                                                            <div class="thumbnail">
+                                                                <a href="08-language-academy.html"><img src="assets_user/images/splash/demo/h8.jpg" alt="Demo Images"></a>
+                                                            </div>
+                                                            <div class="content">
+                                                                <h4 class="title"><a href="08-language-academy.html">Language Academy <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- End Single Demo  -->
+
+                                                <!-- Start Single Demo  -->
+                                                <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                                    <div class="demo-single">
+                                                        <div class="inner">
+                                                            <div class="thumbnail">
+                                                                <a href="11-single-course.html"><img src="assets_user/images/splash/demo/h11.jpg" alt="Demo Images"></a>
+                                                            </div>
+                                                            <div class="content">
+                                                                <h4 class="title"><a href="11-single-course.html">Single Course <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- End Single Demo  -->
+
+                                                <!-- Start Single Demo  -->
+                                                <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                                    <div class="demo-single">
+                                                        <div class="inner">
+                                                            <div class="thumbnail">
+                                                                <a href="10-online-course.html"><img src="assets_user/images/splash/demo/h10.jpg" alt="Demo Images"></a>
+                                                            </div>
+                                                            <div class="content">
+                                                                <h4 class="title"><a href="10-online-course.html">Online Course <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- End Single Demo  -->
+
+                                                <!-- Start Single Demo  -->
+                                                <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                                    <div class="demo-single">
+                                                        <div class="inner">
+                                                            <div class="thumbnail">
+                                                                <a href="05-classic-lms.html"><img src="assets_user/images/splash/demo/h5.jpg" alt="Demo Images"></a>
+                                                            </div>
+                                                            <div class="content">
+                                                                <h4 class="title"><a href="05-classic-lms.html">Classic Lms <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- End Single Demo  -->
+
+                                                <!-- Start Single Demo  -->
+                                                <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                                    <div class="demo-single">
+                                                        <div class="inner">
+                                                            <div class="thumbnail">
+                                                                <a href="02-course-school.html"><img src="assets_user/images/splash/demo/h2.jpg" alt="Demo Images"></a>
+                                                            </div>
+                                                            <div class="content">
+                                                                <h4 class="title"><a href="02-course-school.html">Course School <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- End Single Demo  -->
+
+                                                <!-- Start Single Demo  -->
+                                                <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item coming-soon">
+                                                    <div class="demo-single">
+                                                        <div class="inner">
+                                                            <div class="thumbnail">
+                                                                <a href="#"><img src="assets_user/images/splash/demo/coming-soon-1.png" alt="Demo Images"></a>
+                                                            </div>
+                                                            <div class="content">
+                                                                <h4 class="title"><a href="#">Coming Soon <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- End Single Demo  -->
+
+                                                <!-- Start Single Demo  -->
+                                                <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item coming-soon">
+                                                    <div class="demo-single">
+                                                        <div class="inner">
+                                                            <div class="thumbnail">
+                                                                <a href="#"><img src="assets_user/images/splash/demo/coming-soon-2.png" alt="Demo Images"></a>
+                                                            </div>
+                                                            <div class="content">
+                                                                <h4 class="title"><a href="#">Coming Soon 2 <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- End Single Demo  -->
+
+                                                <!-- Start Single Demo  -->
+                                                <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item coming-soon">
+                                                    <div class="demo-single">
+                                                        <div class="inner">
+                                                            <div class="thumbnail">
+                                                                <a href="#"><img src="assets_user/images/splash/demo/coming-soon-3.png" alt="Demo Images"></a>
+                                                            </div>
+                                                            <div class="content">
+                                                                <h4 class="title"><a href="#">Coming Soon 3 <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- End Single Demo  -->
+                                            </div>
+
+                                            <div class="load-demo-btn text-center">
+                                                <a class="rbt-btn-link color-white" href="#">Scroll to view more <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                                        <path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z" />
+                                                    </svg></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Mega Menu  -->
+                                </li>
+
+                                <li class="with-megamenu has-menu-child-item">
+                                    <a href="#">Courses <i class="feather-chevron-down"></i></a>
+                                    <!-- Start Mega Menu  -->
+                                    <div class="rbt-megamenu grid-item-2">
+                                        <div class="wrapper">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="mega-top-banner">
+                                                        <div class="content">
+                                                            <h4 class="title">Developer hub</h4>
+                                                            <p class="description">Start building fast, with code samples, key resources and more.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row row--15">
+                                                <div class="col-lg-12 col-xl-6 col-xxl-6 single-mega-item">
+                                                    <h3 class="rbt-short-title">Course Layout</h3>
+                                                    <ul class="mega-menu-item">
+                                                        <li><a href="course-filter-one-toggle.html">Filter One Toggle</a></li>
+                                                        <li><a href="course-filter-one-open.html">Filter One Open</a></li>
+                                                        <li><a href="course-filter-two-toggle.html">Filter Two Toggle</a></li>
+                                                        <li><a href="course-filter-two-open.html">Filter Two Open</a></li>
+                                                        <li><a href="course-with-tab.html">Course With Tab</a></li>
+                                                        <li><a href="course-with-tab-two.html">Course With Tab Two</a></li>
+                                                        <li><a href="course-card-2.html">Course Card Two</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-lg-12 col-xl-6 col-xxl-6 single-mega-item">
+                                                    <h3 class="rbt-short-title">Course Layout</h3>
+                                                    <ul class="mega-menu-item">
+                                                        <li><a href="course-card-3.html">Course Card Three</a></li>
+                                                        <li><a href="course-masonry.html">Course Masonry</a></li>
+                                                        <li><a href="course-with-sidebar.html">Course With Sidebar</a></li>
+                                                        <li><a href="course-details.html">Course Details</a></li>
+                                                        <li><a href="course-details-2.html">Course Details Two</a></li>
+                                                        <li><a href="lesson.html">Course Lesson <span class="rbt-badge-card">New</span></a></li>
+                                                        <li><a href="create-course.html">Create Course <span class="rbt-badge-card">New</span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <ul class="nav-quick-access">
+                                                        <li><a href="#"><i class="feather-folder-minus"></i> Quick Start Guide</a></li>
+                                                        <li><a href="#"><i class="feather-folder-minus"></i> For Open Source</a></li>
+                                                        <li><a href="#"><i class="feather-folder-minus"></i> API Status</a></li>
+                                                        <li><a href="#"><i class="feather-folder-minus"></i> Support</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Mega Menu  -->
+                                </li>
+
+                                <li class="has-dropdown has-menu-child-item">
+                                    <a href="#">Dashboard
+                                        <i class="feather-chevron-down"></i>
+                                    </a>
+                                    <ul class="submenu">
+                                        <li class="has-dropdown"><a href="#">Instructor Dashboard</a>
+                                            <ul class="submenu">
+                                                <li><a href="instructor-dashboard.html">Dashboard</a></li>
+                                                <li><a href="instructor-profile.html">Profile</a></li>
+                                                <li><a href="instructor-enrolled-courses.html">Enrolled Courses</a></li>
+                                                <li><a href="instructor-wishlist.html">Wishlist</a></li>
+                                                <li><a href="instructor-reviews.html">Reviews</a></li>
+                                                <li><a href="instructor-my-quiz-attempts.html">My Quiz Attempts</a></li>
+                                                <li><a href="instructor-order-history.html">Order History</a></li>
+                                                <li><a href="instructor-course.html">My Course</a></li>
+                                                <li><a href="instructor-announcements.html">Announcements</a></li>
+                                                <li><a href="instructor-quiz-attempts.html">Quiz Attempts</a></li>
+                                                <li><a href="instructor-assignments.html">Assignments</a></li>
+                                                <li><a href="instructor-settings.html">Settings</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-dropdown"><a href="#">Student Dashboard</a>
+                                            <ul class="submenu">
+                                                <li><a href="student-dashboard.html">Dashboard</a></li>
+                                                <li><a href="student-profile.html">Profile</a></li>
+                                                <li><a href="student-enrolled-courses.html">Enrolled Courses</a></li>
+                                                <li><a href="student-wishlist.html">Wishlist</a></li>
+                                                <li><a href="student-reviews.html">Reviews</a></li>
+                                                <li><a href="student-my-quiz-attempts.html">My Quiz Attempts</a></li>
+                                                <li><a href="student-order-history.html">Order History</a></li>
+                                                <li><a href="student-settings.html">Settings</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="with-megamenu has-menu-child-item position-static">
+                                    <a href="#">Pages <i class="feather-chevron-down"></i></a>
+                                    <!-- Start Mega Menu  -->
+                                    <div class="rbt-megamenu grid-item-4">
+                                        <div class="wrapper">
+                                            <div class="row row--15">
+                                                <div class="col-lg-12 col-xl-3 col-xxl-3 single-mega-item">
+                                                    <h3 class="rbt-short-title">Get Started</h3>
+                                                    <ul class="mega-menu-item">
+                                                        <li><a href="about-us-01.html">About Us</a></li>
+                                                        <li><a href="about-us-02.html">About Us 02</a></li>
+                                                        <li><a href="event-grid.html">Event Grid</a></li>
+                                                        <li><a href="event-list.html">Event List</a></li>
+                                                        <li><a href="event-sidebar.html">Event Sidebar</a></li>
+                                                        <li><a href="event-details.html">Event Details</a></li>
+                                                        <li><a href="academy-gallery.html">Academy Gallery</a></li>
+                                                        <li><a href="admission-guide.html">Admission Guide</a></li>
+                                                    </ul>
+                                                </div>
+
+                                                <div class="col-lg-12 col-xl-3 col-xxl-3 single-mega-item">
+                                                    <h3 class="rbt-short-title">Get Started</h3>
+                                                    <ul class="mega-menu-item">
+                                                        <li><a href="profile.html">Profile</a></li>
+                                                        <li><a href="contact.html">Contact Us</a></li>
+                                                        <li><a href="become-a-teacher.html">Become a Teacher</a></li>
+                                                        <li><a href="instructor.html">Instructor</a></li>
+                                                        <li><a href="faqs.html">FAQS</a></li>
+                                                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                                        <li><a href="404.html">404 Page</a></li>
+                                                        <li><a href="maintenance.html">Maintenance</a></li>
+                                                    </ul>
+                                                </div>
+
+                                                <div class="col-lg-12 col-xl-3 col-xxl-3 single-mega-item">
+                                                    <h3 class="rbt-short-title">Shop Pages</h3>
+                                                    <ul class="mega-menu-item">
+                                                        <li><a href="shop.html">Shop <span class="rbt-badge-card">Sale Anything</span></a></li>
+                                                        <li><a href="single-product.html">Single Product</a></li>
+                                                        <li><a href="cart.html">Cart Page</a></li>
+                                                        <li><a href="checkout.html">Checkout</a></li>
+                                                        <li><a href="wishlist.html">Wishlist Page</a></li>
+                                                        <li><a href="my-account.html">My Acount</a></li>
+                                                        <li><a href="login.html">Login & Register</a></li>
+                                                        <li><a href="subscription.html">Subscription</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-lg-12 col-xl-3 col-xxl-3 single-mega-item">
+                                                    <div class="mega-category-item">
+                                                        <!-- Start Single Category  -->
+                                                        <div class="nav-category-item">
+                                                            <div class="thumbnail">
+                                                                <div class="image"><img src="assets_user/images/course/category-2.png" alt="Course images"></div>
+                                                                <a href="course-filter-one-toggle.html">
+                                                                    <span>Online Education</span>
+                                                                    <i class="feather-chevron-right"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <!-- End Single Category  -->
+
+                                                        <!-- Start Single Category  -->
+                                                        <div class="nav-category-item">
+                                                            <div class="thumbnail">
+                                                                <div class="image"><img src="assets_user/images/course/category-1.png" alt="Course images"></div>
+                                                                <a href="course-filter-one-toggle.html">
+                                                                    <span>Language Club</span>
+                                                                    <i class="feather-chevron-right"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <!-- End Single Category  -->
+
+                                                        <!-- Start Single Category  -->
+                                                        <div class="nav-category-item">
+                                                            <div class="thumbnail">
+                                                                <div class="image"><img src="assets_user/images/course/category-4.png" alt="Course images"></div>
+                                                                <a href="course-filter-one-toggle.html">
+                                                                    <span>University Status</span>
+                                                                    <i class="feather-chevron-right"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <!-- End Single Category  -->
+
+                                                        <!-- Start Single Category  -->
+                                                        <div class="nav-category-item">
+                                                            <div class="thumbnail">
+                                                                <a href="course-filter-one-toggle.html">
+                                                                    <span>Course School</span>
+                                                                    <i class="feather-chevron-right"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <!-- End Single Category  -->
+
+                                                        <!-- Start Single Category  -->
+                                                        <div class="nav-category-item">
+                                                            <div class="thumbnail">
+                                                                <div class="image"><img src="assets_user/images/course/category-9.png" alt="Course images"></div>
+                                                                <a href="course-filter-one-toggle.html">
+                                                                    <span>Academy</span>
+                                                                    <i class="feather-chevron-right"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <!-- End Single Category  -->
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Mega Menu  -->
+                                </li>
+
+                                <li class="with-megamenu has-menu-child-item position-static">
+                                    <a href="#">Elements <i class="feather-chevron-down"></i></a>
+                                    <!-- Start Mega Menu  -->
+                                    <div class="rbt-megamenu grid-item-3">
+                                        <div class="wrapper">
+                                            <div class="row row--15 single-dropdown-menu-presentation">
+                                                <div class="col-lg-4 col-xxl-4 single-mega-item">
+                                                    <ul class="mega-menu-item">
+                                                        <li><a href="style-guide.html">Style Guide <span class="rbt-badge-card">Hot</span></a></li>
+                                                        <li><a href="accordion.html">Accordion</a></li>
+                                                        <li><a href="advancetab.html">Advance Tab</a></li>
+                                                        <li><a href="brand.html">Brand</a></li>
+                                                        <li><a href="button.html">Button</a></li>
+                                                        <li><a href="badge.html">Badge</a></li>
+                                                        <li><a href="card.html">Card</a></li>
+                                                        <li><a href="call-to-action.html">Call To Action</a></li>
+                                                    </ul>
+                                                </div>
+
+                                                <div class="col-lg-4 col-xxl-4 single-mega-item">
+                                                    <ul class="mega-menu-item">
+                                                        <li><a href="counterup.html">Counter</a></li>
+                                                        <li><a href="category.html">Categories</a></li>
+                                                        <li><a href="header.html">Header Style</a></li>
+                                                        <li><a href="newsletter.html">Newsletter</a></li>
+                                                        <li><a href="team.html">Team</a></li>
+                                                        <li><a href="social.html">Social</a></li>
+                                                        <li><a href="list-style.html">List Style</a></li>
+                                                        <li><a href="gallery.html">Gallery</a></li>
+                                                    </ul>
+                                                </div>
+
+                                                <div class="col-lg-4 col-xxl-4 single-mega-item">
+                                                    <ul class="mega-menu-item">
+                                                        <li><a href="pricing.html">Pricing</a></li>
+                                                        <li><a href="progressbar.html">Progressbar</a></li>
+                                                        <li><a href="testimonial.html">Testimonial</a></li>
+                                                        <li><a href="service.html">Service</a></li>
+                                                        <li><a href="split.html">Split Area</a></li>
+                                                        <li><a href="search.html">Search Style</a></li>
+                                                        <li><a href="instagram.html">Instagram Style</a></li>
+                                                        <li><a href="#">& More Coming</a></li>
+
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="btn-wrapper">
+                                                        <a class="rbt-btn btn-gradient hover-icon-reverse square btn-xl w-100 text-center mt--30 hover-transform-none" href="#">
+                                                            <span class="icon-reverse-wrapper">
+                                        <span class="btn-text">Visit Histudy Template</span>
+                                                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                                            </span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Mega Menu  -->
+                                </li>
+
+                                <li class="with-megamenu has-menu-child-item position-static">
+                                    <a href="#">Blog <i class="feather-chevron-down"></i></a>
+                                    <!-- Start Mega Menu  -->
+                                    <div class="rbt-megamenu grid-item-3">
+                                        <div class="wrapper">
+                                            <div class="row row--15">
+                                                <div class="col-lg-12 col-xl-4 col-xxl-4 single-mega-item">
+                                                    <h3 class="rbt-short-title">Blog Styles</h3>
+                                                    <ul class="mega-menu-item">
+                                                        <li><a href="blog-list.html">Blog List</a></li>
+                                                        <li><a href="blog.html">Blog Grid</a></li>
+                                                        <li><a href="blog-grid-minimal.html">Blog Grid Minimal</a></li>
+                                                        <li><a href="blog-with-sidebar.html">Blog With Sidebar</a></li>
+                                                        <li><a href="blog-details.html">Blog Details</a></li>
+                                                        <li><a href="post-format-standard.html">Post Format Standard</a></li>
+                                                        <li><a href="post-format-gallery.html">Post Format Gallery</a></li>
+                                                    </ul>
+                                                </div>
+
+                                                <div class="col-lg-12 col-xl-4 col-xxl-4 single-mega-item">
+                                                    <h3 class="rbt-short-title">Get Started</h3>
+                                                    <ul class="mega-menu-item">
+                                                        <li><a href="post-format-quote.html">Post Format Quote</a></li>
+                                                        <li><a href="post-format-audio.html">Post Format Audio</a></li>
+                                                        <li><a href="post-format-video.html">Post Format Video</a></li>
+                                                        <li><a href="#">Media Under Title <span class="rbt-badge-card">Coming</span></a></li>
+                                                        <li><a href="#">Sticky Sidebar <span class="rbt-badge-card">Coming</span></a></li>
+                                                        <li><a href="#">Auto Masonry <span class="rbt-badge-card">Coming</span></a></li>
+                                                        <li><a href="#">Meta Overlaid <span class="rbt-badge-card">Coming</span></a></li>
+                                                    </ul>
+                                                </div>
+
+                                                <div class="col-lg-12 col-xl-4 col-xxl-4 single-mega-item">
+                                                    <div class="rbt-ads-wrapper">
+                                                        <a class="d-block" href="#"><img src="assets_user/images/service/mobile-cat.jpg" alt="Education Images"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Mega Menu  -->
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div class="header-right">
+
+                        <!-- Navbar Icons -->
+                        <ul class="quick-access">
+                            <li class="access-icon">
+                                <a class="search-trigger-active rbt-round-btn" href="#">
+                                    <i class="feather-search"></i>
+                                </a>
+                            </li>
+
+                            <li class="access-icon rbt-mini-cart">
+                                <a class="rbt-cart-sidenav-activation rbt-round-btn" href="#">
+                                    <i class="feather-shopping-cart"></i>
+                                    <span class="rbt-cart-count">4</span>
+                                </a>
+                            </li>
+
+                            <li class="account-access rbt-user-wrapper d-none d-xl-block">
+                                <a href="#"><i class="feather-user"></i>Admin</a>
+                                <div class="rbt-user-menu-list-wrapper">
+                                    <div class="inner">
+                                        <div class="rbt-admin-profile">
+                                            <div class="admin-thumbnail">
+                                                <img src="assets_user/images/team/avatar.jpg" alt="User Images">
+                                            </div>
+                                            <div class="admin-info">
+                                                <span class="name">Nipa Bali</span>
+                                                <a class="rbt-btn-link color-primary" href="profile.html">View Profile</a>
+                                            </div>
+                                        </div>
+                                        <ul class="user-list-wrapper">
+                                            <li>
+                                                <a href="instructor-dashboard.html">
+                                                    <i class="feather-home"></i>
+                                                    <span>My Dashboard</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="feather-bookmark"></i>
+                                                    <span>Bookmark</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="instructor-enrolled-courses.html">
+                                                    <i class="feather-shopping-bag"></i>
+                                                    <span>Enrolled Courses</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="instructor-wishlist.html">
+                                                    <i class="feather-heart"></i>
+                                                    <span>Wishlist</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="instructor-reviews.html">
+                                                    <i class="feather-star"></i>
+                                                    <span>Reviews</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="instructor-my-quiz-attempts.html">
+                                                    <i class="feather-list"></i>
+                                                    <span>My Quiz Attempts</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="instructor-order-history.html">
+                                                    <i class="feather-clock"></i>
+                                                    <span>Order History</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="instructor-quiz-attempts.html">
+                                                    <i class="feather-message-square"></i>
+                                                    <span>Question & Answer</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <hr class="mt--10 mb--10">
+                                        <ul class="user-list-wrapper">
+                                            <li>
+                                                <a href="#">
+                                                    <i class="feather-book-open"></i>
+                                                    <span>Getting Started</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <hr class="mt--10 mb--10">
+                                        <ul class="user-list-wrapper">
+                                            <li>
+                                                <a href="instructor-settings.html">
+                                                    <i class="feather-settings"></i>
+                                                    <span>Settings</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="index.html">
+                                                    <i class="feather-log-out"></i>
+                                                    <span>Logout</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="access-icon rbt-user-wrapper d-block d-xl-none">
+                                <a class="rbt-round-btn" href="#"><i class="feather-user"></i></a>
+                                <div class="rbt-user-menu-list-wrapper">
+                                    <div class="inner">
+                                        <div class="rbt-admin-profile">
+                                            <div class="admin-thumbnail">
+                                                <img src="assets_user/images/team/avatar.jpg" alt="User Images">
+                                            </div>
+                                            <div class="admin-info">
+                                                <span class="name">Nipa Bali</span>
+                                                <a class="rbt-btn-link color-primary" href="profile.html">View Profile</a>
+                                            </div>
+                                        </div>
+                                        <ul class="user-list-wrapper">
+                                            <li>
+                                                <a href="instructor-dashboard.html">
+                                                    <i class="feather-home"></i>
+                                                    <span>My Dashboard</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="feather-bookmark"></i>
+                                                    <span>Bookmark</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="instructor-enrolled-courses.html">
+                                                    <i class="feather-shopping-bag"></i>
+                                                    <span>Enrolled Courses</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="instructor-wishlist.html">
+                                                    <i class="feather-heart"></i>
+                                                    <span>Wishlist</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="instructor-reviews.html">
+                                                    <i class="feather-star"></i>
+                                                    <span>Reviews</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="instructor-my-quiz-attempts.html">
+                                                    <i class="feather-list"></i>
+                                                    <span>My Quiz Attempts</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="instructor-order-history.html">
+                                                    <i class="feather-clock"></i>
+                                                    <span>Order History</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="instructor-quiz-attempts.html">
+                                                    <i class="feather-message-square"></i>
+                                                    <span>Question & Answer</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <hr class="mt--10 mb--10">
+                                        <ul class="user-list-wrapper">
+                                            <li>
+                                                <a href="#">
+                                                    <i class="feather-book-open"></i>
+                                                    <span>Getting Started</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <hr class="mt--10 mb--10">
+                                        <ul class="user-list-wrapper">
+                                            <li>
+                                                <a href="instructor-settings.html">
+                                                    <i class="feather-settings"></i>
+                                                    <span>Settings</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="index.html">
+                                                    <i class="feather-log-out"></i>
+                                                    <span>Logout</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+
+                        <div class="rbt-btn-wrapper d-none d-xl-block">
+                            <a class="rbt-btn btn-border-gradient radius-round btn-sm hover-transform-none" href="/register">
+                                <span data-text="Se connecter">Se connecter</span>
+                            </a>
+                        </div>
+
+                        <!-- Start Mobile-Menu-Bar -->
+                        <div class="mobile-menu-bar d-block d-xl-none">
+                            <div class="hamberger">
+                                <button class="hamberger-button rbt-round-btn">
+                                    <i class="feather-menu"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Start Mobile-Menu-Bar -->
+
+                    </div>
+                </div>
+            </div>
+            <!-- Start Search Dropdown  -->
+            <div class="rbt-search-dropdown">
+                <div class="wrapper">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form action="#">
+                                <input type="text" placeholder="What are you looking for?">
+                                <div class="submit-btn">
+                                    <a class="rbt-btn btn-gradient btn-md" href="#">Search</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="rbt-separator-mid">
+                        <hr class="rbt-separator m-0">
+                    </div>
+
+                    <div class="row g-4 pt--30 pb--60">
+                        <div class="col-lg-12">
+                            <div class="section-title">
+                                <h5 class="rbt-title-style-2">Our Top Course</h5>
+                            </div>
+                        </div>
+
+                        <!-- Start Single Card  -->
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <div class="rbt-card variation-01 rbt-hover">
+                                <div class="rbt-card-img">
+                                    <a href="course-details.html">
+                                        <img src="assets_user/images/course/course-online-01.jpg" alt="Card image">
+                                    </a>
+                                </div>
+                                <div class="rbt-card-body">
+                                    <h5 class="rbt-card-title"><a href="course-details.html">React Js</a>
+                                    </h5>
+                                    <div class="rbt-review">
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span class="rating-count"> (15 Reviews)</span>
+                                    </div>
+                                    <div class="rbt-card-bottom">
+                                        <div class="rbt-price">
+                                            <span class="current-price">$15</span>
+                                            <span class="off-price">$25</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Card  -->
+
+                        <!-- Start Single Card  -->
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <div class="rbt-card variation-01 rbt-hover">
+                                <div class="rbt-card-img">
+                                    <a href="course-details.html">
+                                        <img src="assets_user/images/course/course-online-02.jpg" alt="Card image">
+                                    </a>
+                                </div>
+                                <div class="rbt-card-body">
+                                    <h5 class="rbt-card-title"><a href="course-details.html">Java Program</a>
+                                    </h5>
+                                    <div class="rbt-review">
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span class="rating-count"> (15 Reviews)</span>
+                                    </div>
+                                    <div class="rbt-card-bottom">
+                                        <div class="rbt-price">
+                                            <span class="current-price">$10</span>
+                                            <span class="off-price">$40</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Card  -->
+
+                        <!-- Start Single Card  -->
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <div class="rbt-card variation-01 rbt-hover">
+                                <div class="rbt-card-img">
+                                    <a href="course-details.html">
+                                        <img src="assets_user/images/course/course-online-03.jpg" alt="Card image">
+                                    </a>
+                                </div>
+                                <div class="rbt-card-body">
+                                    <h5 class="rbt-card-title"><a href="course-details.html">Web Design</a>
+                                    </h5>
+                                    <div class="rbt-review">
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span class="rating-count"> (15 Reviews)</span>
+                                    </div>
+                                    <div class="rbt-card-bottom">
+                                        <div class="rbt-price">
+                                            <span class="current-price">$10</span>
+                                            <span class="off-price">$20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Card  -->
+
+                        <!-- Start Single Card  -->
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <div class="rbt-card variation-01 rbt-hover">
+                                <div class="rbt-card-img">
+                                    <a href="course-details.html">
+                                        <img src="assets_user/images/course/course-online-04.jpg" alt="Card image">
+                                    </a>
+                                </div>
+                                <div class="rbt-card-body">
+                                    <h5 class="rbt-card-title"><a href="course-details.html">Web Design</a>
+                                    </h5>
+                                    <div class="rbt-review">
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span class="rating-count"> (15 Reviews)</span>
+                                    </div>
+                                    <div class="rbt-card-bottom">
+                                        <div class="rbt-price">
+                                            <span class="current-price">$20</span>
+                                            <span class="off-price">$40</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Card  -->
+                    </div>
+
+                </div>
+            </div>
+            <!-- End Search Dropdown  -->
         </div>
-        <div class="offcanvas-body">
-            <nav class="border-bottom border-block-end-dashed">
-                <div class="nav nav-tabs nav-justified" id="switcher-main-tab" role="tablist">
-                    <button class="nav-link active" id="switcher-home-tab" data-bs-toggle="tab" data-bs-target="#switcher-home"
-                        type="button" role="tab" aria-controls="switcher-home" aria-selected="true">Theme Styles</button>
-                    <button class="nav-link" id="switcher-profile-tab" data-bs-toggle="tab" data-bs-target="#switcher-profile"
-                        type="button" role="tab" aria-controls="switcher-profile" aria-selected="false">Theme Colors</button>
-                </div>
-            </nav>
-            <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active border-0" id="switcher-home" role="tabpanel" aria-labelledby="switcher-home-tab"
-                    tabindex="0">
-                    <div class="">
-                        <p class="switcher-style-head">Theme Color Mode:</p>
-                        <div class="row switcher-style gx-0">
-                            <div class="col-4">
-                                <div class="form-check switch-select">
-                                    <label class="form-check-label" for="switcher-light-theme">
-                                        Light
-                                    </label>
-                                    <input class="form-check-input" type="radio" name="theme-style" id="switcher-light-theme"
-                                        checked>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="form-check switch-select">
-                                    <label class="form-check-label" for="switcher-dark-theme">
-                                        Dark
-                                    </label>
-                                    <input class="form-check-input" type="radio" name="theme-style" id="switcher-dark-theme">
-                                </div>
-                            </div>
-                        </div>
+        <!-- Start Side Vav -->
+        <div class="rbt-offcanvas-side-menu rbt-category-sidemenu">
+            <div class="inner-wrapper">
+                <div class="inner-top">
+                    <div class="inner-title">
+                        <h4 class="title">Course Category</h4>
                     </div>
-                    <div class="">
-                        <p class="switcher-style-head">Directions:</p>
-                        <div class="row switcher-style gx-0">
-                            <div class="col-4">
-                                <div class="form-check switch-select">
-                                    <label class="form-check-label" for="switcher-ltr">
-                                        LTR
-                                    </label>
-                                    <input class="form-check-input" type="radio" name="direction" id="switcher-ltr" checked>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="form-check switch-select">
-                                    <label class="form-check-label" for="switcher-rtl">
-                                        RTL
-                                    </label>
-                                    <input class="form-check-input" type="radio" name="direction" id="switcher-rtl">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <p class="switcher-style-head">Navigation Styles:</p>
-                        <div class="row switcher-style gx-0">
-                            <div class="col-4">
-                                <div class="form-check switch-select">
-                                    <label class="form-check-label" for="switcher-vertical">
-                                        Vertical
-                                    </label>
-                                    <input class="form-check-input" type="radio" name="navigation-style" id="switcher-vertical"
-                                        checked>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="form-check switch-select">
-                                    <label class="form-check-label" for="switcher-horizontal">
-                                        Horizontal
-                                    </label>
-                                    <input class="form-check-input" type="radio" name="navigation-style"
-                                        id="switcher-horizontal">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="navigation-menu-styles">
-                        <p class="switcher-style-head">Vertical & Horizontal Menu Styles:</p>
-                        <div class="row switcher-style gx-0 pb-2 gy-2">
-                            <div class="col-4">
-                                <div class="form-check switch-select">
-                                    <label class="form-check-label" for="switcher-menu-click">
-                                        Menu Click
-                                    </label>
-                                    <input class="form-check-input" type="radio" name="navigation-menu-styles"
-                                        id="switcher-menu-click">
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="form-check switch-select">
-                                    <label class="form-check-label" for="switcher-menu-hover">
-                                        Menu Hover
-                                    </label>
-                                    <input class="form-check-input" type="radio" name="navigation-menu-styles"
-                                        id="switcher-menu-hover">
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="form-check switch-select">
-                                    <label class="form-check-label" for="switcher-icon-click">
-                                        Icon Click
-                                    </label>
-                                    <input class="form-check-input" type="radio" name="navigation-menu-styles"
-                                        id="switcher-icon-click">
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="form-check switch-select">
-                                    <label class="form-check-label" for="switcher-icon-hover">
-                                        Icon Hover
-                                    </label>
-                                    <input class="form-check-input" type="radio" name="navigation-menu-styles"
-                                        id="switcher-icon-hover">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sidemenu-layout-styles">
-                        <p class="switcher-style-head">Sidemenu Layout Styles:</p>
-                        <div class="row switcher-style gx-0 pb-2 gy-2">
-                            <div class="col-sm-6">
-                                <div class="form-check switch-select">
-                                    <label class="form-check-label" for="switcher-default-menu">
-                                        Default Menu
-                                    </label>
-                                    <input class="form-check-input" type="radio" name="sidemenu-layout-styles"
-                                        id="switcher-default-menu" checked>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-check switch-select">
-                                    <label class="form-check-label" for="switcher-closed-menu">
-                                        Closed Menu
-                                    </label>
-                                    <input class="form-check-input" type="radio" name="sidemenu-layout-styles"
-                                        id="switcher-closed-menu">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-check switch-select">
-                                    <label class="form-check-label" for="switcher-icontext-menu">
-                                        Icon Text
-                                    </label>
-                                    <input class="form-check-input" type="radio" name="sidemenu-layout-styles"
-                                        id="switcher-icontext-menu">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-check switch-select">
-                                    <label class="form-check-label" for="switcher-icon-overlay">
-                                        Icon Overlay
-                                    </label>
-                                    <input class="form-check-input" type="radio" name="sidemenu-layout-styles"
-                                        id="switcher-icon-overlay">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-check switch-select">
-                                    <label class="form-check-label" for="switcher-detached">
-                                        Detached
-                                    </label>
-                                    <input class="form-check-input" type="radio" name="sidemenu-layout-styles"
-                                        id="switcher-detached">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-check switch-select">
-                                    <label class="form-check-label" for="switcher-double-menu">
-                                        Double Menu
-                                    </label>
-                                    <input class="form-check-input" type="radio" name="sidemenu-layout-styles"
-                                        id="switcher-double-menu">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <p class="switcher-style-head">Page Styles:</p>
-                        <div class="row switcher-style gx-0">
-                            <div class="col-4">
-                                <div class="form-check switch-select">
-                                    <label class="form-check-label" for="switcher-regular">
-                                        Regular
-                                    </label>
-                                    <input class="form-check-input" type="radio" name="page-styles" id="switcher-regular"
-                                        checked>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="form-check switch-select">
-                                    <label class="form-check-label" for="switcher-classic">
-                                        Classic
-                                    </label>
-                                    <input class="form-check-input" type="radio" name="page-styles" id="switcher-classic">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <p class="switcher-style-head">Layout Width Styles:</p>
-                        <div class="row switcher-style gx-0">
-                            <div class="col-4">
-                                <div class="form-check switch-select">
-                                    <label class="form-check-label" for="switcher-full-width">
-                                        Full Width
-                                    </label>
-                                    <input class="form-check-input" type="radio" name="layout-width" id="switcher-full-width"
-                                        checked>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="form-check switch-select">
-                                    <label class="form-check-label" for="switcher-boxed">
-                                        Boxed
-                                    </label>
-                                    <input class="form-check-input" type="radio" name="layout-width" id="switcher-boxed">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <p class="switcher-style-head">Menu Positions:</p>
-                        <div class="row switcher-style gx-0">
-                            <div class="col-4">
-                                <div class="form-check switch-select">
-                                    <label class="form-check-label" for="switcher-menu-fixed">
-                                        Fixed
-                                    </label>
-                                    <input class="form-check-input" type="radio" name="menu-positions" id="switcher-menu-fixed"
-                                        checked>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="form-check switch-select">
-                                    <label class="form-check-label" for="switcher-menu-scroll">
-                                        Scrollable
-                                    </label>
-                                    <input class="form-check-input" type="radio" name="menu-positions" id="switcher-menu-scroll">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <p class="switcher-style-head">Header Positions:</p>
-                        <div class="row switcher-style gx-0">
-                            <div class="col-4">
-                                <div class="form-check switch-select">
-                                    <label class="form-check-label" for="switcher-header-fixed">
-                                        Fixed
-                                    </label>
-                                    <input class="form-check-input" type="radio" name="header-positions"
-                                        id="switcher-header-fixed" checked>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="form-check switch-select">
-                                    <label class="form-check-label" for="switcher-header-scroll">
-                                        Scrollable
-                                    </label>
-                                    <input class="form-check-input" type="radio" name="header-positions"
-                                        id="switcher-header-scroll">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <p class="switcher-style-head">Loader:</p>
-                        <div class="row switcher-style gx-0">
-                            <div class="col-4">
-                                <div class="form-check switch-select">
-                                    <label class="form-check-label" for="switcher-loader-enable">
-                                        Enable
-                                    </label>
-                                    <input class="form-check-input" type="radio" name="page-loader"
-                                        id="switcher-loader-enable">
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="form-check switch-select">
-                                    <label class="form-check-label" for="switcher-loader-disable">
-                                        Disable
-                                    </label>
-                                    <input class="form-check-input" type="radio" name="page-loader"
-                                        id="switcher-loader-disable" checked>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="rbt-btn-close">
+                        <button class="rbt-close-offcanvas rbt-round-btn"><i class="feather-x"></i></button>
                     </div>
                 </div>
-                <div class="tab-pane fade border-0" id="switcher-profile" role="tabpanel" aria-labelledby="switcher-profile-tab" tabindex="0">
-                    <div>
-                        <div class="theme-colors">
-                            <p class="switcher-style-head">Menu Colors:</p>
-                            <div class="d-flex switcher-style pb-2">
-                                <div class="form-check switch-select me-3">
-                                    <input class="form-check-input color-input color-white" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Light Menu" type="radio" name="menu-colors"
-                                        id="switcher-menu-light">
+                <nav class="side-nav w-100">
+                    <ul class="rbt-vertical-nav-list-wrapper vertical-nav-menu">
+                        <li class="vertical-nav-item">
+                            <a href="#">Course School</a>
+                            <div class="vartical-nav-content-menu-wrapper">
+                                <div class="vartical-nav-content-menu">
+                                    <h3 class="rbt-short-title">Course Title</h3>
+                                    <ul class="rbt-vertical-nav-list-wrapper">
+                                        <li><a href="#">Web Design</a></li>
+                                        <li><a href="#">Art</a></li>
+                                        <li><a href="#">Figma</a></li>
+                                        <li><a href="#">Adobe</a></li>
+                                    </ul>
                                 </div>
-                                <div class="form-check switch-select me-3">
-                                    <input class="form-check-input color-input color-dark" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Dark Menu" type="radio" name="menu-colors"
-                                        id="switcher-menu-dark" checked>
-                                </div>
-                                <div class="form-check switch-select me-3">
-                                    <input class="form-check-input color-input color-primary" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Color Menu" type="radio" name="menu-colors"
-                                        id="switcher-menu-primary">
-                                </div>
-                                <div class="form-check switch-select me-3">
-                                    <input class="form-check-input color-input color-gradient" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Gradient Menu" type="radio" name="menu-colors"
-                                        id="switcher-menu-gradient">
-                                </div>
-                                <div class="form-check switch-select me-3">
-                                    <input class="form-check-input color-input color-transparent"
-                                        data-bs-toggle="tooltip" data-bs-placement="top" title="Transparent Menu"
-                                        type="radio" name="menu-colors" id="switcher-menu-transparent">
+                                <div class="vartical-nav-content-menu">
+                                    <h3 class="rbt-short-title">Course Title</h3>
+                                    <ul class="rbt-vertical-nav-list-wrapper">
+                                        <li><a href="#">Photo</a></li>
+                                        <li><a href="#">English</a></li>
+                                        <li><a href="#">Math</a></li>
+                                        <li><a href="#">Read</a></li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="px-4 pb-3 text-muted fs-11">Note:If you want to change color Menu dynamically change from below Theme Primary color picker</div>
-                        </div>
-                        <div class="theme-colors">
-                            <p class="switcher-style-head">Header Colors:</p>
-                            <div class="d-flex switcher-style pb-2">
-                                <div class="form-check switch-select me-3">
-                                    <input class="form-check-input color-input color-white" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Light Header" type="radio" name="header-colors"
-                                        id="switcher-header-light" checked>
+                        </li>
+                        <li class="vertical-nav-item">
+                            <a href="#">Online School</a>
+                            <div class="vartical-nav-content-menu-wrapper">
+                                <div class="vartical-nav-content-menu">
+                                    <h3 class="rbt-short-title">Course Title</h3>
+                                    <ul class="rbt-vertical-nav-list-wrapper">
+                                        <li><a href="#">Photo</a></li>
+                                        <li><a href="#">English</a></li>
+                                        <li><a href="#">Math</a></li>
+                                        <li><a href="#">Read</a></li>
+                                    </ul>
                                 </div>
-                                <div class="form-check switch-select me-3">
-                                    <input class="form-check-input color-input color-dark" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Dark Header" type="radio" name="header-colors"
-                                        id="switcher-header-dark">
-                                </div>
-                                <div class="form-check switch-select me-3">
-                                    <input class="form-check-input color-input color-primary" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Color Header" type="radio" name="header-colors"
-                                        id="switcher-header-primary">
-                                </div>
-                                <div class="form-check switch-select me-3">
-                                    <input class="form-check-input color-input color-gradient" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Gradient Header" type="radio" name="header-colors"
-                                        id="switcher-header-gradient">
-                                </div>
-                                <div class="form-check switch-select me-3">
-                                    <input class="form-check-input color-input color-transparent" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Transparent Header" type="radio" name="header-colors"
-                                        id="switcher-header-transparent">
+                                <div class="vartical-nav-content-menu">
+                                    <h3 class="rbt-short-title">Course Title</h3>
+                                    <ul class="rbt-vertical-nav-list-wrapper">
+                                        <li><a href="#">Web Design</a></li>
+                                        <li><a href="#">Art</a></li>
+                                        <li><a href="#">Figma</a></li>
+                                        <li><a href="#">Adobe</a></li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="px-4 pb-3 text-muted fs-11">Note:If you want to change color Header dynamically change from below Theme Primary color picker</div>
-                        </div>
-                        <div class="theme-colors">
-                            <p class="switcher-style-head">Theme Primary:</p>
-                            <div class="d-flex flex-wrap align-items-center switcher-style">
-                                <div class="form-check switch-select me-3">
-                                    <input class="form-check-input color-input color-primary-1" type="radio"
-                                        name="theme-primary" id="switcher-primary">
-                                </div>
-                                <div class="form-check switch-select me-3">
-                                    <input class="form-check-input color-input color-primary-2" type="radio"
-                                        name="theme-primary" id="switcher-primary1">
-                                </div>
-                                <div class="form-check switch-select me-3">
-                                    <input class="form-check-input color-input color-primary-3" type="radio" name="theme-primary"
-                                        id="switcher-primary2">
-                                </div>
-                                <div class="form-check switch-select me-3">
-                                    <input class="form-check-input color-input color-primary-4" type="radio" name="theme-primary"
-                                        id="switcher-primary3">
-                                </div>
-                                <div class="form-check switch-select me-3">
-                                    <input class="form-check-input color-input color-primary-5" type="radio" name="theme-primary"
-                                        id="switcher-primary4">
-                                </div>
-                                <div class="form-check switch-select ps-0 mt-1 color-primary-light">
-                                    <div class="theme-container-primary"></div>
-                                    <div class="pickr-container-primary"></div>
+                        </li>
+                        <li class="vertical-nav-item">
+                            <a href="#">kindergarten</a>
+                            <div class="vartical-nav-content-menu-wrapper">
+                                <div class="vartical-nav-content-menu">
+                                    <h3 class="rbt-short-title">Course Title</h3>
+                                    <ul class="rbt-vertical-nav-list-wrapper">
+                                        <li><a href="#">Photo</a></li>
+                                        <li><a href="#">English</a></li>
+                                        <li><a href="#">Math</a></li>
+                                        <li><a href="#">Read</a></li>
+                                    </ul>
                                 </div>
                             </div>
-                        </div>
-                        <div class="theme-colors">
-                            <p class="switcher-style-head">Theme Background:</p>
-                            <div class="d-flex flex-wrap align-items-center switcher-style">
-                                <div class="form-check switch-select me-3">
-                                    <input class="form-check-input color-input color-bg-1" type="radio"
-                                        name="theme-background" id="switcher-background">
-                                </div>
-                                <div class="form-check switch-select me-3">
-                                    <input class="form-check-input color-input color-bg-2" type="radio"
-                                        name="theme-background" id="switcher-background1">
-                                </div>
-                                <div class="form-check switch-select me-3">
-                                    <input class="form-check-input color-input color-bg-3" type="radio" name="theme-background"
-                                        id="switcher-background2">
-                                </div>
-                                <div class="form-check switch-select me-3">
-                                    <input class="form-check-input color-input color-bg-4" type="radio"
-                                        name="theme-background" id="switcher-background3">
-                                </div>
-                                <div class="form-check switch-select me-3">
-                                    <input class="form-check-input color-input color-bg-5" type="radio"
-                                        name="theme-background" id="switcher-background4">
-                                </div>
-                                <div class="form-check switch-select ps-0 mt-1 tooltip-static-demo color-bg-transparent">
-                                    <div class="theme-container-background"></div>
-                                    <div class="pickr-container-background"></div>
+                        </li>
+                        <li class="vertical-nav-item">
+                            <a href="#">Classic LMS</a>
+                            <div class="vartical-nav-content-menu-wrapper">
+                                <div class="vartical-nav-content-menu">
+                                    <h3 class="rbt-short-title">Course Title</h3>
+                                    <ul class="rbt-vertical-nav-list-wrapper">
+                                        <li><a href="#">Web Design</a></li>
+                                        <li><a href="#">Art</a></li>
+                                        <li><a href="#">Figma</a></li>
+                                        <li><a href="#">Adobe</a></li>
+                                    </ul>
                                 </div>
                             </div>
-                        </div>
-                        <div class="menu-image mb-3">
-                            <p class="switcher-style-head">Menu With Background Image:</p>
-                            <div class="d-flex flex-wrap align-items-center switcher-style">
-                                <div class="form-check switch-select m-2">
-                                    <input class="form-check-input bgimage-input bg-img1" type="radio"
-                                        name="theme-background" id="switcher-bg-img">
-                                </div>
-                                <div class="form-check switch-select m-2">
-                                    <input class="form-check-input bgimage-input bg-img2" type="radio"
-                                        name="theme-background" id="switcher-bg-img1">
-                                </div>
-                                <div class="form-check switch-select m-2">
-                                    <input class="form-check-input bgimage-input bg-img3" type="radio" name="theme-background"
-                                        id="switcher-bg-img2">
-                                </div>
-                                <div class="form-check switch-select m-2">
-                                    <input class="form-check-input bgimage-input bg-img4" type="radio"
-                                        name="theme-background" id="switcher-bg-img3">
-                                </div>
-                                <div class="form-check switch-select m-2">
-                                    <input class="form-check-input bgimage-input bg-img5" type="radio"
-                                        name="theme-background" id="switcher-bg-img4">
-                                </div>
-                            </div>
+                        </li>
+                    </ul>
+                    <div class="read-more-btn">
+                        <div class="rbt-btn-wrapper mt--20">
+                            <a class="rbt-btn btn-border-gradient radius-round btn-sm hover-transform-none w-100 justify-content-center text-center" href="#">
+                                <span>Learn More</span>
+                            </a>
                         </div>
                     </div>
-                </div>
-                <div class="d-flex justify-content-center canvas-footer flex-wrap px-0 px-sm-5">
-                    <a href="javascript:void(0);" id="reset-all" class="btn btn-danger m-1">Reset</a>
+                </nav>
+                <div class="rbt-offcanvas-footer">
+
                 </div>
             </div>
         </div>
-    </div>
-    <!-- End Switcher -->
-
-
-    <!-- Loader -->
-    <div id="loader" >
-        <img src="assets/images/media/loader.svg" alt="">
-    </div>
-    <!-- Loader -->
-
-    <div class="autentication-bg">
-
-        <div class="container-lg">
-            <div class="row justify-content-center authentication authentication-basic align-items-center h-100">
-                <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-6 col-sm-8 col-12">
-                    <div class="my-4 d-flex justify-content-center">
-                        <a href="/sign_in">
-                            <img src="assets/images/brand-logos/desktop-white.png" alt="logo">
+        <!-- End Side Vav -->
+        <a class="rbt-close_side_menu" href="javascript:void(0);"></a>
+    </header>
+    <!-- Mobile Menu Section -->
+    <div class="popup-mobile-menu">
+        <div class="inner-wrapper">
+            <div class="inner-top">
+                <div class="content">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="assets_user/images/logo/logo.png" alt="Education Logo Images">
                         </a>
                     </div>
-                    <div class="card custom-card">
-                        <div class="card-body p-5">
-                            <p class="h5 fw-semibold mb-2 text-center">Sign Up</p>
-                            <p class="mb-4 text-muted op-7 fw-normal text-center">Welcome &amp; Join us by creating a free account !</p>
-                            <div class="button-container" style="display: flex; justify-content: center; gap: 10px; margin: 20px 0;">
-    <button id="button1" class="rounded-button" style="padding: 10px 20px; border: none; background-color: #007BFF; color: white; font-size: 14px; cursor: pointer; border-radius: 20px; transition: background-color 0.3s;">1</button>
-    <button id="button2" class="rounded-button" style="padding: 10px 20px; border: none; background-color: #007BFF; color: white; font-size: 14px; cursor: pointer; border-radius: 20px; transition: background-color 0.3s;">2</button>
-</div>
-
-<form action="{{ route('register') }}" method="post" enctype="multipart/form-data">
-@csrf
-    <div class="row gy-3" id="signup">
-        <div class="col-xl-12">
-            <label for="signup-firstname" class="form-label text-default">First Name</label>
-            <input type="text" name="first_name" class="form-control form-control-lg" id="signup-firstname"  placeholder="first name">
-        </div>
-        <div class="col-xl-12">
-            <label for="signup-lastname" class="form-label text-default">Last Name</label>
-            <input type="text" name="last_name" class="form-control form-control-lg" id="signup-lastname" placeholder="last name">
-        </div>
-        <div class="col-xl-12">
-            <label for="signup-lastname" class="form-label text-default">Email</label>
-            <input type="email" name="email" class="form-control form-control-lg" id="signup-lastname" placeholder="Your email">
-        </div>
-        <div class="col-xl-12">
-            <label for="signup-password" class="form-label text-default">Password</label>
-            <div class="input-group">
-                <input type="password" name="password"  class="form-control form-control-lg" id="signup-password" placeholder="password">
-                <button aria-label="button" class="btn btn-light" onclick="createpassword('signup-password',this)" type="button" id="button-addon2"><i class="ri-eye-off-line align-middle"></i></button>
+                    <div class="rbt-btn-close">
+                        <button class="close-button rbt-round-btn"><i class="feather-x"></i></button>
+                    </div>
+                </div>
+                <p class="description">Histudy is a education website template. You can customize all.</p>
+                <ul class="navbar-top-left rbt-information-list justify-content-start">
+                    <li>
+                        <a href="mailto:hello@example.com"><i class="feather-mail"></i>example@gmail.com</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="feather-phone"></i>(302) 555-0107</a>
+                    </li>
+                </ul>
             </div>
-        </div>
-        <div class="col-xl-12 mb-2">
-            <label for="signup-confirmpassword" class="form-label text-default">Confirm Password</label>
-            <div class="input-group">
-                <input type="password" class="form-control form-control-lg" id="signup-confirmpassword" name="confirm_password" placeholder="confirm password">
-                <button aria-label="button" class="btn btn-light" onclick="createpassword('signup-confirmpassword',this)" type="button" id="button-addon21"><i class="ri-eye-off-line align-middle"></i></button>
-            </div>
-        </div>
-    </div>
-    <div class="row gy-3" id="signup-role" style="display: none;">
-        <div class="col-xl-12">
-            <label for="signup-number" class="form-label text-default">Phone Number</label>
-            <input type="tel" name="phone" class="form-control form-control-lg" id="signup-number"  placeholder="Phone number">
-        </div>
-        <div class="col-xl-12">
-            <label for="signup-role-select" class="form-label text-default">Role</label>
-            <select name="type" class="form-control form-control-lg" id="signup-role-select">
-                <option value="">Select Role</option>
-                <option value="Admin">Admin</option>
-                <option value="Formateur">Formateur</option>
-            </select>
-        </div>
-        <div class="col-xl-12">
-            <label for="signup-image" class="form-label text-default">Upload Image</label>
-            <input type="file"name="picture"  class="form-control form-control-lg" id="signup-image">
-        </div>
-        <div class="col-xl-12">
-            <label for="signup-description" class="form-label text-default">Description</label>
-            <textarea name="description" class="form-control form-control-lg" id="signup-description"  placeholder="Enter description"></textarea>
-        </div>
-        <div class="form-check mt-3">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" name="terms">
-            <label class="form-check-label text-muted fw-normal" for="defaultCheck1">
-                By creating an account you agree to our <a href="terms_conditions.html" class="text-success"><u>Terms & Conditions</u></a> and <a href="#" class="text-success"><u>Privacy Policy</u></a>
-            </label>
-        </div>
-    </div>
-    <div class="col-xl-12 d-grid mt-2">
-        <button type="submit" class="btn btn-lg btn-primary" id="create-account-button" style="display: none;">Create Account</button>
-    </div>
-</form>
 
-                            <div class="text-center">
-                                <p class="text-muted">Already have an account? <a href="/sign_in" class="text-primary">Sign In</a></p>
-                            </div>
-                            <div class="text-center my-3 authentication-barrier">
-                                <span>OR</span>
-                            </div>
-                            <div class="btn-list text-center">
-                                <button type="button" aria-label="button" class="btn btn-icon btn-primary-transparent">
-                                    <i class="ri-facebook-fill"></i>
-                                </button>
-                                <button type="button" aria-label="button" class="btn btn-icon btn-primary-transparent">
-                                    <i class="ri-google-fill"></i>
-                                </button>
-                                <button type="button" aria-label="button" class="btn btn-icon btn-primary-transparent">
-                                    <i class="ri-twitter-fill"></i>
-                                </button>
+            <nav class="mainmenu-nav">
+                <ul class="mainmenu">
+                    <li class="with-megamenu has-menu-child-item position-static">
+                        <a href="#">Home <i class="feather-chevron-down"></i></a>
+                        <!-- Start Mega Menu  -->
+                        <div class="rbt-megamenu menu-skin-dark">
+                            <div class="wrapper">
+                                <div class="row row--15 home-plesentation-wrapper single-dropdown-menu-presentation">
+
+                                    <!-- Start Single Demo  -->
+                                    <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                        <div class="demo-single">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="01-main-demo.html"><img src="assets_user/images/splash/demo/h1.jpg" alt="Demo Images"></a>
+                                                </div>
+                                                <div class="content">
+                                                    <h4 class="title"><a href="01-main-demo.html">Home Demo <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Demo  -->
+
+                                    <!-- Start Single Demo  -->
+                                    <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                        <div class="demo-single">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="12-marketplace.html"><img src="assets_user/images/splash/demo/h12.jpg" alt="Demo Images"></a>
+                                                </div>
+                                                <div class="content">
+                                                    <h4 class="title"><a href="12-marketplace.html">Marketplace <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Demo  -->
+                                    <!-- Start Single Demo  -->
+                                    <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                        <div class="demo-single">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="04-kindergarten.html"><img src="assets_user/images/splash/demo/h4.jpg" alt="Demo Images"></a>
+                                                </div>
+                                                <div class="content">
+                                                    <h4 class="title"><a href="04-kindergarten.html">kindergarten <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Demo  -->
+                                    <!-- Start Single Demo  -->
+                                    <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                        <div class="demo-single">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="13-university-classic.html"><img src="assets_user/images/splash/demo/h13.jpg" alt="Demo Images"></a>
+                                                </div>
+                                                <div class="content">
+                                                    <h4 class="title"><a href="13-university-classic.html">University Classic <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Demo  -->
+
+                                    <!-- Start Single Demo  -->
+                                    <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                        <div class="demo-single">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="14-home-elegant.html"><img src="assets_user/images/splash/demo/h14.jpg" alt="Demo Images"></a>
+                                                </div>
+                                                <div class="content">
+                                                    <h4 class="title"><a href="14-home-elegant.html">Home Elegant <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Demo  -->
+
+                                    <!-- Start Single Demo  -->
+                                    <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                        <div class="demo-single">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="09-gym-coaching.html"><img src="assets_user/images/splash/demo/h9.jpg" alt="Demo Images"></a>
+                                                </div>
+                                                <div class="content">
+                                                    <h4 class="title"><a href="09-gym-coaching.html">Gym Coaching <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Demo  -->
+
+                                    <!-- Start Single Demo  -->
+                                    <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                        <div class="demo-single">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="03-online-school.html"><img src="assets_user/images/splash/demo/h3.jpg" alt="Demo Images"></a>
+                                                </div>
+                                                <div class="content">
+                                                    <h4 class="title"><a href="03-online-school.html">Online School <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Demo  -->
+
+                                    <!-- Start Single Demo  -->
+                                    <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                        <div class="demo-single">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="06-university-status.html"><img src="assets_user/images/splash/demo/h6.jpg" alt="Demo Images"></a>
+                                                </div>
+                                                <div class="content">
+                                                    <h4 class="title"><a href="06-university-status.html">University Status <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Demo  -->
+
+                                    <!-- Start Single Demo  -->
+                                    <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                        <div class="demo-single">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="15-home-technology.html"><img src="assets_user/images/splash/demo/h15.jpg" alt="Demo Images"></a>
+                                                </div>
+                                                <div class="content">
+                                                    <h4 class="title"><a href="15-home-technology.html">Home Technology <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Demo  -->
+
+                                    <!-- Start Single Demo  -->
+                                    <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                        <div class="demo-single">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="07-instructor-portfolio.html"><img src="assets_user/images/splash/demo/h7.jpg" alt="Demo Images"></a>
+                                                </div>
+                                                <div class="content">
+                                                    <h4 class="title"><a href="07-instructor-portfolio.html">Instructor Portfolio <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Demo  -->
+
+                                    <!-- Start Single Demo  -->
+                                    <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                        <div class="demo-single">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="08-language-academy.html"><img src="assets_user/images/splash/demo/h8.jpg" alt="Demo Images"></a>
+                                                </div>
+                                                <div class="content">
+                                                    <h4 class="title"><a href="08-language-academy.html">Language Academy <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Demo  -->
+
+                                    <!-- Start Single Demo  -->
+                                    <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                        <div class="demo-single">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="11-single-course.html"><img src="assets_user/images/splash/demo/h11.jpg" alt="Demo Images"></a>
+                                                </div>
+                                                <div class="content">
+                                                    <h4 class="title"><a href="11-single-course.html">Single Course <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Demo  -->
+
+                                    <!-- Start Single Demo  -->
+                                    <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                        <div class="demo-single">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="10-online-course.html"><img src="assets_user/images/splash/demo/h10.jpg" alt="Demo Images"></a>
+                                                </div>
+                                                <div class="content">
+                                                    <h4 class="title"><a href="10-online-course.html">Online Course <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Demo  -->
+
+                                    <!-- Start Single Demo  -->
+                                    <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                        <div class="demo-single">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="05-classic-lms.html"><img src="assets_user/images/splash/demo/h5.jpg" alt="Demo Images"></a>
+                                                </div>
+                                                <div class="content">
+                                                    <h4 class="title"><a href="05-classic-lms.html">Classic Lms <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Demo  -->
+
+                                    <!-- Start Single Demo  -->
+                                    <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item">
+                                        <div class="demo-single">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="02-course-school.html"><img src="assets_user/images/splash/demo/h2.jpg" alt="Demo Images"></a>
+                                                </div>
+                                                <div class="content">
+                                                    <h4 class="title"><a href="02-course-school.html">Course School <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Demo  -->
+
+                                    <!-- Start Single Demo  -->
+                                    <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item coming-soon">
+                                        <div class="demo-single">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="#"><img src="assets_user/images/splash/demo/coming-soon-1.png" alt="Demo Images"></a>
+                                                </div>
+                                                <div class="content">
+                                                    <h4 class="title"><a href="#">Coming Soon <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Demo  -->
+
+                                    <!-- Start Single Demo  -->
+                                    <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item coming-soon">
+                                        <div class="demo-single">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="#"><img src="assets_user/images/splash/demo/coming-soon-2.png" alt="Demo Images"></a>
+                                                </div>
+                                                <div class="content">
+                                                    <h4 class="title"><a href="#">Coming Soon 2 <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Demo  -->
+
+                                    <!-- Start Single Demo  -->
+                                    <div class="col-lg-12 col-xl-2 col-xxl-2 col-md-12 col-sm-12 col-12 single-mega-item coming-soon">
+                                        <div class="demo-single">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="#"><img src="assets_user/images/splash/demo/coming-soon-3.png" alt="Demo Images"></a>
+                                                </div>
+                                                <div class="content">
+                                                    <h4 class="title"><a href="#">Coming Soon 3 <span class="btn-icon"><i class="feather-arrow-right"></i></span></a></h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Demo  -->
+                                </div>
+
+                                <div class="load-demo-btn text-center">
+                                    <a class="rbt-btn-link color-white" href="#">Scroll to view more <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z" />
+                                        </svg></a>
+                                </div>
                             </div>
                         </div>
+                        <!-- End Mega Menu  -->
+                    </li>
+
+                    <li class="with-megamenu has-menu-child-item">
+                        <a href="#">Courses <i class="feather-chevron-down"></i></a>
+                        <!-- Start Mega Menu  -->
+                        <div class="rbt-megamenu grid-item-2">
+                            <div class="wrapper">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="mega-top-banner">
+                                            <div class="content">
+                                                <h4 class="title">Developer hub</h4>
+                                                <p class="description">Start building fast, with code samples, key resources and more.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row row--15">
+                                    <div class="col-lg-12 col-xl-6 col-xxl-6 single-mega-item">
+                                        <h3 class="rbt-short-title">Course Layout</h3>
+                                        <ul class="mega-menu-item">
+                                            <li><a href="course-filter-one-toggle.html">Filter One Toggle</a></li>
+                                            <li><a href="course-filter-one-open.html">Filter One Open</a></li>
+                                            <li><a href="course-filter-two-toggle.html">Filter Two Toggle</a></li>
+                                            <li><a href="course-filter-two-open.html">Filter Two Open</a></li>
+                                            <li><a href="course-with-tab.html">Course With Tab</a></li>
+                                            <li><a href="course-with-tab-two.html">Course With Tab Two</a></li>
+                                            <li><a href="course-card-2.html">Course Card Two</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-12 col-xl-6 col-xxl-6 single-mega-item">
+                                        <h3 class="rbt-short-title">Course Layout</h3>
+                                        <ul class="mega-menu-item">
+                                            <li><a href="course-card-3.html">Course Card Three</a></li>
+                                            <li><a href="course-masonry.html">Course Masonry</a></li>
+                                            <li><a href="course-with-sidebar.html">Course With Sidebar</a></li>
+                                            <li><a href="course-details.html">Course Details</a></li>
+                                            <li><a href="course-details-2.html">Course Details Two</a></li>
+                                            <li><a href="lesson.html">Course Lesson <span class="rbt-badge-card">New</span></a></li>
+                                            <li><a href="create-course.html">Create Course <span class="rbt-badge-card">New</span></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <ul class="nav-quick-access">
+                                            <li><a href="#"><i class="feather-folder-minus"></i> Quick Start Guide</a></li>
+                                            <li><a href="#"><i class="feather-folder-minus"></i> For Open Source</a></li>
+                                            <li><a href="#"><i class="feather-folder-minus"></i> API Status</a></li>
+                                            <li><a href="#"><i class="feather-folder-minus"></i> Support</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Mega Menu  -->
+                    </li>
+
+                    <li class="has-dropdown has-menu-child-item">
+                        <a href="#">Dashboard
+                            <i class="feather-chevron-down"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li class="has-dropdown"><a href="#">Instructor Dashboard</a>
+                                <ul class="submenu">
+                                    <li><a href="instructor-dashboard.html">Dashboard</a></li>
+                                    <li><a href="instructor-profile.html">Profile</a></li>
+                                    <li><a href="instructor-enrolled-courses.html">Enrolled Courses</a></li>
+                                    <li><a href="instructor-wishlist.html">Wishlist</a></li>
+                                    <li><a href="instructor-reviews.html">Reviews</a></li>
+                                    <li><a href="instructor-my-quiz-attempts.html">My Quiz Attempts</a></li>
+                                    <li><a href="instructor-order-history.html">Order History</a></li>
+                                    <li><a href="instructor-course.html">My Course</a></li>
+                                    <li><a href="instructor-announcements.html">Announcements</a></li>
+                                    <li><a href="instructor-quiz-attempts.html">Quiz Attempts</a></li>
+                                    <li><a href="instructor-assignments.html">Assignments</a></li>
+                                    <li><a href="instructor-settings.html">Settings</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown"><a href="#">Student Dashboard</a>
+                                <ul class="submenu">
+                                    <li><a href="student-dashboard.html">Dashboard</a></li>
+                                    <li><a href="student-profile.html">Profile</a></li>
+                                    <li><a href="student-enrolled-courses.html">Enrolled Courses</a></li>
+                                    <li><a href="student-wishlist.html">Wishlist</a></li>
+                                    <li><a href="student-reviews.html">Reviews</a></li>
+                                    <li><a href="student-my-quiz-attempts.html">My Quiz Attempts</a></li>
+                                    <li><a href="student-order-history.html">Order History</a></li>
+                                    <li><a href="student-settings.html">Settings</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="with-megamenu has-menu-child-item position-static">
+                        <a href="#">Pages <i class="feather-chevron-down"></i></a>
+                        <!-- Start Mega Menu  -->
+                        <div class="rbt-megamenu grid-item-4">
+                            <div class="wrapper">
+                                <div class="row row--15">
+                                    <div class="col-lg-12 col-xl-3 col-xxl-3 single-mega-item">
+                                        <h3 class="rbt-short-title">Get Started</h3>
+                                        <ul class="mega-menu-item">
+                                            <li><a href="about-us-01.html">About Us</a></li>
+                                            <li><a href="about-us-02.html">About Us 02</a></li>
+                                            <li><a href="event-grid.html">Event Grid</a></li>
+                                            <li><a href="event-list.html">Event List</a></li>
+                                            <li><a href="event-sidebar.html">Event Sidebar</a></li>
+                                            <li><a href="event-details.html">Event Details</a></li>
+                                            <li><a href="academy-gallery.html">Academy Gallery</a></li>
+                                            <li><a href="admission-guide.html">Admission Guide</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="col-lg-12 col-xl-3 col-xxl-3 single-mega-item">
+                                        <h3 class="rbt-short-title">Get Started</h3>
+                                        <ul class="mega-menu-item">
+                                            <li><a href="profile.html">Profile</a></li>
+                                            <li><a href="contact.html">Contact Us</a></li>
+                                            <li><a href="become-a-teacher.html">Become a Teacher</a></li>
+                                            <li><a href="instructor.html">Instructor</a></li>
+                                            <li><a href="faqs.html">FAQS</a></li>
+                                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                            <li><a href="404.html">404 Page</a></li>
+                                            <li><a href="maintenance.html">Maintenance</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="col-lg-12 col-xl-3 col-xxl-3 single-mega-item">
+                                        <h3 class="rbt-short-title">Shop Pages</h3>
+                                        <ul class="mega-menu-item">
+                                            <li><a href="shop.html">Shop <span class="rbt-badge-card">Sale Anything</span></a></li>
+                                            <li><a href="single-product.html">Single Product</a></li>
+                                            <li><a href="cart.html">Cart Page</a></li>
+                                            <li><a href="checkout.html">Checkout</a></li>
+                                            <li><a href="wishlist.html">Wishlist Page</a></li>
+                                            <li><a href="my-account.html">My Acount</a></li>
+                                            <li><a href="login.html">Login & Register</a></li>
+                                            <li><a href="subscription.html">Subscription</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-12 col-xl-3 col-xxl-3 single-mega-item">
+                                        <div class="mega-category-item">
+                                            <!-- Start Single Category  -->
+                                            <div class="nav-category-item">
+                                                <div class="thumbnail">
+                                                    <div class="image"><img src="assets_user/images/course/category-2.png" alt="Course images"></div>
+                                                    <a href="course-filter-one-toggle.html">
+                                                        <span>Online Education</span>
+                                                        <i class="feather-chevron-right"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <!-- End Single Category  -->
+
+                                            <!-- Start Single Category  -->
+                                            <div class="nav-category-item">
+                                                <div class="thumbnail">
+                                                    <div class="image"><img src="assets_user/images/course/category-1.png" alt="Course images"></div>
+                                                    <a href="course-filter-one-toggle.html">
+                                                        <span>Language Club</span>
+                                                        <i class="feather-chevron-right"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <!-- End Single Category  -->
+
+                                            <!-- Start Single Category  -->
+                                            <div class="nav-category-item">
+                                                <div class="thumbnail">
+                                                    <div class="image"><img src="assets_user/images/course/category-4.png" alt="Course images"></div>
+                                                    <a href="course-filter-one-toggle.html">
+                                                        <span>University Status</span>
+                                                        <i class="feather-chevron-right"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <!-- End Single Category  -->
+
+                                            <!-- Start Single Category  -->
+                                            <div class="nav-category-item">
+                                                <div class="thumbnail">
+                                                    <a href="course-filter-one-toggle.html">
+                                                        <span>Course School</span>
+                                                        <i class="feather-chevron-right"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <!-- End Single Category  -->
+
+                                            <!-- Start Single Category  -->
+                                            <div class="nav-category-item">
+                                                <div class="thumbnail">
+                                                    <div class="image"><img src="assets_user/images/course/category-9.png" alt="Course images"></div>
+                                                    <a href="course-filter-one-toggle.html">
+                                                        <span>Academy</span>
+                                                        <i class="feather-chevron-right"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <!-- End Single Category  -->
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Mega Menu  -->
+                    </li>
+
+                    <li class="with-megamenu has-menu-child-item position-static">
+                        <a href="#">Elements <i class="feather-chevron-down"></i></a>
+                        <!-- Start Mega Menu  -->
+                        <div class="rbt-megamenu grid-item-3">
+                            <div class="wrapper">
+                                <div class="row row--15 single-dropdown-menu-presentation">
+                                    <div class="col-lg-4 col-xxl-4 single-mega-item">
+                                        <ul class="mega-menu-item">
+                                            <li><a href="style-guide.html">Style Guide <span class="rbt-badge-card">Hot</span></a></li>
+                                            <li><a href="accordion.html">Accordion</a></li>
+                                            <li><a href="advancetab.html">Advance Tab</a></li>
+                                            <li><a href="brand.html">Brand</a></li>
+                                            <li><a href="button.html">Button</a></li>
+                                            <li><a href="badge.html">Badge</a></li>
+                                            <li><a href="card.html">Card</a></li>
+                                            <li><a href="call-to-action.html">Call To Action</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="col-lg-4 col-xxl-4 single-mega-item">
+                                        <ul class="mega-menu-item">
+                                            <li><a href="counterup.html">Counter</a></li>
+                                            <li><a href="category.html">Categories</a></li>
+                                            <li><a href="header.html">Header Style</a></li>
+                                            <li><a href="newsletter.html">Newsletter</a></li>
+                                            <li><a href="team.html">Team</a></li>
+                                            <li><a href="social.html">Social</a></li>
+                                            <li><a href="list-style.html">List Style</a></li>
+                                            <li><a href="gallery.html">Gallery</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="col-lg-4 col-xxl-4 single-mega-item">
+                                        <ul class="mega-menu-item">
+                                            <li><a href="pricing.html">Pricing</a></li>
+                                            <li><a href="progressbar.html">Progressbar</a></li>
+                                            <li><a href="testimonial.html">Testimonial</a></li>
+                                            <li><a href="service.html">Service</a></li>
+                                            <li><a href="split.html">Split Area</a></li>
+                                            <li><a href="search.html">Search Style</a></li>
+                                            <li><a href="instagram.html">Instagram Style</a></li>
+                                            <li><a href="#">& More Coming</a></li>
+
+                                        </ul>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="btn-wrapper">
+                                            <a class="rbt-btn btn-gradient hover-icon-reverse square btn-xl w-100 text-center mt--30 hover-transform-none" href="#">
+                                                <span class="icon-reverse-wrapper">
+                                        <span class="btn-text">Visit Histudy Template</span>
+                                                <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                                <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Mega Menu  -->
+                    </li>
+
+                    <li class="with-megamenu has-menu-child-item position-static">
+                        <a href="#">Blog <i class="feather-chevron-down"></i></a>
+                        <!-- Start Mega Menu  -->
+                        <div class="rbt-megamenu grid-item-3">
+                            <div class="wrapper">
+                                <div class="row row--15">
+                                    <div class="col-lg-12 col-xl-4 col-xxl-4 single-mega-item">
+                                        <h3 class="rbt-short-title">Blog Styles</h3>
+                                        <ul class="mega-menu-item">
+                                            <li><a href="blog-list.html">Blog List</a></li>
+                                            <li><a href="blog.html">Blog Grid</a></li>
+                                            <li><a href="blog-grid-minimal.html">Blog Grid Minimal</a></li>
+                                            <li><a href="blog-with-sidebar.html">Blog With Sidebar</a></li>
+                                            <li><a href="blog-details.html">Blog Details</a></li>
+                                            <li><a href="post-format-standard.html">Post Format Standard</a></li>
+                                            <li><a href="post-format-gallery.html">Post Format Gallery</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="col-lg-12 col-xl-4 col-xxl-4 single-mega-item">
+                                        <h3 class="rbt-short-title">Get Started</h3>
+                                        <ul class="mega-menu-item">
+                                            <li><a href="post-format-quote.html">Post Format Quote</a></li>
+                                            <li><a href="post-format-audio.html">Post Format Audio</a></li>
+                                            <li><a href="post-format-video.html">Post Format Video</a></li>
+                                            <li><a href="#">Media Under Title <span class="rbt-badge-card">Coming</span></a></li>
+                                            <li><a href="#">Sticky Sidebar <span class="rbt-badge-card">Coming</span></a></li>
+                                            <li><a href="#">Auto Masonry <span class="rbt-badge-card">Coming</span></a></li>
+                                            <li><a href="#">Meta Overlaid <span class="rbt-badge-card">Coming</span></a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="col-lg-12 col-xl-4 col-xxl-4 single-mega-item">
+                                        <div class="rbt-ads-wrapper">
+                                            <a class="d-block" href="#"><img src="assets_user/images/service/mobile-cat.jpg" alt="Education Images"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Mega Menu  -->
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="mobile-menu-bottom">
+                <div class="rbt-btn-wrapper mb--20">
+                    <a class="rbt-btn btn-border-gradient radius-round btn-sm hover-transform-none w-100 justify-content-center text-center" href="#">
+                        <span>Enroll Now</span>
+                    </a>
+                </div>
+
+                <div class="social-share-wrapper">
+                    <span class="rbt-short-title d-block">Find With Us</span>
+                    <ul class="social-icon social-default transparent-with-border justify-content-start mt--20">
+                        <li><a href="https://www.facebook.com/">
+                                <i class="feather-facebook"></i>
+                            </a>
+                        </li>
+                        <li><a href="https://www.twitter.com">
+                                <i class="feather-twitter"></i>
+                            </a>
+                        </li>
+                        <li><a href="https://www.instagram.com/">
+                                <i class="feather-instagram"></i>
+                            </a>
+                        </li>
+                        <li><a href="https://www.linkdin.com/">
+                                <i class="feather-linkedin"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Start Side Vav -->
+    <div class="rbt-cart-side-menu">
+        <div class="inner-wrapper">
+            <div class="inner-top">
+                <div class="content">
+                    <div class="title">
+                        <h4 class="title mb--0">Your shopping cart</h4>
                     </div>
+                    <div class="rbt-btn-close" id="btn_sideNavClose">
+                        <button class="minicart-close-button rbt-round-btn"><i class="feather-x"></i></button>
+                    </div>
+                </div>
+            </div>
+            <nav class="side-nav w-100">
+                <ul class="rbt-minicart-wrapper">
+                    <li class="minicart-item">
+                        <div class="thumbnail">
+                            <a href="#">
+                                <img src="assets_user/images/product/1.jpg" alt="Product Images">
+                            </a>
+                        </div>
+                        <div class="product-content">
+                            <h6 class="title"><a href="single-product.html">Miracle Morning</a></h6>
+
+                            <span class="quantity">1 * <span class="price">$22</span></span>
+                        </div>
+                        <div class="close-btn">
+                            <button class="rbt-round-btn"><i class="feather-x"></i></button>
+                        </div>
+                    </li>
+
+                    <li class="minicart-item">
+                        <div class="thumbnail">
+                            <a href="#">
+                                <img src="assets_user/images/product/7.jpg" alt="Product Images">
+                            </a>
+                        </div>
+                        <div class="product-content">
+                            <h6 class="title"><a href="single-product.html">Happy Strong</a></h6>
+
+                            <span class="quantity">1 * <span class="price">$30</span></span>
+                        </div>
+                        <div class="close-btn">
+                            <button class="rbt-round-btn"><i class="feather-x"></i></button>
+                        </div>
+                    </li>
+
+                    <li class="minicart-item">
+                        <div class="thumbnail">
+                            <a href="#">
+                                <img src="assets_user/images/product/3.jpg" alt="Product Images">
+                            </a>
+                        </div>
+                        <div class="product-content">
+                            <h6 class="title"><a href="single-product.html">Rich Dad Poor Dad</a></h6>
+
+                            <span class="quantity">1 * <span class="price">$50</span></span>
+                        </div>
+                        <div class="close-btn">
+                            <button class="rbt-round-btn"><i class="feather-x"></i></button>
+                        </div>
+                    </li>
+
+                    <li class="minicart-item">
+                        <div class="thumbnail">
+                            <a href="#">
+                                <img src="assets_user/images/product/4.jpg" alt="Product Images">
+                            </a>
+                        </div>
+                        <div class="product-content">
+                            <h6 class="title"><a href="single-product.html">Momentum Theorem</a></h6>
+
+                            <span class="quantity">1 * <span class="price">$50</span></span>
+                        </div>
+                        <div class="close-btn">
+                            <button class="rbt-round-btn"><i class="feather-x"></i></button>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="rbt-minicart-footer">
+                <hr class="mb--0">
+                <div class="rbt-cart-subttotal">
+                    <p class="subtotal"><strong>Subtotal:</strong></p>
+                    <p class="price">$121</p>
+                </div>
+                <hr class="mb--0">
+                <div class="rbt-minicart-bottom mt--20">
+                    <div class="view-cart-btn">
+                        <a class="rbt-btn btn-border icon-hover w-100 text-center" href="#">
+                            <span class="btn-text">View Cart</span>
+                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                        </a>
+                    </div>
+                    <div class="checkout-btn mt--20">
+                        <a class="rbt-btn btn-gradient icon-hover w-100 text-center" href="#">
+                            <span class="btn-text">Checkout</span>
+                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- End Side Vav -->
+    <a class="close_side_menu" href="javascript:void(0);"></a>
+
+    <div class="rbt-elements-area bg-color-white rbt-section-gap">
+        <div class="container">
+        <div class="gy-5 row--30 d-flex justify-content-center align-items-center">
+
+                <div class="col-lg-6" >
+                    <div class="rbt-contact-form contact-form-style-1 max-width-auto" id="login-form">
+                        <h3 class="title">Login</h3>
+                        <form action="/login" method="POST" class="max-width-auto">
+                           @csrf
+                            <div class="form-group">
+                                <input name="email" type="email" />
+                                <label>email *</label>
+                                <span class="focus-border"></span>
+                            </div>
+                            <div class="form-group">
+                                <input name="password" type="password">
+                                <label>Password *</label>
+                                <span class="focus-border"></span>
+                            </div>
+
+                            <div class="row mb--30">
+                                <div class="col-lg-6">
+                                    <div class="rbt-checkbox">
+                                        <input type="checkbox" id="rememberme" name="rememberme">
+                                        <label for="rememberme">Remember me</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="rbt-lost-password text-end">
+                                        <a class="rbt-btn-link" href="#">Oublié le mot de passe</a>
+                                    </div>
+                                </div>
+                               <p style="margin-top:7px;"> Je n'ai pas de compte <a class="rbt-btn-link" href=""  id="show-register"><span> Register</span></a></p>
+                            </div>
+
+                            <div class="form-submit-group">
+                                <button type="submit" class="rbt-btn btn-md btn-gradient hover-icon-reverse w-100">
+                                    <span class="icon-reverse-wrapper">
+                                        <span class="btn-text">Log In</span>
+                                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                    </span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                
+                    <div class="rbt-contact-form contact-form-style-1 max-width-auto"  style="display:none;" id="register-form">
+                        <h3 class="title">Register</h3>
+                        <form action="/register" method="POST" class="max-width-auto">
+                                  @csrf
+                        <div style="display: flex; gap: 25px;">
+                           <div class="form-group">
+                            <input name="prenom" type="text" style="width: 100%;">
+                            <label>Prénom *</label>
+                            <span class="focus-border"></span>
+                          </div>
+                          <div class="form-group">
+                            <input name="nom" type="text" style="width: 100%;">
+                            <label>Nom *</label>
+                            <span class="focus-border"></span>
+                          </div>
+                        </div>
+                            <div class="form-group">
+                                <input name="email" type="email" />
+                                <label>Email address *</label>
+                                <span class="focus-border"></span>
+                            </div>
+                            <div class="form-group">
+                                <input name="password" type="password">
+                                <label>Password *</label>
+                                <span class="focus-border"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <input name="password_confirmation" type="password">
+                                <label>Confirm Password *</label>
+                                <span class="focus-border"></span>
+                            </div>
+                            <p style="margin-top:7px;"> J'ai un compte <a class="rbt-btn-link" href=""  id="show-login"><span> Login</span></a></p>
+                            <div class="form-submit-group">
+                                <button type="submit" class="rbt-btn btn-md btn-gradient hover-icon-reverse w-100">
+                                    <span class="icon-reverse-wrapper">
+                                        <span class="btn-text">Register</span>
+                                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                    </span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div> 
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="rbt-newsletter-area bg-gradient-6 ptb--50">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-5 col-md-12 col-12">
+                    <div class="inner">
+                        <div class="section-title text-center text-lg-start">
+                            <h4 class="title"><strong>Subscribe</strong> <br /> <span class="w-400">Our Newsletter</span></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-12 col-12 text-start text-sm-end">
+                    <form action="#" class="newsletter-form-1 me-0">
+                        <input type="email" placeholder="Enter Your E-Email">
+                        <button type="submit" class="rbt-btn btn-md btn-gradient hover-icon-reverse">
+                            <span class="icon-reverse-wrapper">
+                        <span class="btn-text">Subscribe</span>
+                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                            </span>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-
-document.getElementById('button2').addEventListener('click', function() {
-    var signupDiv = document.getElementById('signup');
-    var signupRoleDiv = document.getElementById('signup-role');
-    var createAccountButton = document.getElementById('create-account-button');
-
-    if (signupDiv.style.display === 'none') {
-        signupDiv.style.display = 'block'; 
-        signupRoleDiv.style.display = 'none'; 
-        createAccountButton.style.display = 'none'; 
-    } else {
-        signupDiv.style.display = 'none'; 
-        signupRoleDiv.style.display = 'block'; 
-        createAccountButton.style.display = 'block'; 
-    }
+document.getElementById("show-register").addEventListener("click", function(event) {
+    event.preventDefault();
+    document.getElementById("login-form").style.display = 'none';
+    document.getElementById("register-form").style.display = 'block';
 });
-
-document.getElementById('button1').addEventListener('click', function() {
-    var signupDiv = document.getElementById('signup');
-    var signupRoleDiv = document.getElementById('signup-role');
-    var createAccountButton = document.getElementById('create-account-button');
-
-    // Toggle between showing and hiding forms
-    if (signupRoleDiv.style.display === 'none') {
-        signupRoleDiv.style.display = 'block'; 
-        signupDiv.style.display = 'none'; 
-
-    } else {
-        signupDiv.style.display = 'none'; 
-        signupRoleDiv.style.display = 'block';
-    }
+document.getElementById("show-login").addEventListener("click", function(event) {
+    event.preventDefault();
+    document.getElementById("login-form").style.display = 'block';
+    document.getElementById("register-form").style.display = 'none';
 });
-
-
 </script>
+    <!-- Start Footer aera -->
+    <footer class="rbt-footer footer-style-1">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row row--15 mt_dec--30">
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
+                        <div class="footer-widget">
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img src="assets_user/images/logo/logo.png" alt="Edu-cause">
+                                </a>
+                            </div>
 
+                            <p class="description mt--20">We’re always in search for talented
+                                and motivated people. Don’t be shy introduce yourself!
+                            </p>
 
+                            <div class="contact-btn mt--30">
+                                <a class="rbt-btn hover-icon-reverse btn-border-gradient radius-round" href="#">
+                                    <div class="icon-reverse-wrapper">
+                                        <span class="btn-text">Contact With Us</span>
+                                        <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                        <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="offset-lg-1 col-lg-2 col-md-6 col-sm-6 col-12 mt--30">
+                        <div class="footer-widget">
+                            <h5 class="ft-title">Useful Links</h5>
+                            <ul class="ft-link">
+                                <li>
+                                    <a href="12-marketplace.html">Marketplace</a>
+                                </li>
+                                <li>
+                                    <a href="04-kindergarten.html">kindergarten</a>
+                                </li>
+                                <li>
+                                    <a href="13-university-classic.html">University</a>
+                                </li>
+                                <li>
+                                    <a href="09-gym-coaching.html">GYM Coaching</a>
+                                </li>
+                                <li>
+                                    <a href="faqs.html">FAQ</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
-    <!-- Custom-Switcher JS -->
-    <script src="assets/js/custom-switcher.min.js"></script>
+                    <div class="col-lg-2 col-md-6 col-sm-6 col-12 mt--30">
+                        <div class="footer-widget">
+                            <h5 class="ft-title">Our Company</h5>
+                            <ul class="ft-link">
+                                <li>
+                                    <a href="contact.html">Contact Us</a>
+                                </li>
+                                <li>
+                                    <a href="become-a-teacher.html">Become Teacher</a>
+                                </li>
+                                <li>
+                                    <a href="blog.html">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="instructor.html">Instructor</a>
+                                </li>
+                                <li>
+                                    <a href="event-list.html">Events</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mt--30">
+                        <div class="footer-widget">
+                            <h5 class="ft-title">Get Contact</h5>
+                            <ul class="ft-link">
+                                <li><span>Phone:</span> <a href="#">(406) 555-0120</a></li>
+                                <li><span>E-mail:</span> <a href="mailto:hr@example.com">rainbow@example.com</a></li>
+                                <li><span>Location:</span> North America, USA</li>
+                            </ul>
+                            <ul class="social-icon social-default icon-naked justify-content-start mt--20">
+                                <li><a href="https://www.facebook.com/">
+                                        <i class="feather-facebook"></i>
+                                    </a>
+                                </li>
+                                <li><a href="https://www.twitter.com">
+                                        <i class="feather-twitter"></i>
+                                    </a>
+                                </li>
+                                <li><a href="https://www.instagram.com/">
+                                        <i class="feather-instagram"></i>
+                                    </a>
+                                </li>
+                                <li><a href="https://www.linkdin.com/">
+                                        <i class="feather-linkedin"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer aera -->
+    <div class="rbt-separator-mid">
+        <div class="container">
+            <hr class="rbt-separator m-0">
+        </div>
+    </div>
+    <!-- Start Copyright Area  -->
+    <div class="copyright-area copyright-style-1 ptb--20">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-12">
+                    <p class="rbt-link-hover text-center text-lg-start">Copyright © 2023 <a href="https://themeforest.net/user/rbt-themes">Rainbow-Themes.</a> All Rights Reserved</p>
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-12">
+                    <ul class="copyright-link rbt-link-hover justify-content-center justify-content-lg-end mt_sm--10 mt_md--10">
+                        <li><a href="#">Terms of service</a></li>
+                        <li><a href="privacy-policy.html">Privacy policy</a></li>
+                        <li><a href="subscription.html">Subscription</a></li>
+                        <li><a href="login.html">Login & Register</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Copyright Area  -->
+    <div class="rbt-progress-parent">
+        <svg class="rbt-back-circle svg-inner" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+
+    <!-- JS
+============================================ -->
+    <!-- Modernizer JS -->
+    <script src="assets_user/js/vendor/modernizr.min.js"></script>
+    <!-- jQuery JS -->
+    <script src="assets_user/js/vendor/jquery.js"></script>
     <!-- Bootstrap JS -->
-    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets_user/js/vendor/bootstrap.min.js"></script>
+    <!-- sal.js -->
+    <script src="assets_user/js/vendor/sal.js"></script>
+    <script src="assets_user/js/vendor/swiper.js"></script>
+    <script src="assets_user/js/vendor/magnify.min.js"></script>
+    <script src="assets_user/js/vendor/jquery-appear.js"></script>
+    <script src="assets_user/js/vendor/odometer.js"></script>
+    <script src="assets_user/js/vendor/backtotop.js"></script>
+    <script src="assets_user/js/vendor/isotop.js"></script>
+    <script src="assets/js/vendor/imageloaded.js"></script>
 
-    <!-- Show Password JS -->
-    <script src="assets/js/show-password.js"></script>
-
+    <script src="assets/js/vendor/wow.js"></script>
+    <script src="assets/js/vendor/waypoint.min.js"></script>
+    <script src="assets/js/vendor/easypie.js"></script>
+    <script src="assets/js/vendor/text-type.js"></script>
+    <script src="assets/js/vendor/jquery-one-page-nav.js"></script>
+    <script src="assets/js/vendor/bootstrap-select.min.js"></script>
+    <script src="assets/js/vendor/jquery-ui.js"></script>
+    <script src="assets/js/vendor/magnify-popup.min.js"></script>
+    <script src="assets/js/vendor/paralax-scroll.js"></script>
+    <script src="assets/js/vendor/paralax.min.js"></script>
+    <script src="assets/js/vendor/countdown.js"></script>
+    <script src="assets/js/vendor/plyr.js"></script>
+    <!-- Main JS -->
+    <script src="assets_user/js/main.js"></script>
 </body>
 
 </html>

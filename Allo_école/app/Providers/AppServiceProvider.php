@@ -24,9 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer('*', function ($view) {
-            $formateurs = User::where('type', 'Formateur')->get(); 
-            $view->with('formateurs', $formateurs); 
-        });
+
     }
 }

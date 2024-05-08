@@ -13,59 +13,46 @@ class AuthController extends Controller
 {
     public function register(Request $request)
     {
-        try {
-            $validator = Validator::make($request->all(), [
-                'first_name' => 'required|string|max:255',
-                'last_name' => 'required|string|max:255',
-                'email' => 'required|string|email|max:255|unique:users',
-                'password' => 'required|string|min:6',
-                'phone' => 'required',
-                'description' => 'nullable|string',
-                'type' => 'required|in:Admin,Formateur',
-                'picture' => 'nullable|image|max:2048',
-            ]);
-
-            if ($validator->fails()) {
-                return redirect()->back()->withErrors($validator)->withInput();
-            }
-
-            $fullName = $request->first_name . ' ' . $request->last_name;
-
-            $user = User::create([
-                'name' => $fullName, 
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-                'phone' => $request->phone,
-                'description' => $request->description,
-                'type' => $request->type,
-            ]);
-
-            if ($request->hasFile('picture')) {
-                $picturePath = $request->file('picture')->store('public/profile_pictures');
-
-                $user->update(['picture' => $picturePath]);
-            }
-
-            return redirect()->route('login')->with('success', 'Registration successful!');
-        } catch (\Exception $e) {
-            Log::error('Registration error: ' . $e->getMessage());
-            return redirect()->back()->withErrors('An error occurred while registering. Please try again later.')->withInput();
-        }
+        Log::info('Request data:', $request->all());
+        $request->validate([
+            'prenom' => 'required|string|max:255',
+            'nom' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+    
+        $role = User::count() === 0 ? 'admin' : 'étudiant';
+        $user = User::create([
+            'name' => $request->prenom . ' ' . $request->nom,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => $role,
+        ]);
+    
+        Auth::login($user);
+    
+        return redirect('/register')->with('success', 'Successfully registered and logged in.');
     }
     public function login(Request $request)
-{
-    $credentials = $request->validate([
-        'email' => 'required|string',
-        'password' => 'required|string',
-    ]);
+    {
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
 
-    if (Auth::attempt($credentials, $request->filled('remember'))) {
-        $request->session()->regenerate();
-        return redirect()->route('Dashboard')->with('success', 'Login successful!');
+        if (Auth::attempt($credentials, $request->filled('remember'))) {
+            $request->session()->regenerate();
+
+            $user = Auth::user();
+            if ($user->role === 'admin') {
+                return redirect('/admin')->with('success', 'Welcome to the Admin Dashboard!');
+            } else {
+                return redirect('/')->with('success', 'Welcome back!');
+            }
+        }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ]);
     }
-
-    return back()->withErrors([
-        'email' => 'The provided credentials do not match our records.',
-    ])->onlyInput('username');
-}
 }

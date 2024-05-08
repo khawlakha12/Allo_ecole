@@ -46,14 +46,18 @@ Route::get('/to_do', function () {
 
 
 
-Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
 Route::get('/register', function () {
     return view('Auth.register');
 });
-Route::post('/sign_in', [AuthController::class, 'login'])->name('login');
-Route::get('/sign_in', function () {
-    return view('Auth.sign-in');
-})->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+
+
+Route::get('/admin', function() {
+    return view('admin.dashboard');  
+})->middleware(['auth', 'can:isAdmin']); 
+
+
 
 
 Route::get('/profile', [userController::class, 'userlogged'])->name('profile')->middleware('auth');
