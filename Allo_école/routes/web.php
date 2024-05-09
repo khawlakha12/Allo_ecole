@@ -62,6 +62,15 @@ Route::get('/admin', function() {
 
 Route::get('/profile', [userController::class, 'userlogged'])->name('profile')->middleware('auth');
 
-
+Route::get('/', function(){
+    return view('pages.home');
+});
+Route::get('/contact', function(){
+    return view('pages.contact');
+});
 
 Route::post('/admin', [NiveauxScolaireController::class, 'store'])->name('niveaux.store');
+
+Route::get('/education', function(){
+    return view('pages.education');
+});
