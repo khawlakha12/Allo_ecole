@@ -56,94 +56,25 @@
                                     <a href="/">Home</a>
                                 </li>
 
-                                <li class="with-megamenu has-menu-child-item">
-                                    <a href="#">Education <i class="feather-chevron-down"></i></a>
-                                    <!-- Start Mega Menu  -->
-                                    <div class="rbt-megamenu grid-item-2">
-                                        <div class="wrapper">
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <div class="mega-top-banner">
-                                                        <div class="content">
-                                                            <h4 class="title">Developer hub</h4>
-                                                            <p class="description">Start building fast, with code samples, key resources and more.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row row--15">
-                                                <div class="col-lg-12 col-xl-6 col-xxl-6 single-mega-item">
-                                                    <h3 class="rbt-short-title">Course Layout</h3>
-                                                    <ul class="mega-menu-item">
-                                                        <li><a href="course-filter-one-toggle.html">Filter One Toggle</a></li>
-                                                        <li><a href="course-filter-one-open.html">Filter One Open</a></li>
-                                                        <li><a href="course-filter-two-toggle.html">Filter Two Toggle</a></li>
-                                                        <li><a href="course-filter-two-open.html">Filter Two Open</a></li>
-                                                        <li><a href="course-with-tab.html">Course With Tab</a></li>
-                                                        <li><a href="course-with-tab-two.html">Course With Tab Two</a></li>
-                                                        <li><a href="course-card-2.html">Course Card Two</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col-lg-12 col-xl-6 col-xxl-6 single-mega-item">
-                                                    <h3 class="rbt-short-title">Course Layout</h3>
-                                                    <ul class="mega-menu-item">
-                                                        <li><a href="course-card-3.html">Course Card Three</a></li>
-                                                        <li><a href="course-masonry.html">Course Masonry</a></li>
-                                                        <li><a href="course-with-sidebar.html">Course With Sidebar</a></li>
-                                                        <li><a href="course-details.html">Course Details</a></li>
-                                                        <li><a href="course-details-2.html">Course Details Two</a></li>
-                                                        <li><a href="lesson.html">Course Lesson <span class="rbt-badge-card">New</span></a></li>
-                                                        <li><a href="create-course.html">Create Course <span class="rbt-badge-card">New</span></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <ul class="nav-quick-access">
-                                                        <li><a href="#"><i class="feather-folder-minus"></i> Quick Start Guide</a></li>
-                                                        <li><a href="#"><i class="feather-folder-minus"></i> For Open Source</a></li>
-                                                        <li><a href="#"><i class="feather-folder-minus"></i> API Status</a></li>
-                                                        <li><a href="#"><i class="feather-folder-minus"></i> Support</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Mega Menu  -->
+                                <li class="has-dropdown has-menu-child-item">
+                                    <a href="#">Educations
+                                        <i class="feather-chevron-down"></i>
+                                    </a>
+                                    <ul class="submenu">
+                                        <li class="has-dropdown"><a href="#">Instructor Dashboard</a>
+                                        </li>
+                                        <li class="has-dropdown"><a href="#">Student Dashboard</a>
+                                        </li>
+                                    </ul>
                                 </li>
-
                                 <li class="has-dropdown has-menu-child-item">
                                     <a href="#">Formations
                                         <i class="feather-chevron-down"></i>
                                     </a>
                                     <ul class="submenu">
                                         <li class="has-dropdown"><a href="#">Instructor Dashboard</a>
-                                            <ul class="submenu">
-                                                <li><a href="instructor-dashboard.html">Dashboard</a></li>
-                                                <li><a href="instructor-profile.html">Profile</a></li>
-                                                <li><a href="instructor-enrolled-courses.html">Enrolled Courses</a></li>
-                                                <li><a href="instructor-wishlist.html">Wishlist</a></li>
-                                                <li><a href="instructor-reviews.html">Reviews</a></li>
-                                                <li><a href="instructor-my-quiz-attempts.html">My Quiz Attempts</a></li>
-                                                <li><a href="instructor-order-history.html">Order History</a></li>
-                                                <li><a href="instructor-course.html">My Course</a></li>
-                                                <li><a href="instructor-announcements.html">Announcements</a></li>
-                                                <li><a href="instructor-quiz-attempts.html">Quiz Attempts</a></li>
-                                                <li><a href="instructor-assignments.html">Assignments</a></li>
-                                                <li><a href="instructor-settings.html">Settings</a></li>
-                                            </ul>
                                         </li>
                                         <li class="has-dropdown"><a href="#">Student Dashboard</a>
-                                            <ul class="submenu">
-                                                <li><a href="student-dashboard.html">Dashboard</a></li>
-                                                <li><a href="student-profile.html">Profile</a></li>
-                                                <li><a href="student-enrolled-courses.html">Enrolled Courses</a></li>
-                                                <li><a href="student-wishlist.html">Wishlist</a></li>
-                                                <li><a href="student-reviews.html">Reviews</a></li>
-                                                <li><a href="student-my-quiz-attempts.html">My Quiz Attempts</a></li>
-                                                <li><a href="student-order-history.html">Order History</a></li>
-                                                <li><a href="student-settings.html">Settings</a></li>
-                                            </ul>
                                         </li>
                                     </ul>
                                 </li>
@@ -154,9 +85,7 @@
                             </ul>
                         </nav>
                     </div>
-
                     <div class="header-right">
-
                         <!-- Navbar Icons -->
                         <ul class="quick-access" style="margin-right:20px;">
                             <li class="access-icon">
@@ -349,7 +278,7 @@
                         </ul>
 
                         <div class="rbt-btn-wrapper d-none d-xl-block">
-                            <a class="rbt-btn  btn-border-gradient radius-round btn-sm hover-transform-none" href="#">
+                            <a class="rbt-btn  btn-border-gradient radius-round btn-sm hover-transform-none" href="/register">
                                 <span data-text="Enroll Now">Login</span>
                             </a>
                         </div>
@@ -525,109 +454,6 @@
             </div>
             <!-- End Search Dropdown  -->
         </div>
-        <!-- Start Side Vav -->
-        <div class="rbt-offcanvas-side-menu rbt-category-sidemenu">
-            <div class="inner-wrapper">
-                <div class="inner-top">
-                    <div class="inner-title">
-                        <h4 class="title">Course Category</h4>
-                    </div>
-                    <div class="rbt-btn-close">
-                        <button class="rbt-close-offcanvas rbt-round-btn"><i class="feather-x"></i></button>
-                    </div>
-                </div>
-                <nav class="side-nav w-100">
-                    <ul class="rbt-vertical-nav-list-wrapper vertical-nav-menu">
-                        <li class="vertical-nav-item">
-                            <a href="#">Course School</a>
-                            <div class="vartical-nav-content-menu-wrapper">
-                                <div class="vartical-nav-content-menu">
-                                    <h3 class="rbt-short-title">Course Title</h3>
-                                    <ul class="rbt-vertical-nav-list-wrapper">
-                                        <li><a href="#">Web Design</a></li>
-                                        <li><a href="#">Art</a></li>
-                                        <li><a href="#">Figma</a></li>
-                                        <li><a href="#">Adobe</a></li>
-                                    </ul>
-                                </div>
-                                <div class="vartical-nav-content-menu">
-                                    <h3 class="rbt-short-title">Course Title</h3>
-                                    <ul class="rbt-vertical-nav-list-wrapper">
-                                        <li><a href="#">Photo</a></li>
-                                        <li><a href="#">English</a></li>
-                                        <li><a href="#">Math</a></li>
-                                        <li><a href="#">Read</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="vertical-nav-item">
-                            <a href="#">Online School</a>
-                            <div class="vartical-nav-content-menu-wrapper">
-                                <div class="vartical-nav-content-menu">
-                                    <h3 class="rbt-short-title">Course Title</h3>
-                                    <ul class="rbt-vertical-nav-list-wrapper">
-                                        <li><a href="#">Photo</a></li>
-                                        <li><a href="#">English</a></li>
-                                        <li><a href="#">Math</a></li>
-                                        <li><a href="#">Read</a></li>
-                                    </ul>
-                                </div>
-                                <div class="vartical-nav-content-menu">
-                                    <h3 class="rbt-short-title">Course Title</h3>
-                                    <ul class="rbt-vertical-nav-list-wrapper">
-                                        <li><a href="#">Web Design</a></li>
-                                        <li><a href="#">Art</a></li>
-                                        <li><a href="#">Figma</a></li>
-                                        <li><a href="#">Adobe</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="vertical-nav-item">
-                            <a href="#">kindergarten</a>
-                            <div class="vartical-nav-content-menu-wrapper">
-                                <div class="vartical-nav-content-menu">
-                                    <h3 class="rbt-short-title">Course Title</h3>
-                                    <ul class="rbt-vertical-nav-list-wrapper">
-                                        <li><a href="#">Photo</a></li>
-                                        <li><a href="#">English</a></li>
-                                        <li><a href="#">Math</a></li>
-                                        <li><a href="#">Read</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="vertical-nav-item">
-                            <a href="#">Classic LMS</a>
-                            <div class="vartical-nav-content-menu-wrapper">
-                                <div class="vartical-nav-content-menu">
-                                    <h3 class="rbt-short-title">Course Title</h3>
-                                    <ul class="rbt-vertical-nav-list-wrapper">
-                                        <li><a href="#">Web Design</a></li>
-                                        <li><a href="#">Art</a></li>
-                                        <li><a href="#">Figma</a></li>
-                                        <li><a href="#">Adobe</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    <div class="read-more-btn">
-                        <div class="rbt-btn-wrapper mt--20">
-                            <a class="rbt-btn btn-border-gradient radius-round btn-sm hover-transform-none w-100 justify-content-center text-center" href="#">
-                                <span>Learn More</span>
-                            </a>
-                        </div>
-                    </div>
-                </nav>
-                <div class="rbt-offcanvas-footer">
-
-                </div>
-            </div>
-        </div>
-        <!-- End Side Vav -->
-        <a class="rbt-close_side_menu" href="javascript:void(0);"></a>
     </header>
     <!-- Mobile Menu Section -->
     <div class="popup-mobile-menu">
@@ -1516,7 +1342,7 @@
                         <div class="footer-widget">
                             <div class="logo">
                                 <a href="index.html">
-                                    <img src="assets_pages/images/logo/logo.png" alt="Edu-cause">
+                                    <img src="assets/images/logo/logo.png" alt="Edu-cause">
                                 </a>
                             </div>
 
@@ -1544,9 +1370,9 @@
                             </ul>
 
                             <div class="contact-btn mt--30">
-                                <a class="rbt-btn hover-icon-reverse btn-border-gradient radius-round" href="#">
+                                <a class="rbt-btn hover-icon-reverse btn-border-gradient radius-round" href="/contact">
                                     <div class="icon-reverse-wrapper">
-                                        <span class="btn-text">Contact With Us</span>
+                                        <span class="btn-text">Contact</span>
                                         <span class="btn-icon"><i class="feather-arrow-right"></i></span>
                                         <span class="btn-icon"><i class="feather-arrow-right"></i></span>
                                     </div>
@@ -1571,43 +1397,26 @@
                                 <li>
                                     <a href="09-gym-coaching.html">GYM Coaching</a>
                                 </li>
-                                <li>
-                                    <a href="faqs.html">FAQ</a>
-                                </li>
-                                <li>
-                                    <a href="about-us-01.html">About Us</a>
-                                </li>
-                                <li>
-                                    <a href="privacy-policy.html">Privacy policy</a>
-                                </li>
+
                             </ul>
                         </div>
                     </div>
 
                     <div class="col-lg-2 col-md-6 col-sm-6 col-12">
                         <div class="footer-widget">
-                            <h5 class="ft-title">Our Company</h5>
+                            <h5 class="ft-title">Pages</h5>
                             <ul class="ft-link">
                                 <li>
-                                    <a href="contact.html">Contact Us</a>
+                                    <a href="/home">Home</a>
                                 </li>
                                 <li>
-                                    <a href="become-a-teacher.html">Become Teacher</a>
+                                    <a href="/education">Education</a>
                                 </li>
                                 <li>
-                                    <a href="blog.html">Blog</a>
+                                    <a href="/formation">Formation</a>
                                 </li>
                                 <li>
-                                    <a href="instructor.html">Instructor</a>
-                                </li>
-                                <li>
-                                    <a href="event-list.html">Events</a>
-                                </li>
-                                <li>
-                                    <a href="course-filter-one-toggle.html">Course</a>
-                                </li>
-                                <li>
-                                    <a href="contact.html">Contact</a>
+                                    <a href="/contact">Contact</a>
                                 </li>
                             </ul>
                         </div>
@@ -1621,21 +1430,6 @@
                                 <li><span>E-mail:</span> <a href="mailto:hr@example.com">admin@example.com</a></li>
                             </ul>
 
-                            <form class="newsletter-form mt--20" action="#">
-                                <h6 class="w-600">Newsletter</h6>
-                                <p class="description">2000+ Our students are subscribe Around the World.<br> Don’t be shy introduce yourself!</p>
-
-                                <div class="form-group right-icon icon-email mb--20">
-                                    <label for="email">Enter Your Email Here</label>
-                                    <input id="email" type="email">
-                                </div>
-
-                                <div class="form-group mb--0">
-                                    <button class="rbt-btn rbt-switch-btn btn-gradient radius-round btn-sm" type="submit">
-                                        <span data-text="Submit Now">Submit Now</span>
-                                    </button>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -1651,14 +1445,17 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-12">
-                        <p class="rbt-link-hover text-center text-lg-start">Copyright © 2023 <a href="https://themeforest.net/user/rbt-themes">Rainbow-Themes.</a> All Rights Reserved</p>
+                        <p class="rbt-link-hover text-center text-lg-start">Copyright © 2024 <a
+                                href="https://themeforest.net/user/rbt-themes">Allo école</a> All Rights Reserved
+                        </p>
                     </div>
                     <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-12">
-                        <ul class="copyright-link rbt-link-hover justify-content-center justify-content-lg-end mt_sm--10 mt_md--10">
+                        <ul
+                            class="copyright-link rbt-link-hover justify-content-center justify-content-lg-end mt_sm--10 mt_md--10">
                             <li><a href="#">Terms of service</a></li>
                             <li><a href="privacy-policy.html">Privacy policy</a></li>
                             <li><a href="subscription.html">Subscription</a></li>
-                            <li><a href="login.html">Login & Register</a></li>
+                            <li><a href="/login">Login & Register</a></li>
                         </ul>
                     </div>
                 </div>

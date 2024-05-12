@@ -44,24 +44,6 @@ Route::get('/to_do', function () {
     return view('Admin.to-do-list');
 });
 
-
-
-Route::post('/register', [AuthController::class, 'register']);
-Route::get('/register', function () {
-    return view('Auth.register');
-});
-Route::post('/login', [AuthController::class, 'login']);
-
-
-Route::get('/admin', function() {
-    return view('admin.dashboard');  
-})->middleware(['auth', 'can:isAdmin']); 
-
-
-
-
-Route::get('/profile', [userController::class, 'userlogged'])->name('profile')->middleware('auth');
-
 Route::get('/', function(){
     return view('pages.home');
 });
@@ -74,3 +56,17 @@ Route::post('/admin', [NiveauxScolaireController::class, 'store'])->name('niveau
 Route::get('/education', function(){
     return view('pages.education');
 });
+
+//----------------------------Authentification----------------------------//
+Route::post('/register', [AuthController::class, 'register']);
+Route::get('/register', function () {
+    return view('Auth.register');
+});
+Route::post('/login', [AuthController::class, 'login']);
+
+//----------------------------Middlware----------------------------//
+Route::get('/admin', function() {
+    return view('admin.dashboard');  
+})->middleware(['auth', 'can:isAdmin']); 
+
+Route::get('/profile', [userController::class, 'userlogged'])->name('profile')->middleware('auth');
