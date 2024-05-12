@@ -14,14 +14,19 @@ class NiveauxScolaireController extends Controller
     }
 
     public function store(Request $request)
-{
-    $request->validate([
-        'nom' => 'required|string|max:255',
-    ]);
+    {
+        $request->validate([
+            'nom' => 'required|string|max:255',
+        ]);
 
-    $niveaux = NiveauScolaire::create([
-        'nom' => $request->nom,
-    ]);
-    return redirect()->route('Dashboard')->with('success', 'Niveau scolaire ajouté avec succès.');
-}
+        $niveaux = NiveauScolaire::create([
+            'nom' => $request->nom,
+        ]);
+        return redirect('/admin')->with('success', 'Niveau scolaire ajouté avec succès.');
+    }
+    public function destroy(NiveauScolaire $niveau)
+    {
+        $niveau->delete();
+        return redirect()->route('niveaux.index')->with('success', 'Niveau scolaire supprimé avec succès.');
+    }
 }

@@ -7,10 +7,6 @@ use Illuminate\Http\Request;
 
 class userController extends Controller
 {
-    public function showFormateurs() {
-        $formateurs = User::where('type', 'Formateur')->get(); 
-        return view('Admin.formateur', compact('formateurs')); 
-    }
     public function userlogged()
     {
         $user = Auth::user(); 

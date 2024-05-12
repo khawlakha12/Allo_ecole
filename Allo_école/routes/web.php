@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\NiveauxScolaireController;
+use App\Http\Middleware\EnsureUserIsAdmin;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +19,7 @@ use App\Http\Controllers\NiveauxScolaireController;
 
 
 
-Route::get('/admin', function () {
-        return view('Admin.dashboard');
-})->name('Dashboard');
+
 
 Route::get('/niveaux', function () {
     return view('Admin.grid-tables');
@@ -51,7 +50,10 @@ Route::get('/contact', function(){
     return view('pages.contact');
 });
 
-Route::post('/admin', [NiveauxScolaireController::class, 'store'])->name('niveaux.store');
+Route::get('/année_scolaire', function(){
+    return view('Admin.année');
+});
+
 
 Route::get('/education', function(){
     return view('pages.education');
@@ -66,7 +68,12 @@ Route::post('/login', [AuthController::class, 'login']);
 
 //----------------------------Middlware----------------------------//
 Route::get('/admin', function() {
-    return view('admin.dashboard');  
-})->middleware(['auth', 'can:isAdmin']); 
+    return view('Admin.dashboard');
+})->middleware(['auth', 'isAdmin']);
 
 Route::get('/profile', [userController::class, 'userlogged'])->name('profile')->middleware('auth');
+
+//----------------------------Niveaux Scolaire----------------------------//
+Route::post('/admin', [NiveauxScolaireController::class, 'store'])->name('niveaux.store');
+Route::get('/admin', [NiveauxScolaireController::class, 'index'])->name('niveaux.index');
+Route::delete('/admin/{niveau}', [NiveauxScolaireController::class, 'destroy'])->name('niveaux.destroy');

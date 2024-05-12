@@ -1447,21 +1447,21 @@
                             </div>
                         </div>
                     </div>
-                    @foreach ($formateurs as $formateur)
+                    
                     <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-sm-12">
                         <div class="card custom-card ">
                             <div class="card-body">
                                 <div class="text-center">
                                     <span class="avatar avatar-xxl rounded">
-                                    <img src="{{ $formateur->picture ?: '../assets/images/faces/11.jpg' }}" alt="" class="rounded-circle">
+                                    <img src="../assets/images/faces/11.jpg" alt="" class="rounded-circle">
                                     </span>
                                 </div>
                                 <div class="d-flex  text-center justify-content-between mt-1 mb-3">
                                     <div class="flex-fill">
                                         <p class="mb-0 fw-semibold fs-16 text-truncate max-w-150 mx-auto">
-                                            <a href="javascript:void(0);">{{ $formateur->name }}</a>
+                                            <a href="javascript:void(0);">hhh</a>
                                         </p>
-                                        <p class="mb-0 fs-12 text-muted text-truncate max-w-150 mx-auto">{{ $formateur->email }}</p>
+                                        <p class="mb-0 fs-12 text-muted text-truncate max-w-150 mx-auto">formateur@gmail.com</p>
                                     </div>
                                 </div>
                                 <div class="btn-list text-center">
@@ -1483,20 +1483,20 @@
                                     <div class="d-flex p-3 w-100 justify-content-center border-end">
                                         <div class="text-center ">
                                             <p class="fw-semibold mb-0">Projects</p>
-                                            <span class="text-muted fs-12">{{ $formateur->projects_count ?: '0' }}</span>
+                                            <span class="text-muted fs-12">0</span>
                                         </div>
                                     </div>
                                     <div class="d-flex p-3 w-100 justify-content-center">
                                         <div class="text-center">
                                             <p class="fw-semibold mb-0">Position</p>
-                                            <span class="text-muted fs-12">{{ $formateur->position ?: 'N/A' }}</span>
+                                            <span class="text-muted fs-12">12/20</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    @endforeach
+                  
                 </div>
                 <!-- Start: pagination -->
                 <div class="float-end mb-4 ms-auto">

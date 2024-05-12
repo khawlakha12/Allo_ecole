@@ -8,7 +8,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title> Sash – Bootstrap 5  Admin &amp; Dashboard Template </title>
+    <title>Allo école</title>
     <meta name="Description" content="Bootstrap Responsive Admin Web Dashboard HTML5 Template">
     <meta name="Author" content="Spruko Technologies Private Limited">
 	<meta name="keywords" content="admin dashboard,dashboard design htmlbootstrap admin template,html admin panel,admin dashboard html,admin panel html template,bootstrap dashboard,html admin template,html dashboard,html admin dashboard template,bootstrap dashboard template,dashboard html template,bootstrap admin panel,dashboard admin bootstrap,bootstrap admin dashboard">
@@ -2320,18 +2320,18 @@
                                                     <div class="tab-pane fade p-0 border-0" id="followers-tab-pane"
                                                         role="tabpanel" aria-labelledby="followers-tab" tabindex="0">
                                                         <div class="row">
-                                                         @foreach ($formateurs as $formateur)
+                                                        
                                                             <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12">
                                                                 <div class="card custom-card shadow-none border">
                                                                     <div class="card-body p-4">
                                                                         <div class="text-center">
                                                                             <span class="avatar avatar-xl avatar-rounded">
-                                                                                <img src="{{ $formateur->picture ?: '../assets/images/faces/11.jpg' }}" alt="">
+                                                                                <img src="../assets/images/faces/11.jpg" alt="">
                                                                             </span>
                                                                             <div class="mt-2">
-                                                                                <p class="mb-0 fw-semibold">{{ $formateur->name }}</p>
-                                                                                <p class="fs-12 op-7 mb-1 text-muted">{{ $formateur->email }}</p>
-                                                                                <span class="badge bg-info-transparent rounded-pill">{{ $formateur->type }}</span>
+                                                                                <p class="mb-0 fw-semibold">formateur</p>
+                                                                                <p class="fs-12 op-7 mb-1 text-muted">formateur@gmail.com</p>
+                                                                                <span class="badge bg-info-transparent rounded-pill">formateur</span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -2342,7 +2342,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        @endforeach
+                                                       
                                                         </div>
                                                     </div>
                                                 </div>    

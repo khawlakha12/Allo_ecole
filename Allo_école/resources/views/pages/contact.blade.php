@@ -61,10 +61,10 @@
                                         <i class="feather-chevron-down"></i>
                                     </a>
                                     <ul class="submenu">
-                                        <li class="has-dropdown"><a href="#">Instructor Dashboard</a>
+                                    @foreach($niveaux as $niveau)
+                                        <li class="has-dropdown"><a href="#">{{ $niveau->nom }}</a>
                                         </li>
-                                        <li class="has-dropdown"><a href="#">Student Dashboard</a>
-                                        </li>
+@endforeach
                                     </ul>
                                 </li>
                                 <li class="has-dropdown has-menu-child-item">
