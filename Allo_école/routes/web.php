@@ -83,5 +83,6 @@ Route::delete('/admin/{niveau}', [NiveauxScolaireController::class, 'destroy'])-
 //----------------------------Année Scolaire----------------------------//
 Route::post('/année_scolaire', [AnneeScolaireController::class, 'store'])->name('annees_scolaires.store');
 Route::get('/année_scolaire', [AnneeScolaireController::class, 'index'])->name('annees.index');
+Route::get('/filter-annees', [AnneeScolaireController::class, 'filter'])->name('filter_annees');
 
 

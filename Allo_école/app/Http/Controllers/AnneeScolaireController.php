@@ -22,5 +22,18 @@ class AnneeScolaireController extends Controller {
 
         return redirect('/admin')->with('success', 'Année scolaire ajoutée avec succès.');
     }
-
+    public function filter(Request $request)
+    {
+        $query = AnneeScolaire::query();
+    
+        if ($request->has('niveau_id') && $request->niveau_id) {
+            $query->whereHas('niveauScolaire', function($q) use ($request) {
+                $q->where('id', $request->niveau_id);
+            });
+        }
+    
+        $annees = $query->get();
+        return view('Admin.année', compact('annees'));
+    }
+    
 }

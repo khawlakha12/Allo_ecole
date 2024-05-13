@@ -55,7 +55,28 @@
 
     <!-- Grid Css -->
     <link rel="stylesheet" href="../assets/libs/gridjs/theme/mermaid.min.css">
+    <style>
+        #pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
 
+        #pagination button {
+            margin: 5px;
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        #pagination button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 
 <body>
@@ -1536,17 +1557,32 @@
             <div class="row" style="margin-top:30px;">
                 <div class="col-xl-12">
                     <div class="card custom-card">
-                        <div class="card-header justify-content-between">
-                            <div class="card-title">
-                                {{ $niveau->nom }}
-                            </div>
-                        </div>
+                    <div class="card">
+    <div class="card-header justify-content-between d-flex align-items-center">
+        <div class="card-title">
+            {{ $niveau->nom }}
+        </div>
+        <form id="filterForm" class="d-flex align-items-center" method="GET" action="{{ route('filter_annees') }}">
+    <div class="form-group mb-0" style="margin-right: 10px;">
+        <select name="niveau_id" id="filterSelect" class="form-control">
+            <option value="">Tous les niveaux</option>
+            @foreach($niveaux as $niveau)
+                <option value="{{$niveau->id}}">{{$niveau->nom}}</option>
+            @endforeach
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Filter</button>
+</form>
+    </div>
+</div>
+
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table text-nowrap">
+                                <table class="table text-nowrap" id="année_scolaire">
                                     <thead>
                                         <tr>
                                             <th scope="col">Validation</th>
+                                            <th scope="col">Niveau Scolaire</th>
                                             <th scope="col">Nom</th>
                                             <th scope="col">Date</th>
                                             <th scope="col">Supprimer</th>
@@ -1559,6 +1595,8 @@
                                                 <td>
                                                     <input class="form-check-input" type="checkbox" {{ $annee->validation ? 'checked' : '' }} disabled>
                                                 </td>
+                                                <td>{{ $annee->niveauScolaire ? $annee->niveauScolaire->nom : 'N/A' }}</td>
+
                                                 <td>{{ $annee->nom }}</td>
                                                 <td>{{ $annee->created_at->format('d/m/Y') }}</td>
                                                 <td>
@@ -1572,49 +1610,36 @@
                                     </tbody>
                                 </table>
                                 <!-- pagination -->
-                                <div class="col-sm-12 col-md-6" style=" margin-top:30px;">
-                                        <nav aria-label="Page navigation">
-                                            <ul class="pagination justify-content-end mb-0">
-                                                <li class="page-item disabled"><a class="page-link"
-                                                        href="javascript:void(0);">Previous</a></li>
-                                                <li class="page-item active"><a class="page-link"
-                                                        href="javascript:void(0);">1</a></li>
-                                                <li class="page-item"><a class="page-link"
-                                                        href="javascript:void(0);">2</a></li>
-                                                <li class="page-item"><a class="page-link"
-                                                        href="javascript:void(0);">Next</a></li>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                     <!------------------->
-                                </div>
-
+                                <div id="pagination"></div>
+                                <!------------------->
                             </div>
-                        </div>
-                        <div class="card-footer d-none border-top-0">
 
                         </div>
                     </div>
+                    <div class="card-footer d-none border-top-0">
+
+                    </div>
                 </div>
             </div>
-            <!-- End:: row-11 -->
         </div>
-        <!-- End::app-content -->
+        <!-- End:: row-11 -->
+    </div>
+    <!-- End::app-content -->
 
-        <!-- Footer Start -->
-        <footer class="footer mt-auto py-3 text-center">
-            <div class="container">
-                <span class=""> Copyright © <span id="year"></span> <a href="javascript:void(0);"
-                        class="text-primary">Sash</a>.
-                    Designed with <span class="bi bi-heart-fill text-danger"></span> by <a href="javascript:void(0);">
-                        <span class="text-primary">Spruko</span>
-                    </a> All
-                    rights
-                    reserved
-                </span>
-            </div>
-        </footer>
-        <!-- Footer End -->
+    <!-- Footer Start -->
+    <footer class="footer mt-auto py-3 text-center">
+        <div class="container">
+            <span class=""> Copyright © <span id="year"></span> <a href="javascript:void(0);"
+                    class="text-primary">Sash</a>.
+                Designed with <span class="bi bi-heart-fill text-danger"></span> by <a href="javascript:void(0);">
+                    <span class="text-primary">Spruko</span>
+                </a> All
+                rights
+                reserved
+            </span>
+        </div>
+    </footer>
+    <!-- Footer End -->
 
     </div>
 
@@ -1683,7 +1708,43 @@
 
     <!-- Custom JS -->
     <script src="../assets/js/custom.js"></script>
+    <!---------------------Pagination--------------------->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const rowsPerPage = 6;
+            const rows = Array.from(document.querySelector('#année_scolaire tbody').rows);
+            const paginationWrapper = document.getElementById('pagination');
 
+            function setupPagination(rows, wrapper, rowsPerPage) {
+                wrapper.innerHTML = "";
+
+                let pageCount = Math.ceil(rows.length / rowsPerPage);
+                for (let i = 1; i <= pageCount; i++) {
+                    let btn = document.createElement('button');
+                    btn.innerText = i;
+                    btn.addEventListener('click', function () {
+                        displayPage(i);
+                    });
+                    wrapper.appendChild(btn);
+                }
+            }
+
+            function displayPage(page) {
+                const start = (page - 1) * rowsPerPage;
+                const end = start + rowsPerPage;
+                rows.forEach((row, index) => {
+                    if (index >= start && index < end) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            }
+
+            setupPagination(rows, paginationWrapper, rowsPerPage);
+            displayPage(1);
+        });
+    </script>
 </body>
 
 </html>
