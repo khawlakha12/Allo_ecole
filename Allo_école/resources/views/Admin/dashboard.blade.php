@@ -1339,6 +1339,11 @@
                                 <i class="fe fe-home side-menu__icon"></i>
                                 <span class="side-menu__label">Dashboard</span>
                             </a>
+                        </li> <li class="slide">
+                            <a href="/" class="side-menu__item">
+                                <i class="fe fe-home side-menu__icon"></i>
+                                <span class="side-menu__label">Home</span>
+                            </a>
                         </li>
                         <li class="slide">
                             <a href="/profile" class="side-menu__item">

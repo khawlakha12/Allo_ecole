@@ -1291,7 +1291,7 @@
 
             <!-- Start::main-sidebar-header -->
             <div class="main-sidebar-header">
-                <a href="index.html" class="header-logo">
+                <a href="/admin" class="header-logo">
                     <img src="../assets/images/brand-logos/desktop-logo.png" alt="logo" class="desktop-logo">
                     <img src="../assets/images/brand-logos/toggle-logo.png" alt="logo" class="toggle-logo">
                     <img src="../assets/images/brand-logos/desktop-dark.png" alt="logo" class="desktop-dark">
@@ -1323,6 +1323,11 @@
                             <a href="/admin" class="side-menu__item">
                                 <i class="fe fe-home side-menu__icon"></i>
                                 <span class="side-menu__label">Dashboard</span>
+                            </a>
+                        </li> <li class="slide">
+                            <a href="/" class="side-menu__item">
+                                <i class="fe fe-home side-menu__icon"></i>
+                                <span class="side-menu__label">Home</span>
                             </a>
                         </li>
                         <li class="slide">
@@ -1388,11 +1393,10 @@
                                 <i class="fe fe-chevron-right side-menu__angle"></i>
                             </a>
                             <ul class="slide-menu child1">
-                                @foreach($niveaux as $niveau)
                                     <li class="slide">
-                                        <a href="/niveaux" class="side-menu__item">{{ $niveau->nom }}</a>
+                                        <a href="{{ route('annees.index') }}"
+                                            class="side-menu__item">Année Scolaire</a>
                                     </li>
-                                @endforeach
                             </ul>
                         </li>
                         <li class="slide has-sub">
@@ -1559,9 +1563,7 @@
                     <div class="card custom-card">
                     <div class="card">
     <div class="card-header justify-content-between d-flex align-items-center">
-        <div class="card-title">
-            {{ $niveau->nom }}
-        </div>
+
         <form id="filterForm" class="d-flex align-items-center" method="GET" action="{{ route('filter_annees') }}">
     <div class="form-group mb-0" style="margin-right: 10px;">
         <select name="niveau_id" id="filterSelect" class="form-control">
