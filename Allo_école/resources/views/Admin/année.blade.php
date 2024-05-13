@@ -1367,36 +1367,36 @@
                                 <i class="fe fe-chevron-right side-menu__angle"></i>
                             </a>
                             <ul class="slide-menu child1">
-                        @foreach($niveaux as $niveau)
-                        <li class="slide">
-                            <a href="/niveaux" class="side-menu__item">{{ $niveau->nom }}</a>
-                        </li>
-                        @endforeach
-                    </ul>
-                    </li>
-                    <li class="slide has-sub">
-                        <a href="#" class="side-menu__item">
-                            <i class="fe fe-file-text side-menu__icon"></i>
-                            <span class="side-menu__label">Courses</span>
-                            <i class="fe fe-chevron-right side-menu__angle"></i>
-                        </a>
-                        <ul class="slide-menu child1">
-                            <li class="slide side-menu__label1">
-                                <a href="javascript:void(0)">Courses</a>
-                            </li>
-                            <li class="slide has-sub">
-                                <a href="javascript:void(0);" class="side-menu__item">Form Elements
-                                    <i class="fe fe-chevron-right side-menu__angle"></i></a>
-                                <ul class="slide-menu child2">
+                                @foreach($niveaux as $niveau)
                                     <li class="slide">
-                                        <a href="form_inputs.html" class="side-menu__item">Inputs</a>
+                                        <a href="/niveaux" class="side-menu__item">{{ $niveau->nom }}</a>
                                     </li>
-                                </ul>
-                            </li>
-                    </li>
-                    <li class="slide">
-                        <a href="form_validation.html" class="side-menu__item">Validation</a>
-                    </li>
+                                @endforeach
+                            </ul>
+                        </li>
+                        <li class="slide has-sub">
+                            <a href="#" class="side-menu__item">
+                                <i class="fe fe-file-text side-menu__icon"></i>
+                                <span class="side-menu__label">Courses</span>
+                                <i class="fe fe-chevron-right side-menu__angle"></i>
+                            </a>
+                            <ul class="slide-menu child1">
+                                <li class="slide side-menu__label1">
+                                    <a href="javascript:void(0)">Courses</a>
+                                </li>
+                                <li class="slide has-sub">
+                                    <a href="javascript:void(0);" class="side-menu__item">Form Elements
+                                        <i class="fe fe-chevron-right side-menu__angle"></i></a>
+                                    <ul class="slide-menu child2">
+                                        <li class="slide">
+                                            <a href="form_inputs.html" class="side-menu__item">Inputs</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                        </li>
+                        <li class="slide">
+                            <a href="form_validation.html" class="side-menu__item">Validation</a>
+                        </li>
                     </ul>
                     </li>
                     <li class="slide has-sub">
@@ -1533,84 +1533,71 @@
 
         <!-- Start::app-content -->
         <div class="main-content app-content">
-        <div class="row" style="margin-top:30px;">
-                    <div class="col-xl-12">
-                        <div class="card custom-card">
-                            <div class="card-header justify-content-between">
-                                <div class="card-title">
+            <div class="row" style="margin-top:30px;">
+                <div class="col-xl-12">
+                    <div class="card custom-card">
+                        <div class="card-header justify-content-between">
+                            <div class="card-title">
                                 {{ $niveau->nom }}
-                                </div>
-                                <div class="prism-toggle">
-                                    <button class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModalToggle">Ajouter année<i class="bi bi-plus-lg"></i></button>
-                                </div>
-                                <div class="modal fade" id="exampleModalToggle" tabindex="-1"
-                                    aria-labelledby="exampleModalToggleLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalToggleLabel">Ajouter Année scolaire
-                                                </h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                            <form action="/année_scolaire/{{ $niveau->id }}" method="POST">
-    @csrf
-    <div class="mb-3">
-        <input type="text" name="nom" class="form-control" placeholder="Exemple : Baccalauréat" required>
-    </div>
-    <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Ajouter</button>
-    </div>
-</form>
-
-                                            </div>
-
-                                        </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table text-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Validation</th>
+                                            <th scope="col">Nom</th>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Supprimer</th>
+                                            <th scope="col">Modifier</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($annees as $annee)
+                                            <tr>
+                                                <td>
+                                                    <input class="form-check-input" type="checkbox" {{ $annee->validation ? 'checked' : '' }} disabled>
+                                                </td>
+                                                <td>{{ $annee->nom }}</td>
+                                                <td>{{ $annee->created_at->format('d/m/Y') }}</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-danger">Delete</a>
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="btn btn-primary">Edit</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                <!-- pagination -->
+                                <div class="col-sm-12 col-md-6" style=" margin-top:30px;">
+                                        <nav aria-label="Page navigation">
+                                            <ul class="pagination justify-content-end mb-0">
+                                                <li class="page-item disabled"><a class="page-link"
+                                                        href="javascript:void(0);">Previous</a></li>
+                                                <li class="page-item active"><a class="page-link"
+                                                        href="javascript:void(0);">1</a></li>
+                                                <li class="page-item"><a class="page-link"
+                                                        href="javascript:void(0);">2</a></li>
+                                                <li class="page-item"><a class="page-link"
+                                                        href="javascript:void(0);">Next</a></li>
+                                            </ul>
+                                        </nav>
                                     </div>
+                                     <!------------------->
                                 </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table text-nowrap">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Validation</th>
-                                                <th scope="col">Nom</th>
-                                                <th scope="col">Date</th>
-                                                <th scope="col">Supprimer</th>
-                                                <th scope="col">Modifier</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                <input class="form-check-input" type="checkbox" id="checkboxNoLabel1" value="" aria-label="...">
-                                                </td>
-                                                <td>Manufacturer</td>
-                                                <td>12/12/2005</td>
-                                                <td>
-                                                <a href="javascript:void(0);" class="btn btn-icon btn-sm btn-success"><i class="ri-download-2-line"></i></a>
-                                                </td>
-                                                <td>
-                                                    <div class="hstack gap-2 fs-15">
-                                                    
-                                                        <a href="javascript:void(0);" class="btn btn-icon btn-sm btn-info"><i class="ri-edit-line"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="card-footer d-none border-top-0">
 
                             </div>
                         </div>
+                        <div class="card-footer d-none border-top-0">
+
+                        </div>
                     </div>
                 </div>
-                <!-- End:: row-11 -->
+            </div>
+            <!-- End:: row-11 -->
         </div>
         <!-- End::app-content -->
 

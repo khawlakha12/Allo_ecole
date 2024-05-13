@@ -82,7 +82,6 @@ Route::delete('/admin/{niveau}', [NiveauxScolaireController::class, 'destroy'])-
 
 //----------------------------Année Scolaire----------------------------//
 Route::post('/année_scolaire', [AnneeScolaireController::class, 'store'])->name('annees_scolaires.store');
-Route::get('/année_scolaire/{id}', function($id) {
-    $niveau = NiveauScolaire::findOrFail($id);
-    return view('Admin.année', compact('niveau'));
-});
+Route::get('/année_scolaire', [AnneeScolaireController::class, 'index'])->name('annees.index');
+
+

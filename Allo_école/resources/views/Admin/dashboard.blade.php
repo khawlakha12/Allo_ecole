@@ -1306,7 +1306,7 @@
 
             <!-- Start::main-sidebar-header -->
             <div class="main-sidebar-header">
-                <a href="index.html" class="header-logo">
+                <a href="/admin" class="header-logo">
                     <img src="../assets/images/brand-logos/desktop-logo.png" alt="logo" class="desktop-logo">
                     <img src="../assets/images/brand-logos/toggle-logo.png" alt="logo" class="toggle-logo">
                     <img src="../assets/images/brand-logos/desktop-dark.png" alt="logo" class="desktop-dark">
@@ -1403,12 +1403,10 @@
                                 <i class="fe fe-chevron-right side-menu__angle"></i>
                             </a>
                             <ul class="slide-menu child1">
-                                @foreach($niveaux as $niveau)
                                     <li class="slide">
-                                        <a href="{{ url('/année_scolaire/' . $niveau->id) }}"
-                                            class="side-menu__item">{{ $niveau->nom }}</a>
+                                        <a href="{{ route('annees.index') }}"
+                                            class="side-menu__item">Année Scolaire</a>
                                     </li>
-                                @endforeach
                             </ul>
                         </li>
                         <li class="slide has-sub">

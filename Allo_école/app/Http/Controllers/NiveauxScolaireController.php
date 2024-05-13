@@ -29,4 +29,5 @@ class NiveauxScolaireController extends Controller
         $niveau->delete();
         return redirect()->route('niveaux.index')->with('success', 'Niveau scolaire supprimé avec succès.');
     }
+    
 }

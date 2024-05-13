@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\AnneeScolaire;
 
 class AnneeScolaireController extends Controller {
+    public function index()
+    {
+        $annees = AnneeScolaire::all();
+        return view('Admin.année', compact('annees'));
+    }
     public function store(Request $request)
     {
         $validated = $request->validate([
