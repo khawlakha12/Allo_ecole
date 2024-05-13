@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\NiveauxScolaireController;
+use App\Http\Controllers\AnneeScolaireController;
+use App\Models\NiveauScolaire;
+use Illuminate\Support\Facades\Log;
 use App\Http\Middleware\EnsureUserIsAdmin;
 
 /*
@@ -50,9 +53,8 @@ Route::get('/contact', function(){
     return view('pages.contact');
 });
 
-Route::get('/année_scolaire', function(){
-    return view('Admin.année');
-});
+
+
 
 
 Route::get('/education', function(){
@@ -77,3 +79,10 @@ Route::get('/profile', [userController::class, 'userlogged'])->name('profile')->
 Route::post('/admin', [NiveauxScolaireController::class, 'store'])->name('niveaux.store');
 Route::get('/admin', [NiveauxScolaireController::class, 'index'])->name('niveaux.index');
 Route::delete('/admin/{niveau}', [NiveauxScolaireController::class, 'destroy'])->name('niveaux.destroy');
+
+//----------------------------Année Scolaire----------------------------//
+Route::post('/année_scolaire', [AnneeScolaireController::class, 'store'])->name('annees_scolaires.store');
+Route::get('/année_scolaire/{id}', function($id) {
+    $niveau = NiveauScolaire::findOrFail($id);
+    return view('Admin.année', compact('niveau'));
+});

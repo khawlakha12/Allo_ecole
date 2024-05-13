@@ -1538,10 +1538,37 @@
                         <div class="card custom-card">
                             <div class="card-header justify-content-between">
                                 <div class="card-title">
-                                    Années Scolaire
+                                {{ $niveau->nom }}
                                 </div>
                                 <div class="prism-toggle">
-                                    <button class="btn btn-sm btn-primary-light">Ajouter année<i class="ri-code-line ms-2 d-inline-block align-middle"></i></button>
+                                    <button class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModalToggle">Ajouter année<i class="bi bi-plus-lg"></i></button>
+                                </div>
+                                <div class="modal fade" id="exampleModalToggle" tabindex="-1"
+                                    aria-labelledby="exampleModalToggleLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalToggleLabel">Ajouter Année scolaire
+                                                </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                            <form action="/année_scolaire/{{ $niveau->id }}" method="POST">
+    @csrf
+    <div class="mb-3">
+        <input type="text" name="nom" class="form-control" placeholder="Exemple : Baccalauréat" required>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+    </div>
+</form>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="card-body">

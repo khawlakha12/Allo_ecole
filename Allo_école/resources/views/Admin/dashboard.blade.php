@@ -55,7 +55,43 @@
 
     <!-- Grid Css -->
     <link rel="stylesheet" href="../assets/libs/gridjs/theme/mermaid.min.css">
+    <style>
+        .group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+        }
 
+        .input {
+            margin-top: 20px;
+            width: 90%;
+            height: 40px;
+            line-height: 28px;
+            padding: 0 1rem;
+            padding-left: 2.5rem;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            outline: none;
+            background-color: #f3f3f4;
+            color: #0d0c22;
+            transition: .3s ease;
+        }
+
+        .input::placeholder {
+            color: #9e9ea7;
+        }
+
+        .input:focus,
+        input:hover {
+            outline: none;
+            border-color: blue;
+            background-color: #fff;
+            box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+        }
+    </style>
 </head>
 
 <body>
@@ -1367,36 +1403,37 @@
                                 <i class="fe fe-chevron-right side-menu__angle"></i>
                             </a>
                             <ul class="slide-menu child1">
-                        @foreach($niveaux as $niveau)
-                        <li class="slide">
-                            <a href="/niveaux" class="side-menu__item">{{ $niveau->nom }}</a>
-                        </li>
-                        @endforeach
-                    </ul>
-                    </li>
-                    <li class="slide has-sub">
-                        <a href="#" class="side-menu__item">
-                            <i class="fe fe-file-text side-menu__icon"></i>
-                            <span class="side-menu__label">Courses</span>
-                            <i class="fe fe-chevron-right side-menu__angle"></i>
-                        </a>
-                        <ul class="slide-menu child1">
-                            <li class="slide side-menu__label1">
-                                <a href="javascript:void(0)">Courses</a>
-                            </li>
-                            <li class="slide has-sub">
-                                <a href="javascript:void(0);" class="side-menu__item">Form Elements
-                                    <i class="fe fe-chevron-right side-menu__angle"></i></a>
-                                <ul class="slide-menu child2">
+                                @foreach($niveaux as $niveau)
                                     <li class="slide">
-                                        <a href="form_inputs.html" class="side-menu__item">Inputs</a>
+                                        <a href="{{ url('/année_scolaire/' . $niveau->id) }}"
+                                            class="side-menu__item">{{ $niveau->nom }}</a>
                                     </li>
-                                </ul>
-                            </li>
-                    </li>
-                    <li class="slide">
-                        <a href="form_validation.html" class="side-menu__item">Validation</a>
-                    </li>
+                                @endforeach
+                            </ul>
+                        </li>
+                        <li class="slide has-sub">
+                            <a href="#" class="side-menu__item">
+                                <i class="fe fe-file-text side-menu__icon"></i>
+                                <span class="side-menu__label">Courses</span>
+                                <i class="fe fe-chevron-right side-menu__angle"></i>
+                            </a>
+                            <ul class="slide-menu child1">
+                                <li class="slide side-menu__label1">
+                                    <a href="javascript:void(0)">Courses</a>
+                                </li>
+                                <li class="slide has-sub">
+                                    <a href="javascript:void(0);" class="side-menu__item">Form Elements
+                                        <i class="fe fe-chevron-right side-menu__angle"></i></a>
+                                    <ul class="slide-menu child2">
+                                        <li class="slide">
+                                            <a href="form_inputs.html" class="side-menu__item">Inputs</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                        </li>
+                        <li class="slide">
+                            <a href="form_validation.html" class="side-menu__item">Validation</a>
+                        </li>
                     </ul>
                     </li>
                     <li class="slide has-sub">
@@ -1538,15 +1575,11 @@
 
                 <!-- PAGE-HEADER -->
                 <div class="page-header">
-                    <h1 class="page-title my-auto">Dashboard 01</h1>
-                    <div>
-                        <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item">
-                                <a href="javascript:void(0)">Home</a>
-                            </li>
-                            <li class="breadcrumb-item active" aria-current="page">Dashboard 01</li>
-                        </ol>
-                    </div>
+                @if(session('success'))
+    <div class="alert alert-success w-100">
+        {{ session('success') }}
+    </div>
+@endif
                 </div>
                 <!-- PAGE-HEADER END -->
 
@@ -1757,7 +1790,7 @@
                                                     onsubmit="return confirm('Are you sure?');">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" aria-label="anchor" style="border:none;"                                                                                                              
+                                                    <button type="submit" aria-label="anchor" style="border:none;"
                                                         class="text-muted"><span class="fe fe-trash-2"></span></button>
                                                 </form>
                                             </div>
@@ -1768,57 +1801,28 @@
                         </div>
                     </div>
                     <div class="col-xxl-4 col-lg-6 col-md-12">
-                        <div class="card overflow-hidden">
+                        <div class="card overflow-hidden h-50">
                             <div class="card-header">
                                 <div>
-                                    <h3 class="card-title">Sales Report by Locations with Devices</h3>
+                                    <h3 class="card-title">Créer année scolaire</h3>
                                 </div>
                             </div>
                             <div class="card-body p-0 mt-2">
-                                <div class="">
-                                    <div id="visitors-countries" class="worldh world-map h-250"></div>
-                                </div>
-                                <div class="table-responsive mt-2 text-center">
-                                    <table class="table text-nowrap border-dashed mb-0">
-                                        <thead class="text-uppercase">
-                                            <tr>
-                                                <th scope="col" class="text-start">Device</th>
-                                                <th scope="col" class="">USA</th>
-                                                <th scope="col" class="">India</th>
-                                                <th scope="col" class="">Bahrain</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="text-start p-3 d-flex align-items-center"><span
-                                                        class="sales-icon text-primary bg-primary-transparent"><i
-                                                            class="bi bi-phone"></i></span>Mobiles</td>
-                                                <td class="p-3">17%</td>
-                                                <td class="p-3">22%</td>
-                                                <td class="p-3">11%</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-start p-3 d-flex align-items-center"><span
-                                                        class="sales-icon text-secondary bg-secondary-transparent "><i
-                                                            class="bi bi-display"></i></span>Desktops</td>
-                                                <td class="p-3">34%</td>
-                                                <td class="p-3">76%</td>
-                                                <td class="p-3">58%</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="border-bottom-0 text-start p-3 d-flex align-items-center">
-                                                    <span class="sales-icon text-danger bg-danger-transparent"><i
-                                                            class="bi bi-tablet"></i></span>Tablets
-                                                </td>
-                                                <td class="border-bottom-0 p-3">56%</td>
-                                                <td class="border-bottom-0 p-3">83%</td>
-                                                <td class="border-bottom-0 p-3">66%</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <!--end /table-->
-                                </div>
-                            </div>
+    <form action="{{ route('annees_scolaires.store') }}" method="POST">
+        @csrf 
+        <div class="group">
+            <input placeholder="exemple : 1ére année" type="text" class="input" name="nom" required>
+            <select class="input" name="id_niveaux_scolaires" required>
+                <option value="">Select an option</option>
+                @foreach($niveaux as $niveau)
+                    <option value="{{ $niveau->id }}">{{ $niveau->nom }}</option>
+                @endforeach
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top: 20px; margin-left: 5%;">Ajouter</button>
+    </form>
+</div>
+
                         </div>
                     </div>
                     <div class="col-xxl-4 col-lg-6 col-md-12">
