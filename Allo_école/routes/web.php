@@ -99,5 +99,7 @@ Route::get('/Matiére', [MatiereController::class, 'filter'])->name('filter_anne
 
 //----------------------------Courses----------------------------//
 Route::get('/course', function () {
-    return view('Admin.file-manager');
+    return view('Admin.Courses');
+});
+Route::get('/files_course', function () {return view('Admin.filemanager-list');
 });

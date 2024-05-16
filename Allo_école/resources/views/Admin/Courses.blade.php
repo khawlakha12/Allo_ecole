@@ -1471,7 +1471,7 @@
                                 <div class="text-dark mb-2 ms-1 fs-20 fw-semibold">All Folders</div>
                                 <div class="col-xl-3 col-md-6 col-sm-6">
                                     <div class="card custom-card pos-relative">
-                                        <a aria-label="anchor" href="filemanager-list.html" class="open-file"></a>
+                                        <a aria-label="anchor" href="/files_course" class="open-file"></a>
                                         <div class="card-body px-4 pt-4 pb-0">
                                             <div class="d-flex">
                                                 <span class="file-img bg-primary-transparent border border-primary">
@@ -1505,7 +1505,7 @@
                                 </div>
                                 <div class="col-xl-3 col-md-6 col-sm-6">
                                     <div class="card custom-card pos-relative">
-                                        <a aria-label="anchor" href="filemanager-list.html" class="open-file"></a>
+                                        <a aria-label="anchor" href="/files_course" class="open-file"></a>
                                         <div class="card-body px-4 pt-4 pb-0">
                                             <div class="d-flex">
                                                 <span class="file-img bg-danger-transparent border border-danger">
@@ -1539,75 +1539,7 @@
                                 </div>
                                 <div class="col-xl-3 col-md-6 col-sm-6">
                                     <div class="card custom-card pos-relative">
-                                        <a aria-label="anchor" href="filemanager-list.html" class="open-file"></a>
-                                        <div class="card-body px-4 pt-4 pb-0">
-                                            <div class="d-flex">
-                                                <span class="file-img bg-success-transparent border border-success">
-                                                    <svg viewBox="0 0 24 24">
-                                                        <path fill="#09ad95" d="M10 4L12 6H20C21.1 6 22 6.89 22 8V18C22 19.1 21.1 20 20 20H4C2.89 20 2 19.1 2 18L2 6C2 4.89 2.89 4 4 4H10M19 9H15.5V13.06L15 13C13.9 13 13 13.9 13 15C13 16.11 13.9 17 15 17C16.11 17 17 16.11 17 15V11H19V9Z" />
-                                                    </svg>
-                                                </span>
-                                                <div class="ms-auto mt-1 file-dropdown">
-                                                    <a aria-label="anchor" href="javascript:void(0)" class="text-muted" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-vertical fs-18"></i></a>
-                                                    <div class="dropdown-menu dropdown-menu-start">
-                                                        <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-edit me-2"></i> Edit</a>
-                                                        <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-share me-2"></i> Share</a>
-                                                        <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-download me-2"></i> Download</a>
-                                                        <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-trash me-2"></i> Delete</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-footer border-top-0">
-                                            <div class="d-flex">
-                                                <div>
-                                                    <h6 class="text-teal fw-normal">Music</h6>
-                                                    <p class="text-muted fs-13 mb-0">25 Files</p>
-                                                </div>
-                                                <div class="ms-auto mt-4">
-                                                    <h6 class="text-muted fw-normal fs-14">15 MB</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-md-6 col-sm-6">
-                                    <div class="card custom-card pos-relative">
-                                        <a aria-label="anchor" href="filemanager-list.html" class="open-file"></a>
-                                        <div class="card-body px-4 pt-4 pb-0">
-                                            <div class="d-flex">
-                                                <span class="file-img bg-pink-transparent border border-pink">
-                                                    <svg viewBox="0 0 24 24">
-                                                        <path fill="#fc5296" d="M10,4L12,6H20A2,2 0 0,1 22,8V18A2,2 0 0,1 20,20H4C2.89,20 2,19.1 2,18V6C2,4.89 2.89,4 4,4H10M12.46,10.88L14.59,13L12.46,15.12L13.88,16.54L16,14.41L18.12,16.54L19.54,15.12L17.41,13L19.54,10.88L18.12,9.46L16,11.59L13.88,9.46L12.46,10.88Z" />
-                                                    </svg>
-                                                </span>
-                                                <div class="ms-auto mt-1 file-dropdown">
-                                                    <a aria-label="anchor" href="javascript:void(0)" class="text-muted" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-vertical fs-18"></i></a>
-                                                    <div class="dropdown-menu dropdown-menu-start">
-                                                        <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-edit me-2"></i> Edit</a>
-                                                        <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-share me-2"></i> Share</a>
-                                                        <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-download me-2"></i> Download</a>
-                                                        <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-trash me-2"></i> Delete</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-footer border-top-0">
-                                            <div class="d-flex">
-                                                <div>
-                                                    <h6 class="text-pink fw-normal">XLS</h6>
-                                                    <p class="text-muted fs-13 mb-0">25 Files</p>
-                                                </div>
-                                                <div class="ms-auto mt-4">
-                                                    <h6 class="text-muted fw-normal fs-14">15 MB</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-md-6 col-sm-6">
-                                    <div class="card custom-card pos-relative">
-                                        <a aria-label="anchor" href="filemanager-list.html" class="open-file"></a>
+                                        <a aria-label="anchor" href="/files_course" class="open-file"></a>
                                         <div class="card-body px-4 pt-4 pb-0">
                                             <div class="d-flex">
                                                 <span class="file-img bg-warning-transparent border border-warning">
@@ -1641,7 +1573,7 @@
                                 </div>
                                 <div class="col-xl-3 col-md-6 col-sm-6">
                                     <div class="card custom-card pos-relative">
-                                        <a aria-label="anchor" href="filemanager-list.html" class="open-file"></a>
+                                        <a aria-label="anchor" href="/files_course" class="open-file"></a>
                                         <div class="card-body px-4 pt-4 pb-0">
                                             <div class="d-flex">
                                                 <span class="file-img bg-secondary-transparent border border-secondary">
@@ -1675,7 +1607,7 @@
                                 </div>
                                 <div class="col-xl-3 col-md-6 col-sm-6">
                                     <div class="card custom-card pos-relative">
-                                        <a aria-label="anchor" href="filemanager-list.html" class="open-file"></a>
+                                        <a aria-label="anchor" href="/files_course" class="open-file"></a>
                                         <div class="card-body px-4 pt-4 pb-0">
                                             <div class="d-flex">
                                                 <span class="file-img bg-orange-transparent border border-orange">
@@ -1709,7 +1641,7 @@
                                 </div>
                                 <div class="col-xl-3 col-md-6 col-sm-6">
                                     <div class="card custom-card pos-relative">
-                                        <a aria-label="anchor" href="filemanager-list.html" class="open-file"></a>
+                                        <a aria-label="anchor" href="/files_course" class="open-file"></a>
                                         <div class="card-body px-4 pt-4 pb-0">
                                             <div class="d-flex">
                                                 <span class="file-img bg-info-transparent border border-info">
