@@ -7,6 +7,7 @@ use App\Http\Controllers\NiveauxScolaireController;
 use App\Http\Controllers\AnneeScolaireController;
 use App\Models\NiveauScolaire;
 use App\Http\Controllers\FiliéreController;
+use App\Http\Controllers\MatiereController;
 use Illuminate\Support\Facades\Log;
 use App\Http\Middleware\EnsureUserIsAdmin;
 
@@ -53,11 +54,6 @@ Route::get('/', function(){
 Route::get('/contact', function(){
     return view('pages.contact');
 });
-
-
-
-
-
 Route::get('/education', function(){
     return view('pages.education');
 });
@@ -93,4 +89,15 @@ Route::get('/filter-annees-scolaires', [FiliéreController::class, 'filterByAnne
 Route::delete('/Filiére', [FiliéreController::class, 'destroy'])->name('filieres.destroy');
 Route::put('/Filiére', [FiliéreController::class, 'update'])->name('filieres.update');
 
+//----------------------------Matiére----------------------------//
+Route::get('/Matiére', [MatiereController::class, 'index'])->name('matieres.index');
+Route::post('/Matiére', [MatiereController::class, 'store'])->name('matieres.store');
+Route::get('/Matiére/{matiere}/edit', [MatiereController::class, 'edit'])->name('matieres.edit');
+Route::put('/Matiére/{matiere}', [MatiereController::class, 'update'])->name('matieres.update');
+Route::delete('/Matiére/{matiere}', [MatiereController::class, 'destroy'])->name('matieres.destroy');
+Route::get('/Matiére', [MatiereController::class, 'filter'])->name('filter_annees_scolaires');
 
+//----------------------------Courses----------------------------//
+Route::get('/course', function () {
+    return view('Admin.file-manager');
+});

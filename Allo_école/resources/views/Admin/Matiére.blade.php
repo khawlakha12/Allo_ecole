@@ -32,6 +32,7 @@
 
     <!-- Icons Css -->
     <link href="../assets/css/icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- Node Waves Css -->
     <link href="../assets/libs/node-waves/waves.min.css" rel="stylesheet">
@@ -46,6 +47,72 @@
     <!-- Choices Css -->
     <link rel="stylesheet" href="../assets/libs/choices.js/public/assets/styles/choices.min.css">
 
+    <!-- Jsvector Css -->
+    <link rel="stylesheet" href="../assets/libs/jsvectormap/css/jsvectormap.min.css">
+
+    <!-- Swiper Css -->
+    <link rel="stylesheet" href="../assets/libs/swiper/swiper-bundle.min.css">
+
+    <!-- Grid Css -->
+    <link rel="stylesheet" href="../assets/libs/gridjs/theme/mermaid.min.css">
+    <style>
+        #pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        #pagination button {
+            margin: 5px;
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        #pagination button:hover {
+            background-color: #0056b3;
+        }
+
+        .group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+        }
+
+        .input {
+            margin-top: 20px;
+            width: 90%;
+            height: 40px;
+            line-height: 28px;
+            padding: 0 1rem;
+            padding-left: 2.5rem;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            outline: none;
+            background-color: #f3f3f4;
+            color: #0d0c22;
+            transition: .3s ease;
+        }
+
+        .input::placeholder {
+            color: #9e9ea7;
+        }
+
+        .input:focus,
+        input:hover {
+            outline: none;
+            border-color: blue;
+            background-color: #fff;
+            box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+        }
+    </style>
 </head>
 
 <body>
@@ -1403,713 +1470,192 @@
             <!-- End::main-sidebar -->
         </aside>
         <!-- End::app-sidebar -->
-
         <!-- Start::app-content -->
+        @if(session('success'))
+            <div class="alert alert-success" role="alert">
+                {{ session('success') }}
+            </div>
+        @endif
+        @if(session('error'))
+            <div class="alert alert-danger" role="alert">
+                {{ session('error') }}
+            </div>
+        @endif
         <div class="main-content app-content">
-            <div class="container-fluid">
-                <!-- PAGE-HEADER -->
-                <div class="page-header">
-                    <h1 class="page-title my-auto">Formateurs</h1>
-                </div>
-                <!-- PAGE-HEADER END -->
-
-
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card custom-card">
-                            <div class="card-body">
-                                <div class="team-header">
-                                    <div class="d-flex flex-wrap align-items-center justify-content-between">
-                                        <div class="h5 fw-semibold mb-sm-0">Les formateurs</div>
-                                        <div class="d-flex align-items-center">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" placeholder="Search Person Name"
-                                                    aria-describedby="search-team-member">
-                                                <button aria-label="button" class="btn btn-light  btn-primary"
-                                                    type="button" id="search-team-member"><i
-                                                        class="ri-search-line"></i></button>
+            <div class="row" style="margin-top:30px;">
+                <div class="col-xl-12">
+                    <div class="card custom-card">
+                        <div class="card">
+                            <div class="card-header justify-content-between d-flex align-items-center">
+                                <form id="filterForm" class="d-flex align-items-center" method="GET"
+                                    action="{{ route('filter_annees_scolaires') }}">
+                                    @csrf
+                                    <div class="form-group mb-0" style="margin-right: 10px;">
+                                        <select name="niveau_id" id="niveauSelect" class="form-control">
+                                            <option value="">Tous les Niveaux Scolaires</option>
+                                            @foreach($niveaux as $niveau)
+                                                <option value="{{ $niveau->id }}">{{ $niveau->nom }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group mb-0" style="margin-right: 10px;">
+                                        <select name="annee_id" id="anneeSelect" class="form-control">
+                                            <option value="">Toutes les Années Scolaires</option>
+                                            @foreach($annees as $annee)
+                                                <option value="{{ $annee->id }}">{{ $annee->nom }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Filtrer</button>
+                                </form>
+                                <button class="btn btn-primary ms-auto" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModalToggle">
+                                    <i class="bi bi-plus-lg"></i>
+                                </button>
+                                <div class="modal fade" id="exampleModalToggle" tabindex="-1"
+                                    aria-labelledby="exampleModalToggleLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalToggleLabel">Ajouter Matiére
+                                                </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
                                             </div>
-                                            <div class="dropdown ms-2">
-                                                <button aria-label="button" class="btn btn-light btn-wave" type="button"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="ti ti-dots-vertical"></i>
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item border-bottom"
-                                                            href="javascript:void(0);">Delete Team</a></li>
-                                                    <li><a class="dropdown-item border-bottom"
-                                                            href="javascript:void(0);">Edit</a></li>
-                                                    <li><a class="dropdown-item" href="javascript:void(0);">Add
-                                                            Member</a></li>
-                                                </ul>
+                                            <div class="modal-body">
+                                                <form action="{{ route('matieres.store') }}" method="POST">
+                                                    @csrf
+                                                    <div class="group">
+                                                        <input type="text" name="nom" class="form-control"
+                                                            placeholder="Exemple : Mathématique" required>
+                                                        <select class="input" name="id_niveaux_scolaires" required>
+                                                            <option value="">Sélectionnez le niveau scolaire</option>
+                                                            @foreach($niveaux as $niveau)
+                                                                <option value="{{ $niveau->id }}">{{ $niveau->nom }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                        <select class="input" name="id_annee_scolaire" required>
+                                                            <option value="">Sélectionnez l'année scolaire</option>
+                                                            @foreach($annees as $annee)
+                                                                <option value="{{ $annee->id }}">{{ $annee->nom }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        <select class="input" name="id_filiere" required>
+                                                            <option value="">Sélectionnez la filière</option>
+                                                            @foreach($filieres as $filiere)
+                                                                <option value="{{ $filiere->id }}">{{ $filiere->nom }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-primary">Ajouter</button>
+                                                    </div>
+                                                </form>
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table text-nowrap" id="année_scolaire">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Niveaux scolaire</th>
+                                            <th scope="col">Année scolaire</th>
+                                            <th scope="col">Filiére</th>
+                                            <th scope="col">Matiére</th>
+                                            <th scope="col">Supprimer</th>
+                                        </tr>
+                                    </thead>
+                                    <tbod>
+                                        @foreach($matieres as $matiere)
+                                            <tr>
+                                                <td>{{ $matiere->niveauScolaire->nom }}</td>
 
-                    <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                        <div class="card custom-card ">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <span class="avatar avatar-xxl rounded">
-                                        <img src="../assets/images/faces/11.jpg" alt="" class="rounded-circle">
-                                    </span>
-                                </div>
-                                <div class="d-flex  text-center justify-content-between mt-1 mb-3">
-                                    <div class="flex-fill">
-                                        <p class="mb-0 fw-semibold fs-16 text-truncate max-w-150 mx-auto">
-                                            <a href="javascript:void(0);">hhh</a>
-                                        </p>
-                                        <p class="mb-0 fs-12 text-muted text-truncate max-w-150 mx-auto">
-                                            formateur@gmail.com</p>
-                                    </div>
-                                </div>
-                                <div class="btn-list text-center">
-                                    <div class="btn-list">
-                                        <button aria-label="button" type="button"
-                                            class="btn btn-sm btn-icon btn-info-light btn-wave waves-effect waves-light">
-                                            <i class="ri-facebook-line fw-bold"></i>
-                                        </button>
-                                        <button aria-label="button" type="button"
-                                            class="btn btn-sm btn-icon btn-secondary-light btn-wave waves-effect waves-light">
-                                            <i class="ri-twitter-line fw-bold"></i>
-                                        </button>
-                                        <button aria-label="button" type="button"
-                                            class="btn btn-sm btn-icon btn-success-light btn-wave waves-effect waves-light">
-                                            <i class="ri-github-line fw-bold"></i>
-                                        </button>
-                                    </div>
-                                </div>
+                                                <td>{{ $matiere->anneeScolaire->nom }}</td>
+                                                <td>{{ $matiere->filiere->nom }}</td>
+                                                <td>{{ $matiere->nom }}</td>
+                                                <td>
+                                                    <form id="deleteForm"
+                                                        action="{{ route('matieres.destroy', $matiere->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger"
+                                                            onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette matière ?')">Supprimer</button>
+                                                    </form>
+                                                </td>
+                                                <!-- <td>
+                                                        <a href="#" class="btn btn-primary">Modéfier</a>
+                                                    </td> -->
+                                            </tr>
+                                            <!-- <div class="modal fade" id="exampleModalToggle1" tabindex="-1"
+                                                    aria-labelledby="exampleModalToggleLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalToggleLabel">Modifier
+                                                                    Filière</h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                    aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form id="editForm" action="#" method="POST">
+                                                                    <input type="hidden" name="filiere_id" id="filiere_id">
+                                                                    <div class="group">
+                                                                        <input type="text" name="nom" id="nom"
+                                                                            class="form-control"
+                                                                            placeholder="Exemple : Science humaine" required>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="submit"
+                                                                            class="btn btn-primary">Sauvegarder</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div> -->
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                </table>
+                                <!-- pagination -->
+                                <div id="pagination"></div>
+                                <!------------------->
                             </div>
-                            <div class="card-footer border-block-start-dashed text-center p-0">
-                                <div class="d-flex align-items-center justify-content-center">
-                                    <div class="d-flex p-3 w-100 justify-content-center border-end">
-                                        <div class="text-center ">
-                                            <p class="fw-semibold mb-0">Projects</p>
-                                            <span class="text-muted fs-12">0</span>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex p-3 w-100 justify-content-center">
-                                        <div class="text-center">
-                                            <p class="fw-semibold mb-0">Position</p>
-                                            <span class="text-muted fs-12">12/20</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
-                <!-- Start: pagination -->
-                <div class="float-end mb-4 ms-auto">
-                    <nav aria-label="Page navigation" class="pagination-style-4">
-                        <ul class="pagination mb-0 gap-2">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="javascript:void(0);">
-                                    Prev
-                                </a>
-                            </li>
-                            <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
-                            <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-                            <li class="page-item">
-                                <a aria-label="anchor" class="page-link" href="javascript:void(0);">
-                                    <i class="bi bi-three-dots"></i>
-                                </a>
-                            </li>
-                            <li class="page-item d-none d-sm-flex"><a class="page-link"
-                                    href="javascript:void(0);">16</a></li>
-                            <li class="page-item"><a class="page-link" href="javascript:void(0);">17</a></li>
-                            <li class="page-item">
-                                <a class="page-link text-primary" href="javascript:void(0);">
-                                    next
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <!-- End: pagination -->
-
-            </div>
-        </div>
-        <!-- End::app-content -->
-
-        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="input-group">
-                            <a href="javascript:void(0);" class="input-group-text" id="Search-Grid"><i
-                                    class="fe fe-search header-link-icon fs-18"></i></a>
-                            <input type="search" class="form-control border-0 px-2" placeholder="Search"
-                                aria-label="Username">
-                            <a href="javascript:void(0);" class="input-group-text" id="voice-search"><i
-                                    class="fe fe-mic header-link-icon"></i></a>
-                            <a href="javascript:void(0);" class="btn btn-light btn-icon" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                <i class="fe fe-more-vertical"></i>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Separated link</a></li>
-                            </ul>
-                        </div>
-                        <div class="mt-4">
-                            <p class="font-weight-semibold text-muted mb-2">Are You Looking For...</p>
-                            <span class="search-tags"><i class="fe fe-user me-2"></i>People<a href="javascript:void(0)"
-                                    class="tag-addon"><i class="fe fe-x"></i></a></span>
-                            <span class="search-tags"><i class="fe fe-file-text me-2"></i>Pages<a
-                                    href="javascript:void(0)" class="tag-addon"><i class="fe fe-x"></i></a></span>
-                            <span class="search-tags"><i class="fe fe-align-left me-2"></i>Articles<a
-                                    href="javascript:void(0)" class="tag-addon"><i class="fe fe-x"></i></a></span>
-                            <span class="search-tags"><i class="fe fe-server me-2"></i>Tags<a href="javascript:void(0)"
-                                    class="tag-addon"><i class="fe fe-x"></i></a></span>
-                        </div>
-                        <div class="my-4">
-                            <p class="font-weight-semibold text-muted mb-2">Recent Search :</p>
-                            <div class="p-2 border br-5 d-flex align-items-center text-muted mb-2 alert">
-                                <a href="notifications.html"><span>Notifications</span></a>
-                                <a class="ms-auto lh-1" href="javascript:void(0);" data-bs-dismiss="alert"
-                                    aria-label="Close"><i class="fe fe-x text-muted"></i></a>
-                            </div>
-                            <div class="p-2 border br-5 d-flex align-items-center text-muted mb-2 alert">
-                                <a href="alerts.html"><span>Alerts</span></a>
-                                <a class="ms-auto lh-1" href="javascript:void(0);" data-bs-dismiss="alert"
-                                    aria-label="Close"><i class="fe fe-x text-muted"></i></a>
-                            </div>
-                            <div class="p-2 border br-5 d-flex align-items-center text-muted mb-0 alert">
-                                <a href="mail.html"><span>Mail</span></a>
-                                <a class="ms-auto lh-1" href="javascript:void(0);" data-bs-dismiss="alert"
-                                    aria-label="Close"><i class="fe fe-x text-muted"></i></a>
-                            </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <div class="btn-group ms-auto">
-                            <button class="btn btn-sm btn-primary-light">Search</button>
-                            <button class="btn btn-sm btn-primary">Clear Recents</button>
-                        </div>
+                    <div class="card-footer d-none border-top-0">
+
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Start Switcher -->
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="sidebar-right" aria-labelledby="offcanvasRightLabel2">
-            <div class="offcanvas-header border-bottom bg-primary text-fixed-white">
-                <h6 class="offcanvas-title d-inline-flex text-fixed-white" id="offcanvasRightLabel2">
-                    <span class=" me-2 d-inline-flex">
-                        <i class="fe fe-bell my-auto"></i> <span
-                            class=" pulse w-9 h-9 bg-success rounded-circle"></span>
-                    </span>
-                    Notifications
-                </h6>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body p-0">
-                <nav class="nav nav-tabs nav-justified" role="tablist">
-                    <button class="nav-link active" id="sidebar-side1" data-bs-toggle="tab"
-                        data-bs-target="#sidebar-slidepane-1" type="button" role="tab"
-                        aria-controls="sidebar-slidepane-1" aria-selected="true"><i
-                            class="d-inline-flex fe fe-settings me-1"></i> Feeds</button>
-                    <button class="nav-link" id="sidebar-side2" data-bs-toggle="tab"
-                        data-bs-target="#sidebar-slidepane-2" type="button" role="tab"
-                        aria-controls="sidebar-slidepane-2" aria-selected="false"><i
-                            class="d-inline-flex fe fe-message-circle me-1"></i>Chat</button>
-                    <button class="nav-link" id="sidebar-side3" data-bs-toggle="tab"
-                        data-bs-target="#sidebar-slidepane-3" type="button" role="tab"
-                        aria-controls="sidebar-slidepane-3" aria-selected="false"><i
-                            class="d-inline-flex fe fe-anchor me-1"></i>Timeline</button>
-                </nav>
-                <div class="tab-content">
-                    <div class="tab-pane fade show active border-0 p-0" id="sidebar-slidepane-1" role="tabpanel"
-                        aria-labelledby="sidebar-side1" tabindex="0">
-                        <div class="p-3 fw-semibold">Feeds</div>
-                        <div class="py-3 px-4 pt-0">
-                            <div class="row mb-3">
-                                <div class="col-sm-2 mb-sm-0 mb-3">
-                                    <span class="feeds avatar avatar-sm avatar-rounded bg-primary-transparent"><i
-                                            class="fe fe-user text-primary"></i></span>
-                                </div>
-                                <div class="col-sm-10 ps-sm-0 my-auto">
-                                    <div class="d-flex align-items-end justify-content-between ms-2">
-                                        <h6 class="mb-0 fw-normal fs-14">New user registered</h6>
-                                        <div>
-                                            <a aria-label="anchor" href="javascript:void(0)" class="text-primary"><i
-                                                    class="fe fe-settings me-1"></i></a>
-                                            <a aria-label="anchor" href="javascript:void(0)" class="text-primary"><i
-                                                    class="fe fe-x"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-2 mb-sm-0 mb-3">
-                                    <span class="feeds avatar avatar-sm avatar-rounded bg-secondary-transparent"><i
-                                            class="fe fe-shopping-cart text-secondary"></i></span>
-                                </div>
-                                <div class="col-sm-10 ps-sm-0 my-auto">
-                                    <div class="d-flex align-items-end justify-content-between ms-2">
-                                        <h6 class="mb-0 fw-normal fs-14">New order delivered</h6>
-                                        <div>
-                                            <a aria-label="anchor" href="javascript:void(0)" class="text-primary"><i
-                                                    class="fe fe-settings me-1"></i></a>
-                                            <a aria-label="anchor" href="javascript:void(0)" class="text-primary"><i
-                                                    class="fe fe-x"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-2 mb-sm-0 mb-3">
-                                    <span class="feeds avatar avatar-sm avatar-rounded bg-danger-transparent"><i
-                                            class="fe fe-bell text-danger"></i></span>
-                                </div>
-                                <div class="col-sm-10 ps-sm-0 my-auto">
-                                    <div class="d-flex align-items-end justify-content-between ms-2">
-                                        <h6 class="mb-0 fw-normal fs-14">You have pending tasks</h6>
-                                        <div>
-                                            <a aria-label="anchor" href="javascript:void(0)" class="text-primary"><i
-                                                    class="fe fe-settings me-1"></i></a>
-                                            <a aria-label="anchor" href="javascript:void(0)" class="text-primary"><i
-                                                    class="fe fe-x"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-2 mb-sm-0 mb-3">
-                                    <span class="feeds avatar avatar-sm avatar-rounded bg-warning-transparent"><i
-                                            class="fe fe-gitlab text-warning"></i></span>
-                                </div>
-                                <div class="col-sm-10 ps-sm-0 my-auto">
-                                    <div class="d-flex align-items-end justify-content-between ms-2">
-                                        <h6 class="mb-0 fw-normal fs-14">New version arrived</h6>
-                                        <div>
-                                            <a aria-label="anchor" href="javascript:void(0)" class="text-primary"><i
-                                                    class="fe fe-settings me-1"></i></a>
-                                            <a aria-label="anchor" href="javascript:void(0)" class="text-primary"><i
-                                                    class="fe fe-x"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-2 mb-sm-0 mb-3">
-                                    <span class="feeds avatar avatar-sm avatar-rounded bg-pink-transparent"><i
-                                            class="fe fe-database text-pink"></i></span>
-                                </div>
-                                <div class="col-sm-10 ps-sm-0 my-auto">
-                                    <div class="d-flex align-items-end justify-content-between ms-2">
-                                        <h6 class="mb-0 fw-normal fs-14">Server #1 overloaded</h6>
-                                        <div>
-                                            <a aria-label="anchor" href="javascript:void(0)" class="text-primary"><i
-                                                    class="fe fe-settings me-1"></i></a>
-                                            <a aria-label="anchor" href="javascript:void(0)" class="text-primary"><i
-                                                    class="fe fe-x"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-2 mb-sm-0 mb-3">
-                                    <span class="feeds avatar avatar-sm avatar-rounded bg-info-transparent"><i
-                                            class="fe fe-check-circle text-info"></i></span>
-                                </div>
-                                <div class="col-sm-10 ps-sm-0 my-auto">
-                                    <div class="d-flex align-items-end justify-content-between ms-2">
-                                        <h6 class="mb-0 fw-normal fs-14">New project launched</h6>
-                                        <div>
-                                            <a aria-label="anchor" href="javascript:void(0)" class="text-primary"><i
-                                                    class="fe fe-settings me-1"></i></a>
-                                            <a aria-label="anchor" href="javascript:void(0)" class="text-primary"><i
-                                                    class="fe fe-x"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-3 fw-semibold">Settings</div>
-                        <div class="py-3 px-4 pt-0">
-                            <div class="row mb-3">
-                                <div class="col-sm-2 mb-sm-0 mb-3">
-                                    <span class="feeds avatar avatar-sm avatar-rounded bg-primary-transparent"><i
-                                            class="fe fe-settings text-primary"></i></span>
-                                </div>
-                                <div class="col-sm-10 ps-sm-0 my-auto">
-                                    <div class="d-flex align-items-end justify-content-between ms-2">
-                                        <h6 class="mb-0 fw-normal fs-14">General Settings</h6>
-                                        <div>
-                                            <a aria-label="anchor" href="javascript:void(0)" class="text-primary"><i
-                                                    class="fe fe-settings"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-2 mb-sm-0 mb-3">
-                                    <span class="feeds avatar avatar-sm avatar-rounded bg-secondary-transparent"><i
-                                            class="fe fe-map-pin text-secondary"></i></span>
-                                </div>
-                                <div class="col-sm-10 ps-sm-0 my-auto">
-                                    <div class="d-flex align-items-end justify-content-between ms-2">
-                                        <h6 class="mb-0 fw-normal fs-14">Map Settings</h6>
-                                        <div>
-                                            <a aria-label="anchor" href="javascript:void(0)" class="text-primary"><i
-                                                    class="fe fe-settings"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-2 mb-sm-0 mb-3">
-                                    <span class="feeds avatar avatar-sm avatar-rounded bg-danger-transparent"><i
-                                            class="fe fe-headphones text-danger"></i></span>
-                                </div>
-                                <div class="col-sm-10 ps-sm-0 my-auto">
-                                    <div class="d-flex align-items-end justify-content-between ms-2">
-                                        <h6 class="mb-0 fw-normal fs-14">Support Settings</h6>
-                                        <div>
-                                            <a aria-label="anchor" href="javascript:void(0)" class="text-primary"><i
-                                                    class="fe fe-settings"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-2 mb-sm-0 mb-3">
-                                    <span class="feeds avatar avatar-sm avatar-rounded bg-warning-transparent"><i
-                                            class="fe fe-credit-card text-warning"></i></span>
-                                </div>
-                                <div class="col-sm-10 ps-sm-0 my-auto">
-                                    <div class="d-flex align-items-end justify-content-between ms-2">
-                                        <h6 class="mb-0 fw-normal fs-14">Payment Settings</h6>
-                                        <div>
-                                            <a aria-label="anchor" href="javascript:void(0)" class="text-primary"><i
-                                                    class="fe fe-settings"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-2 mb-sm-0 mb-3">
-                                    <span class="feeds avatar avatar-sm avatar-rounded bg-pink-transparent"><i
-                                            class="fe fe-bell text-pink"></i></span>
-                                </div>
-                                <div class="col-sm-10 ps-sm-0 my-auto">
-                                    <div class="d-flex align-items-end justify-content-between ms-2">
-                                        <h6 class="mb-0 fw-normal fs-14">Notification Settings</h6>
-                                        <div>
-                                            <a aria-label="anchor" href="javascript:void(0)" class="text-primary"><i
-                                                    class="fe fe-settings"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade border-0 p-0" id="sidebar-slidepane-2" role="tabpanel"
-                        aria-labelledby="sidebar-side2" tabindex="0">
-                        <div class="p-3 fw-semibold">Today</div>
-                        <div class="d-flex align-items-center py-3 px-3 pt-0">
-                            <div class="me-2">
-                                <span class="avatar avatar-md avatar-rounded cover-image"
-                                    data-bs-image-src="../assets/images/faces/2.jpg"></span>
-                            </div>
-                            <div class="">
-                                <a href="chat.html">
-                                    <div class="fw-semibold text-dark">Addie Minstra</div>
-                                    <p class="mb-0 fs-12 text-muted"> Hey! there I' am available.... </p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center py-3 px-3 pt-0">
-                            <div class="me-2">
-                                <span class="avatar avatar-md online avatar-rounded cover-image"
-                                    data-bs-image-src="../assets/images/faces/11.jpg"></span>
-                            </div>
-                            <div class="">
-                                <a href="chat.html">
-                                    <div class="fw-semibold text-dark">Rose Bush</div>
-                                    <p class="mb-0 fs-12 text-muted"> Okay...I will be waiting for you </p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center py-3 px-3 pt-0">
-                            <div class="me-2">
-                                <span class="avatar avatar-md avatar-rounded cover-image"
-                                    data-bs-image-src="../assets/images/faces/10.jpg"></span>
-                            </div>
-                            <div class="">
-                                <a href="chat.html">
-                                    <div class="fw-semibold text-dark">Claude Strophobia</div>
-                                    <p class="mb-0 fs-12 text-muted"> Hi we can explain our new project......</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center py-3 px-3 pt-0">
-                            <div class="me-2">
-                                <span class="avatar avatar-md avatar-rounded cover-image"
-                                    data-bs-image-src="../assets/images/faces/13.jpg"></span>
-                            </div>
-                            <div class="">
-                                <a href="chat.html">
-                                    <div class="fw-semibold text-dark">Eileen Dover</div>
-                                    <p class="mb-0 fs-12 text-muted"> New product Launching...</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center py-3 px-3 pt-0">
-                            <div class="me-2">
-                                <span class="avatar avatar-md online avatar-rounded cover-image"
-                                    data-bs-image-src="../assets/images/faces/12.jpg"></span>
-                            </div>
-                            <div class="">
-                                <a href="chat.html">
-                                    <div class="fw-semibold text-dark">Willie Findit</div>
-                                    <p class="mb-0 fs-12 text-muted"> Okay...I will be waiting for you </p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center py-3 px-3 pt-0">
-                            <div class="me-2">
-                                <span class="avatar avatar-md avatar-rounded cover-image"
-                                    data-bs-image-src="../assets/images/faces/15.jpg"></span>
-                            </div>
-                            <div class="">
-                                <a href="chat.html">
-                                    <div class="fw-semibold text-dark">Manny Jah</div>
-                                    <p class="mb-0 fs-12 text-muted"> Hi we can explain our new project......</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center py-0 px-3">
-                            <div class="me-2">
-                                <span class="avatar avatar-md avatar-rounded cover-image"
-                                    data-bs-image-src="../assets/images/faces/4.jpg"></span>
-                            </div>
-                            <div class="">
-                                <a href="chat.html">
-                                    <div class="fw-semibold text-dark">Cherry Blossom</div>
-                                    <p class="mb-0 fs-12 text-muted"> Hey! there I' am available....</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="p-3 fw-semibold">Yesterday</div>
-                        <div class="d-flex align-items-center py-3 px-3 pt-0">
-                            <div class="me-2">
-                                <span class="avatar avatar-md online avatar-rounded cover-image"
-                                    data-bs-image-src="../assets/images/faces/7.jpg"></span>
-                            </div>
-                            <div class="">
-                                <a href="chat.html">
-                                    <div class="fw-semibold text-dark">Simon Sais</div>
-                                    <p class="mb-0 fs-12 text-muted">Schedule Realease...... </p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center py-3 px-3 pt-0">
-                            <div class="me-2">
-                                <span class="avatar avatar-md avatar-rounded cover-image"
-                                    data-bs-image-src="../assets/images/faces/9.jpg"></span>
-                            </div>
-                            <div class="">
-                                <a href="chat.html">
-                                    <div class="fw-semibold text-dark">Laura Biding</div>
-                                    <p class="mb-0 fs-12 text-muted">Hi we can explain our new project...... </p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center py-3 px-3 pt-0">
-                            <div class="me-2">
-                                <span class="avatar avatar-md online avatar-rounded cover-image"
-                                    data-bs-image-src="../assets/images/faces/2.jpg"></span>
-                            </div>
-                            <div class="">
-                                <a href="chat.html">
-                                    <div class="fw-semibold text-dark">Addie Minstra</div>
-                                    <p class="mb-0 fs-12 text-muted">Contact me for details....</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center py-3 px-3 pt-0">
-                            <div class="me-2">
-                                <span class="avatar avatar-md avatar-rounded cover-image"
-                                    data-bs-image-src="../assets/images/faces/9.jpg"></span>
-                            </div>
-                            <div class="">
-                                <a href="chat.html">
-                                    <div class="fw-semibold text-dark">Ivan Notheridiya</div>
-                                    <p class="mb-0 fs-12 text-muted">Hi we can explain our new project......</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center py-3 px-3 pt-0">
-                            <div class="me-2">
-                                <span class="avatar avatar-md avatar-rounded cover-image"
-                                    data-bs-image-src="../assets/images/faces/14.jpg"></span>
-                            </div>
-                            <div class="">
-                                <a href="chat.html">
-                                    <div class="fw-semibold text-dark">Dulcie Veeta</div>
-                                    <p class="mb-0 fs-12 text-muted"> Okay...I will be waiting for you</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center py-3 px-3 pt-0">
-                            <div class="me-2">
-                                <span class="avatar avatar-md avatar-rounded cover-image"
-                                    data-bs-image-src="../assets/images/faces/11.jpg"></span>
-                            </div>
-                            <div class="">
-                                <a href="chat.html">
-                                    <div class="fw-semibold text-dark">Florinda Carasco</div>
-                                    <p class="mb-0 fs-12 text-muted">New product Launching...</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center py-3 px-3 pt-0">
-                            <div class="me-2">
-                                <span class="avatar avatar-md online avatar-rounded cover-image"
-                                    data-bs-image-src="../assets/images/faces/11.jpg"></span>
-                            </div>
-                            <div class="">
-                                <a href="chat.html">
-                                    <div class="fw-semibold text-dark">Cherry Blossom</div>
-                                    <p class="mb-0 fs-12 text-muted">cherryblossom@gmail.com</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade border-0 p-3" id="sidebar-slidepane-3" role="tabpanel"
-                        aria-labelledby="sidebar-side3" tabindex="0">
-                        <ul class="task-list timeline-task">
-                            <li class="d-sm-flex">
-                                <div>
-                                    <i class="task-icon1"></i>
-                                    <h6 class="fw-semibold fs-14">Task Finished<span
-                                            class="text-muted fs-11 mx-2 fw-normal">09 July 2021</span></h6>
-                                    <p class="text-muted fs-12 mb-0">Adam Berry finished task on<a
-                                            href="javascript:void(0)" class="fw-semibold text-primary"> Project
-                                            Management</a></p>
-                                </div>
-                                <div class="ms-auto d-md-flex task-icon-link">
-                                    <a aria-label="anchor" href="javascript:void(0)" class="text-muted me-2"><i
-                                            class="fe fe-edit"></i></a>
-                                    <a aria-label="anchor" href="javascript:void(0)" class="text-muted"><i
-                                            class="fe fe-trash-2 fs-12"></i></a>
-                                </div>
-                            </li>
-                            <li class="d-sm-flex">
-                                <div>
-                                    <i class="task-icon1"></i>
-                                    <h6 class="fw-semibold fs-14">New Comment<span
-                                            class="text-muted fs-11 mx-2 fw-normal">05 July 2021</span></h6>
-                                    <p class="text-muted fs-12 mb-0">Victoria commented on Project <a
-                                            href="javascript:void(0)" class="fw-semibold text-primary"> AngularJS
-                                            Template</a></p>
-                                </div>
-                                <div class="ms-auto d-md-flex task-icon-link">
-                                    <a aria-label="anchor" href="javascript:void(0)" class="text-muted me-2"><i
-                                            class="fe fe-edit"></i></a>
-                                    <a aria-label="anchor" href="javascript:void(0)" class="text-muted"><i
-                                            class="fe fe-trash-2 fs-12"></i></a>
-                                </div>
-                            </li>
-                            <li class="d-sm-flex">
-                                <div>
-                                    <i class="task-icon1"></i>
-                                    <h6 class="fw-semibold fs-14">New Comment<span
-                                            class="text-muted fs-11 mx-2 fw-normal">25 June 2021</span></h6>
-                                    <p class="text-muted fs-12 mb-0">Victoria commented on Project <a
-                                            href="javascript:void(0)" class="fw-semibold text-primary"> AngularJS
-                                            Template</a></p>
-                                </div>
-                                <div class="ms-auto d-md-flex task-icon-link">
-                                    <a aria-label="anchor" href="javascript:void(0)" class="text-muted me-2"><i
-                                            class="fe fe-edit"></i></a>
-                                    <a aria-label="anchor" href="javascript:void(0)" class="text-muted"><i
-                                            class="fe fe-trash-2 fs-12"></i></a>
-                                </div>
-                            </li>
-                            <li class="d-sm-flex">
-                                <div>
-                                    <i class="task-icon1"></i>
-                                    <h6 class="fw-semibold fs-14">Task Overdue<span
-                                            class="text-muted fs-11 mx-2 fw-normal">14 June 2021</span></h6>
-                                    <p class="text-muted mb-0 fs-12">Petey Cruiser finished task <a
-                                            href="javascript:void(0)" class="fw-semibold text-primary"> Integrated
-                                            management</a></p>
-                                </div>
-                                <div class="ms-auto d-md-flex task-icon-link">
-                                    <a aria-label="anchor" href="javascript:void(0)" class="text-muted me-2"><i
-                                            class="fe fe-edit"></i></a>
-                                    <a aria-label="anchor" href="javascript:void(0)" class="text-muted"><i
-                                            class="fe fe-trash-2 fs-12"></i></a>
-                                </div>
-                            </li>
-                            <li class="d-sm-flex">
-                                <div>
-                                    <i class="task-icon1"></i>
-                                    <h6 class="fw-semibold fs-14">Task Overdue<span
-                                            class="text-muted fs-11 mx-2 fw-normal">29 June 2021</span></h6>
-                                    <p class="text-muted mb-0 fs-12">Petey Cruiser finished task <a
-                                            href="javascript:void(0)" class="fw-semibold text-primary"> Integrated
-                                            management</a></p>
-                                </div>
-                                <div class="ms-auto d-md-flex task-icon-link">
-                                    <a aria-label="anchor" href="javascript:void(0)" class="text-muted me-2"><i
-                                            class="fe fe-edit"></i></a>
-                                    <a aria-label="anchor" href="javascript:void(0)" class="text-muted"><i
-                                            class="fe fe-trash-2 fs-12"></i></a>
-                                </div>
-                            </li>
-                            <li class="d-sm-flex">
-                                <div>
-                                    <i class="task-icon1"></i>
-                                    <h6 class="fw-semibold fs-14">Task Finished<span
-                                            class="text-muted fs-11 mx-2 fw-normal">09 July 2021</span></h6>
-                                    <p class="text-muted fs-12 mb-0">Adam Berry finished task on<a
-                                            href="javascript:void(0)" class="fw-semibold text-primary"> Project
-                                            Management</a></p>
-                                </div>
-                                <div class="ms-auto d-md-flex task-icon-link">
-                                    <a aria-label="anchor" href="javascript:void(0)" class="text-muted me-2"><i
-                                            class="fe fe-edit"></i></a>
-                                    <a aria-label="anchor" href="javascript:void(0)" class="text-muted"><i
-                                            class="fe fe-trash-2 fs-12"></i></a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <!-- End:: row-11 -->
+    </div>
+    <!-- End::app-content -->
+
+    <!-- Footer Start -->
+    <footer class="footer mt-auto py-3 text-center">
+        <div class="container">
+            <span class=""> Copyright © <span id="year"></span> <a href="javascript:void(0);"
+                    class="text-primary">Sash</a>.
+                Designed with <span class="bi bi-heart-fill text-danger"></span> by <a href="javascript:void(0);">
+                    <span class="text-primary">Spruko</span>
+                </a> All
+                rights
+                reserved
+            </span>
         </div>
-        <!-- End Switcher -->
-
-
-        <!-- Footer Start -->
-        <footer class="footer mt-auto py-3 text-center">
-            <div class="container">
-                <span class=""> Copyright © <span id="year"></span> <a href="javascript:void(0);"
-                        class="text-primary">Sash</a>.
-                    Designed with <span class="bi bi-heart-fill text-danger"></span> by <a href="javascript:void(0);">
-                        <span class="text-primary">Spruko</span>
-                    </a> All
-                    rights
-                    reserved
-                </span>
-            </div>
-        </footer>
-        <!-- Footer End -->
-
+    </footer>
+    <!-- Footer End -->
 
     </div>
 
@@ -2145,11 +1691,93 @@
 
 
 
+    <!-- JSVector Maps JS -->
+    <script src="../assets/libs/jsvectormap/js/jsvectormap.min.js"></script>
+
+    <!-- JSVector Maps MapsJS -->
+    <script src="../assets/libs/jsvectormap/maps/world-merc.js"></script>
+
+    <!-- Apex Charts JS -->
+    <script src="../assets/libs/apexcharts/apexcharts.min.js"></script>
+
+    <!-- Chartjs Chart JS -->
+    <script src="../assets/libs/chart.js/chart.min.js"></script>
+
+    <!-- index -->
+    <script src="../assets/js/index.js"></script>
+
+
     <!-- Custom-Switcher JS -->
     <script src="../assets/js/custom-switcher.min.js"></script>
 
     <!-- Custom JS -->
     <script src="../assets/js/custom.js"></script>
+    <!-- Custom-Switcher JS -->
+    <script src="../assets/js/custom-switcher.min.js"></script>
+
+    <!-- Prism JS -->
+    <script src="../assets/libs/prismjs/prism.js"></script>
+    <script src="../assets/js/prism-custom.js"></script>
+
+    <!-- Modal JS -->
+    <script src="../assets/js/modal.js"></script>
+
+    <!-- Custom JS -->
+    <script src="../assets/js/custom.js"></script>
+    <!---------------------Pagination--------------------->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const rowsPerPage = 10;
+            const rows = Array.from(document.querySelector('#année_scolaire tbody').rows);
+            const paginationWrapper = document.getElementById('pagination');
+
+            function setupPagination(rows, wrapper, rowsPerPage) {
+                wrapper.innerHTML = "";
+
+                let pageCount = Math.ceil(rows.length / rowsPerPage);
+                for (let i = 1; i <= pageCount; i++) {
+                    let btn = document.createElement('button');
+                    btn.innerText = i;
+                    btn.addEventListener('click', function () {
+                        displayPage(i);
+                    });
+                    wrapper.appendChild(btn);
+                }
+            }
+
+            function displayPage(page) {
+                const start = (page - 1) * rowsPerPage;
+                const end = start + rowsPerPage;
+                rows.forEach((row, index) => {
+                    if (index >= start && index < end) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            }
+
+            setupPagination(rows, paginationWrapper, rowsPerPage);
+            displayPage(1);
+        });
+    </script>
+    <script>
+        function confirmDelete(filiereId) {
+            if (confirm('Êtes-vous sûr de vouloir supprimer cette filière?')) {
+                document.getElementById('deleteForm' + filiereId).submit();
+            }
+        }
+    </script>
+    <!---------------------modéfier filiére--------------------->
+    <script>
+        function editFiliere(id, nom) {
+            document.getElementById('filiere_id').value = id;
+            document.getElementById('nom').value = nom;
+            var myModal = new bootstrap.Modal(document.getElementById('exampleModalToggle1'));
+            myModal.show();
+        }
+    </script>
+
 
 </body>
 

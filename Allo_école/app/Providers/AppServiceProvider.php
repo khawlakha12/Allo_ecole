@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Providers;
+use App\Models\Filieres;
 use App\Models\User;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -27,5 +28,6 @@ class AppServiceProvider extends ServiceProvider
     {
         View::share('niveaux', NiveauScolaire::all());
         View::share('annees', AnneeScolaire::all());
+        View::share('filieres', Filieres::all());
     }
 }
