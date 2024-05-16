@@ -76,6 +76,42 @@
         #pagination button:hover {
             background-color: #0056b3;
         }
+
+        .group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+        }
+
+        .input {
+            margin-top: 20px;
+            width: 90%;
+            height: 40px;
+            line-height: 28px;
+            padding: 0 1rem;
+            padding-left: 2.5rem;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            outline: none;
+            background-color: #f3f3f4;
+            color: #0d0c22;
+            transition: .3s ease;
+        }
+
+        .input::placeholder {
+            color: #9e9ea7;
+        }
+
+        .input:focus,
+        input:hover {
+            outline: none;
+            border-color: blue;
+            background-color: #fff;
+            box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+        }
     </style>
 </head>
 
@@ -1324,7 +1360,8 @@
                                 <i class="fe fe-home side-menu__icon"></i>
                                 <span class="side-menu__label">Dashboard</span>
                             </a>
-                        </li> <li class="slide">
+                        </li>
+                        <li class="slide">
                             <a href="/" class="side-menu__item">
                                 <i class="fe fe-home side-menu__icon"></i>
                                 <span class="side-menu__label">Home</span>
@@ -1393,10 +1430,9 @@
                                 <i class="fe fe-chevron-right side-menu__angle"></i>
                             </a>
                             <ul class="slide-menu child1">
-                                    <li class="slide">
-                                        <a href="{{ route('annees.index') }}"
-                                            class="side-menu__item">Année Scolaire</a>
-                                    </li>
+                                <li class="slide">
+                                    <a href="{{ route('annees.index') }}" class="side-menu__item">Année Scolaire</a>
+                                </li>
                             </ul>
                         </li>
                         <li class="slide has-sub">
@@ -1431,13 +1467,18 @@
                             <i class="fe fe-chevron-right side-menu__angle"></i>
                         </a>
                         <ul class="slide-menu child1">
-                        <li class="slide has-sub">
-                        <a href="/Filiére" class="side-menu__item">
-                            <i class="fe fe-file-text side-menu__icon"></i>
-                            <span class="side-menu__label">Filiére</span>
-                        </a>
-                        <ul class="slide-menu child1">
-                           </ul>
+                            <li class="slide side-menu__label1">
+                                <a href="javascript:void(0)">Courses</a>
+                            </li>
+                            <li class="slide has-sub">
+                                <a href="javascript:void(0);" class="side-menu__item">Form Elements
+                                    <i class="fe fe-chevron-right side-menu__angle"></i></a>
+                                <ul class="slide-menu child2">
+                                    <li class="slide">
+                                        <a href="form_inputs.html" class="side-menu__item">Inputs</a>
+                                    </li>
+                                </ul>
+                            </li>
                     </li>
                     <li class="slide">
                         <a href="form_validation.html" class="side-menu__item">Validation</a>
@@ -1544,58 +1585,101 @@
                         </svg></div>
                 </nav>
                 <!-- End::nav -->
-
             </div>
             <!-- End::main-sidebar -->
-
         </aside>
         <!-- End::app-sidebar -->
-
         <!-- Start::app-content -->
+        @if(session('success'))
+            <div class="alert alert-success w-100">
+                {{ session('success') }}
+            </div>
+        @endif
         <div class="main-content app-content">
             <div class="row" style="margin-top:30px;">
                 <div class="col-xl-12">
                     <div class="card custom-card">
-                    <div class="card">
-    <div class="card-header justify-content-between d-flex align-items-center">
-
-        <form id="filterForm" class="d-flex align-items-center" method="GET" action="{{ route('filter_annees') }}">
+                        <div class="card">
+                            <div class="card-header justify-content-between d-flex align-items-center">
+                            <form id="filterForm" class="d-flex align-items-center" method="GET" action="{{ route('filter_annees_scolaires') }}">
     <div class="form-group mb-0" style="margin-right: 10px;">
-        <select name="niveau_id" id="filterSelect" class="form-control">
-            <option value="">Tous les niveaux</option>
-            @foreach($niveaux as $niveau)
-                <option value="{{$niveau->id}}">{{$niveau->nom}}</option>
+        <select name="annee_id" id="filterSelect" class="form-control">
+            <option value="">Toutes les Années Scolaires</option>
+            @foreach($annees as $annee)
+                <option value="{{ $annee->id }}">{{ $annee->nom }}</option>
             @endforeach
         </select>
     </div>
-    <button type="submit" class="btn btn-primary">Filter</button>
+    <button type="submit" class="btn btn-primary">Filtrer</button>
 </form>
-    </div>
-</div>
+
+
+
+                                <button class="btn btn-primary ms-auto" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModalToggle">
+                                    <i class="bi bi-plus-lg"></i>
+                                </button>
+                                <div class="modal fade" id="exampleModalToggle" tabindex="-1"
+                                    aria-labelledby="exampleModalToggleLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalToggleLabel">Ajouter Filiére
+                                                </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="{{ route('ajouter_filiere') }}" method="POST">
+                                                    @csrf
+                                                    <div class="group">
+                                                        <input type="text" name="nom" class="form-control"
+                                                            placeholder="Exemple : Science humaine" required>
+                                                        <select class="input" name="id_niveaux_scolaires" required>
+                                                            <option value="">Select an option</option>
+                                                            @foreach($niveaux as $niveau)
+                                                                <option value="{{ $niveau->id }}">{{ $niveau->nom }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                        <select class="input" name="id_annee" required>
+                                                            <option value="">Select an option</option>
+                                                            @foreach($annees as $annee)
+                                                                <option value="{{ $annee->id }}">{{ $annee->nom }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-primary">Ajouter</button>
+                                                    </div>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table text-nowrap" id="année_scolaire">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Validation</th>
-                                            <th scope="col">Niveau Scolaire</th>
-                                            <th scope="col">Nom</th>
-                                            <th scope="col">Date</th>
+                                            <th scope="col">Niveaux scolaire</th>
+                                            <th scope="col">Année scolaire</th>
+                                            <th scope="col">Filiére</th>
                                             <th scope="col">Supprimer</th>
                                             <th scope="col">Modifier</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($annees as $annee)
+                                        @foreach($filieres as $filiere)
                                             <tr>
-                                                <td>
-                                                    <input class="form-check-input" type="checkbox" {{ $annee->validation ? 'checked' : '' }} disabled>
-                                                </td>
-                                                <td>{{ $annee->niveauScolaire ? $annee->niveauScolaire->nom : 'N/A' }}</td>
+                                                <td>{{ $filiere->niveauScolaire->nom }}</td>
 
-                                                <td>{{ $annee->nom }}</td>
-                                                <td>{{ $annee->created_at->format('d/m/Y') }}</td>
+                                                <td>{{ $filiere->anneeScolaire->nom }}</td>
+                                                <td>{{ $filiere->nom }}</td>
                                                 <td>
                                                     <a href="#" class="btn btn-danger">Delete</a>
                                                 </td>
@@ -1708,7 +1792,7 @@
     <!---------------------Pagination--------------------->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const rowsPerPage = 6;
+            const rowsPerPage = 8;
             const rows = Array.from(document.querySelector('#année_scolaire tbody').rows);
             const paginationWrapper = document.getElementById('pagination');
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\userController;
 use App\Http\Controllers\NiveauxScolaireController;
 use App\Http\Controllers\AnneeScolaireController;
 use App\Models\NiveauScolaire;
+use App\Http\Controllers\FiliéreController;
 use Illuminate\Support\Facades\Log;
 use App\Http\Middleware\EnsureUserIsAdmin;
 
@@ -84,5 +85,10 @@ Route::delete('/admin/{niveau}', [NiveauxScolaireController::class, 'destroy'])-
 Route::post('/année_scolaire', [AnneeScolaireController::class, 'store'])->name('annees_scolaires.store');
 Route::get('/année_scolaire', [AnneeScolaireController::class, 'index'])->name('annees.index');
 Route::get('/filter-annees', [AnneeScolaireController::class, 'filter'])->name('filter_annees');
+
+//----------------------------Filiére----------------------------//
+Route::get('/Filiére',[FiliéreController::class,'index'])->name('filiére.index');
+Route::post('/Filiére', [FiliéreController::class, 'ajouterFiliere'])->name('ajouter_filiere');
+Route::get('/filter-annees-scolaires', [FiliéreController::class, 'filterByAnneesScolaires'])->name('filter_annees_scolaires');
 
 
