@@ -90,5 +90,7 @@ Route::get('/filter-annees', [AnneeScolaireController::class, 'filter'])->name('
 Route::get('/Filiére',[FiliéreController::class,'index'])->name('filiére.index');
 Route::post('/Filiére', [FiliéreController::class, 'ajouterFiliere'])->name('ajouter_filiere');
 Route::get('/filter-annees-scolaires', [FiliéreController::class, 'filterByAnneesScolaires'])->name('filter_annees_scolaires');
+Route::delete('/Filiére', [FiliéreController::class, 'destroy'])->name('filieres.destroy');
+Route::put('/Filiére', [FiliéreController::class, 'update'])->name('filieres.update');
 
 

@@ -1601,20 +1601,18 @@
                     <div class="card custom-card">
                         <div class="card">
                             <div class="card-header justify-content-between d-flex align-items-center">
-                            <form id="filterForm" class="d-flex align-items-center" method="GET" action="{{ route('filter_annees_scolaires') }}">
-    <div class="form-group mb-0" style="margin-right: 10px;">
-        <select name="annee_id" id="filterSelect" class="form-control">
-            <option value="">Toutes les Années Scolaires</option>
-            @foreach($annees as $annee)
-                <option value="{{ $annee->id }}">{{ $annee->nom }}</option>
-            @endforeach
-        </select>
-    </div>
-    <button type="submit" class="btn btn-primary">Filtrer</button>
-</form>
-
-
-
+                                <form id="filterForm" class="d-flex align-items-center" method="GET"
+                                    action="{{ route('filter_annees_scolaires') }}">
+                                    <div class="form-group mb-0" style="margin-right: 10px;">
+                                        <select name="annee_id" id="filterSelect" class="form-control">
+                                            <option value="">Toutes les Années Scolaires</option>
+                                            @foreach($annees as $annee)
+                                                <option value="{{ $annee->id }}">{{ $annee->nom }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Filtrer</button>
+                                </form>
                                 <button class="btn btn-primary ms-auto" data-bs-toggle="modal"
                                     data-bs-target="#exampleModalToggle">
                                     <i class="bi bi-plus-lg"></i>
@@ -1653,14 +1651,12 @@
                                                         <button type="submit" class="btn btn-primary">Ajouter</button>
                                                     </div>
                                                 </form>
-
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table text-nowrap" id="année_scolaire">
@@ -1673,7 +1669,7 @@
                                             <th scope="col">Modifier</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbod>
                                         @foreach($filieres as $filiere)
                                             <tr>
                                                 <td>{{ $filiere->niveauScolaire->nom }}</td>
@@ -1681,12 +1677,42 @@
                                                 <td>{{ $filiere->anneeScolaire->nom }}</td>
                                                 <td>{{ $filiere->nom }}</td>
                                                 <td>
-                                                    <a href="#" class="btn btn-danger">Delete</a>
+                                                <form id="deleteForm{{$filiere->id}}" action="{{ route('filieres.destroy', $filiere->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="button" class="btn btn-danger" onclick="confirmDelete({{ $filiere->id }})">Supprimer</button>
+    </form>
                                                 </td>
                                                 <td>
-                                                    <a href="#" class="btn btn-primary">Edit</a>
+                                                    <a href="#" class="btn btn-primary" onclick="editFiliere({{ $filiere->id }}, '{{ $filiere->nom }}')">Modéfier</a>
                                                 </td>
                                             </tr>
+                                            <div class="modal fade" id="exampleModalToggle1" tabindex="-1" aria-labelledby="exampleModalToggleLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalToggleLabel">Modifier Filière</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editForm"action="{{ route('filieres.update') }}" method="POST">
+                    @csrf
+                    @method('PUT') 
+                    <input type="hidden" name="filiere_id" id="filiere_id">
+                    <div class="group">
+                        <input type="text" name="nom" id="nom" class="form-control"
+                            placeholder="Exemple : Science humaine" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Sauvegarder</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</tr>
                                         @endforeach
                                     </tbody>
                                 </table>
@@ -1826,6 +1852,24 @@
             displayPage(1);
         });
     </script>
+    <script>
+    function confirmDelete(filiereId) {
+        if (confirm('Êtes-vous sûr de vouloir supprimer cette filière?')) {
+            document.getElementById('deleteForm'+filiereId).submit();
+        }
+    }
+</script>
+<!---------------------modéfier filiére--------------------->
+<script>
+    function editFiliere(id, nom) {
+        document.getElementById('filiere_id').value = id;
+        document.getElementById('nom').value = nom;
+        var myModal = new bootstrap.Modal(document.getElementById('exampleModalToggle1'));
+        myModal.show();
+    }
+</script>
+
+
 </body>
 
 </html>

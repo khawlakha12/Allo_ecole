@@ -11,8 +11,8 @@ class FiliéreController extends Controller
 {
     public function index()
     {
-        $filieres = Filieres::all(); 
-        return view('Admin.Filiére', compact('filieres')); 
+        $filieres = Filieres::all();
+        return view('Admin.Filiére', compact('filieres'));
     }
 
     public function ajouterFiliere(Request $request)
@@ -22,22 +22,36 @@ class FiliéreController extends Controller
             'id_niveaux_scolaires' => 'required|exists:niveaux_scolaires,id',
             'id_annee' => 'required|exists:annees_scolaires,id',
         ]);
-    
-        $filiere = new Filieres(); 
+
+        $filiere = new Filieres();
         $filiere->nom = $request->nom;
         $filiere->id_niveau_scolaire = $request->id_niveaux_scolaires;
         $filiere->id_annee_scolaire = $request->id_annee;
         $filiere->save();
-    
+
         return redirect()->back()->with('success', 'Filière ajoutée avec succès.');
     }
     public function filterByAnneesScolaires(Request $request)
     {
         $anneeId = $request->input('annee_id');
         $filieres = Filieres::where('id_annee_scolaire', $anneeId)->get();
-        $annees = AnneeScolaire::all(); 
+        $annees = AnneeScolaire::all();
 
-        return view('Admin.Filiére', compact( 'annees','filieres'));
+        return view('Admin.Filiére', compact('annees', 'filieres'));
     }
+    public function destroy(Filieres $filiere)
+    {
+        $filiere->delete();
+        return redirect()->back()->with('success', 'Filière supprimée avec succès.');
     }
+    public function update(Request $request)
+{
+    $filiere = Filieres::findOrFail($request->filiere_id);
+    $filiere->nom = $request->nom;
+    $filiere->save();
+    
+    return redirect()->back()->with('success', 'Filière mise à jour avec succès.');
+}
+
+}
 
