@@ -1311,231 +1311,25 @@
                    <div class="row row-sm">
                         <div class="col-lg-12 col-xl-12">
                             <div class="row row-sm">
+                            @foreach($courses as $course)
+        @if($course->pdf_path)
                                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xxl-2">
                                     <div class="card custom-card overflow-hidden">
-                                        <a href="filemanager-details.html"><img src="../assets/images/media/files/03.jpg" alt="img" class="file-manager-list w-100"></a>
+                                        <a href="filemanager-details.html" class="mx-auto my-3"><img src="{{ asset('assets/images/media/files/documents/6.png') }}" alt="img"></a>
                                         <div class="card-footer">
                                             <div class="d-flex">
                                                 <div class="">
-                                                    <h6 class="mb-0 fw-semibold text-break">image2.jpg</h6>
+                                                    <h6 class="mb-0 fw-semibold text-break">{{ $course->name }}</h6>
                                                 </div>
                                                 <div class="ms-auto my-auto">
-                                                    <span class="text-muted mb-0">66 KB</span>
+                                                    <span class="text-muted mb-0">{{ \Illuminate\Support\Facades\Storage::size($course->pdf_path) }} KB</span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xxl-2">
-                                    <div class="card custom-card overflow-hidden">
-                                        <a href="filemanager-details.html" class="mx-auto my-3"><img src="../assets/images/media/files/documents/6.png" alt="img"></a>
-                                        <div class="card-footer">
-                                            <div class="d-flex">
-                                                <div class="">
-                                                    <h6 class="mb-0 fw-semibold text-break">file.pdf</h6>
-                                                </div>
-                                                <div class="ms-auto my-auto">
-                                                    <span class="text-muted mb-0">32 KB</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xxl-2">
-                                    <div class="card custom-card overflow-hidden">
-                                        <a href="filemanager-details.html"><img src="../assets/images/media/files/07.jpg" alt="img" class="file-manager-list w-100"></a>
-                                        <div class="card-footer">
-                                            <div class="d-flex">
-                                                <div class="">
-                                                    <h6 class="mb-0 fw-semibold text-break">image1.jpg</h6>
-                                                </div>
-                                                <div class="ms-auto my-auto">
-                                                    <span class="text-muted mb-0">76 KB</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xxl-2">
-                                    <div class="card custom-card overflow-hidden">
-                                        <a href="filemanager-details.html" class="mx-auto my-3"><img src="../assets/images/media/files/documents/2.png" alt="img"></a>
-                                        <div class="card-footer">
-                                            <div class="d-flex">
-                                                <div class="">
-                                                    <h6 class="mb-0 fw-semibold text-break">excel.xls</h6>
-                                                </div>
-                                                <div class="ms-auto my-auto">
-                                                    <span class="text-muted mb-0">34 KB</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xxl-2">
-                                    <div class="card custom-card overflow-hidden">
-                                        <a href="filemanager-details.html"><img src="../assets/images/media/files/06.jpg" alt="img" class="file-manager-list w-100"></a>
-                                        <div class="card-footer">
-                                            <div class="d-flex">
-                                                <div class="">
-                                                    <h6 class="mb-0 fw-semibold text-break">nature.jpg</h6>
-                                                </div>
-                                                <div class="ms-auto my-auto">
-                                                    <span class="text-muted mb-0">66 KB</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xxl-2">
-                                    <div class="card custom-card overflow-hidden">
-                                        <a href="filemanager-details.html" class="mx-auto my-3"><img src="../assets/images/media/files/documents/7.png" alt="img"></a>
-                                        <div class="card-footer">
-                                            <div class="d-flex">
-                                                <div class="">
-                                                    <h6 class="mb-0 fw-semibold text-break">demo.ppt</h6>
-                                                </div>
-                                                <div class="ms-auto my-auto">
-                                                    <span class="text-muted mb-0">67 KB</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xxl-2">
-                                    <div class="card custom-card overflow-hidden">
-                                        <a href="filemanager-details.html"><img src="../assets/images/media/files/02.jpg" alt="img" class="file-manager-list w-100"></a>
-                                        <div class="card-footer">
-                                            <div class="d-flex">
-                                                <div class="d-flex">
-                                                    <h6 class="mb-0 fw-semibold text-break">image1.jpg</h6>
-                                                </div>
-                                                <div class="ms-auto my-auto">
-                                                    <span class="text-muted mb-0">76 KB</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xxl-2">
-                                    <div class="card custom-card overflow-hidden">
-                                        <a href="filemanager-details.html" class="mx-auto my-3"><img src="../assets/images/media/files/documents/10.png" alt="img"></a>
-                                        <div class="card-footer">
-                                            <div class="d-flex">
-                                                <div class="">
-                                                    <h6 class="mb-0 fw-semibold text-break">video.mp4</h6>
-                                                </div>
-                                                <div class="ms-auto my-auto">
-                                                    <span class="text-muted mb-0">320 KB</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xxl-2">
-                                    <div class="card custom-card overflow-hidden">
-                                        <a href="filemanager-details.html" class="mx-auto my-3"><img src="../assets/images/media/files/documents/8.png" alt="img"></a>
-                                        <div class="card-footer">
-                                            <div class="d-flex">
-                                                <div class="">
-                                                    <h6 class="mb-0 fw-semibold text-break">word.doc</h6>
-                                                </div>
-                                                <div class="ms-auto my-auto">
-                                                    <span class="text-muted mb-0">320 KB</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xxl-2">
-                                    <div class="card custom-card overflow-hidden">
-                                        <a href="filemanager-details.html"><img src="../assets/images/media/files/01.jpg" alt="img" class="file-manager-list w-100"></a>
-                                        <div class="card-footer">
-                                            <div class="d-flex">
-                                                <div class="">
-                                                    <h6 class="mb-0 fw-semibold text-break">image1.jpg</h6>
-                                                </div>
-                                                <div class="ms-auto my-auto">
-                                                    <span class="text-muted mb-0">320 KB</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xxl-2">
-                                    <div class="card custom-card overflow-hidden">
-                                        <a href="filemanager-details.html" class="mx-auto my-3"><img src="../assets/images/media/files/documents/6.png" alt="img"></a>
-                                        <div class="card-footer">
-                                            <div class="d-flex">
-                                                <div class="">
-                                                    <h6 class="mb-0 fw-semibold text-break">file.pdf</h6>
-                                                </div>
-                                                <div class="ms-auto my-auto">
-                                                    <span class="text-muted mb-0">32 KB</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xxl-2">
-                                    <div class="card custom-card overflow-hidden">
-                                        <a href="filemanager-details.html" class="mx-auto my-3"><img src="../assets/images/media/files/documents/2.png" alt="img"></a>
-                                        <div class="card-footer">
-                                            <div class="d-flex">
-                                                <div class="">
-                                                    <h6 class="mb-0 fw-semibold text-break">excel.xls</h6>
-                                                </div>
-                                                <div class="ms-auto my-auto">
-                                                    <span class="text-muted mb-0">34 KB</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xxl-2">
-                                    <div class="card custom-card overflow-hidden">
-                                        <a href="filemanager-details.html" class="mx-auto my-3"><img src="../assets/images/media/files/documents/7.png" alt="img"></a>
-                                        <div class="card-footer">
-                                            <div class="d-flex">
-                                                <div class="">
-                                                    <h6 class="mb-0 fw-semibold text-break">profile.ppt</h6>
-                                                </div>
-                                                <div class="ms-auto my-auto">
-                                                    <span class="text-muted mb-0">67 KB</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xxl-2">
-                                    <div class="card custom-card overflow-hidden">
-                                        <a href="filemanager-details.html"><img src="../assets/images/media/files/04.jpg" alt="img" class="file-manager-list w-100"></a>
-                                        <div class="card-footer">
-                                            <div class="d-flex">
-                                                <div class="">
-                                                    <h6 class="mb-0 fw-semibold text-break">nature.jpg</h6>
-                                                </div>
-                                                <div class="ms-auto my-auto">
-                                                    <span class="text-muted mb-0">66 KB</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xxl-2">
-                                    <div class="card custom-card overflow-hidden">
-                                        <a href="filemanager-details.html" class="mx-auto my-3"><img src="../assets/images/media/files/documents/9.png" alt="img"></a>
-                                        <div class="card-footer">
-                                            <div class="d-flex">
-                                                <div class="">
-                                                    <h6 class="mb-0 fw-semibold text-break">exe.zip</h6>
-                                                </div>
-                                                <div class="ms-auto my-auto">
-                                                    <span class="text-muted mb-0">320 KB</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endif
+    @endforeach
                             </div>
                         </div>
                     </div>

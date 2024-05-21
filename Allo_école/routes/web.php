@@ -7,6 +7,8 @@ use App\Http\Controllers\NiveauxScolaireController;
 use App\Http\Controllers\AnneeScolaireController;
 use App\Models\NiveauScolaire;
 use App\Http\Controllers\FiliéreController;
+
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\MatiereController;
 use Illuminate\Support\Facades\Log;
 use App\Http\Middleware\EnsureUserIsAdmin;
@@ -103,3 +105,6 @@ Route::get('/course', function () {
 });
 Route::get('/files_course', function () {return view('Admin.filemanager-list');
 });
+
+Route::post('/courses', [CourseController::class, 'store'])->name('courses.store');
+Route::get('/files_course/{id}', [CourseController::class, 'show'])->name('filemanager.details');
