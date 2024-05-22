@@ -14,22 +14,22 @@
 
     <!-- CSS
 	============================================ -->
-    <link rel="stylesheet" href="assets_pages/css/vendor/bootstrap.min.css">
-    <link rel="stylesheet" href="assets_pages/css/vendor/slick.css">
-    <link rel="stylesheet" href="assets_pages/css/vendor/slick-theme.css">
-    <link rel="stylesheet" href="assets_pages/css/plugins/sal.css">
-    <link rel="stylesheet" href="assets_pages/css/plugins/feather.css">
-    <link rel="stylesheet" href="assets_pages/css/plugins/fontawesome.min.css">
-    <link rel="stylesheet" href="assets_pages/css/plugins/euclid-circulara.css">
-    <link rel="stylesheet" href="assets_pages/css/plugins/swiper.css">
-    <link rel="stylesheet" href="assets_pages/css/plugins/magnify.css">
-    <link rel="stylesheet" href="assets_pages/css/plugins/odometer.css">
-    <link rel="stylesheet" href="assets_pages/css/plugins/animation.css">
-    <link rel="stylesheet" href="assets_pages/css/plugins/bootstrap-select.min.css">
-    <link rel="stylesheet" href="assets_pages/css/plugins/jquery-ui.css">
-    <link rel="stylesheet" href="assets_pages/css/plugins/magnigy-popup.min.css">
-    <link rel="stylesheet" href="assets_pages/css/plugins/plyr.css">
-    <link rel="stylesheet" href="assets_pages/css/style.css">
+    <link rel="stylesheet" href="{{ asset('assets_pages/css/vendor/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets_pages/css/vendor/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets_pages/css/vendor/slick-theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets_pages/css/plugins/sal.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets_pages/css/plugins/feather.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets_pages/css/plugins/fontawesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets_pages/css/plugins/euclid-circulara.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets_pages/css/plugins/swiper.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets_pages/css/plugins/magnify.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets_pages/css/plugins/odometer.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets_pages/css/plugins/animation.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets_pages/css/plugins/bootstrap-select.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets_pages/css/plugins/jquery-ui.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets_pages/css/plugins/magnigy-popup.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets_pages/css/plugins/plyr.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets_pages/css/style.css') }}">
 </head>
 
 <body class="rbt-header-sticky">
@@ -61,7 +61,8 @@
                                     </a>
                                     <ul class="submenu">
                                         @foreach($niveaux as $niveau)
-                                            <li class="has-dropdown"><a href="#">{{ $niveau->nom }}</a>
+                                            <li class="has-dropdown"><a
+                                                    href="{{ route('courses', $niveau->id) }}">{{ $niveau->nom }}</a>
                                             </li>
                                         @endforeach
                                     </ul>
@@ -94,7 +95,7 @@
                             </li>
                             @auth
                                 <li class="account-access rbt-user-wrapper d-none d-xl-block">
-                                    <a href="#"><i class="feather-user"></i>Admin</a>
+                                    <a href="#"><i class="feather-user"></i>{{ Auth::user()->name }}</a>
                                     <div class="rbt-user-menu-list-wrapper">
                                         <div class="inner">
                                             <div class="rbt-admin-profile">
@@ -102,7 +103,7 @@
                                                     <img src="assets_pages/images/team/avatar.jpg" alt="User Images">
                                                 </div>
                                                 <div class="admin-info">
-                                                    <span class="name">Nipa Bali</span>
+                                                    <span class="name">{{ Auth::user()->name }}</span>
                                                     <a class="rbt-btn-link color-primary" href="profile.html">View
                                                         Profile</a>
                                                 </div>
@@ -111,69 +112,36 @@
                                                 <li>
                                                     <a href="instructor-dashboard.html">
                                                         <i class="feather-home"></i>
-                                                        <span>My Dashboard</span>
+                                                        <span>Mon profile</span>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="#">
                                                         <i class="feather-bookmark"></i>
-                                                        <span>Bookmark</span>
+                                                        <span>Favoris</span>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="instructor-enrolled-courses.html">
                                                         <i class="feather-shopping-bag"></i>
-                                                        <span>Enrolled Courses</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="instructor-wishlist.html">
-                                                        <i class="feather-heart"></i>
-                                                        <span>Wishlist</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="instructor-reviews.html">
-                                                        <i class="feather-star"></i>
-                                                        <span>Reviews</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="instructor-my-quiz-attempts.html">
-                                                        <i class="feather-list"></i>
-                                                        <span>My Quiz Attempts</span>
+                                                        <span>Cours inscrits</span>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="instructor-order-history.html">
                                                         <i class="feather-clock"></i>
-                                                        <span>Order History</span>
+                                                        <span>Historique des commandes</span>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="instructor-quiz-attempts.html">
                                                         <i class="feather-message-square"></i>
-                                                        <span>Question & Answer</span>
+                                                        <span>Question Réponse</span>
                                                     </a>
                                                 </li>
                                             </ul>
                                             <hr class="mt--10 mb--10">
                                             <ul class="user-list-wrapper">
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="feather-book-open"></i>
-                                                        <span>Getting Started</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                            <hr class="mt--10 mb--10">
-                                            <ul class="user-list-wrapper">
-                                                <li>
-                                                    <a href="instructor-settings.html">
-                                                        <i class="feather-settings"></i>
-                                                        <span>Settings</span>
-                                                    </a>
-                                                </li>
                                                 <li>
                                                     <a href="index.html">
                                                         <i class="feather-log-out"></i>
@@ -235,27 +203,7 @@
                                                         <span>My Quiz Attempts</span>
                                                     </a>
                                                 </li>
-                                                <li>
-                                                    <a href="instructor-order-history.html">
-                                                        <i class="feather-clock"></i>
-                                                        <span>Order History</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="instructor-quiz-attempts.html">
-                                                        <i class="feather-message-square"></i>
-                                                        <span>Question & Answer</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                            <hr class="mt--10 mb--10">
-                                            <ul class="user-list-wrapper">
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="feather-book-open"></i>
-                                                        <span>Getting Started</span>
-                                                    </a>
-                                                </li>
+
                                             </ul>
                                             <hr class="mt--10 mb--10">
                                             <ul class="user-list-wrapper">
@@ -1357,7 +1305,7 @@
                             <div class=" title-wrapper">
                                 <h1 class="title mb--0">Toutes les Courses</h1>
                                 <a href="#" class="rbt-badge-2">
-                                    <div class="image">🎉</div> 50 Courses
+                                    <div class="image">🎉</div> {{ $courseCount }} Courses
                                 </a>
                             </div>
                         </div>
@@ -1384,222 +1332,83 @@
                                 </form>
                             </div>
                         </div>
-                        <!-- End Widget Area  -->
 
-                        <!-- Start Widget Area  -->
                         <div class="rbt-single-widget rbt-widget-categories has-show-more">
-                            <div class="inner">
-                                <h4 class="rbt-widget-title">Filiére</h4>
-                                <ul class="rbt-sidebar-list-wrapper categories-list-check has-show-more-inner-content">
-                                    <li class="rbt-check-group">
-                                        <input id="cat-list-1" type="checkbox" name="cat-list-1">
-                                        <label for="cat-list-1">Art &amp; Humanities <span
-                                                class="rbt-lable count">15</span></label>
-                                    </li>
-                                    <li class="rbt-check-group">
-                                        <input id="cat-list-2" type="checkbox" name="cat-list-2">
-                                        <label for="cat-list-2">Web Design <span
-                                                class="rbt-lable count">20</span></label>
-                                    </li>
-                                    <li class="rbt-check-group">
-                                        <input id="cat-list-3" type="checkbox" name="cat-list-3">
-                                        <label for="cat-list-3">Graphic Design <span
-                                                class="rbt-lable count">10</span></label>
-                                    </li>
-                                    <li class="rbt-check-group">
-                                        <input id="cat-list-4" type="checkbox" name="cat-list-4">
-                                        <label for="cat-list-4">Art &amp; Humanities <span
-                                                class="rbt-lable count">15</span></label>
-                                    </li>
-                                    <li class="rbt-check-group">
-                                        <input id="cat-list-5" type="checkbox" name="cat-list-5">
-                                        <label for="cat-list-5">Technology <span
-                                                class="rbt-lable count">20</span></label>
-                                    </li>
-                                    <li class="rbt-check-group">
-                                        <input id="cat-list-6" type="checkbox" name="cat-list-6">
-                                        <label for="cat-list-6">Humanities Art <span
-                                                class="rbt-lable count">25</span></label>
-                                    </li>
+    <div class="inner">
+        <h4 class="rbt-widget-title">Filiére</h4>
+        <ul class="rbt-sidebar-list-wrapper categories-list-check has-show-more-inner-content">
+            @foreach($filieres as $filiere)
+            <li class="rbt-check-group">
+                <input id="filiere-{{ $filiere->id }}" type="checkbox" name="filieres[]" value="{{ $filiere->id }}">
+                <label for="filiere-{{ $filiere->id }}">{{ $filiere->name }} <span class="rbt-lable count">{{ $filiere->courses()->count() }}</span></label>
+            </li>
+            @endforeach
+        </ul>
+    </div>
+    <div class="rbt-show-more-btn">Show More</div>
+</div>
 
+<div class="rbt-single-widget rbt-widget-instructor">
+    <div class="inner">
+        <h4 class="rbt-widget-title">Matiére</h4>
+        <ul class="rbt-sidebar-list-wrapper instructor-list-check">
+            @foreach($matieres as $matiere)
+            <li class="rbt-check-group">
+                <input id="matiere-{{ $matiere->id }}" type="checkbox" name="matieres[]" value="{{ $matiere->id }}">
+                <label for="matiere-{{ $matiere->id }}">{{ $matiere->name }} <span class="rbt-lable count">{{ $matiere->courses()->where('niveau_id', $niveau->id)->count() }}</span></label>
+            </li>
+            @endforeach
+        </ul>
+    </div>
+</div>
 
-                                </ul>
-                            </div>
-                            <div class="rbt-show-more-btn">Show More</div>
-                        </div>
-                        <!-- End Widget Area  -->
-                        <!-- Start Widget Area  -->
-                        <div class="rbt-single-widget rbt-widget-instructor">
-                            <div class="inner">
-                                <h4 class="rbt-widget-title">Matiére</h4>
-                                <ul class="rbt-sidebar-list-wrapper instructor-list-check">
-                                    <li class="rbt-check-group">
-                                        <input id="ins-list-1" type="checkbox" name="ins-list-1">
-                                        <label for="ins-list-1">Slaughter <span
-                                                class="rbt-lable count">15</span></label>
-                                    </li>
-                                    <li class="rbt-check-group">
-                                        <input id="ins-list-2" type="checkbox" name="ins-list-2">
-                                        <label for="ins-list-2">Patrick <span class="rbt-lable count">20</span></label>
-                                    </li>
-                                    <li class="rbt-check-group">
-                                        <input id="ins-list-3" type="checkbox" name="ins-list-3">
-                                        <label for="ins-list-3">Angela <span class="rbt-lable count">10</span></label>
-                                    </li>
-                                    <li class="rbt-check-group">
-                                        <input id="ins-list-4" type="checkbox" name="ins-list-4">
-                                        <label for="ins-list-4">Fatima Asrafy <span
-                                                class="rbt-lable count">15</span></label>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- End Widget Area  -->
-
-                        <!-- Start Widget Area  -->
-                        <div class="rbt-single-widget rbt-widget-prices">
-                            <div class="inner">
-                                <h4 class="rbt-widget-title">Section</h4>
-                                <ul class="rbt-sidebar-list-wrapper prices-list-check">
-                                    <li class="rbt-check-group">
-                                        <input id="prices-list-1" type="checkbox" name="prices-list-1">
-                                        <label for="prices-list-1">All <span class="rbt-lable count">15</span></label>
-                                    </li>
-                                    <li class="rbt-check-group">
-                                        <input id="prices-list-2" type="checkbox" name="prices-list-2">
-                                        <label for="prices-list-2">Free <span class="rbt-lable count">0</span></label>
-                                    </li>
-                                    <li class="rbt-check-group">
-                                        <input id="prices-list-3" type="checkbox" name="prices-list-3">
-                                        <label for="prices-list-3">Paid <span class="rbt-lable count">10</span></label>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+<div class="rbt-single-widget rbt-widget-prices">
+    <div class="inner">
+        <h4 class="rbt-widget-title">Section</h4>
+        <ul class="rbt-sidebar-list-wrapper prices-list-check">
+            @foreach($annees as $annee)
+            <li class="rbt-check-group">
+                <input id="annee-{{ $annee->id }}" type="checkbox" name="annees[]" value="{{ $annee->id }}">
+                <label for="annee-{{ $annee->id }}">{{ $annee->name }} <span class="rbt-lable count">{{ $annee->courses()->where('niveau_id', $niveau->id)->count() }}</span></label>
+            </li>
+            @endforeach
+        </ul>
+    </div>
+</div>
                     </aside>
                 </div>
                 <div class="col-lg-9 order-1 order-lg-2">
                     <div class="rbt-course-grid-column">
-                        <!-- Start Single Card  -->
-                        <div class="course-grid-3">
-                            <div class="rbt-card variation-01 rbt-hover">
-                                <div class="rbt-card-img">
-                                    <a href="course-details.html">
-                                        <img src="assets_pages/images/course/course-online-01.jpg" alt="Card image">
-                                    </a>
-                                </div>
-                                <div class="rbt-card-body">
-                                    <div class="rbt-card-top">
-                                        <div class="rbt-bookmark-btn">
-                                            <a class="rbt-round-btn" title="Bookmark" href="#"><i
-                                                    class="feather-bookmark"></i></a>
-                                        </div>
-                                    </div>
 
-                                    <h4 class="rbt-card-title"><a href="course-details.html">React Front To Back</a>
-                                    </h4>
-
-                                    <ul class="rbt-list-style-3 color-black" style="margin-bottom:10px;mrgin-top:5px;">
-                                        <li><i class="feather-youtube"></i> 370 Free Video</li>
-                                        <li><i class="feather-book"></i> 120 PDF</li>
-                                        <li><i class="feather-video"></i> Live Class</li>
-                                    </ul>
-                                    <!-- <div class="rbt-author-meta mb--10">
-                                        <div class="rbt-avater">
-                                            <a href="#">
-                                                <img src="assets/images/client/avatar-02.png" alt="Sophia Jaymes">
-                                            </a>
-                                        </div>
-                                        <div class="rbt-author-info">
-                                            By <a href="profile.html">Angela</a> In <a href="#">Development</a>
-                                        </div>
-                                    </div> -->
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Card  -->
 
                         <!-- Start Single Card  -->
-                        <div class="course-grid-3">
-                            <div class="rbt-card variation-01 rbt-hover">
-                                <div class="rbt-card-img">
-                                    <a href="course-details.html">
-                                        <img src="assets_pages/images/course/course-online-01.jpg" alt="Card image">
-                                    </a>
-                                </div>
-                                <div class="rbt-card-body">
-                                    <div class="rbt-card-top">
-                                        <div class="rbt-bookmark-btn">
-                                            <a class="rbt-round-btn" title="Bookmark" href="#"><i
-                                                    class="feather-bookmark"></i></a>
-                                        </div>
+                        @foreach($courses as $course)
+                            <div class="course-grid-3">
+                                <div class="rbt-card variation-01 rbt-hover">
+                                    <div class="rbt-card-img">
+                                        <a href="{{ route('course.show', $course->id) }}">
+                                            <img src="https://imgs.search.brave.com/33c_ESRhtfu_D5m7k8qkcH1djDR2wpx9MdfEekQWsdc/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAyLzM4LzU2LzQ3/LzM2MF9GXzIzODU2/NDc1N19MN2dzeWtq/dlplMlNkdG55ZmEw/bUhkMGZPYkhVNGY1/Ry5qcGc"
+                                                alt="Card image">
+                                        </a>
                                     </div>
-
-                                    <h4 class="rbt-card-title"><a href="course-details.html">React Front To Back</a>
-                                    </h4>
-
-                                    <ul class="rbt-list-style-3 color-black" style="margin-bottom:10px;mrgin-top:5px;">
-                                        <li><i class="feather-youtube"></i> 370 Free Video</li>
-                                        <li><i class="feather-book"></i> 120 PDF</li>
-                                        <li><i class="feather-video"></i> Live Class</li>
-                                    </ul>
-                                    <!-- <div class="rbt-author-meta mb--10">
-                                        <div class="rbt-avater">
-                                            <a href="#">
-                                                <img src="assets/images/client/avatar-02.png" alt="Sophia Jaymes">
-                                            </a>
+                                    <div class="rbt-card-body">
+                                        <div class="rbt-card-top">
+                                            <div class="rbt-bookmark-btn">
+                                                <a class="rbt-round-btn" title="Bookmark" href="#"><i
+                                                        class="feather-bookmark"></i></a>
+                                            </div>
                                         </div>
-                                        <div class="rbt-author-info">
-                                            By <a href="profile.html">Angela</a> In <a href="#">Development</a>
-                                        </div>
-                                    </div> -->
-
+                                        <h4 class="rbt-card-title"><a
+                                                href="{{ route('course.show', $course->id) }}">{{ $course->name }}</a></h4>
+                                        <ul class="rbt-list-style-3 color-black" style="margin-bottom:10px;mrgin-top:5px;">
+                                            <li><i class="feather-youtube"></i> 370 Free Video</li>
+                                            <li><i class="feather-book"></i> 120 PDF</li>
+                                            <li><i class="feather-video"></i> Live Class</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- End Single Card  -->
-
-                        <!-- Start Single Card  -->
-                        <div class="course-grid-3">
-                            <div class="rbt-card variation-01 rbt-hover">
-                                <div class="rbt-card-img">
-                                    <a href="course-details.html">
-                                        <img src="assets_pages/images/course/course-online-01.jpg" alt="Card image">
-                                    </a>
-                                </div>
-                                <div class="rbt-card-body">
-                                    <div class="rbt-card-top">
-                                        <div class="rbt-bookmark-btn">
-                                            <a class="rbt-round-btn" title="Bookmark" href="#"><i
-                                                    class="feather-bookmark"></i></a>
-                                        </div>
-                                    </div>
-
-                                    <h4 class="rbt-card-title"><a href="course-details.html">React Front To Back</a>
-                                    </h4>
-
-                                    <ul class="rbt-list-style-3 color-black" style="margin-bottom:10px;mrgin-top:5px;">
-                                        <li><i class="feather-youtube"></i> 370 Free Video</li>
-                                        <li><i class="feather-book"></i> 120 PDF</li>
-                                        <li><i class="feather-video"></i> Live Class</li>
-                                    </ul>
-                                    <!-- <div class="rbt-author-meta mb--10">
-                                        <div class="rbt-avater">
-                                            <a href="#">
-                                                <img src="assets/images/client/avatar-02.png" alt="Sophia Jaymes">
-                                            </a>
-                                        </div>
-                                        <div class="rbt-author-info">
-                                            By <a href="profile.html">Angela</a> In <a href="#">Development</a>
-                                        </div>
-                                    </div> -->
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Card  -->
-
+                        @endforeach
                     </div>
 
                     <div class="row">
@@ -1767,35 +1576,35 @@
     <!-- JS
 ============================================ -->
     <!-- Modernizer JS -->
-    <script src="assets_pages/js/vendor/modernizr.min.js"></script>
+    <script src="{{ asset('assets_pages/js/vendor/modernizr.min.js')}}"></script>
     <!-- jQuery JS -->
-    <script src="assets_pages/js/vendor/jquery.js"></script>
+    <script src="{{ asset('assets_pages/js/vendor/jquery.js')}}"></script>
     <!-- Bootstrap JS -->
-    <script src="assets_pages/js/vendor/bootstrap.min.js"></script>
+    <script src="assets_pages/js/vendor/bootstrap.min.js')}}"></script>
     <!-- sal.js -->
-    <script src="assets_pages/js/vendor/sal.js"></script>
-    <script src="assets_pages/js/vendor/swiper.js"></script>
-    <script src="assets_pages/js/vendor/magnify.min.js"></script>
-    <script src="assets_pages/js/vendor/jquery-appear.js"></script>
-    <script src="assets_pages/js/vendor/odometer.js"></script>
-    <script src="assets_pages/js/vendor/backtotop.js"></script>
-    <script src="assets_pages/js/vendor/isotop.js"></script>
-    <script src="assets_pages/js/vendor/imageloaded.js"></script>
+    <script src="{{ asset('assets_pages/js/vendor/sal.js')}}"></script>
+    <script src="{{ asset('assets_pages/js/vendor/swiper.js')}}"></script>
+    <script src="{{ asset('assets_pages/js/vendor/magnify.min.js')}}"></script>
+    <script src="{{ asset('assets_pages/js/vendor/jquery-appear.js')}}"></script>
+    <script src="{{ asset('assets_pages/js/vendor/odometer.js')}}"></script>
+    <script src="{{ asset('assets_pages/js/vendor/backtotop.js')}}"></script>
+    <script src="{{ asset('assets_pages/js/vendor/isotop.js')}}"></script>
+    <script src="{{ asset('assets_pages/js/vendor/imageloaded.js')}}"></script>
 
-    <script src="assets_pages/js/vendor/wow.js"></script>
-    <script src="assets_pages/js/vendor/waypoint.min.js"></script>
-    <script src="assets_pages/js/vendor/easypie.js"></script>
-    <script src="assets_pages/js/vendor/text-type.js"></script>
-    <script src="assets_pages/js/vendor/jquery-one-page-nav.js"></script>
-    <script src="assets_pages/js/vendor/bootstrap-select.min.js"></script>
-    <script src="assets_pages/js/vendor/jquery-ui.js"></script>
-    <script src="assets_pages/js/vendor/magnify-popup.min.js"></script>
-    <script src="assets_pages/js/vendor/paralax-scroll.js"></script>
-    <script src="assets_pages/js/vendor/paralax.min.js"></script>
-    <script src="assets_pages/js/vendor/countdown.js"></script>
-    <script src="assets_pages/js/vendor/plyr.js"></script>
+    <script src="{{ asset('assets_pages/js/vendor/wow.js')}}"></script>
+    <script src="{{ asset('assets_pages/js/vendor/waypoint.min.js')}}"></script>
+    <script src="{{ asset('assets_pages/js/vendor/easypie.js')}}"></script>
+    <script src="{{ asset('assets_pages/js/vendor/text-type.js')}}"></script>
+    <script src="{{ asset('assets_pages/js/vendor/jquery-one-page-nav.js')}}"></script>
+    <script src="{{ asset('assets_pages/js/vendor/bootstrap-select.min.js')}}"></script>
+    <script src="{{ asset('assets_pages/js/vendor/jquery-ui.js')}}"></script>
+    <script src="{{ asset('assets_pages/js/vendor/magnify-popup.min.js')}}"></script>
+    <script src="{{ asset('assets_pages/js/vendor/paralax-scroll.js')}}"></script>
+    <script src="{{ asset('assets_pages/js/vendor/paralax.min.js')}}"></script>
+    <script src="{{ asset('assets_pages/js/vendor/countdown.js')}}"></script>
+    <script src="{{ asset('assets_pages/js/vendor/plyr.js')}}"></script>
     <!-- Main JS -->
-    <script src="assets_pages/js/main.js"></script>
+    <script src="{{ asset('assets_pages/js/main.js')}}"></script>
 </body>
 
 </html>

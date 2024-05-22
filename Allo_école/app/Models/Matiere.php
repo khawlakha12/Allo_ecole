@@ -25,5 +25,9 @@ class Matiere extends Model
     {
         return $this->belongsTo(Filieres::class, 'id_filiere');
     }
+    public function courses()
+    {
+        return $this->hasMany(Course::class, 'matiere_id');
+    }
 }
 

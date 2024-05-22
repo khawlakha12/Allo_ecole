@@ -18,5 +18,9 @@ class AnneeScolaire extends Model
     {
         return $this->belongsTo(NiveauScolaire::class, 'id_niveaux_scolaires');
     }
+    public function courses()
+    {
+        return $this->hasMany(Course::class, 'annee_id');
+    }
 }
 

@@ -20,4 +20,8 @@ class Filieres extends Model
     {
         return $this->belongsTo(NiveauScolaire::class, 'id_niveau_scolaire');
     }
+    public function courses()
+    {
+        return $this->hasMany(Course::class, 'filiere_id');
+    }
 }

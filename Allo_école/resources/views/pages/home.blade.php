@@ -61,7 +61,7 @@
                                     </a>
                                     <ul class="submenu">
                                         @foreach($niveaux as $niveau)
-                                            <li class="has-dropdown"><a href="#">{{ $niveau->nom }}</a>
+                                            <li class="has-dropdown"><a href="{{ route('courses', $niveau->id) }}">{{ $niveau->nom }}</a>
                                             </li>
                                         @endforeach
                                     </ul>
@@ -94,7 +94,7 @@
                             </li>
                             @auth
                                 <li class="account-access rbt-user-wrapper d-none d-xl-block">
-                                    <a href="#"><i class="feather-user"></i>Admin</a>
+                                    <a href="#"><i class="feather-user"></i>{{ Auth::user()->name }}</a>
                                     <div class="rbt-user-menu-list-wrapper">
                                         <div class="inner">
                                             <div class="rbt-admin-profile">
@@ -102,7 +102,7 @@
                                                     <img src="assets_pages/images/team/avatar.jpg" alt="User Images">
                                                 </div>
                                                 <div class="admin-info">
-                                                    <span class="name">Nipa Bali</span>
+                                                    <span class="name">{{ Auth::user()->name }}</span>
                                                     <a class="rbt-btn-link color-primary" href="profile.html">View
                                                         Profile</a>
                                                 </div>
@@ -111,69 +111,36 @@
                                                 <li>
                                                     <a href="instructor-dashboard.html">
                                                         <i class="feather-home"></i>
-                                                        <span>My Dashboard</span>
+                                                        <span>Mon profile</span>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="#">
                                                         <i class="feather-bookmark"></i>
-                                                        <span>Bookmark</span>
+                                                        <span>Favoris</span>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="instructor-enrolled-courses.html">
                                                         <i class="feather-shopping-bag"></i>
-                                                        <span>Enrolled Courses</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="instructor-wishlist.html">
-                                                        <i class="feather-heart"></i>
-                                                        <span>Wishlist</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="instructor-reviews.html">
-                                                        <i class="feather-star"></i>
-                                                        <span>Reviews</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="instructor-my-quiz-attempts.html">
-                                                        <i class="feather-list"></i>
-                                                        <span>My Quiz Attempts</span>
+                                                        <span>Cours inscrits</span>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="instructor-order-history.html">
                                                         <i class="feather-clock"></i>
-                                                        <span>Order History</span>
+                                                        <span>Historique des commandes</span>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="instructor-quiz-attempts.html">
                                                         <i class="feather-message-square"></i>
-                                                        <span>Question & Answer</span>
+                                                        <span>Question Réponse</span>
                                                     </a>
                                                 </li>
                                             </ul>
                                             <hr class="mt--10 mb--10">
                                             <ul class="user-list-wrapper">
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="feather-book-open"></i>
-                                                        <span>Getting Started</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                            <hr class="mt--10 mb--10">
-                                            <ul class="user-list-wrapper">
-                                                <li>
-                                                    <a href="instructor-settings.html">
-                                                        <i class="feather-settings"></i>
-                                                        <span>Settings</span>
-                                                    </a>
-                                                </li>
                                                 <li>
                                                     <a href="index.html">
                                                         <i class="feather-log-out"></i>
@@ -235,27 +202,7 @@
                                                         <span>My Quiz Attempts</span>
                                                     </a>
                                                 </li>
-                                                <li>
-                                                    <a href="instructor-order-history.html">
-                                                        <i class="feather-clock"></i>
-                                                        <span>Order History</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="instructor-quiz-attempts.html">
-                                                        <i class="feather-message-square"></i>
-                                                        <span>Question & Answer</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                            <hr class="mt--10 mb--10">
-                                            <ul class="user-list-wrapper">
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="feather-book-open"></i>
-                                                        <span>Getting Started</span>
-                                                    </a>
-                                                </li>
+                                                
                                             </ul>
                                             <hr class="mt--10 mb--10">
                                             <ul class="user-list-wrapper">
@@ -1238,9 +1185,7 @@
                             <div class="inner">
 
                                 <h1 class="title">Bienvenue dans Allo école <br /> éducation en ligne</h1>
-                                <p class="description">We are experienced in educationl platform and skilled strategies
-                                    for
-                                    the success of our online learning.</p>
+                                <p class="description">Nous sommes expérimentés dans les plateformes éducatives et les stratégies compétentes pour le succès de notre apprentissage en ligne.</p>
                                 <div class="rating mb--20">
                                     <a href="#"><i class="fa fa-star"></i></a>
                                     <a href="#"><i class="fa fa-star"></i></a>
@@ -1257,8 +1202,8 @@
                                         <a href="#" class="avatar" data-tooltip="Jordan" tabindex="0"><img
                                                 src="assets_pages/images/testimonial/client-06.png" alt="education"></a>
                                         <div class="more-author-text">
-                                            <h5 class="total-join-students">Join Over 3000+ Students</h5>
-                                            <p class="subtitle">Have a new ideas every week.</p>
+                                            <h5 class="total-join-students">Rejoignez plus de +30 000 étudiants</h5>
+                                            <p class="subtitle">Ayez de nouvelles idées chaque semaine.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -1288,148 +1233,107 @@
                 <div class="row mb--60">
                     <div class="col-lg-12">
                         <div class="section-title text-center">
-                            <span class="subtitle bg-pink-opacity">Histudy Feature</span>
-                            <h2 class="title">Check out Histudy's features <br> to win any exam</h2>
+                            <span class="subtitle bg-pink-opacity">Fonctionnalité Allo école</span>
+                            <!-- <h2 class="title">Check out Histudy's features <br> to win any exam</h2> -->
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-12">
-                        <div class="row row--15 mt_dec--30">
-                            <!-- Start Single Card  -->
-                            <div class="col-xl-3 col-md-6 col-sm-6 col-12 mt--30">
-                                <div class="rbt-flipbox">
-                                    <div class="rbt-flipbox-wrap rbt-service rbt-service-1 card-bg-1">
-                                        <div class="rbt-flipbox-front rbt-flipbox-face inner">
-                                            <div class="icon">
-                                                <img src="assets_pages/images/icons/card-icon-1.png" alt="card-icon">
-                                            </div>
-                                            <div class="content">
-                                                <h5 class="title"><a href="#">Best Coaching</a></h5>
-                                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima
-                                                    error reiciendis.</p>
-                                                <a class="rbt-btn-link stretched-link" href="#">Learn More<i
-                                                        class="feather-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="rbt-flipbox-back rbt-flipbox-face inner">
-                                            <ul class="rbt-list-style-3 color-white">
-                                                <li><i class="feather-youtube"></i> 570 Free Video</li>
-                                                <li><i class="feather-book"></i> 35 Subjects</li>
-                                                <li><i class="feather-video"></i> Live Class</li>
-                                                <li><i class="feather-info"></i> MCQ and CQ Bank</li>
-                                            </ul>
-                                            <a class="rbt-btn rbt-switch-btn btn-white btn-sm" href="#">
-                                                <span data-text="Learn More">Learn More</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
+    <div class="col-lg-12">
+        <div class="row row--15 mt_dec--30">
+            <!-- Start Single Card  -->
+            <div class="col-xl-4 col-md-6 col-sm-6 col-12 mt--30">
+                <div class="rbt-flipbox">
+                    <div class="rbt-flipbox-wrap rbt-service rbt-service-1 card-bg-1">
+                        <div class="rbt-flipbox-front rbt-flipbox-face inner">
+                            <div class="icon">
+                                <img src="assets_pages/images/icons/card-icon-1.png" alt="card-icon">
                             </div>
-                            <!-- End Single Card  -->
-
-                            <!-- Start Single Card  -->
-                            <div class="col-xl-3 col-md-6 col-sm-6 col-12 mt--30">
-                                <div class="rbt-flipbox">
-                                    <div class="rbt-flipbox-wrap rbt-service rbt-service-1 card-bg-2">
-                                        <div class="rbt-flipbox-front rbt-flipbox-face inner">
-                                            <div class="icon">
-                                                <img src="assets_pages/images/icons/card-icon-2.png" alt="card-icon">
-                                            </div>
-                                            <div class="content">
-                                                <h5 class="title"><a href="#">Convenient practice</a></h5>
-                                                <p>Convenient practice dolor sit adipisicing elit. Minima error
-                                                    reiciendis.</p>
-                                                <a class="rbt-btn-link stretched-link" href="#">Learn More<i
-                                                        class="feather-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-
-                                        <div class="rbt-flipbox-back rbt-flipbox-face inner">
-                                            <ul class="rbt-list-style-3 color-white">
-                                                <li><i class="feather-youtube"></i> 370 Free Video</li>
-                                                <li><i class="feather-book"></i> 120 Subjects</li>
-                                                <li><i class="feather-video"></i> Live Class</li>
-                                                <li><i class="feather-info"></i> MCQ and CQ Bank</li>
-                                            </ul>
-                                            <a class="rbt-btn rbt-switch-btn btn-white btn-sm" href="#">
-                                                <span data-text="Learn More">Learn More</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="content">
+                                <h5 class="title"><a href="#">Cours PDF</a></h5>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima error reiciendis.</p>
+                                <a class="rbt-btn-link stretched-link" href="#">Encore plus<i class="feather-arrow-right"></i></a>
                             </div>
-                            <!-- End Single Card  -->
-
-                            <!-- Start Single Card  -->
-                            <div class="col-xl-3 col-md-6 col-sm-6 col-12 mt--30">
-                                <div class="rbt-flipbox">
-                                    <div class="rbt-flipbox-wrap rbt-service rbt-service-1 card-bg-3">
-                                        <div class="rbt-flipbox-front rbt-flipbox-face inner">
-                                            <div class="icon">
-                                                <img src="assets_pages/images/icons/card-icon-3.png" alt="card-icon">
-                                            </div>
-                                            <div class="content">
-                                                <h5 class="title"><a href="#">Video Lecture</a></h5>
-                                                <p>Video Lecture sit, amet consectetur adipisicing elit. Minima error
-                                                    reiciendis.</p>
-                                                <a class="rbt-btn-link stretched-link" href="#">Learn More<i
-                                                        class="feather-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-
-                                        <div class="rbt-flipbox-back rbt-flipbox-face inner">
-                                            <ul class="rbt-list-style-3 color-white">
-                                                <li><i class="feather-youtube"></i> 125 Free Video</li>
-                                                <li><i class="feather-book"></i> 12 Subjects</li>
-                                                <li><i class="feather-video"></i> Live Class</li>
-                                                <li><i class="feather-info"></i> MCQ and CQ Bank</li>
-                                            </ul>
-                                            <a class="rbt-btn rbt-switch-btn btn-white btn-sm" href="#">
-                                                <span data-text="Learn More">Learn More</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Card  -->
-
-                            <!-- Start Single Card  -->
-                            <div class="col-xl-3 col-md-6 col-sm-6 col-12 mt--30">
-                                <div class="rbt-flipbox">
-                                    <div class="rbt-flipbox-wrap rbt-service rbt-service-1 card-bg-4">
-                                        <div class="rbt-flipbox-front rbt-flipbox-face inner">
-                                            <div class="icon">
-                                                <img src="assets_pages/images/icons/card-icon-4.png" alt="card-icon">
-                                            </div>
-                                            <div class="content">
-                                                <h5 class="title"><a href="#">Live Class</a></h5>
-                                                <p>Live Class dolor sit, amet consectetur adipisicing elit. Minima error
-                                                    reiciendis.</p>
-                                                <a class="rbt-btn-link stretched-link" href="#">Learn More<i
-                                                        class="feather-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-
-                                        <div class="rbt-flipbox-back rbt-flipbox-face inner">
-                                            <ul class="rbt-list-style-3 color-white">
-                                                <li><i class="feather-youtube"></i> 124 Free Video</li>
-                                                <li><i class="feather-book"></i> 56 Subjects</li>
-                                                <li><i class="feather-video"></i> Live Class</li>
-                                                <li><i class="feather-info"></i> MCQ and CQ Bank</li>
-                                            </ul>
-                                            <a class="rbt-btn rbt-switch-btn btn-white btn-sm" href="#">
-                                                <span data-text="Learn More">Learn More</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Card  -->
-
+                        </div>
+                        <div class="rbt-flipbox-back rbt-flipbox-face inner">
+                            <ul class="rbt-list-style-3 color-white">
+                                <li><i class="feather-youtube"></i> 570 PDF</li>
+                                <li><i class="feather-book"></i> 35 Cours</li>
+                                <li><i class="feather-video"></i> Live Class</li>
+                                <li><i class="feather-info"></i> MCQ and CQ Bank</li>
+                            </ul>
+                            <a class="rbt-btn rbt-switch-btn btn-white btn-sm" href="#">
+                                <span data-text="Learn More">Encore plus</span>
+                            </a>
                         </div>
                     </div>
                 </div>
+            </div>
+            <!-- End Single Card  -->
+            <!-- Start Single Card  -->
+            <div class="col-xl-4 col-md-6 col-sm-6 col-12 mt--30">
+                <div class="rbt-flipbox">
+                    <div class="rbt-flipbox-wrap rbt-service rbt-service-1 card-bg-2">
+                        <div class="rbt-flipbox-front rbt-flipbox-face inner">
+                            <div class="icon">
+                                <img src="assets_pages/images/icons/card-icon-2.png" alt="card-icon">
+                            </div>
+                            <div class="content">
+                                <h5 class="title"><a href="#">Cours en vidéo</a></h5>
+                                <p>Convenient practice dolor sit adipisicing elit. Minima error reiciendis.</p>
+                                <a class="rbt-btn-link stretched-link" href="#">Encore plus<i class="feather-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="rbt-flipbox-back rbt-flipbox-face inner">
+                            <ul class="rbt-list-style-3 color-white">
+                                <li><i class="feather-youtube"></i> 370 Vidéo gratuite</li>
+                                <li><i class="feather-book"></i> 120 Cours</li>
+                                <li><i class="feather-video"></i> Live Class</li>
+                                <li><i class="feather-info"></i> MCQ and CQ Bank</li>
+                            </ul>
+                            <a class="rbt-btn rbt-switch-btn btn-white btn-sm" href="#">
+                                <span data-text="Learn More">Encore plus</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Single Card  -->
+            <!-- Start Single Card  -->
+            <div class="col-xl-4 col-md-6 col-sm-6 col-12 mt--30">
+                <div class="rbt-flipbox">
+                    <div class="rbt-flipbox-wrap rbt-service rbt-service-1 card-bg-4">
+                        <div class="rbt-flipbox-front rbt-flipbox-face inner">
+                            <div class="icon">
+                                <img src="assets_pages/images/icons/card-icon-4.png" alt="card-icon">
+                            </div>
+                            <div class="content">
+                                <h5 class="title"><a href="#">Les formations</a></h5>
+                                <p>Live Class dolor sit, amet consectetur adipisicing elit. Minima error reiciendis.</p>
+                                <a class="rbt-btn-link stretched-link" href="#">Encore plus<i class="feather-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="rbt-flipbox-back rbt-flipbox-face inner">
+                            <ul class="rbt-list-style-3 color-white">
+                                <li><i class="feather-youtube"></i> 124 Formations</li>
+                                <li><i class="feather-book"></i> 56 Formateurs</li>
+                                <li><i class="feather-video"></i> Live Class</li>
+                                <li><i class="feather-info"></i> MCQ and CQ Bank</li>
+                            </ul>
+                            <a class="rbt-btn rbt-switch-btn btn-white btn-sm" href="#">
+                                <span data-text="Learn More">Encore plus</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Single Card  -->
+        </div>
+    </div>
+</div>
+
             </div>
         </div>
 
@@ -1445,7 +1349,7 @@
                                     <div class="content">
                                         <h3 class="counter"><span class="odometer" data-count="500">00</span>
                                         </h3>
-                                        <span class="subtitle">Learners &amp; counting</span>
+                                        <span class="subtitle">étudiants</span>
                                     </div>
                                 </div>
                             </div>
@@ -1459,7 +1363,7 @@
                                     <div class="content">
                                         <h3 class="counter"><span class="odometer" data-count="800">00</span>
                                         </h3>
-                                        <span class="subtitle">Courses & Video</span>
+                                        <span class="subtitle">Cours et vidéo</span>
                                     </div>
                                 </div>
                             </div>
@@ -1473,7 +1377,7 @@
                                     <div class="content">
                                         <h3 class="counter"><span class="odometer" data-count="1000">00</span>
                                         </h3>
-                                        <span class="subtitle">Certified Students</span>
+                                        <span class="subtitle">Formations</span>
                                     </div>
                                 </div>
                             </div>
@@ -1487,7 +1391,7 @@
                                     <div class="content">
                                         <h3 class="counter"><span class="odometer" data-count="100">00</span>
                                         </h3>
-                                        <span class="subtitle">Certified Students</span>
+                                        <span class="subtitle">Formateurs</span>
                                     </div>
                                 </div>
                             </div>

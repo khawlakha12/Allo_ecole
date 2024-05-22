@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Course;
+use App\Models\NiveauScolaire;
+use App\Models\Filieres;
+use App\Models\AnneeScolaire;
+use App\Models\Matiere;
 class CourseController extends Controller
 {
     public function store(Request $request)
@@ -40,4 +44,31 @@ class CourseController extends Controller
     $course = Course::findOrFail($id);
     return view('Admin.filemanager-list', compact('course'));
 }
+public function coursesByNiveau($id)
+{
+    $courses = Course::where('niveau_id', $id)->get();
+    $courseCount = $courses->count();
+    $niveau = NiveauScolaire::findOrFail($id);
+
+    $filieres = Filieres::whereHas('courses', function($query) use ($id) {
+        $query->where('niveau_id', $id);
+    })->get();
+
+    $matieres = Matiere::whereHas('courses', function($query) use ($id) {
+        $query->where('niveau_id', $id);
+    })->get();
+
+    $annees = AnneeScolaire::whereHas('courses', function($query) use ($id) {
+        $query->where('niveau_id', $id);
+    })->get();
+
+    return view('pages.education', compact('courses', 'courseCount', 'filieres', 'matieres', 'annees'));
+}
+
+public function showCours($id)
+{
+    $course = Course::findOrFail($id);
+    return view('pages.course', compact('course'));
+}
+
 }    

@@ -56,9 +56,6 @@ Route::get('/', function(){
 Route::get('/contact', function(){
     return view('pages.contact');
 });
-Route::get('/education', function(){
-    return view('pages.education');
-});
 
 //----------------------------Authentification----------------------------//
 Route::post('/register', [AuthController::class, 'register']);
@@ -108,3 +105,8 @@ Route::get('/files_course', function () {return view('Admin.filemanager-list');
 
 Route::post('/courses', [CourseController::class, 'store'])->name('courses.store');
 Route::get('/files_course/{id}', [CourseController::class, 'show'])->name('filemanager.details');
+
+//----------------------------éducation----------------------------//
+Route::get('/education/niveau/{id}', [CourseController::class, 'coursesByNiveau'])->name('courses');
+Route::get('/education/course/{id}', [CourseController::class, 'showCours'])->name('course.show');
+
