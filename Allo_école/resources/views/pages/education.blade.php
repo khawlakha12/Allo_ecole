@@ -1325,12 +1325,12 @@
 
                         <!-- Start Widget Area  -->
                         <div class="rbt-single-widget rbt-widget-search">
-                            <div class="inner">
-                                <form action="#" class="rbt-search-style-1">
-                                    <input type="text" placeholder="Search Courses">
-                                    <button class="search-btn"><i class="feather-search"></i></button>
-                                </form>
-                            </div>
+                        <div class="inner">
+    <form action="#" class="rbt-search-style-1" onsubmit="return false;">
+        <input type="text" id="courseSearch" placeholder="Search Courses">
+        <button class="search-btn"><i class="feather-search"></i></button>
+    </form>
+</div>
                         </div>
                         <div class="rbt-single-widget rbt-widget-prices">
                             <div class="inner">
@@ -1379,10 +1379,10 @@
                     </aside>
                 </div>
                 <div class="col-lg-9 order-1 order-lg-2">
-                    <div class="rbt-course-grid-column">
+                    <div class="rbt-course-grid-column"  id="courseList">
                         <!-- Start Single Card  -->
                         @foreach($courses as $course)
-                            <div class="course-grid-3">
+                            <div class="course-grid-3 course-item" data-name="{{ $course->name }}">
                                 <div class="rbt-card variation-01 rbt-hover">
                                     <div class="rbt-card-img">
                                         <a href="{{ route('course.show', $course->id) }}">
@@ -1604,6 +1604,27 @@
     <script src="{{ asset('assets_pages/js/vendor/plyr.js')}}"></script>
     <!-- Main JS -->
     <script src="{{ asset('assets_pages/js/main.js')}}"></script>
+
+<!---------------------------------------- recherche ---------------------------------------->
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('courseSearch');
+    const courseItems = document.querySelectorAll('.course-item');
+
+    searchInput.addEventListener('input', function() {
+        const filter = searchInput.value.toLowerCase();
+        courseItems.forEach(function(course) {
+            const courseName = course.getAttribute('data-name').toLowerCase();
+            if (courseName.includes(filter)) {
+                course.style.display = 'block';
+            } else {
+                course.style.display = 'none';
+            }
+        });
+    });
+});
+</script>
+
 </body>
 
 </html>
