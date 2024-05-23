@@ -50,25 +50,21 @@ public function coursesByNiveau($id)
     $courseCount = $courses->count();
     $niveau = NiveauScolaire::findOrFail($id);
 
-    $filieres = Filieres::whereHas('courses', function($query) use ($id) {
-        $query->where('niveau_id', $id);
-    })->get();
-
-    $matieres = Matiere::whereHas('courses', function($query) use ($id) {
-        $query->where('niveau_id', $id);
-    })->get();
-
-    $annees = AnneeScolaire::whereHas('courses', function($query) use ($id) {
-        $query->where('niveau_id', $id);
-    })->get();
-
+    $annees = AnneeScolaire::where('id_niveaux_scolaires', $id)->get();
+    $filieres = Filieres::where('id_niveau_scolaire', $id)->get();
+    $matieres = Matiere::where('id_niveau_scolaire', $id)->get();
     return view('pages.education', compact('courses', 'courseCount', 'filieres', 'matieres', 'annees'));
 }
 
-public function showCours($id)
+public function showCours($niveauId)
 {
-    $course = Course::findOrFail($id);
-    return view('pages.course', compact('course'));
+    $niveau = NiveauScolaire::findOrFail($niveauId);
+    $annees = AnneeScolaire::where('niveau_id', $niveauId)->get();
+    $filieres = Filieres::where('niveau_id', $niveauId)->get();
+    $matieres = Matiere::where('niveau_id', $niveauId)->get();
+
+    return view('pages.education', compact('niveau', 'annees', 'filieres', 'matieres'));
 }
+
 
 }    

@@ -1332,55 +1332,54 @@
                                 </form>
                             </div>
                         </div>
-
+                        <div class="rbt-single-widget rbt-widget-prices">
+                            <div class="inner">
+                                <h4 class="rbt-widget-title">Année scolaire</h4>
+                                <ul class="rbt-sidebar-list-wrapper prices-list-check">
+                                    @foreach($annees as $annee)
+                                        <li class="rbt-check-group">
+                                            <input id="annee-{{ $annee->id }}" type="checkbox" name="annees[]"
+                                                value="{{ $annee->id }}">
+                                            <label for="annee-{{ $annee->id }}">{{ $annee->nom }} </label>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
                         <div class="rbt-single-widget rbt-widget-categories has-show-more">
-    <div class="inner">
-        <h4 class="rbt-widget-title">Filiére</h4>
-        <ul class="rbt-sidebar-list-wrapper categories-list-check has-show-more-inner-content">
-            @foreach($filieres as $filiere)
-            <li class="rbt-check-group">
-                <input id="filiere-{{ $filiere->id }}" type="checkbox" name="filieres[]" value="{{ $filiere->id }}">
-                <label for="filiere-{{ $filiere->id }}">{{ $filiere->name }} <span class="rbt-lable count">{{ $filiere->courses()->count() }}</span></label>
-            </li>
-            @endforeach
-        </ul>
-    </div>
-    <div class="rbt-show-more-btn">Show More</div>
-</div>
+                            <div class="inner">
+                                <h4 class="rbt-widget-title">Filiére</h4>
+                                <ul class="rbt-sidebar-list-wrapper categories-list-check has-show-more-inner-content">
+                                    @foreach($filieres as $filiere)
+                                        <li class="rbt-check-group">
+                                            <input id="filiere-{{ $filiere->id }}" type="checkbox" name="filieres[]"
+                                                value="{{ $filiere->id }}">
+                                            <label for="filiere-{{ $filiere->id }}">{{ $filiere->nom }} </label>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            <div class="rbt-show-more-btn">Show More</div>
+                        </div>
 
-<div class="rbt-single-widget rbt-widget-instructor">
-    <div class="inner">
-        <h4 class="rbt-widget-title">Matiére</h4>
-        <ul class="rbt-sidebar-list-wrapper instructor-list-check">
-            @foreach($matieres as $matiere)
-            <li class="rbt-check-group">
-                <input id="matiere-{{ $matiere->id }}" type="checkbox" name="matieres[]" value="{{ $matiere->id }}">
-                <label for="matiere-{{ $matiere->id }}">{{ $matiere->name }} <span class="rbt-lable count">{{ $matiere->courses()->where('niveau_id', $niveau->id)->count() }}</span></label>
-            </li>
-            @endforeach
-        </ul>
-    </div>
-</div>
-
-<div class="rbt-single-widget rbt-widget-prices">
-    <div class="inner">
-        <h4 class="rbt-widget-title">Section</h4>
-        <ul class="rbt-sidebar-list-wrapper prices-list-check">
-            @foreach($annees as $annee)
-            <li class="rbt-check-group">
-                <input id="annee-{{ $annee->id }}" type="checkbox" name="annees[]" value="{{ $annee->id }}">
-                <label for="annee-{{ $annee->id }}">{{ $annee->name }} <span class="rbt-lable count">{{ $annee->courses()->where('niveau_id', $niveau->id)->count() }}</span></label>
-            </li>
-            @endforeach
-        </ul>
-    </div>
-</div>
+                        <div class="rbt-single-widget rbt-widget-instructor">
+                            <div class="inner">
+                                <h4 class="rbt-widget-title">Matiére</h4>
+                                <ul class="rbt-sidebar-list-wrapper instructor-list-check">
+                                    @foreach($matieres as $matiere)
+                                        <li class="rbt-check-group">
+                                            <input id="matiere-{{ $matiere->id }}" type="checkbox" name="matieres[]"
+                                                value="{{ $matiere->id }}">
+                                            <label for="matiere-{{ $matiere->id }}">{{ $matiere->nom }} </label>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
                     </aside>
                 </div>
                 <div class="col-lg-9 order-1 order-lg-2">
                     <div class="rbt-course-grid-column">
-
-
                         <!-- Start Single Card  -->
                         @foreach($courses as $course)
                             <div class="course-grid-3">

@@ -30,4 +30,5 @@ class NiveauxScolaireController extends Controller
         return redirect()->route('niveaux.index')->with('success', 'Niveau scolaire supprimé avec succès.');
     }
     
+    
 }

@@ -110,3 +110,4 @@ Route::get('/files_course/{id}', [CourseController::class, 'show'])->name('filem
 Route::get('/education/niveau/{id}', [CourseController::class, 'coursesByNiveau'])->name('courses');
 Route::get('/education/course/{id}', [CourseController::class, 'showCours'])->name('course.show');
 
+
