@@ -49,16 +49,17 @@ public function coursesByNiveau($id)
     $courses = Course::where('niveau_id', $id)->get();
     $courseCount = $courses->count();
     $niveau = NiveauScolaire::findOrFail($id);
-
+    $selectedNiveau = NiveauScolaire::find($id)->nom;
     $annees = AnneeScolaire::where('id_niveaux_scolaires', $id)->get();
     $filieres = Filieres::where('id_niveau_scolaire', $id)->get();
     $matieres = Matiere::where('id_niveau_scolaire', $id)->get();
-    return view('pages.education', compact('courses', 'courseCount', 'filieres', 'matieres', 'annees'));
+    return view('pages.education', compact('courses','selectedNiveau','courseCount', 'filieres', 'matieres', 'annees'));
 }
 
 public function showCours($niveauId)
 {
     $niveau = NiveauScolaire::findOrFail($niveauId);
+    
     $annees = AnneeScolaire::where('niveau_id', $niveauId)->get();
     $filieres = Filieres::where('niveau_id', $niveauId)->get();
     $matieres = Matiere::where('niveau_id', $niveauId)->get();

@@ -61,9 +61,11 @@
                                     </a>
                                     <ul class="submenu">
                                         @foreach($niveaux as $niveau)
-                                            <li class="has-dropdown"><a
-                                                    href="{{ route('courses', $niveau->id) }}">{{ $niveau->nom }}</a>
-                                            </li>
+                                        <li class="has-dropdown">
+                        <a href="{{ route('courses', $niveau->id) }}" class="niveau-link" data-niveau="{{ $niveau->id }}" data-niveau-nom="{{ $niveau->nom }}">
+                            {{ $niveau->nom }}
+                        </a>
+                    </li>
                                         @endforeach
                                     </ul>
                                 </li>
@@ -104,13 +106,13 @@
                                                 </div>
                                                 <div class="admin-info">
                                                     <span class="name">{{ Auth::user()->name }}</span>
-                                                    <a class="rbt-btn-link color-primary" href="profile.html">View
+                                                    <a class="rbt-btn-link color-primary" href="/profile_étudient">View
                                                         Profile</a>
                                                 </div>
                                             </div>
                                             <ul class="user-list-wrapper">
                                                 <li>
-                                                    <a href="instructor-dashboard.html">
+                                                    <a href="/profile_étudient">
                                                         <i class="feather-home"></i>
                                                         <span>Mon profile</span>
                                                     </a>
@@ -203,7 +205,7 @@
                                                         <span>My Quiz Attempts</span>
                                                     </a>
                                                 </li>
-
+                                                
                                             </ul>
                                             <hr class="mt--10 mb--10">
                                             <ul class="user-list-wrapper">
@@ -229,7 +231,7 @@
                         <div class="rbt-btn-wrapper d-none d-xl-block">
                             <a class="rbt-btn  btn-border-gradient radius-round btn-sm hover-transform-none"
                                 href="/register">
-                                <span data-text="Enroll Now">Login</span>
+                                <span data-text="Enroll Now">Se connecter</span>
                             </a>
                         </div>
 
@@ -1325,12 +1327,12 @@
 
                         <!-- Start Widget Area  -->
                         <div class="rbt-single-widget rbt-widget-search">
-                        <div class="inner">
-    <form action="#" class="rbt-search-style-1" onsubmit="return false;">
-        <input type="text" id="courseSearch" placeholder="Search Courses">
-        <button class="search-btn"><i class="feather-search"></i></button>
-    </form>
-</div>
+                            <div class="inner">
+                                <form action="#" class="rbt-search-style-1" onsubmit="return false;">
+                                    <input type="text" id="courseSearch" placeholder="Search Courses">
+                                    <button class="search-btn"><i class="feather-search"></i></button>
+                                </form>
+                            </div>
                         </div>
                         <div class="rbt-single-widget rbt-widget-prices">
                             <div class="inner">
@@ -1339,38 +1341,40 @@
                                     @foreach($annees as $annee)
                                         <li class="rbt-check-group">
                                             <input id="annee-{{ $annee->id }}" type="checkbox" name="annees[]"
-                                                value="{{ $annee->id }}">
-                                            <label for="annee-{{ $annee->id }}">{{ $annee->nom }} </label>
+                                                value="{{ $annee->id }}" class="annee-checkbox">
+                                            <label for="annee-{{ $annee->id }}">{{ $annee->nom }}</label>
                                         </li>
                                     @endforeach
                                 </ul>
                             </div>
                         </div>
-                        <div class="rbt-single-widget rbt-widget-categories has-show-more">
-                            <div class="inner">
-                                <h4 class="rbt-widget-title">Filiére</h4>
-                                <ul class="rbt-sidebar-list-wrapper categories-list-check has-show-more-inner-content">
-                                    @foreach($filieres as $filiere)
-                                        <li class="rbt-check-group">
-                                            <input id="filiere-{{ $filiere->id }}" type="checkbox" name="filieres[]"
-                                                value="{{ $filiere->id }}">
-                                            <label for="filiere-{{ $filiere->id }}">{{ $filiere->nom }} </label>
-                                        </li>
-                                    @endforeach
-                                </ul>
+                        @if(strtolower($selectedNiveau) !== 'collège' && strtolower($selectedNiveau) !== 'primaire')
+                            <div class="rbt-single-widget rbt-widget-categories has-show-more" id="filiereSection">
+                                <div class="inner">
+                                    <h4 class="rbt-widget-title">Filière</h4>
+                                    <ul class="rbt-sidebar-list-wrapper categories-list-check has-show-more-inner-content">
+                                        @foreach($filieres as $index => $filiere)
+                                            <li class="rbt-check-group filiere-item {{ $index >= 5 ? 'hidden' : '' }}"
+                                                data-annee="{{ $filiere->annee_id }}">
+                                                <input id="filiere-{{ $filiere->id }}" type="checkbox" name="filieres[]"
+                                                    value="{{ $filiere->id }}">
+                                                <label for="filiere-{{ $filiere->id }}">{{ $filiere->nom }}</label>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="rbt-show-more-btn">Show More</div>
-                        </div>
+                        @endif
 
                         <div class="rbt-single-widget rbt-widget-instructor">
                             <div class="inner">
-                                <h4 class="rbt-widget-title">Matiére</h4>
+                                <h4 class="rbt-widget-title">Matière</h4>
                                 <ul class="rbt-sidebar-list-wrapper instructor-list-check">
                                     @foreach($matieres as $matiere)
-                                        <li class="rbt-check-group">
+                                        <li class="rbt-check-group hidden" data-annee="{{ $matiere->annee_id }}">
                                             <input id="matiere-{{ $matiere->id }}" type="checkbox" name="matieres[]"
                                                 value="{{ $matiere->id }}">
-                                            <label for="matiere-{{ $matiere->id }}">{{ $matiere->nom }} </label>
+                                            <label for="matiere-{{ $matiere->id }}">{{ $matiere->nom }}</label>
                                         </li>
                                     @endforeach
                                 </ul>
@@ -1379,10 +1383,11 @@
                     </aside>
                 </div>
                 <div class="col-lg-9 order-1 order-lg-2">
-                    <div class="rbt-course-grid-column"  id="courseList">
-                        <!-- Start Single Card  -->
+                    <div class="rbt-course-grid-column" id="courseList">
                         @foreach($courses as $course)
-                            <div class="course-grid-3 course-item" data-name="{{ $course->name }}">
+                            <div class="course-grid-3 course-item" data-name="{{ $course->name }}"
+                                data-annee="{{ $course->annee_id }}" data-matiere="{{ $course->matiere_id }}"
+                                data-filiere="{{ $course->filiere_id }}">
                                 <div class="rbt-card variation-01 rbt-hover">
                                     <div class="rbt-card-img">
                                         <a href="{{ route('course.show', $course->id) }}">
@@ -1399,7 +1404,7 @@
                                         </div>
                                         <h4 class="rbt-card-title"><a
                                                 href="{{ route('course.show', $course->id) }}">{{ $course->name }}</a></h4>
-                                        <ul class="rbt-list-style-3 color-black" style="margin-bottom:10px;mrgin-top:5px;">
+                                        <ul class="rbt-list-style-3 color-black" style="margin-bottom:10px;margin-top:5px;">
                                             <li><i class="feather-youtube"></i> 370 Free Video</li>
                                             <li><i class="feather-book"></i> 120 PDF</li>
                                             <li><i class="feather-video"></i> Live Class</li>
@@ -1409,16 +1414,14 @@
                             </div>
                         @endforeach
                     </div>
-
                     <div class="row">
                         <div class="col-lg-12 mt--60">
                             <nav>
-                                <ul class="rbt-pagination">
-                                    <li><a href="#" aria-label="Previous"><i class="feather-chevron-left"></i></a></li>
-                                    <li><a href="#">1</a></li>
-                                    <li class="active"><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#" aria-label="Next"><i class="feather-chevron-right"></i></a></li>
+                                <ul class="rbt-pagination" id="pagination">
+                                    <li><a href="#" aria-label="Previous" id="prevBtn"><i
+                                                class="feather-chevron-left"></i></a></li>
+                                    <li><a href="#" aria-label="Next" id="nextBtn"><i
+                                                class="feather-chevron-right"></i></a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -1429,7 +1432,6 @@
         </div>
     </div>
     <!-- End Card Style -->
-
     <div class="rbt-separator-mid">
         <div class="container">
             <hr class="rbt-separator m-0">
@@ -1605,25 +1607,215 @@
     <!-- Main JS -->
     <script src="{{ asset('assets_pages/js/main.js')}}"></script>
 
-<!---------------------------------------- recherche ---------------------------------------->
+    <!---------------------------------------- recherche ---------------------------------------->
     <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.getElementById('courseSearch');
-    const courseItems = document.querySelectorAll('.course-item');
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchInput = document.getElementById('courseSearch');
+            const courseItems = document.querySelectorAll('.course-item');
 
-    searchInput.addEventListener('input', function() {
-        const filter = searchInput.value.toLowerCase();
-        courseItems.forEach(function(course) {
-            const courseName = course.getAttribute('data-name').toLowerCase();
-            if (courseName.includes(filter)) {
-                course.style.display = 'block';
-            } else {
-                course.style.display = 'none';
+            searchInput.addEventListener('input', function () {
+                const filter = searchInput.value.toLowerCase();
+                courseItems.forEach(function (course) {
+                    const courseName = course.getAttribute('data-name').toLowerCase();
+                    if (courseName.includes(filter)) {
+                        course.style.display = 'block';
+                    } else {
+                        course.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!---------------------------------------- Afficher plus ---------------------------------------->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const showMoreBtn = document.getElementById('showMoreBtn');
+            const hiddenItems = document.querySelectorAll('.filiere-item.hidden');
+
+            showMoreBtn.addEventListener('click', function () {
+                hiddenItems.forEach(function (item) {
+                    item.classList.remove('hidden');
+                });
+                showMoreBtn.style.display = 'none';
+            });
+        });
+    </script>
+
+    <!---------------------------------------- Filtrer par année scolaire ---------------------------------------->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const checkboxes = document.querySelectorAll('input[name="annees[]"]');
+            const courseItems = document.querySelectorAll('.course-item');
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function () {
+                    filterCourses();
+                });
+            });
+
+            function filterCourses() {
+                const selectedAnnees = Array.from(checkboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value);
+
+                courseItems.forEach(course => {
+                    const courseAnnee = course.getAttribute('data-annee');
+                    if (selectedAnnees.length === 0 || selectedAnnees.includes(courseAnnee)) {
+                        course.style.display = 'block';
+                    } else {
+                        course.style.display = 'none';
+                    }
+                });
             }
         });
-    });
-});
-</script>
+    </script>
+
+    <!---------------------------------------- Filtrer par Matiére , Filiére et Année scolaire ---------------------------------------->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const anneeCheckboxes = document.querySelectorAll('input[name="annees[]"]');
+            const matiereCheckboxes = document.querySelectorAll('input[name="matieres[]"]');
+            const filiereCheckboxes = document.querySelectorAll('input[name="filieres[]"]');
+            const courseItems = document.querySelectorAll('.course-item');
+            const showMoreBtn = document.getElementById('showMoreBtn');
+            const hiddenFiliereItems = document.querySelectorAll('.filiere-item.hidden');
+
+            anneeCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function () {
+                    filterCourses();
+                });
+            });
+
+            matiereCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function () {
+                    filterCourses();
+                });
+            });
+
+            filiereCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function () {
+                    filterCourses();
+                });
+            });
+
+            showMoreBtn.addEventListener('click', function () {
+                hiddenFiliereItems.forEach(function (item) {
+                    item.classList.remove('hidden');
+                });
+                showMoreBtn.style.display = 'none';
+            });
+
+            function filterCourses() {
+                const selectedAnnees = Array.from(anneeCheckboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value);
+
+                const selectedMatieres = Array.from(matiereCheckboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value);
+
+                const selectedFilieres = Array.from(filiereCheckboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value);
+
+                courseItems.forEach(course => {
+                    const courseAnnee = course.getAttribute('data-annee');
+                    const courseMatiere = course.getAttribute('data-matiere');
+                    const courseFiliere = course.getAttribute('data-filiere');
+
+                    const matchAnnee = selectedAnnees.length === 0 || selectedAnnees.includes(courseAnnee);
+                    const matchMatiere = selectedMatieres.length === 0 || selectedMatieres.includes(courseMatiere);
+                    const matchFiliere = selectedFilieres.length === 0 || selectedFilieres.includes(courseFiliere);
+
+                    if (matchAnnee && matchMatiere && matchFiliere) {
+                        course.style.display = 'block';
+                    } else {
+                        course.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const showMoreBtn = document.getElementById('showMoreBtn');
+            const filiereItems = document.querySelectorAll('.filiere-item');
+
+            let showMore = true;
+
+            showMoreBtn.addEventListener('click', function () {
+                if (showMore) {
+                    filiereItems.forEach((item) => {
+                        item.classList.remove('hidden');
+                    });
+                    showMoreBtn.textContent = 'Show Less';
+                } else {
+                    filiereItems.forEach((item, index) => {
+                        if (index >= 5) {
+                            item.classList.add('hidden');
+                        }
+                    });
+                    showMoreBtn.textContent = 'Show More';
+                }
+                showMore = !showMore;
+            });
+        });
+
+    </script>
+
+    <!---------------------------------------- Pagination ---------------------------------------->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const itemsPerPage = 2;
+            const courseList = document.getElementById('courseList');
+            const courses = Array.from(courseList.getElementsByClassName('course-item'));
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            let currentPage = 1;
+
+            function renderPage(pageNumber) {
+                const start = (pageNumber - 1) * itemsPerPage;
+                const end = start + itemsPerPage;
+
+                courses.forEach((course, index) => {
+                    if (index >= start && index < end) {
+                        course.style.display = 'block';
+                    } else {
+                        course.style.display = 'none';
+                    }
+                });
+            }
+
+            function updateButtons() {
+                prevBtn.disabled = currentPage === 1;
+                nextBtn.disabled = currentPage === Math.ceil(courses.length / itemsPerPage);
+            }
+
+            prevBtn.addEventListener('click', function () {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderPage(currentPage);
+                    updateButtons();
+                }
+            });
+
+            nextBtn.addEventListener('click', function () {
+                if (currentPage < Math.ceil(courses.length / itemsPerPage)) {
+                    currentPage++;
+                    renderPage(currentPage);
+                    updateButtons();
+                }
+            });
+
+            renderPage(1);
+            updateButtons();
+        });
+
+    </script>
+
 
 </body>
 

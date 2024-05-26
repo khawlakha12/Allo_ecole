@@ -30,6 +30,26 @@
     <link rel="stylesheet" href="assets_pages/css/plugins/magnigy-popup.min.css">
     <link rel="stylesheet" href="assets_pages/css/plugins/plyr.css">
     <link rel="stylesheet" href="assets_pages/css/style.css">
+    <style>
+        .icon1 {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            color: orange; 
+        }
+        .icon2 {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            color: red; 
+        }
+        .icon3 {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            color: blue; 
+        }
+    </style>
 </head>
 
 <body class="rbt-header-sticky">
@@ -61,8 +81,11 @@
                                     </a>
                                     <ul class="submenu">
                                         @foreach($niveaux as $niveau)
-                                            <li class="has-dropdown"><a href="{{ route('courses', $niveau->id) }}">{{ $niveau->nom }}</a>
-                                            </li>
+                                        <li class="has-dropdown">
+                        <a href="{{ route('courses', $niveau->id) }}" class="niveau-link" data-niveau="{{ $niveau->id }}" data-niveau-nom="{{ $niveau->nom }}">
+                            {{ $niveau->nom }}
+                        </a>
+                    </li>
                                         @endforeach
                                     </ul>
                                 </li>
@@ -103,13 +126,13 @@
                                                 </div>
                                                 <div class="admin-info">
                                                     <span class="name">{{ Auth::user()->name }}</span>
-                                                    <a class="rbt-btn-link color-primary" href="profile.html">View
+                                                    <a class="rbt-btn-link color-primary" href="/profile_étudient">View
                                                         Profile</a>
                                                 </div>
                                             </div>
                                             <ul class="user-list-wrapper">
                                                 <li>
-                                                    <a href="instructor-dashboard.html">
+                                                    <a href="/profile_étudient">
                                                         <i class="feather-home"></i>
                                                         <span>Mon profile</span>
                                                     </a>
@@ -228,7 +251,7 @@
                         <div class="rbt-btn-wrapper d-none d-xl-block">
                             <a class="rbt-btn  btn-border-gradient radius-round btn-sm hover-transform-none"
                                 href="/register">
-                                <span data-text="Enroll Now">Login</span>
+                                <span data-text="Enroll Now">Se connecter</span>
                             </a>
                         </div>
 
@@ -432,7 +455,7 @@
             <nav class="mainmenu-nav">
                 <ul class="mainmenu">
                     <li class="with-megamenu has-menu-child-item position-static">
-                        <a href="#">Home <i class="feather-chevron-down"></i></a>
+                        <a href="/">Home <i class="feather-chevron-down"></i></a>
                         <!-- Start Mega Menu  -->
                         <div class="rbt-megamenu menu-skin-dark">
                             <div class="wrapper">
@@ -1234,7 +1257,6 @@
                     <div class="col-lg-12">
                         <div class="section-title text-center">
                             <span class="subtitle bg-pink-opacity">Fonctionnalité Allo école</span>
-                            <!-- <h2 class="title">Check out Histudy's features <br> to win any exam</h2> -->
                         </div>
                     </div>
                 </div>
@@ -1246,8 +1268,8 @@
                 <div class="rbt-flipbox">
                     <div class="rbt-flipbox-wrap rbt-service rbt-service-1 card-bg-1">
                         <div class="rbt-flipbox-front rbt-flipbox-face inner">
-                            <div class="icon">
-                                <img src="assets_pages/images/icons/card-icon-1.png" alt="card-icon">
+                            <div class="icon1">
+                            <i data-feather="file"></i>
                             </div>
                             <div class="content">
                                 <h5 class="title"><a href="#">Cours PDF</a></h5>
@@ -1275,8 +1297,8 @@
                 <div class="rbt-flipbox">
                     <div class="rbt-flipbox-wrap rbt-service rbt-service-1 card-bg-2">
                         <div class="rbt-flipbox-front rbt-flipbox-face inner">
-                            <div class="icon">
-                                <img src="assets_pages/images/icons/card-icon-2.png" alt="card-icon">
+                            <div class="icon2">
+                            <i data-feather="video"></i>
                             </div>
                             <div class="content">
                                 <h5 class="title"><a href="#">Cours en vidéo</a></h5>
@@ -1305,8 +1327,8 @@
                 <div class="rbt-flipbox">
                     <div class="rbt-flipbox-wrap rbt-service rbt-service-1 card-bg-4">
                         <div class="rbt-flipbox-front rbt-flipbox-face inner">
-                            <div class="icon">
-                                <img src="assets_pages/images/icons/card-icon-4.png" alt="card-icon">
+                            <div class="icon3">
+                            <i data-feather="book"></i>
                             </div>
                             <div class="content">
                                 <h5 class="title"><a href="#">Les formations</a></h5>
@@ -1342,7 +1364,6 @@
             <div class="conter-style-2">
                 <div class="container">
                     <div class="row g-5">
-                        <!-- Start Single Counter  -->
                         <div class="col-lg-3 col-md-6 col-sm-6 col-12 single-counter">
                             <div class="rbt-counterup style-2">
                                 <div class="inner">
@@ -1354,9 +1375,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- End Single Counter  -->
-
-                        <!-- Start Single Counter  -->
                         <div class="col-lg-3 col-md-6 col-sm-6 col-12 single-counter">
                             <div class="rbt-counterup style-2">
                                 <div class="inner">
@@ -1368,9 +1386,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- End Single Counter  -->
-
-                        <!-- Start Single Counter  -->
                         <div class="col-lg-3 col-md-6 col-sm-6 col-12 single-counter">
                             <div class="rbt-counterup style-2">
                                 <div class="inner">
@@ -1382,9 +1397,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- End Single Counter  -->
-
-                        <!-- Start Single Counter  -->
                         <div class="col-lg-3 col-md-6 col-sm-6 col-12 single-counter">
                             <div class="rbt-counterup style-2">
                                 <div class="inner">
@@ -1396,7 +1408,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- End Single Counter  -->
                     </div>
                 </div>
             </div>
@@ -1567,6 +1578,10 @@
 
         <!-- JS
 ============================================ -->
+<script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        feather.replace();
+    </script>
         <!-- Modernizer JS -->
         <script src="assets_pages/js/vendor/modernizr.min.js"></script>
         <!-- jQuery JS -->

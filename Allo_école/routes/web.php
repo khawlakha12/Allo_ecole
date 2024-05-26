@@ -56,7 +56,13 @@ Route::get('/', function(){
 Route::get('/contact', function(){
     return view('pages.contact');
 });
+Route::get('/profile_étudient', function(){
+    return view('pages.profile');
+});
 
+Route::get('/dashboard_étudient', function(){
+    return view('pages.Dashboard_étu');
+});
 //----------------------------Authentification----------------------------//
 Route::post('/register', [AuthController::class, 'register']);
 Route::get('/register', function () {
@@ -68,7 +74,6 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/admin', function() {
     return view('Admin.dashboard');
 })->middleware(['auth', 'isAdmin']);
-
 Route::get('/profile', [userController::class, 'userlogged'])->name('profile')->middleware('auth');
 
 //----------------------------Niveaux Scolaire----------------------------//
@@ -102,7 +107,6 @@ Route::get('/course', function () {
 });
 Route::get('/files_course', function () {return view('Admin.filemanager-list');
 });
-
 Route::post('/courses', [CourseController::class, 'store'])->name('courses.store');
 Route::get('/files_course/{id}', [CourseController::class, 'show'])->name('filemanager.details');
 
