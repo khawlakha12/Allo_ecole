@@ -1455,7 +1455,7 @@
                                             <p class="mb-0 fs-12 text-muted ">Formateurs</p>
                                         </div>
                                         <div class="py-3 w-100 text-center">
-                                            <p class="fw-bold fs-20  text-shadow mb-0">128</p>
+                                            <p class="fw-bold fs-20  text-shadow mb-0">{{ $totalCourses }}</p>
                                             <p class="mb-0 fs-12 text-muted ">les cours</p>
                                         </div>
                                     </div>

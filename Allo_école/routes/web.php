@@ -7,9 +7,9 @@ use App\Http\Controllers\NiveauxScolaireController;
 use App\Http\Controllers\AnneeScolaireController;
 use App\Models\NiveauScolaire;
 use App\Http\Controllers\FiliéreController;
-
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\MatiereController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Log;
 use App\Http\Middleware\EnsureUserIsAdmin;
 
@@ -63,6 +63,7 @@ Route::get('/profile_étudient', function(){
 Route::get('/dashboard_étudient', function(){
     return view('pages.Dashboard_étu');
 });
+
 //----------------------------Authentification----------------------------//
 Route::post('/register', [AuthController::class, 'register']);
 Route::get('/register', function () {
@@ -78,23 +79,19 @@ Route::get('/profile', [userController::class, 'userlogged'])->name('profile')->
 
 //----------------------------Niveaux Scolaire----------------------------//
 Route::post('/admin', [NiveauxScolaireController::class, 'store'])->name('niveaux.store');
-Route::get('/admin', [NiveauxScolaireController::class, 'index'])->name('niveaux.index');
 Route::delete('/admin/{niveau}', [NiveauxScolaireController::class, 'destroy'])->name('niveaux.destroy');
 
 //----------------------------Année Scolaire----------------------------//
 Route::post('/année_scolaire', [AnneeScolaireController::class, 'store'])->name('annees_scolaires.store');
-Route::get('/année_scolaire', [AnneeScolaireController::class, 'index'])->name('annees.index');
 Route::get('/filter-annees', [AnneeScolaireController::class, 'filter'])->name('filter_annees');
 
 //----------------------------Filiére----------------------------//
-Route::get('/Filiére',[FiliéreController::class,'index'])->name('filiére.index');
 Route::post('/Filiére', [FiliéreController::class, 'ajouterFiliere'])->name('ajouter_filiere');
 Route::get('/filter-annees-scolaires', [FiliéreController::class, 'filterByAnneesScolaires'])->name('filter_annees_scolaires');
 Route::delete('/Filiére', [FiliéreController::class, 'destroy'])->name('filieres.destroy');
 Route::put('/Filiére', [FiliéreController::class, 'update'])->name('filieres.update');
 
 //----------------------------Matiére----------------------------//
-Route::get('/Matiére', [MatiereController::class, 'index'])->name('matieres.index');
 Route::post('/Matiére', [MatiereController::class, 'store'])->name('matieres.store');
 Route::get('/Matiére/{matiere}/edit', [MatiereController::class, 'edit'])->name('matieres.edit');
 Route::put('/Matiére/{matiere}', [MatiereController::class, 'update'])->name('matieres.update');
@@ -110,8 +107,19 @@ Route::get('/files_course', function () {return view('Admin.filemanager-list');
 Route::post('/courses', [CourseController::class, 'store'])->name('courses.store');
 Route::get('/files_course/{id}', [CourseController::class, 'show'])->name('filemanager.details');
 
+
 //----------------------------éducation----------------------------//
 Route::get('/education/niveau/{id}', [CourseController::class, 'coursesByNiveau'])->name('courses');
 Route::get('/education/course/{id}', [CourseController::class, 'showCours'])->name('course.show');
 
+//----------------------------Admin----------------------------//
 
+Route::middleware(['admin'])->group(function () {
+    Route::get('/profile', [AdminController::class, 'Profile']);
+    Route::get('/course', [AdminController::class, 'Courses']);
+    Route::get('/admin', [AdminController::class, 'dashboard'])->name('dashboard');
+    Route::get('/Matiére', [MatiereController::class, 'index'])->name('matieres.index');
+    Route::get('/Filiére', [FiliéreController::class, 'index'])->name('filiere.index');
+    Route::get('/année_scolaire', [AnneeScolaireController::class, 'index'])->name('annees.index');
+    Route::get('/admin', [NiveauxScolaireController::class, 'index'])->name('niveaux.index');
+});

@@ -1473,8 +1473,8 @@
                             <div class="card-body">
                                 <div class="d-flex">
                                     <div class="mt-2">
-                                        <h6 class="fw-normal">Total Users</h6>
-                                        <h2 class="mb-0 text-dark fw-semibold">44,278</h2>
+                                        <h6 class="fw-normal">Total des étudients</h6>
+                                        <h2 class="mb-0 text-dark fw-semibold"></h2>
                                     </div>
                                     <div class="ms-auto">
                                         <div class="chart-wrapper mt-1">
@@ -1483,8 +1483,8 @@
                                     </div>
                                 </div>
                                 <span class="text-muted fs-12"><span class="text-secondary"><i
-                                            class="fe fe-arrow-up-circle text-secondary"></i> 5%</span>
-                                    Last week</span>
+                                            class="fe fe-arrow-up-circle text-secondary"></i>:23%</span>
+                                            La semaine dernière</span>
                             </div>
                         </div>
                     </div>

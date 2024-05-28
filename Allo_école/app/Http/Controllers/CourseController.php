@@ -67,5 +67,4 @@ public function showCours($niveauId)
     return view('pages.education', compact('niveau', 'annees', 'filieres', 'matieres'));
 }
 
-
 }    
