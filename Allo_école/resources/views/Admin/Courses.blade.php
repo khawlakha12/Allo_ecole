@@ -32,7 +32,7 @@
 
     <!-- Icons Css -->
     <link href="../assets/css/icons.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Node Waves Css -->
     <link href="../assets/libs/node-waves/waves.min.css" rel="stylesheet">
 
@@ -1200,8 +1200,8 @@
                                 data-bs-auto-close="outside" aria-expanded="false">
                                 <div class="d-flex align-items-center">
                                     <div class="me-xxl-2 me-0">
-                                        <img src="{{ Auth::user()->picture ?? '../assets/images/faces/default.jpg' }}"
-                                            alt="img" width="32" height="32" class="rounded-circle">
+                                    <img src="{{ Auth::user()->picture ?? '../assets/images/faces/default.jpg' }}"
+                                            alt="img" width="32" height="32" class="rounded-circle" id="profile">
                                     </div>
                                     <div class="d-xxl-block d-none my-auto">
                                         <h6 class="fw-semibold mb-0 lh-1 fs-14">{{ Auth::user()->name}}</h6>
@@ -1219,19 +1219,21 @@
                                     <small class="text-muted">Web Designer</small>
                                 </div>
                             </li>
-                            <li class="dropdown-item"><a class="d-flex w-100" href="profile.html"><i
+                            <li class="dropdown-item"><a class="d-flex w-100" href="/profile"><i
                                         class="fe fe-user fs-18 me-2 text-primary"></i>Profile</a></li>
                             <li class="dropdown-item"><a class="d-flex w-100" href="mail.html"><i
                                         class="fe fe-mail fs-18 me-2 text-primary"></i>Inbox <span
                                         class="badge bg-danger ms-auto">25</span></a></li>
-                            <li class="dropdown-item"><a class="d-flex w-100" href="mail-settings.html"><i
-                                        class="fe fe-settings fs-18 me-2 text-primary"></i>Settings</a></li>
-                            <li class="dropdown-item"><a class="d-flex w-100" href="chat.html"><i
-                                        class="fe fe-headphones fs-18 me-2 text-primary"></i>Support</a></li>
                             <li class="dropdown-item"><a class="d-flex w-100" href="lockscreen.html"><i
                                         class="fe fe-lock fs-18 me-2 text-primary"></i>Lockscreen</a></li>
-                            <li class="dropdown-item"><a class="d-flex w-100" href="sign-in.html"><i
-                                        class="fe fe-info fs-18 me-2 text-primary"></i>Log Out</a></li>
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="dropdown-item">
+                                    <i class="fe fe-info fs-18 me-2 text-primary"></i>
+                                    Log Out
+                                </button>
+                            </form>
+
                         </ul>
                     </div>
                     <!-- End::header-element -->
@@ -1273,7 +1275,6 @@
 
             <!-- Start::main-sidebar -->
             <div class="main-sidebar" id="sidebar-scroll">
-
                 <!-- Start::nav -->
                 <nav class="main-menu-container nav nav-pills flex-column sub-open">
                     <div class="slide-left" id="slide-left">
@@ -1290,7 +1291,7 @@
                         <!-- Start::slide -->
                         <li class="slide">
                             <a href="/admin" class="side-menu__item">
-                                <i class="fe fe-home side-menu__icon"></i>
+                                <i class="fe fe-tv side-menu__icon"></i>
                                 <span class="side-menu__label">Dashboard</span>
                             </a>
                         </li>
@@ -2409,39 +2410,36 @@
     </div>
     <div id="responsive-overlay"></div>
     <!-- Scroll To Top -->
-
     <!-- Popper JS -->
     <script src="../assets/libs/@popperjs/core/umd/popper.min.js"></script>
-
     <!-- Bootstrap JS -->
     <script src="../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-
     <!-- Defaultmenu JS -->
     <script src="../assets/js/defaultmenu.min.js"></script>
-
     <!-- Node Waves JS-->
     <script src="../assets/libs/node-waves/waves.min.js"></script>
-
     <!-- Sticky JS -->
     <script src="../assets/js/sticky.js"></script>
-
     <!-- Simplebar JS -->
     <script src="../assets/libs/simplebar/simplebar.min.js"></script>
     <script src="../assets/js/simplebar.js"></script>
-
     <!-- Color Picker JS -->
     <script src="../assets/libs/@simonwep/pickr/pickr.es5.min.js"></script>
-
-
-
     <!-- Custom-Switcher JS -->
     <script src="../assets/js/custom-switcher.min.js"></script>
-
     <!-- Internal File Manager JS -->
     <!-- <script src="../assets/js/file-manager.js"></script> -->
-
     <!-- Custom JS -->
     <script src="../assets/js/custom.js"></script>
+<!------------------------------ profile en js ------------------------------>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var storedImage = localStorage.getItem('profilePicture');
+    if (storedImage) {
+        document.getElementById('profile').src = storedImage;
+    }
+});
+</script>
 
 </body>
 

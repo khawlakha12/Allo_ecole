@@ -17,42 +17,30 @@
 
     <!-- Favicon -->
     <link rel="icon" href="../assets/images/brand-logos/favicon.ico" type="image/x-icon">
-
     <!-- Choices JS -->
     <script src="../assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
-
     <!-- Main Theme Js -->
     <script src="../assets/js/main.js"></script>
-
     <!-- Bootstrap Css -->
     <link id="style" href="../assets/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Style Css -->
     <link href="../assets/css/styles.min.css" rel="stylesheet">
-
     <!-- Icons Css -->
     <link href="../assets/css/icons.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Node Waves Css -->
     <link href="../assets/libs/node-waves/waves.min.css" rel="stylesheet">
-
     <!-- Simplebar Css -->
     <link href="../assets/libs/simplebar/simplebar.min.css" rel="stylesheet">
-
     <!-- Color Picker Css -->
     <link rel="stylesheet" href="../assets/libs/flatpickr/flatpickr.min.css">
     <link rel="stylesheet" href="../assets/libs/@simonwep/pickr/themes/nano.min.css">
-
     <!-- Choices Css -->
     <link rel="stylesheet" href="../assets/libs/choices.js/public/assets/styles/choices.min.css">
-
     <link rel="stylesheet" href="../assets/libs/glightbox/css/glightbox.min.css">
-
 </head>
-
 <body>
 
-    <!-- Start Switcher -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="switcher-canvas" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header border-bottom">
             <h5 class="offcanvas-title text-default" id="offcanvasRightLabel">Switcher</h5>
@@ -515,15 +503,9 @@
             </div>
         </div>
     </div>
-    <!-- End Switcher -->
-
-
-    <!-- Loader -->
     <div id="loader">
         <img src="../assets/images/media/loader.svg" alt="">
     </div>
-    <!-- Loader -->
-
     <div class="page">
 
         <!-- app-header -->
@@ -1204,7 +1186,7 @@
                                 <div class="d-flex align-items-center">
                                     <div class="me-xxl-2 me-0">
                                         <img src="{{ Auth::user()->picture ?? '../assets/images/faces/default.jpg' }}"
-                                            alt="img" width="32" height="32" class="rounded-circle">
+                                            alt="img" width="32" height="32" class="rounded-circle" id="profile">
                                     </div>
                                     <div class="d-xxl-block d-none my-auto">
                                         <h6 class="fw-semibold mb-0 lh-1 fs-14">{{ Auth::user()->name}}</h6>
@@ -1222,19 +1204,21 @@
                                     <small class="text-muted">Web Designer</small>
                                 </div>
                             </li>
-                            <li class="dropdown-item"><a class="d-flex w-100" href="profile.html"><i
+                            <li class="dropdown-item"><a class="d-flex w-100" href="/profile"><i
                                         class="fe fe-user fs-18 me-2 text-primary"></i>Profile</a></li>
                             <li class="dropdown-item"><a class="d-flex w-100" href="mail.html"><i
                                         class="fe fe-mail fs-18 me-2 text-primary"></i>Inbox <span
                                         class="badge bg-danger ms-auto">25</span></a></li>
-                            <li class="dropdown-item"><a class="d-flex w-100" href="mail-settings.html"><i
-                                        class="fe fe-settings fs-18 me-2 text-primary"></i>Settings</a></li>
-                            <li class="dropdown-item"><a class="d-flex w-100" href="chat.html"><i
-                                        class="fe fe-headphones fs-18 me-2 text-primary"></i>Support</a></li>
                             <li class="dropdown-item"><a class="d-flex w-100" href="lockscreen.html"><i
                                         class="fe fe-lock fs-18 me-2 text-primary"></i>Lockscreen</a></li>
-                            <li class="dropdown-item"><a class="d-flex w-100" href="sign-in.html"><i
-                                        class="fe fe-info fs-18 me-2 text-primary"></i>Log Out</a></li>
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="dropdown-item">
+                                    <i class="fe fe-info fs-18 me-2 text-primary"></i>
+                                    Log Out
+                                </button>
+                            </form>
+
                         </ul>
                     </div>
                     <!-- End::header-element -->
@@ -1259,7 +1243,7 @@
         </header>
         <!-- /app-header -->
         <!-- Start::app-sidebar -->
-        <aside class="app-sidebar sticky" id="sidebar">
+<aside class="app-sidebar sticky" id="sidebar">
 
 <!-- Start::main-sidebar-header -->
 <div class="main-sidebar-header">
@@ -1276,132 +1260,131 @@
 
 <!-- Start::main-sidebar -->
 <div class="main-sidebar" id="sidebar-scroll">
+                <!-- Start::nav -->
+                <nav class="main-menu-container nav nav-pills flex-column sub-open">
+                    <div class="slide-left" id="slide-left">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24"
+                            viewBox="0 0 24 24">
+                            <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path>
+                        </svg>
+                    </div>
+                    <ul class="main-menu">
+                        <!-- Start::slide__category -->
+                        <li class="slide__category"><span class="category-name">Main</span></li>
+                        <!-- End::slide__category -->
 
-    <!-- Start::nav -->
-    <nav class="main-menu-container nav nav-pills flex-column sub-open">
-        <div class="slide-left" id="slide-left">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24"
-                viewBox="0 0 24 24">
-                <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path>
-            </svg>
-        </div>
-        <ul class="main-menu">
-            <!-- Start::slide__category -->
-            <li class="slide__category"><span class="category-name">Main</span></li>
-            <!-- End::slide__category -->
+                        <!-- Start::slide -->
+                        <li class="slide">
+                            <a href="/admin" class="side-menu__item">
+                                <i class="fe fe-tv side-menu__icon"></i>
+                                <span class="side-menu__label">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="slide">
+                            <a href="/" class="side-menu__item">
+                                <i class="fe fe-home side-menu__icon"></i>
+                                <span class="side-menu__label">Home</span>
+                            </a>
+                        </li>
+                        <li class="slide">
+                            <a href="/profile" class="side-menu__item">
+                                <i class="fe fe-user side-menu__icon"></i>
+                                <span class="side-menu__label">Profile</span>
+                            </a>
+                        </li>
+                        <!-- Start::slide__category -->
+                        <li class="slide__category"><span class="category-name">les formations</span></li>
+                        <!-- End::slide__category -->
 
-            <!-- Start::slide -->
-            <li class="slide">
-                <a href="/admin" class="side-menu__item">
-                    <i class="fe fe-home side-menu__icon"></i>
-                    <span class="side-menu__label">Dashboard</span>
-                </a>
-            </li>
-            <li class="slide">
-                <a href="/" class="side-menu__item">
-                    <i class="fe fe-home side-menu__icon"></i>
-                    <span class="side-menu__label">Home</span>
-                </a>
-            </li>
-            <li class="slide">
-                <a href="/profile" class="side-menu__item">
-                    <i class="fe fe-user side-menu__icon"></i>
-                    <span class="side-menu__label">Profile</span>
-                </a>
-            </li>
-            <!-- Start::slide__category -->
-            <li class="slide__category"><span class="category-name">les formations</span></li>
-            <!-- End::slide__category -->
+                        <!-- Start::slide -->
+                        <li class="slide has-sub">
+                            <a href="/formateur" class="side-menu__item">
+                                <i class="fe fe-users side-menu__icon"></i>
+                                <span class="side-menu__label">Formateurs</span>
+                            </a>
+                            <ul class="slide-menu child1">
+                            </ul>
+                        </li>
+                        <li class="slide has-sub">
+                            <a href="javascript:void(0);" class="side-menu__item">
+                                <i class="fe fe-layers side-menu__icon"></i>
+                                <span class="side-menu__label">Formations</span>
+                                <i class="fe fe-chevron-right side-menu__angle"></i>
+                            </a>
+                            <ul class="slide-menu child1">
+                                <li class="slide side-menu__label1">
+                                    <a href="javascript:void(0)">Pages</a>
+                                </li>
+                                <li class="slide">
+                                    <a href="about-us.html" class="side-menu__item">About Us</a>
+                                </li>
+                                <li class="slide has-sub">
+                                    <a href="javascript:void(0);" class="side-menu__item">Blog
+                                        <i class="fe fe-chevron-right side-menu__angle"></i></a>
+                                    <ul class="slide-menu child2">
+                                        <li class="slide">
+                                            <a href="blog.html" class="side-menu__item">Blog</a>
+                                        </li>
+                                        <li class="slide">
+                                            <a href="blog-details.html" class="side-menu__item">Blog Details</a>
+                                        </li>
+                                        <li class="slide">
+                                            <a href="blog-create.html" class="side-menu__item">Create Blog</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
 
-            <!-- Start::slide -->
-            <li class="slide has-sub">
-                <a href="/formateur" class="side-menu__item">
-                    <i class="fe fe-users side-menu__icon"></i>
-                    <span class="side-menu__label">Formateurs</span>
-                </a>
-                <ul class="slide-menu child1">
-                </ul>
-            </li>
-            <li class="slide has-sub">
-                <a href="javascript:void(0);" class="side-menu__item">
-                    <i class="fe fe-layers side-menu__icon"></i>
-                    <span class="side-menu__label">Formations</span>
-                    <i class="fe fe-chevron-right side-menu__angle"></i>
-                </a>
-                <ul class="slide-menu child1">
-                    <li class="slide side-menu__label1">
-                        <a href="javascript:void(0)">Pages</a>
-                    </li>
-                    <li class="slide">
-                        <a href="about-us.html" class="side-menu__item">About Us</a>
-                    </li>
-                    <li class="slide has-sub">
-                        <a href="javascript:void(0);" class="side-menu__item">Blog
-                            <i class="fe fe-chevron-right side-menu__angle"></i></a>
-                        <ul class="slide-menu child2">
-                            <li class="slide">
-                                <a href="blog.html" class="side-menu__item">Blog</a>
-                            </li>
-                            <li class="slide">
-                                <a href="blog-details.html" class="side-menu__item">Blog Details</a>
-                            </li>
-                            <li class="slide">
-                                <a href="blog-create.html" class="side-menu__item">Create Blog</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
+                        <!-- End::slide -->
+                        <!-- Start::slide__category -->
+                        <li class="slide__category"><span class="category-name">Education</span></li>
+                        <!-- End::slide__category -->
 
-            <!-- End::slide -->
-            <!-- Start::slide__category -->
-            <li class="slide__category"><span class="category-name">Education</span></li>
-            <!-- End::slide__category -->
-
-            <!-- Courses -->
-            <li class="slide has-sub">
-                <a href="#" class="side-menu__item">
-                    <i class="fas fa-school side-menu__icon"></i>
-                    <span class="side-menu__label">Niveaux scolaire</span>
-                    <i class="fe fe-chevron-right side-menu__angle"></i>
-                </a>
-                <ul class="slide-menu child1">
-                    <li class="slide">
-                        <a href="{{ route('annees.index') }}" class="side-menu__item">Année Scolaire</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="slide has-sub">
-                <a href="/Filiére" class="side-menu__item">
-                    <i class="fe fe-file-text side-menu__icon"></i>
-                    <span class="side-menu__label">Filiére</span>
-                </a>
-                <ul class="slide-menu child1">
-                </ul>
-            </li>
-            <li class="slide has-sub">
-                <a href="/Matiére" class="side-menu__item">
-                    <i class="fe fe-file-text side-menu__icon"></i>
-                    <span class="side-menu__label">Matiére</span>
-                </a>
-                <ul class="slide-menu child1">
-                </ul>
-            </li>
-            <li class="slide has-sub">
-                <a href="/course" class="side-menu__item">
-                    <i class="fe fe-file-text side-menu__icon"></i>
-                    <span class="side-menu__label">Courses</span>
-                </a>
-                <ul class="slide-menu child1">
-                </ul>
-            </li>
-        </ul>
-        <div class="slide-right" id="slide-right"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191"
-                width="24" height="24" viewBox="0 0 24 24">
-                <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>
-            </svg></div>
-    </nav>
-    <!-- End::nav -->
+                        <!-- Courses -->
+                        <li class="slide has-sub">
+                            <a href="#" class="side-menu__item">
+                                <i class="fas fa-school side-menu__icon"></i>
+                                <span class="side-menu__label">Niveaux scolaire</span>
+                                <i class="fe fe-chevron-right side-menu__angle"></i>
+                            </a>
+                            <ul class="slide-menu child1">
+                                <li class="slide">
+                                    <a href="{{ route('annees.index') }}" class="side-menu__item">Année Scolaire</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="slide has-sub">
+                            <a href="/Filiére" class="side-menu__item">
+                                <i class="fe fe-file-text side-menu__icon"></i>
+                                <span class="side-menu__label">Filiére</span>
+                            </a>
+                            <ul class="slide-menu child1">
+                            </ul>
+                        </li>
+                        <li class="slide has-sub">
+                            <a href="/Matiére" class="side-menu__item">
+                                <i class="fe fe-file-text side-menu__icon"></i>
+                                <span class="side-menu__label">Matiére</span>
+                            </a>
+                            <ul class="slide-menu child1">
+                            </ul>
+                        </li>
+                        <li class="slide has-sub">
+                            <a href="/course" class="side-menu__item">
+                                <i class="fe fe-file-text side-menu__icon"></i>
+                                <span class="side-menu__label">Courses</span>
+                            </a>
+                            <ul class="slide-menu child1">
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="slide-right" id="slide-right"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191"
+                            width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>
+                        </svg></div>
+                </nav>
+                <!-- End::nav -->
 </div>
 <!-- End::main-sidebar -->
 </aside>
@@ -1425,10 +1408,11 @@
                             <div class="card custom-card overflow-hidden">
                                 <div class="card-body border-bottom">
                                     <div class="d-sm-flex  main-profile-cover">
-                                        <span class="avatar avatar-xxl online me-3">
-                                            <img src="{{ Auth::user()->picture ?? '../assets/images/faces/default.jpg' }}"
-                                                alt="" class="avatar avatar-xxl">
-                                        </span>
+<span class="avatar avatar-xxl online me-3" onclick="document.getElementById('profilePictureInput').click()">
+    <img src="../assets/images/faces/default.jpg" alt="" class="avatar avatar-xxl" id="profileImage">
+</span>
+<input type="file" id="profilePictureInput" style="display: none;" accept="image/*" onchange="handleProfilePictureChange(event)">
+
                                         <div class="flex-fill main-profile-info my-auto">
                                             <h5 class="fw-semibold mb-1 ">{{ Auth::user()->name }}</h5>
                                             <div>
@@ -1487,14 +1471,6 @@
                                                     Phone :
                                                 </div>
                                                 <span class="fs-12 text-muted">{{ Auth::user()->phone }}</span>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item border-0">
-                                            <div class="d-flex flex-wrap align-items-center">
-                                                <div class="me-2 fw-semibold">
-                                                    Designation :
-                                                </div>
-                                                <span class="fs-12 text-muted">{{ Auth::user()->type }}</span>
                                             </div>
                                         </li>
                                         <li class="list-group-item border-0">
@@ -3292,16 +3268,11 @@
         <!-- Footer End -->
 
     </div>
-
-
-    <!-- Scroll To Top -->
     <div class="scrollToTop">
         <span class="arrow"><i class="ri-arrow-up-s-fill fs-20"></i></span>
     </div>
     <div id="responsive-overlay"></div>
-    <!-- Scroll To Top -->
 
-    <!-- Popper JS -->
     <script src="../assets/libs/@popperjs/core/umd/popper.min.js"></script>
 
     <!-- Bootstrap JS -->
@@ -3322,6 +3293,30 @@
 
     <!-- Color Picker JS -->
     <script src="../assets/libs/@simonwep/pickr/pickr.es5.min.js"></script>
+ <!------------------------------ profile en js ------------------------------>
+ <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var storedImage = localStorage.getItem('profilePicture');
+    if (storedImage) {
+        document.getElementById('profileImage').src = storedImage;
+        document.getElementById('profile').src = storedImage; 
+    }
+});
+
+function handleProfilePictureChange(event) {
+    var input = event.target;
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            var imageSrc = e.target.result;
+            document.getElementById('profileImage').src = imageSrc;
+            document.getElementById('profile').src = imageSrc;
+            localStorage.setItem('profilePicture', imageSrc);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+</script>
 
 
 

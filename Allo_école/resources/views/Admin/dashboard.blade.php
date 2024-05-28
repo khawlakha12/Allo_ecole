@@ -1246,8 +1246,8 @@
                                 data-bs-auto-close="outside" aria-expanded="false">
                                 <div class="d-flex align-items-center">
                                     <div class="me-xxl-2 me-0">
-                                        <img src="{{ Auth::user()->picture ?? '../assets/images/faces/default.jpg' }}"
-                                            alt="img" width="32" height="32" class="rounded-circle">
+                                    <img src="{{ Auth::user()->picture ?? '../assets/images/faces/default.jpg' }}"
+                                            alt="img" width="32" height="32" class="rounded-circle" id="profile">
                                     </div>
                                     <div class="d-xxl-block d-none my-auto">
                                         <h6 class="fw-semibold mb-0 lh-1 fs-14">{{ Auth::user()->name}}</h6>
@@ -1265,19 +1265,21 @@
                                     <small class="text-muted">Web Designer</small>
                                 </div>
                             </li>
-                            <li class="dropdown-item"><a class="d-flex w-100" href="profile.html"><i
+                            <li class="dropdown-item"><a class="d-flex w-100" href="/profile"><i
                                         class="fe fe-user fs-18 me-2 text-primary"></i>Profile</a></li>
                             <li class="dropdown-item"><a class="d-flex w-100" href="mail.html"><i
                                         class="fe fe-mail fs-18 me-2 text-primary"></i>Inbox <span
                                         class="badge bg-danger ms-auto">25</span></a></li>
-                            <li class="dropdown-item"><a class="d-flex w-100" href="mail-settings.html"><i
-                                        class="fe fe-settings fs-18 me-2 text-primary"></i>Settings</a></li>
-                            <li class="dropdown-item"><a class="d-flex w-100" href="chat.html"><i
-                                        class="fe fe-headphones fs-18 me-2 text-primary"></i>Support</a></li>
                             <li class="dropdown-item"><a class="d-flex w-100" href="lockscreen.html"><i
                                         class="fe fe-lock fs-18 me-2 text-primary"></i>Lockscreen</a></li>
-                            <li class="dropdown-item"><a class="d-flex w-100" href="sign-in.html"><i
-                                        class="fe fe-info fs-18 me-2 text-primary"></i>Log Out</a></li>
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="dropdown-item">
+                                    <i class="fe fe-info fs-18 me-2 text-primary"></i>
+                                    Log Out
+                                </button>
+                            </form>
+
                         </ul>
                     </div>
                     <!-- End::header-element -->
@@ -1336,7 +1338,7 @@
                         <!-- Start::slide -->
                         <li class="slide">
                             <a href="/admin" class="side-menu__item">
-                                <i class="fe fe-home side-menu__icon"></i>
+                                <i class="fe fe-tv side-menu__icon"></i>
                                 <span class="side-menu__label">Dashboard</span>
                             </a>
                         </li>
@@ -1772,52 +1774,6 @@
                                             </div>
                                             <div class="progress progress-sm mb-3">
                                                 <div class="progress-bar bg-danger" style="width: 50%;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <div class="col-sm-2 col-lg-3 col-xl-3 col-xxl-2 mb-sm-0 mb-3">
-                                            <img src="../assets/images/browsers/edge.svg" class="img-fluid" alt="img">
-                                        </div>
-                                        <div class="col-sm-10 col-lg-9 col-xl-9 col-xxl-10 ps-sm-0">
-                                            <div class="d-flex align-items-end justify-content-between mb-1">
-                                                <h6 class="mb-1">Edge</h6>
-                                                <h6 class="fw-semibold mb-1">15,453 <span class="text-danger fs-11">(<i
-                                                            class="fe fe-arrow-down"></i>23.70%)</span></h6>
-                                            </div>
-                                            <div class="progress progress-sm mb-3">
-                                                <div class="progress-bar bg-warning" style="width: 10%;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <div class="col-sm-2 col-lg-3 col-xl-3 col-xxl-2 mb-sm-0 mb-3">
-                                            <img src="../assets/images/browsers/safari.svg" class="img-fluid" alt="img">
-                                        </div>
-                                        <div class="col-sm-10 col-lg-9 col-xl-9 col-xxl-10 ps-sm-0">
-                                            <div class="d-flex align-items-end justify-content-between mb-1">
-                                                <h6 class="mb-1">Safari</h6>
-                                                <h6 class="fw-semibold mb-1">10,054 <span class="text-success fs-11">(<i
-                                                            class="fe fe-arrow-up"></i>11.04%)</span></h6>
-                                            </div>
-                                            <div class="progress progress-sm mb-3">
-                                                <div class="progress-bar bg-info" style="width: 40%;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-2 col-lg-3 col-xl-3 col-xxl-2 mb-sm-0 mb-3">
-                                            <img src="../assets/images/browsers/netscape.svg" class="img-fluid"
-                                                alt="img">
-                                        </div>
-                                        <div class="col-sm-10 col-lg-9 col-xl-9 col-xxl-10 ps-sm-0">
-                                            <div class="d-flex align-items-end justify-content-between mb-1">
-                                                <h6 class="mb-1">Netscape</h6>
-                                                <h6 class="fw-semibold mb-1">35,502 <span class="text-success fs-11">(<i
-                                                            class="fe fe-arrow-up"></i>12.75%)</span></h6>
-                                            </div>
-                                            <div class="progress progress-sm mb-3">
-                                                <div class="progress-bar bg-green" style="width: 30%;"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -3697,64 +3653,53 @@
     </div>
     <div id="responsive-overlay"></div>
     <!-- Scroll To Top -->
-
     <!-- Popper JS -->
     <script src="../assets/libs/@popperjs/core/umd/popper.min.js"></script>
-
     <!-- Bootstrap JS -->
     <script src="../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-
     <!-- Defaultmenu JS -->
     <script src="../assets/js/defaultmenu.min.js"></script>
-
     <!-- Node Waves JS-->
     <script src="../assets/libs/node-waves/waves.min.js"></script>
-
     <!-- Sticky JS -->
     <script src="../assets/js/sticky.js"></script>
-
     <!-- Simplebar JS -->
     <script src="../assets/libs/simplebar/simplebar.min.js"></script>
     <script src="../assets/js/simplebar.js"></script>
-
     <!-- Color Picker JS -->
     <script src="../assets/libs/@simonwep/pickr/pickr.es5.min.js"></script>
-
-
-
     <!-- JSVector Maps JS -->
     <script src="../assets/libs/jsvectormap/js/jsvectormap.min.js"></script>
-
     <!-- JSVector Maps MapsJS -->
     <script src="../assets/libs/jsvectormap/maps/world-merc.js"></script>
-
     <!-- Apex Charts JS -->
     <script src="../assets/libs/apexcharts/apexcharts.min.js"></script>
-
     <!-- Chartjs Chart JS -->
     <script src="../assets/libs/chart.js/chart.min.js"></script>
-
     <!-- index -->
     <script src="../assets/js/index.js"></script>
-
-
     <!-- Custom-Switcher JS -->
     <script src="../assets/js/custom-switcher.min.js"></script>
-
     <!-- Custom JS -->
     <script src="../assets/js/custom.js"></script>
     <!-- Custom-Switcher JS -->
     <script src="../assets/js/custom-switcher.min.js"></script>
-
     <!-- Prism JS -->
     <script src="../assets/libs/prismjs/prism.js"></script>
     <script src="../assets/js/prism-custom.js"></script>
-
     <!-- Modal JS -->
     <script src="../assets/js/modal.js"></script>
-
     <!-- Custom JS -->
     <script src="../assets/js/custom.js"></script>
+<!------------------------------ profile en js ------------------------------>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var storedImage = localStorage.getItem('profilePicture');
+    if (storedImage) {
+        document.getElementById('profile').src = storedImage;
+    }
+});
+</script>
 
 </body>
 

@@ -1267,8 +1267,8 @@
                                 data-bs-auto-close="outside" aria-expanded="false">
                                 <div class="d-flex align-items-center">
                                     <div class="me-xxl-2 me-0">
-                                        <img src="{{ Auth::user()->picture ?? '../assets/images/faces/default.jpg' }}"
-                                            alt="img" width="32" height="32" class="rounded-circle">
+                                    <img src="{{ Auth::user()->picture ?? '../assets/images/faces/default.jpg' }}"
+                                            alt="img" width="32" height="32" class="rounded-circle" id="profile">
                                     </div>
                                     <div class="d-xxl-block d-none my-auto">
                                         <h6 class="fw-semibold mb-0 lh-1 fs-14">{{ Auth::user()->name}}</h6>
@@ -1286,19 +1286,21 @@
                                     <small class="text-muted">Web Designer</small>
                                 </div>
                             </li>
-                            <li class="dropdown-item"><a class="d-flex w-100" href="profile.html"><i
+                            <li class="dropdown-item"><a class="d-flex w-100" href="/profile"><i
                                         class="fe fe-user fs-18 me-2 text-primary"></i>Profile</a></li>
                             <li class="dropdown-item"><a class="d-flex w-100" href="mail.html"><i
                                         class="fe fe-mail fs-18 me-2 text-primary"></i>Inbox <span
                                         class="badge bg-danger ms-auto">25</span></a></li>
-                            <li class="dropdown-item"><a class="d-flex w-100" href="mail-settings.html"><i
-                                        class="fe fe-settings fs-18 me-2 text-primary"></i>Settings</a></li>
-                            <li class="dropdown-item"><a class="d-flex w-100" href="chat.html"><i
-                                        class="fe fe-headphones fs-18 me-2 text-primary"></i>Support</a></li>
                             <li class="dropdown-item"><a class="d-flex w-100" href="lockscreen.html"><i
                                         class="fe fe-lock fs-18 me-2 text-primary"></i>Lockscreen</a></li>
-                            <li class="dropdown-item"><a class="d-flex w-100" href="sign-in.html"><i
-                                        class="fe fe-info fs-18 me-2 text-primary"></i>Log Out</a></li>
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="dropdown-item">
+                                    <i class="fe fe-info fs-18 me-2 text-primary"></i>
+                                    Log Out
+                                </button>
+                            </form>
+
                         </ul>
                     </div>
                     <!-- End::header-element -->
@@ -1340,7 +1342,6 @@
 
             <!-- Start::main-sidebar -->
             <div class="main-sidebar" id="sidebar-scroll">
-
                 <!-- Start::nav -->
                 <nav class="main-menu-container nav nav-pills flex-column sub-open">
                     <div class="slide-left" id="slide-left">
@@ -1357,7 +1358,7 @@
                         <!-- Start::slide -->
                         <li class="slide">
                             <a href="/admin" class="side-menu__item">
-                                <i class="fe fe-home side-menu__icon"></i>
+                                <i class="fe fe-tv side-menu__icon"></i>
                                 <span class="side-menu__label">Dashboard</span>
                             </a>
                         </li>
@@ -1436,115 +1437,29 @@
                             </ul>
                         </li>
                         <li class="slide has-sub">
-                        <a href="/Filiére" class="side-menu__item">
-                            <i class="fe fe-file-text side-menu__icon"></i>
-                            <span class="side-menu__label">Filiére</span>
-                        </a>
-                        <ul class="slide-menu child1">
-                           </ul>
-                    </li>
-                    <li class="slide has-sub">
-                        <a href="/Matiére" class="side-menu__item">
-                            <i class="fe fe-file-text side-menu__icon"></i>
-                            <span class="side-menu__label">Matiére</span>
-                            <i class="fe fe-chevron-right side-menu__angle"></i>
-                        </a>
-                        <ul class="slide-menu child1">
-                    </ul>
-                    </li>
-                    <li class="slide has-sub">
-                        <a href="/course" class="side-menu__item">
-                            <i class="fe fe-file-text side-menu__icon"></i>
-                            <span class="side-menu__label">Courses</span>
-                            <i class="fe fe-chevron-right side-menu__angle"></i>
-                        </a>
-                        <ul class="slide-menu child1">
-                            <li class="slide side-menu__label1">
-                                <a href="javascript:void(0)">Courses</a>
-                            </li>
-                            <li class="slide has-sub">
-                                <a href="javascript:void(0);" class="side-menu__item">Form Elements
-                                    <i class="fe fe-chevron-right side-menu__angle"></i></a>
-                                <ul class="slide-menu child2">
-                                    <li class="slide">
-                                        <a href="form_inputs.html" class="side-menu__item">Inputs</a>
-                                    </li>
-                                    <li class="slide">
-                                        <a href="form_check_radios.html" class="side-menu__item">Checks &amp; Radios</a>
-                                    </li>
-                                    <li class="slide">
-                                        <a href="form_input_group.html" class="side-menu__item">Input Group</a>
-                                    </li>
-                                    <li class="slide">
-                                        <a href="form_select.html" class="side-menu__item">Form Select</a>
-                                    </li>
-                                    <li class="slide">
-                                        <a href="form_range.html" class="side-menu__item">Range Slider</a>
-                                    </li>
-                                    <li class="slide">
-                                        <a href="form_input_masks.html" class="side-menu__item">Input Masks</a>
-                                    </li>
-                                    <li class="slide">
-                                        <a href="form_file_uploads.html" class="side-menu__item">File Uploads</a>
-                                    </li>
-                                    <li class="slide">
-                                        <a href="form_dateTime_pickers.html" class="side-menu__item">Date,Time
-                                            Picker</a>
-                                    </li>
-                                    <li class="slide">
-                                        <a href="form_color_pickers.html" class="side-menu__item">Color Pickers</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="slide">
-                                <a href="floating_labels.html" class="side-menu__item">Floating Labels</a>
-                            </li>
-                            <li class="slide">
-                                <a href="form_layout.html" class="side-menu__item">Form Layouts</a>
-                            </li>
-                            <li class="slide has-sub">
-                                <a href="javascript:void(0);" class="side-menu__item">Form Editors
-                                    <i class="fe fe-chevron-right side-menu__angle"></i></a>
-                                <ul class="slide-menu child2">
-                                    <li class="slide">
-                                        <a href="quill_editor.html" class="side-menu__item">Quill Editor</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="slide">
-                                <a href="form_validation.html" class="side-menu__item">Validation</a>
-                            </li>
-                            <li class="slide">
-                                <a href="form_select2.html" class="side-menu__item">Select2</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="slide has-sub">
-                        <a href="#" class="side-menu__item">
-                            <i class="fe fe-file-text side-menu__icon"></i>
-                            <span class="side-menu__label">Courses</span>
-                            <i class="fe fe-chevron-right side-menu__angle"></i>
-                        </a>
-                        <ul class="slide-menu child1">
-                            <li class="slide side-menu__label1">
-                                <a href="javascript:void(0)">Courses</a>
-                            </li>
-                            <li class="slide has-sub">
-                                <a href="javascript:void(0);" class="side-menu__item">Form Elements
-                                    <i class="fe fe-chevron-right side-menu__angle"></i></a>
-                                <ul class="slide-menu child2">
-                                    <li class="slide">
-                                        <a href="form_inputs.html" class="side-menu__item">Inputs</a>
-                                    </li>
-                                </ul>
-                            </li>
-                    </li>
-                    <li class="slide">
-                        <a href="form_validation.html" class="side-menu__item">Validation</a>
-                    </li>
-                    </ul>
-                    </li>
-
+                            <a href="/Filiére" class="side-menu__item">
+                                <i class="fe fe-file-text side-menu__icon"></i>
+                                <span class="side-menu__label">Filiére</span>
+                            </a>
+                            <ul class="slide-menu child1">
+                            </ul>
+                        </li>
+                        <li class="slide has-sub">
+                            <a href="/Matiére" class="side-menu__item">
+                                <i class="fe fe-file-text side-menu__icon"></i>
+                                <span class="side-menu__label">Matiére</span>
+                            </a>
+                            <ul class="slide-menu child1">
+                            </ul>
+                        </li>
+                        <li class="slide has-sub">
+                            <a href="/course" class="side-menu__item">
+                                <i class="fe fe-file-text side-menu__icon"></i>
+                                <span class="side-menu__label">Courses</span>
+                            </a>
+                            <ul class="slide-menu child1">
+                            </ul>
+                        </li>
                     </ul>
                     <div class="slide-right" id="slide-right"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191"
                             width="24" height="24" viewBox="0 0 24 24">
@@ -1835,7 +1750,15 @@
         myModal.show();
     }
 </script>
-
+ <!------------------------------ profile en js ------------------------------>
+ <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var storedImage = localStorage.getItem('profilePicture');
+    if (storedImage) {
+        document.getElementById('profile').src = storedImage;
+    }
+});
+</script>
 
 </body>
 

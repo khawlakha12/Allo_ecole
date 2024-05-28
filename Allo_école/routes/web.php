@@ -70,6 +70,7 @@ Route::get('/register', function () {
     return view('Auth.register');
 });
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 //----------------------------Middlware----------------------------//
 Route::get('/admin', function() {

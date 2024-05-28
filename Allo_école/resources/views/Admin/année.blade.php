@@ -1232,7 +1232,7 @@
                                 <div class="d-flex align-items-center">
                                     <div class="me-xxl-2 me-0">
                                         <img src="{{ Auth::user()->picture ?? '../assets/images/faces/default.jpg' }}"
-                                            alt="img" width="32" height="32" class="rounded-circle">
+                                            alt="img" width="32" height="32" class="rounded-circle" id="profile">
                                     </div>
                                     <div class="d-xxl-block d-none my-auto">
                                         <h6 class="fw-semibold mb-0 lh-1 fs-14">{{ Auth::user()->name}}</h6>
@@ -1250,19 +1250,21 @@
                                     <small class="text-muted">Web Designer</small>
                                 </div>
                             </li>
-                            <li class="dropdown-item"><a class="d-flex w-100" href="profile.html"><i
+                            <li class="dropdown-item"><a class="d-flex w-100" href="/profile"><i
                                         class="fe fe-user fs-18 me-2 text-primary"></i>Profile</a></li>
                             <li class="dropdown-item"><a class="d-flex w-100" href="mail.html"><i
                                         class="fe fe-mail fs-18 me-2 text-primary"></i>Inbox <span
                                         class="badge bg-danger ms-auto">25</span></a></li>
-                            <li class="dropdown-item"><a class="d-flex w-100" href="mail-settings.html"><i
-                                        class="fe fe-settings fs-18 me-2 text-primary"></i>Settings</a></li>
-                            <li class="dropdown-item"><a class="d-flex w-100" href="chat.html"><i
-                                        class="fe fe-headphones fs-18 me-2 text-primary"></i>Support</a></li>
                             <li class="dropdown-item"><a class="d-flex w-100" href="lockscreen.html"><i
                                         class="fe fe-lock fs-18 me-2 text-primary"></i>Lockscreen</a></li>
-                            <li class="dropdown-item"><a class="d-flex w-100" href="sign-in.html"><i
-                                        class="fe fe-info fs-18 me-2 text-primary"></i>Log Out</a></li>
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="dropdown-item">
+                                    <i class="fe fe-info fs-18 me-2 text-primary"></i>
+                                    Log Out
+                                </button>
+                            </form>
+
                         </ul>
                     </div>
                     <!-- End::header-element -->
@@ -1304,7 +1306,6 @@
 
             <!-- Start::main-sidebar -->
             <div class="main-sidebar" id="sidebar-scroll">
-
                 <!-- Start::nav -->
                 <nav class="main-menu-container nav nav-pills flex-column sub-open">
                     <div class="slide-left" id="slide-left">
@@ -1321,7 +1322,7 @@
                         <!-- Start::slide -->
                         <li class="slide">
                             <a href="/admin" class="side-menu__item">
-                                <i class="fe fe-home side-menu__icon"></i>
+                                <i class="fe fe-tv side-menu__icon"></i>
                                 <span class="side-menu__label">Dashboard</span>
                             </a>
                         </li>
@@ -1440,22 +1441,23 @@
             <div class="row" style="margin-top:30px;">
                 <div class="col-xl-12">
                     <div class="card custom-card">
-                    <div class="card">
-    <div class="card-header justify-content-between d-flex align-items-center">
+                        <div class="card">
+                            <div class="card-header justify-content-between d-flex align-items-center">
 
-        <form id="filterForm" class="d-flex align-items-center" method="GET" action="{{ route('filter_annees') }}">
-    <div class="form-group mb-0" style="margin-right: 10px;">
-        <select name="niveau_id" id="filterSelect" class="form-control">
-            <option value="">Tous les niveaux</option>
-            @foreach($niveaux as $niveau)
-                <option value="{{$niveau->id}}">{{$niveau->nom}}</option>
-            @endforeach
-        </select>
-    </div>
-    <button type="submit" class="btn btn-primary">Filter</button>
-</form>
-    </div>
-</div>
+                                <form id="filterForm" class="d-flex align-items-center" method="GET"
+                                    action="{{ route('filter_annees') }}">
+                                    <div class="form-group mb-0" style="margin-right: 10px;">
+                                        <select name="niveau_id" id="filterSelect" class="form-control">
+                                            <option value="">Tous les niveaux</option>
+                                            @foreach($niveaux as $niveau)
+                                                <option value="{{$niveau->id}}">{{$niveau->nom}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Filter</button>
+                                </form>
+                            </div>
+                        </div>
 
                         <div class="card-body">
                             <div class="table-responsive">
@@ -1531,59 +1533,40 @@
     </div>
     <div id="responsive-overlay"></div>
     <!-- Scroll To Top -->
-
     <!-- Popper JS -->
     <script src="../assets/libs/@popperjs/core/umd/popper.min.js"></script>
-
     <!-- Bootstrap JS -->
     <script src="../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-
     <!-- Defaultmenu JS -->
     <script src="../assets/js/defaultmenu.min.js"></script>
-
     <!-- Node Waves JS-->
     <script src="../assets/libs/node-waves/waves.min.js"></script>
-
     <!-- Sticky JS -->
     <script src="../assets/js/sticky.js"></script>
-
     <!-- Simplebar JS -->
     <script src="../assets/libs/simplebar/simplebar.min.js"></script>
     <script src="../assets/js/simplebar.js"></script>
-
     <!-- Color Picker JS -->
     <script src="../assets/libs/@simonwep/pickr/pickr.es5.min.js"></script>
-
-
-
     <!-- JSVector Maps JS -->
     <script src="../assets/libs/jsvectormap/js/jsvectormap.min.js"></script>
-
     <!-- JSVector Maps MapsJS -->
     <script src="../assets/libs/jsvectormap/maps/world-merc.js"></script>
-
     <!-- Apex Charts JS -->
     <script src="../assets/libs/apexcharts/apexcharts.min.js"></script>
-
     <!-- Chartjs Chart JS -->
     <script src="../assets/libs/chart.js/chart.min.js"></script>
-
     <!-- index -->
     <script src="../assets/js/index.js"></script>
-
-
     <!-- Custom-Switcher JS -->
     <script src="../assets/js/custom-switcher.min.js"></script>
-
     <!-- Custom JS -->
     <script src="../assets/js/custom.js"></script>
     <!-- Custom-Switcher JS -->
     <script src="../assets/js/custom-switcher.min.js"></script>
-
     <!-- Prism JS -->
     <script src="../assets/libs/prismjs/prism.js"></script>
     <script src="../assets/js/prism-custom.js"></script>
-
     <!-- Modal JS -->
     <script src="../assets/js/modal.js"></script>
 
@@ -1624,6 +1607,15 @@
 
             setupPagination(rows, paginationWrapper, rowsPerPage);
             displayPage(1);
+        });
+    </script>
+    <!------------------------------ profile en js ------------------------------>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var storedImage = localStorage.getItem('profilePicture');
+            if (storedImage) {
+                document.getElementById('profile').src = storedImage;
+            }
         });
     </script>
 </body>
