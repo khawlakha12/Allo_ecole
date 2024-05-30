@@ -36,23 +36,23 @@
 
     <!-- Start Header Area -->
     <header class="rbt-header rbt-header-10">
-    <div class="rbt-btn-wrapper d-none d-xl-block" style="margin-top: 20px; margin-left: 20px;">
-    <a class="rbt-btn btn-border-gradient radius-round btn-sm hover-transform-none" href="/" style="display: inline-flex; align-items: center;">
-        <i class="fas fa-arrow-left" style="margin-right: 5px;"></i>
-    </a>
-</div>
+        <div class="rbt-btn-wrapper d-none d-xl-block" style="margin-top: 20px; margin-left: 20px;">
+
+        </div>
 
     </header>
     <!-- Mobile Menu Section -->
-
     <a class="close_side_menu" href="javascript:void(0);"></a>
-
     <div class="rbt-elements-area bg-color-white rbt-section-gap">
         <div class="container">
             <div class="gy-5 row--30 d-flex justify-content-center align-items-center">
 
                 <div class="col-lg-6">
                     <div class="rbt-contact-form contact-form-style-1 max-width-auto" id="login-form">
+                        <a class="" href="/" style="display: inline-flex; align-items: center;margin-bottom:20px;">
+                            <i class="fas fa-arrow-left" style="margin-right: 5px;"></i><span> Je souhaite revenir à la
+                                page d'accueil</span>
+                        </a>
                         <h3 class="title">Login</h3>
                         <form action="/login" method="POST" class="max-width-auto">
                             @csrf
@@ -97,6 +97,10 @@
 
                     <div class="rbt-contact-form contact-form-style-1 max-width-auto" style="display:none;"
                         id="register-form">
+                        <a class="" href="/" style="display: inline-flex; align-items: center;margin-bottom:20px;">
+                            <i class="fas fa-arrow-left" style="margin-right: 5px;"></i><span> Je souhaite revenir à la
+                                page d'accueil</span>
+                        </a>
                         <h3 class="title">Register</h3>
                         <form action="/register" method="POST" class="max-width-auto">
                             @csrf
@@ -143,30 +147,6 @@
                     </div>
                 </div>
 
-            </div>
-        </div>
-    </div>
-
-
-    <div class="rbt-newsletter-area bg-color-white rbt-section-gap">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title text-center">
-                        <h2 class="title">Pour rejoindre l'équipe des professeurs, saisissez email <br />
-                            Laissez-nous vous contacter </h2>
-                        <form action="#" class="newsletter-form-1 mt--50 radius-round">
-                            <input class="rbt-border" type="email" placeholder="Enter Your E-Email">
-                            <button type="submit" class="rbt-btn btn-md btn-gradient hover-icon-reverse radius-round">
-                                <span class="icon-reverse-wrapper">
-                                    <span class="btn-text">Envoyer</span>
-                                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                </span>
-                            </button>
-                        </form>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

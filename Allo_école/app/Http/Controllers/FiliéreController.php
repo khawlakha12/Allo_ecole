@@ -15,7 +15,7 @@ class FiliéreController extends Controller
         return view('Admin.Filiére', compact('filieres'));
     }
 
-    public function ajouterFiliere(Request $request)
+public function ajouterFiliere(Request $request)
     {
         $request->validate([
             'nom' => 'required|string|max:255',
