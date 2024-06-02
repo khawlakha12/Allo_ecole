@@ -1339,76 +1339,84 @@
     </div>
     <!-- Année scolaire Section -->
     <div class="rbt-single-widget rbt-widget-prices">
+    <div class="inner">
+        <h4 class="rbt-widget-title">Année scolaire</h4>
+        <ul class="rbt-sidebar-list-wrapper prices-list-check">
+            @foreach($annees as $annee)
+                <li class="rbt-check-group">
+                    <input id="annee-{{ $annee->id }}" type="checkbox" name="annees[]" value="{{ $annee->id }}" class="annee-checkbox">
+                    <label for="annee-{{ $annee->id }}">{{ $annee->nom }}</label>
+                </li>
+            @endforeach
+        </ul>
+    </div>
+</div>
+<!-- Filière Section -->
+@if(strtolower($selectedNiveau) !== 'collège' && strtolower($selectedNiveau) !== 'primaire')
+    <div class="rbt-single-widget rbt-widget-categories has-show-more" id="filiereSection">
         <div class="inner">
-            <h4 class="rbt-widget-title">Année scolaire</h4>
-            <ul class="rbt-sidebar-list-wrapper prices-list-check">
-                @foreach($annees as $annee)
-                    <li class="rbt-check-group">
-                        <input id="annee-{{ $annee->id }}" type="checkbox" name="annees[]" value="{{ $annee->id }}" class="annee-checkbox">
-                        <label for="annee-{{ $annee->id }}">{{ $annee->nom }}</label>
+            <h4 class="rbt-widget-title">Filière</h4>
+            <ul class="rbt-sidebar-list-wrapper categories-list-check has-show-more-inner-content">
+                @foreach($filieres as $index => $filiere)
+                    <li class="rbt-check-group filiere-item {{ $index >= 5 ? 'hidden' : '' }}" data-annee="{{ $filiere->annee_id }}">
+                        <input id="filiere-{{ $filiere->id }}" type="checkbox" name="filieres[]" value="{{ $filiere->id }}" class="filiere-checkbox">
+                        <label for="filiere-{{ $filiere->id }}">{{ $filiere->nom }}</label>
                     </li>
                 @endforeach
             </ul>
         </div>
     </div>
-
-    <!-- Filière Section -->
-    @if(strtolower($selectedNiveau) !== 'collège' && strtolower($selectedNiveau) !== 'primaire')
-        <div class="rbt-single-widget rbt-widget-categories has-show-more" id="filiereSection">
-            <div class="inner">
-                <h4 class="rbt-widget-title">Filière</h4>
-                <ul class="rbt-sidebar-list-wrapper categories-list-check has-show-more-inner-content">
-                    @foreach($filieres as $index => $filiere)
-                        <li class="rbt-check-group filiere-item {{ $index >= 5 ? 'hidden' : '' }}" data-annee="{{ $filiere->annee_id }}">
-                            <input id="filiere-{{ $filiere->id }}" type="checkbox" name="filieres[]" value="{{ $filiere->id }}" class="filiere-checkbox">
-                            <label for="filiere-{{ $filiere->id }}">{{ $filiere->nom }}</label>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-    @endif
-
-    <!-- Matière Section -->
-    <div class="rbt-single-widget rbt-widget-instructor">
-        <div class="inner">
-            <h4 class="rbt-widget-title">Matière</h4>
-            <ul class="rbt-sidebar-list-wrapper instructor-list-check">
-                @foreach($matieres as $matiere)
-                    <li class="rbt-check-group hidden" data-annee="{{ $matiere->annee_id }}" data-filiere="{{ $matiere->id_filiere }}">
-                        <input id="matiere-{{ $matiere->id }}" type="checkbox" name="matieres[]" value="{{ $matiere->id }}">
-                        <label for="matiere-{{ $matiere->id }}">{{ $matiere->nom }}</label>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
+@endif
+<!-- Matière Section -->
+<div class="rbt-single-widget rbt-widget-instructor">
+    <div class="inner">
+        <h4 class="rbt-widget-title">Matière</h4>
+        <ul class="rbt-sidebar-list-wrapper instructor-list-check">
+            @foreach($matieres as $matiere)
+                <li class="rbt-check-group hidden" data-annee="{{ $matiere->annee_id }}" data-filiere="{{ $matiere->id_filiere }}">
+                    <input id="matiere-{{ $matiere->id }}" type="checkbox" name="matieres[]" value="{{ $matiere->id }}">
+                    <label for="matiere-{{ $matiere->id }}">{{ $matiere->nom }}</label>
+                </li>
+            @endforeach
+        </ul>
     </div>
-    <script>
-        $(document).ready(function() {
-            function filterMatieres() {
-                var selectedFiliereIds = $('.filiere-checkbox:checked').map(function() {
-                    return $(this).val();
-                }).get();
-                
-                var selectedAnneeIds = $('.annee-checkbox:checked').map(function() {
-                    return $(this).val();
-                }).get();
-                $('.rbt-check-group[data-filiere]').each(function() {
-                    var filiereId = $(this).data('filiere');
-                    var anneeId = $(this).data('annee');
-                    
-                    if (selectedFiliereIds.includes(String(filiereId)) || selectedAnneeIds.includes(String(anneeId))) {
-                        $(this).removeClass('hidden');
-                    } else {
-                        $(this).addClass('hidden');
-                    }
-                });
+</div>
+
+<script>
+    $(document).ready(function() {
+        function filterMatieres() {
+            var selectedNiveau = '{{ strtolower($selectedNiveau) }}';
+            if (selectedNiveau === 'primaire' || selectedNiveau === 'collège') {
+                $('.rbt-check-group[data-filiere]').removeClass('hidden');
+                return;
             }
-            $('.filiere-checkbox, .annee-checkbox').on('change', function() {
-                filterMatieres();
+
+            var selectedFiliereIds = $('.filiere-checkbox:checked').map(function() {
+                return $(this).val();
+            }).get();
+            
+            var selectedAnneeIds = $('.annee-checkbox:checked').map(function() {
+                return $(this).val();
+            }).get();
+
+            $('.rbt-check-group[data-filiere]').each(function() {
+                var filiereId = $(this).data('filiere');
+                var anneeId = $(this).data('annee');
+                
+                if (selectedFiliereIds.includes(String(filiereId)) || selectedAnneeIds.includes(String(anneeId))) {
+                    $(this).removeClass('hidden');
+                } else {
+                    $(this).addClass('hidden');
+                }
             });
+        }
+        $('.filiere-checkbox, .annee-checkbox').on('change', function() {
+            filterMatieres();
         });
-    </script>
+        filterMatieres();
+    });
+</script>
+
                 </div>
                 <div class="col-lg-9 order-1 order-lg-2">
                     <div class="rbt-course-grid-column" id="courseList">

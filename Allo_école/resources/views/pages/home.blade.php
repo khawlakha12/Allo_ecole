@@ -35,19 +35,21 @@
             display: flex;
             align-items: center;
             font-size: 24px;
-            color: orange; 
+            color: orange;
         }
+
         .icon2 {
             display: flex;
             align-items: center;
             font-size: 24px;
-            color: red; 
+            color: red;
         }
+
         .icon3 {
             display: flex;
             align-items: center;
             font-size: 24px;
-            color: blue; 
+            color: blue;
         }
     </style>
 </head>
@@ -81,11 +83,12 @@
                                     </a>
                                     <ul class="submenu">
                                         @foreach($niveaux as $niveau)
-                                        <li class="has-dropdown">
-                        <a href="{{ route('courses', $niveau->id) }}" class="niveau-link" data-niveau="{{ $niveau->id }}" data-niveau-nom="{{ $niveau->nom }}">
-                            {{ $niveau->nom }}
-                        </a>
-                    </li>
+                                            <li class="has-dropdown">
+                                                <a href="{{ route('courses', $niveau->id) }}" class="niveau-link"
+                                                    data-niveau="{{ $niveau->id }}" data-niveau-nom="{{ $niveau->nom }}">
+                                                    {{ $niveau->nom }}
+                                                </a>
+                                            </li>
                                         @endforeach
                                     </ul>
                                 </li>
@@ -225,7 +228,7 @@
                                                         <span>My Quiz Attempts</span>
                                                     </a>
                                                 </li>
-                                                
+
                                             </ul>
                                             <hr class="mt--10 mb--10">
                                             <ul class="user-list-wrapper">
@@ -1208,7 +1211,8 @@
                             <div class="inner">
 
                                 <h1 class="title">Bienvenue dans Allo école <br /> éducation en ligne</h1>
-                                <p class="description">Nous sommes expérimentés dans les plateformes éducatives et les stratégies compétentes pour le succès de notre apprentissage en ligne.</p>
+                                <p class="description">Nous sommes expérimentés dans les plateformes éducatives et les
+                                    stratégies compétentes pour le succès de notre apprentissage en ligne.</p>
                                 <div class="rating mb--20">
                                     <a href="#"><i class="fa fa-star"></i></a>
                                     <a href="#"><i class="fa fa-star"></i></a>
@@ -1261,100 +1265,106 @@
                     </div>
                 </div>
                 <div class="row">
-    <div class="col-lg-12">
-        <div class="row row--15 mt_dec--30">
-            <!-- Start Single Card  -->
-            <div class="col-xl-4 col-md-6 col-sm-6 col-12 mt--30">
-                <div class="rbt-flipbox">
-                    <div class="rbt-flipbox-wrap rbt-service rbt-service-1 card-bg-1">
-                        <div class="rbt-flipbox-front rbt-flipbox-face inner">
-                            <div class="icon1">
-                            <i data-feather="file"></i>
+                    <div class="col-lg-12">
+                        <div class="row row--15 mt_dec--30">
+                            <!-- Start Single Card  -->
+                            <div class="col-xl-4 col-md-6 col-sm-6 col-12 mt--30">
+                                <div class="rbt-flipbox">
+                                    <div class="rbt-flipbox-wrap rbt-service rbt-service-1 card-bg-1">
+                                        <div class="rbt-flipbox-front rbt-flipbox-face inner">
+                                            <div class="icon1">
+                                                <i data-feather="file"></i>
+                                            </div>
+                                            <div class="content">
+                                                <h5 class="title"><a href="#">Cours PDF</a></h5>
+                                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima
+                                                    error reiciendis.</p>
+                                                <a class="rbt-btn-link stretched-link" href="#">Encore plus<i
+                                                        class="feather-arrow-right"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="rbt-flipbox-back rbt-flipbox-face inner">
+                                            <ul class="rbt-list-style-3 color-white">
+                                                <li><i class="feather-youtube"></i> 570 PDF</li>
+                                                <li><i class="feather-book"></i> 35 Cours</li>
+                                                <li><i class="feather-video"></i> Live Class</li>
+                                                <li><i class="feather-info"></i> MCQ and CQ Bank</li>
+                                            </ul>
+                                            <a class="rbt-btn rbt-switch-btn btn-white btn-sm" href="#">
+                                                <span data-text="Learn More">Encore plus</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="content">
-                                <h5 class="title"><a href="#">Cours PDF</a></h5>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima error reiciendis.</p>
-                                <a class="rbt-btn-link stretched-link" href="#">Encore plus<i class="feather-arrow-right"></i></a>
-                            </div>
-                        </div>
-                        <div class="rbt-flipbox-back rbt-flipbox-face inner">
-                            <ul class="rbt-list-style-3 color-white">
-                                <li><i class="feather-youtube"></i> 570 PDF</li>
-                                <li><i class="feather-book"></i> 35 Cours</li>
-                                <li><i class="feather-video"></i> Live Class</li>
-                                <li><i class="feather-info"></i> MCQ and CQ Bank</li>
-                            </ul>
-                            <a class="rbt-btn rbt-switch-btn btn-white btn-sm" href="#">
-                                <span data-text="Learn More">Encore plus</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Single Card  -->
-            <!-- Start Single Card  -->
-            <div class="col-xl-4 col-md-6 col-sm-6 col-12 mt--30">
-                <div class="rbt-flipbox">
-                    <div class="rbt-flipbox-wrap rbt-service rbt-service-1 card-bg-2">
-                        <div class="rbt-flipbox-front rbt-flipbox-face inner">
-                            <div class="icon2">
-                            <i data-feather="video"></i>
-                            </div>
-                            <div class="content">
-                                <h5 class="title"><a href="#">Cours en vidéo</a></h5>
-                                <p>Convenient practice dolor sit adipisicing elit. Minima error reiciendis.</p>
-                                <a class="rbt-btn-link stretched-link" href="#">Encore plus<i class="feather-arrow-right"></i></a>
-                            </div>
-                        </div>
+                            <!-- End Single Card  -->
+                            <!-- Start Single Card  -->
+                            <div class="col-xl-4 col-md-6 col-sm-6 col-12 mt--30">
+                                <div class="rbt-flipbox">
+                                    <div class="rbt-flipbox-wrap rbt-service rbt-service-1 card-bg-2">
+                                        <div class="rbt-flipbox-front rbt-flipbox-face inner">
+                                            <div class="icon2">
+                                                <i data-feather="video"></i>
+                                            </div>
+                                            <div class="content">
+                                                <h5 class="title"><a href="#">Cours en vidéo</a></h5>
+                                                <p>Convenient practice dolor sit adipisicing elit. Minima error
+                                                    reiciendis.</p>
+                                                <a class="rbt-btn-link stretched-link" href="#">Encore plus<i
+                                                        class="feather-arrow-right"></i></a>
+                                            </div>
+                                        </div>
 
-                        <div class="rbt-flipbox-back rbt-flipbox-face inner">
-                            <ul class="rbt-list-style-3 color-white">
-                                <li><i class="feather-youtube"></i> 370 Vidéo gratuite</li>
-                                <li><i class="feather-book"></i> 120 Cours</li>
-                                <li><i class="feather-video"></i> Live Class</li>
-                                <li><i class="feather-info"></i> MCQ and CQ Bank</li>
-                            </ul>
-                            <a class="rbt-btn rbt-switch-btn btn-white btn-sm" href="#">
-                                <span data-text="Learn More">Encore plus</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Single Card  -->
-            <!-- Start Single Card  -->
-            <div class="col-xl-4 col-md-6 col-sm-6 col-12 mt--30">
-                <div class="rbt-flipbox">
-                    <div class="rbt-flipbox-wrap rbt-service rbt-service-1 card-bg-4">
-                        <div class="rbt-flipbox-front rbt-flipbox-face inner">
-                            <div class="icon3">
-                            <i data-feather="book"></i>
+                                        <div class="rbt-flipbox-back rbt-flipbox-face inner">
+                                            <ul class="rbt-list-style-3 color-white">
+                                                <li><i class="feather-youtube"></i> 370 Vidéo gratuite</li>
+                                                <li><i class="feather-book"></i> 120 Cours</li>
+                                                <li><i class="feather-video"></i> Live Class</li>
+                                                <li><i class="feather-info"></i> MCQ and CQ Bank</li>
+                                            </ul>
+                                            <a class="rbt-btn rbt-switch-btn btn-white btn-sm" href="#">
+                                                <span data-text="Learn More">Encore plus</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="content">
-                                <h5 class="title"><a href="#">Les formations</a></h5>
-                                <p>Live Class dolor sit, amet consectetur adipisicing elit. Minima error reiciendis.</p>
-                                <a class="rbt-btn-link stretched-link" href="#">Encore plus<i class="feather-arrow-right"></i></a>
-                            </div>
-                        </div>
+                            <!-- End Single Card  -->
+                            <!-- Start Single Card  -->
+                            <div class="col-xl-4 col-md-6 col-sm-6 col-12 mt--30">
+                                <div class="rbt-flipbox">
+                                    <div class="rbt-flipbox-wrap rbt-service rbt-service-1 card-bg-4">
+                                        <div class="rbt-flipbox-front rbt-flipbox-face inner">
+                                            <div class="icon3">
+                                                <i data-feather="book"></i>
+                                            </div>
+                                            <div class="content">
+                                                <h5 class="title"><a href="#">Les formations</a></h5>
+                                                <p>Live Class dolor sit, amet consectetur adipisicing elit. Minima error
+                                                    reiciendis.</p>
+                                                <a class="rbt-btn-link stretched-link" href="#">Encore plus<i
+                                                        class="feather-arrow-right"></i></a>
+                                            </div>
+                                        </div>
 
-                        <div class="rbt-flipbox-back rbt-flipbox-face inner">
-                            <ul class="rbt-list-style-3 color-white">
-                                <li><i class="feather-youtube"></i> 124 Formations</li>
-                                <li><i class="feather-book"></i> 56 Formateurs</li>
-                                <li><i class="feather-video"></i> Live Class</li>
-                                <li><i class="feather-info"></i> MCQ and CQ Bank</li>
-                            </ul>
-                            <a class="rbt-btn rbt-switch-btn btn-white btn-sm" href="#">
-                                <span data-text="Learn More">Encore plus</span>
-                            </a>
+                                        <div class="rbt-flipbox-back rbt-flipbox-face inner">
+                                            <ul class="rbt-list-style-3 color-white">
+                                                <li><i class="feather-youtube"></i> 124 Formations</li>
+                                                <li><i class="feather-book"></i> 56 Formateurs</li>
+                                                <li><i class="feather-video"></i> Live Class</li>
+                                                <li><i class="feather-info"></i> MCQ and CQ Bank</li>
+                                            </ul>
+                                            <a class="rbt-btn rbt-switch-btn btn-white btn-sm" href="#">
+                                                <span data-text="Learn More">Encore plus</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Single Card  -->
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- End Single Card  -->
-        </div>
-    </div>
-</div>
 
             </div>
         </div>
@@ -1412,206 +1422,242 @@
                 </div>
             </div>
         </div>
-        <!-- Start Newsletter Area  -->
-        <div class="rbt-newsletter-area bg-color-white rbt-section-gap">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-title text-center">
-                            <h2 class="title">Pour rejoindre l'équipe des professeurs, saisissez email <br />
-                                Laissez-nous vous contacter </h2>
-                            <form action="#" class="newsletter-form-1 mt--50 radius-round">
-                                <input class="rbt-border" type="email" placeholder="Enter Your E-Email">
-                                <button type="submit"
-                                    class="rbt-btn btn-md btn-gradient hover-icon-reverse radius-round">
+        <div class="rbt-banner-area rbt-banner-3 header-transperent-spacer" style="">
+            <div class="wrapper">
+                <div class="container">
+                    <div class="row " style="margin-left:9%;">
+                        <div class="col-lg-5 order-1 order-lg-2">
+                            <div class="text-wrapper">
+                                <p>Allo école est un site dev support pédagogique. Nous proposons une sélection de
+                                    contenus pédagogiques
+                                    conformes aux programmes offociels.
+                                </p>
+                                <p>Pour chaque matière, Allo école propose un suivi chronologique par chapitre,
+                                    comprenant des cours,
+                                    des exercices corrigés et des examens. Nous utilisons les derniéres technologies Web
+                                    pour assurer
+                                    une présentation claire et ergonomique.
+                                </p>
+                                <a href="/register" class="rbt-btn btn-md btn-gradient hover-icon-reverse w-100">
                                     <span class="icon-reverse-wrapper">
-                                        <span class="btn-text">Envoyer</span>
+                                        <span class="btn-text">Registre</span>
                                         <span class="btn-icon"><i class="feather-arrow-right"></i></span>
                                         <span class="btn-icon"><i class="feather-arrow-right"></i></span>
                                     </span>
-                                </button>
-                            </form>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 order-2 order-lg-1" style="margin-right:5%;">
+                            <div class="shape-wrapper" id="scene">
+                                <img src="https://foundr.com/wp-content/uploads/2023/04/How-to-create-an-online-course.jpg"
+                                    alt="Texte Image"  style="background:transparent;margin-top:2%;">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- End Newsletter Area  -->
-        <!-- End CallTo Action Area  -->
-        <!-- Start Footer aera -->
-        <footer class="rbt-footer footer-style-1 bg-color-white overflow-hidden">
-            <div class="footer-top">
+            <!-- Start Newsletter Area  -->
+            <div class="rbt-newsletter-area bg-color-white rbt-section-gap">
                 <div class="container">
-                    <div class="row g-5">
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                            <div class="footer-widget">
-                                <div class="logo">
-                                    <a href="index.html">
-                                        <img src="assets/images/logo/logo.png" alt="Edu-cause">
-                                    </a>
-                                </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="section-title text-center">
+                                <h2 class="title">Pour rejoindre l'équipe des professeurs, saisissez email <br />
+                                    Laissez-nous vous contacter </h2>
+                                <form action="#" class="newsletter-form-1 mt--50 radius-round">
+                                    <input class="rbt-border" type="email" placeholder="Enter Your E-Email">
+                                    <button type="submit"
+                                        class="rbt-btn btn-md btn-gradient hover-icon-reverse radius-round">
+                                        <span class="icon-reverse-wrapper">
+                                            <span class="btn-text">Envoyer</span>
+                                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                        </span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Newsletter Area  -->
+            <!-- End CallTo Action Area  -->
+            <!-- Start Footer aera -->
+            <footer class="rbt-footer footer-style-1 bg-color-white overflow-hidden">
+                <div class="footer-top">
+                    <div class="container">
+                        <div class="row g-5">
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                                <div class="footer-widget">
+                                    <div class="logo">
+                                        <a href="index.html">
+                                            <img src="assets/images/logo/logo.png" alt="Edu-cause">
+                                        </a>
+                                    </div>
 
-                                <p class="description mt--20">We’re always in search for talented
-                                    and motivated people. Don’t be shy introduce yourself!
+                                    <p class="description mt--20">We’re always in search for talented
+                                        and motivated people. Don’t be shy introduce yourself!
+                                    </p>
+
+                                    <ul class="social-icon social-default justify-content-start">
+                                        <li><a href="https://www.facebook.com/">
+                                                <i class="feather-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li><a href="https://www.twitter.com">
+                                                <i class="feather-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li><a href="https://www.instagram.com/">
+                                                <i class="feather-instagram"></i>
+                                            </a>
+                                        </li>
+                                        <li><a href="https://www.linkdin.com/">
+                                                <i class="feather-linkedin"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                    <div class="contact-btn mt--30">
+                                        <a class="rbt-btn hover-icon-reverse btn-border-gradient radius-round"
+                                            href="/contact">
+                                            <div class="icon-reverse-wrapper">
+                                                <span class="btn-text">Contact</span>
+                                                <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                                <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2 col-md-6 col-sm-6 col-12">
+                                <div class="footer-widget">
+                                    <h5 class="ft-title">Useful Links</h5>
+                                    <ul class="ft-link">
+                                        <li>
+                                            <a href="12-marketplace.html">Marketplace</a>
+                                        </li>
+                                        <li>
+                                            <a href="04-kindergarten.html">kindergarten</a>
+                                        </li>
+                                        <li>
+                                            <a href="13-university-classic.html">University</a>
+                                        </li>
+                                        <li>
+                                            <a href="09-gym-coaching.html">GYM Coaching</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2 col-md-6 col-sm-6 col-12">
+                                <div class="footer-widget">
+                                    <h5 class="ft-title">Pages</h5>
+                                    <ul class="ft-link">
+                                        <li>
+                                            <a href="/home">Home</a>
+                                        </li>
+                                        <li>
+                                            <a href="/education">Education</a>
+                                        </li>
+                                        <li>
+                                            <a href="/formation">Formation</a>
+                                        </li>
+                                        <li>
+                                            <a href="/contact">Contact</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                                <div class="footer-widget">
+                                    <h5 class="ft-title">Get Contact</h5>
+                                    <ul class="ft-link">
+                                        <li><span>Phone:</span> <a href="#">(406) 555-0120</a></li>
+                                        <li><span>E-mail:</span> <a href="mailto:hr@example.com">admin@example.com</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rbt-separator-mid">
+                    <div class="container">
+                        <hr class="rbt-separator m-0">
+                    </div>
+                </div>
+                <!-- Start Copyright Area  -->
+                <div class="copyright-area copyright-style-1 ptb--20">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-12">
+                                <p class="rbt-link-hover text-center text-lg-start">Copyright © 2024 <a
+                                        href="https://themeforest.net/user/rbt-themes">Allo école</a> All Rights
+                                    Reserved
                                 </p>
-
-                                <ul class="social-icon social-default justify-content-start">
-                                    <li><a href="https://www.facebook.com/">
-                                            <i class="feather-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li><a href="https://www.twitter.com">
-                                            <i class="feather-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li><a href="https://www.instagram.com/">
-                                            <i class="feather-instagram"></i>
-                                        </a>
-                                    </li>
-                                    <li><a href="https://www.linkdin.com/">
-                                            <i class="feather-linkedin"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <div class="contact-btn mt--30">
-                                    <a class="rbt-btn hover-icon-reverse btn-border-gradient radius-round"
-                                        href="/contact">
-                                        <div class="icon-reverse-wrapper">
-                                            <span class="btn-text">Contact</span>
-                                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                        </div>
-                                    </a>
-                                </div>
                             </div>
-                        </div>
-
-                        <div class="col-lg-2 col-md-6 col-sm-6 col-12">
-                            <div class="footer-widget">
-                                <h5 class="ft-title">Useful Links</h5>
-                                <ul class="ft-link">
-                                    <li>
-                                        <a href="12-marketplace.html">Marketplace</a>
-                                    </li>
-                                    <li>
-                                        <a href="04-kindergarten.html">kindergarten</a>
-                                    </li>
-                                    <li>
-                                        <a href="13-university-classic.html">University</a>
-                                    </li>
-                                    <li>
-                                        <a href="09-gym-coaching.html">GYM Coaching</a>
-                                    </li>
-
+                            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-12">
+                                <ul
+                                    class="copyright-link rbt-link-hover justify-content-center justify-content-lg-end mt_sm--10 mt_md--10">
+                                    <li><a href="#">Terms of service</a></li>
+                                    <li><a href="privacy-policy.html">Privacy policy</a></li>
+                                    <li><a href="subscription.html">Subscription</a></li>
+                                    <li><a href="/login">Login & Register</a></li>
                                 </ul>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-2 col-md-6 col-sm-6 col-12">
-                            <div class="footer-widget">
-                                <h5 class="ft-title">Pages</h5>
-                                <ul class="ft-link">
-                                    <li>
-                                        <a href="/home">Home</a>
-                                    </li>
-                                    <li>
-                                        <a href="/education">Education</a>
-                                    </li>
-                                    <li>
-                                        <a href="/formation">Formation</a>
-                                    </li>
-                                    <li>
-                                        <a href="/contact">Contact</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                            <div class="footer-widget">
-                                <h5 class="ft-title">Get Contact</h5>
-                                <ul class="ft-link">
-                                    <li><span>Phone:</span> <a href="#">(406) 555-0120</a></li>
-                                    <li><span>E-mail:</span> <a href="mailto:hr@example.com">admin@example.com</a></li>
-                                </ul>
-
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- End Copyright Area  -->
+            </footer>
+            <!-- End Footer aera -->
+            <div class="rbt-progress-parent">
+                <svg class="rbt-back-circle svg-inner" width="100%" height="100%" viewBox="-1 -1 102 102">
+                    <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+                </svg>
             </div>
-            <div class="rbt-separator-mid">
-                <div class="container">
-                    <hr class="rbt-separator m-0">
-                </div>
-            </div>
-            <!-- Start Copyright Area  -->
-            <div class="copyright-area copyright-style-1 ptb--20">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-12">
-                            <p class="rbt-link-hover text-center text-lg-start">Copyright © 2024 <a
-                                    href="https://themeforest.net/user/rbt-themes">Allo école</a> All Rights Reserved
-                            </p>
-                        </div>
-                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-12">
-                            <ul
-                                class="copyright-link rbt-link-hover justify-content-center justify-content-lg-end mt_sm--10 mt_md--10">
-                                <li><a href="#">Terms of service</a></li>
-                                <li><a href="privacy-policy.html">Privacy policy</a></li>
-                                <li><a href="subscription.html">Subscription</a></li>
-                                <li><a href="/login">Login & Register</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Copyright Area  -->
-        </footer>
-        <!-- End Footer aera -->
-        <div class="rbt-progress-parent">
-            <svg class="rbt-back-circle svg-inner" width="100%" height="100%" viewBox="-1 -1 102 102">
-                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
-            </svg>
-        </div>
 
-        <!-- JS
+            <!-- JS
 ============================================ -->
-<script src="https://unpkg.com/feather-icons"></script>
-    <script>
-        feather.replace();
-    </script>
-        <!-- Modernizer JS -->
-        <script src="assets_pages/js/vendor/modernizr.min.js"></script>
-        <!-- jQuery JS -->
-        <script src="assets_pages/js/vendor/jquery.js"></script>
-        <!-- Bootstrap JS -->
-        <script src="assets_pages/js/vendor/bootstrap.min.js"></script>
-        <!-- sal.js -->
-        <script src="assets_pages/js/vendor/sal.js"></script>
-        <script src="assets_pages/js/vendor/swiper.js"></script>
-        <script src="assets_pages/js/vendor/magnify.min.js"></script>
-        <script src="assets_pages/js/vendor/jquery-appear.js"></script>
-        <script src="assets_pages/js/vendor/odometer.js"></script>
-        <script src="assets_pages/js/vendor/backtotop.js"></script>
-        <script src="assets_pages/js/vendor/isotop.js"></script>
-        <script src="assets_pages/js/vendor/imageloaded.js"></script>
+            <script src="https://unpkg.com/feather-icons"></script>
+            <script>
+                feather.replace();
+            </script>
+            <!-- Modernizer JS -->
+            <script src="assets_pages/js/vendor/modernizr.min.js"></script>
+            <!-- jQuery JS -->
+            <script src="assets_pages/js/vendor/jquery.js"></script>
+            <!-- Bootstrap JS -->
+            <script src="assets_pages/js/vendor/bootstrap.min.js"></script>
+            <!-- sal.js -->
+            <script src="assets_pages/js/vendor/sal.js"></script>
+            <script src="assets_pages/js/vendor/swiper.js"></script>
+            <script src="assets_pages/js/vendor/magnify.min.js"></script>
+            <script src="assets_pages/js/vendor/jquery-appear.js"></script>
+            <script src="assets_pages/js/vendor/odometer.js"></script>
+            <script src="assets_pages/js/vendor/backtotop.js"></script>
+            <script src="assets_pages/js/vendor/isotop.js"></script>
+            <script src="assets_pages/js/vendor/imageloaded.js"></script>
 
-        <script src="assets_pages/js/vendor/wow.js"></script>
-        <script src="assets_pages/js/vendor/waypoint.min.js"></script>
-        <script src="assets_pages/js/vendor/easypie.js"></script>
-        <script src="assets_pages/js/vendor/text-type.js"></script>
-        <script src="assets_pages/js/vendor/jquery-one-page-nav.js"></script>
-        <script src="assets_pages/js/vendor/bootstrap-select.min.js"></script>
-        <script src="assets_pages/js/vendor/jquery-ui.js"></script>
-        <script src="assets_pages/js/vendor/magnify-popup.min.js"></script>
-        <script src="assets_pages/js/vendor/paralax-scroll.js"></script>
-        <script src="assets_pages/js/vendor/paralax.min.js"></script>
-        <script src="assets_pages/js/vendor/countdown.js"></script>
-        <script src="assets_pages/js/vendor/plyr.js"></script>
-        <!-- Main JS -->
-        <script src="assets_pages/js/main.js"></script>
+            <script src="assets_pages/js/vendor/wow.js"></script>
+            <script src="assets_pages/js/vendor/waypoint.min.js"></script>
+            <script src="assets_pages/js/vendor/easypie.js"></script>
+            <script src="assets_pages/js/vendor/text-type.js"></script>
+            <script src="assets_pages/js/vendor/jquery-one-page-nav.js"></script>
+            <script src="assets_pages/js/vendor/bootstrap-select.min.js"></script>
+            <script src="assets_pages/js/vendor/jquery-ui.js"></script>
+            <script src="assets_pages/js/vendor/magnify-popup.min.js"></script>
+            <script src="assets_pages/js/vendor/paralax-scroll.js"></script>
+            <script src="assets_pages/js/vendor/paralax.min.js"></script>
+            <script src="assets_pages/js/vendor/countdown.js"></script>
+            <script src="assets_pages/js/vendor/plyr.js"></script>
+            <!-- Main JS -->
+            <script src="assets_pages/js/main.js"></script>
 </body>
 
 </html>
