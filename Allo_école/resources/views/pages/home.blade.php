@@ -1447,10 +1447,10 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="col-lg-5 order-2 order-lg-1" style="margin-right:5%;">
+                        <div class="col-lg-5 order-2 order-lg-1" style="margin-right:5%;border:0.5 px solid; border-radius: 5px;">
                             <div class="shape-wrapper" id="scene">
                                 <img src="https://foundr.com/wp-content/uploads/2023/04/How-to-create-an-online-course.jpg"
-                                    alt="Texte Image"  style="background:transparent;margin-top:2%;">
+                                    alt="Texte Image"  style="margin-top:2%;border:4px solid  #2f57ef; border-radius: 10px;">
                             </div>
                         </div>
                     </div>

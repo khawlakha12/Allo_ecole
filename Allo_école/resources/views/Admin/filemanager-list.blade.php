@@ -1305,8 +1305,6 @@
                       </div>
                     </div>
                     <!-- PAGE-HEADER END -->
-
-
                    <!-- Row -->
                    <div class="row row-sm">
                         <div class="col-lg-12 col-xl-12">
