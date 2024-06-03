@@ -1267,7 +1267,7 @@
                                 data-bs-auto-close="outside" aria-expanded="false">
                                 <div class="d-flex align-items-center">
                                     <div class="me-xxl-2 me-0">
-                                    <img src="{{ Auth::user()->picture ?? '../assets/images/faces/default.jpg' }}"
+                                        <img src="{{ Auth::user()->picture ?? '../assets/images/faces/default.jpg' }}"
                                             alt="img" width="32" height="32" class="rounded-circle" id="profile">
                                     </div>
                                     <div class="d-xxl-block d-none my-auto">
@@ -1547,8 +1547,7 @@
                                             <th scope="col">Niveaux scolaire</th>
                                             <th scope="col">Année scolaire</th>
                                             <th scope="col">Filiére</th>
-                                            <th scope="col">Supprimer</th>
-                                            <th scope="col">Modifier</th>
+                                            <th scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbod>
@@ -1558,45 +1557,57 @@
 
                                                 <td>{{ $filiere->anneeScolaire->nom }}</td>
                                                 <td>{{ $filiere->nom }}</td>
-                                                <td>
-                                                <form id="deleteForm{{$filiere->id}}" action="{{ route('filieres.destroy', $filiere->id) }}" method="POST">
-        @csrf
-        @method('DELETE')
-        <button type="button" class="btn btn-danger" onclick="confirmDelete({{ $filiere->id }})">Supprimer</button>
-    </form>
+                                                <td style="display: flex;">
+                                                    <form id="deleteForm{{$filiere->id}}"
+                                                        action="{{ route('filieres.destroy', $filiere->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="button" class="btn btn-danger"
+                                                            onclick="confirmDelete({{ $filiere->id }})">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </button>
+                                                    </form>
+                                                    <a href="#" style="margin-left: 5px;" class="btn btn-primary"
+                                                        onclick="editFiliere({{ $filiere->id }}, '{{ $filiere->nom }}')">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
                                                 </td>
-                                                <td>
-                                                    <a href="#" class="btn btn-primary" onclick="editFiliere({{ $filiere->id }}, '{{ $filiere->nom }}')">Modéfier</a>
-                                                </td>
+
                                             </tr>
-                                            <div class="modal fade" id="exampleModalToggle1" tabindex="-1" aria-labelledby="exampleModalToggleLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalToggleLabel">Modifier Filière</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="editForm"action="{{ route('filieres.update') }}" method="POST">
-                    @csrf
-                    @method('PUT') 
-                    <input type="hidden" name="filiere_id" id="filiere_id">
-                    <div class="group">
-                        <input type="text" name="nom" id="nom" class="form-control"
-                            placeholder="Exemple : Science humaine" required>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Sauvegarder</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-</tr>
+                                            <div class="modal fade" id="exampleModalToggle1" tabindex="-1"
+                                                aria-labelledby="exampleModalToggleLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalToggleLabel">Modifier
+                                                                Filière</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form id="editForm" action="{{ route('filieres.update') }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('PUT') 
+                                                                <input type="hidden" name="filiere_id" id="filiere_id">
+                                                                <div class="group">
+                                                                    <input type="text" name="nom" id="nom"
+                                                                        class="form-control"
+                                                                        placeholder="Exemple : Science humaine" required>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="submit"
+                                                                        class="btn btn-primary">Sauvegarder</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </tr>
                                         @endforeach
-                                    </tbody>
+                                        </tbody>
                                 </table>
                                 <!-- pagination -->
                                 <div id="pagination"></div>
@@ -1735,30 +1746,30 @@
         });
     </script>
     <script>
-    function confirmDelete(filiereId) {
-        if (confirm('Êtes-vous sûr de vouloir supprimer cette filière?')) {
-            document.getElementById('deleteForm'+filiereId).submit();
+        function confirmDelete(filiereId) {
+            if (confirm('Êtes-vous sûr de vouloir supprimer cette filière?')) {
+                document.getElementById('deleteForm' + filiereId).submit();
+            }
         }
-    }
-</script>
-<!---------------------modéfier filiére--------------------->
-<script>
-    function editFiliere(id, nom) {
-        document.getElementById('filiere_id').value = id;
-        document.getElementById('nom').value = nom;
-        var myModal = new bootstrap.Modal(document.getElementById('exampleModalToggle1'));
-        myModal.show();
-    }
-</script>
- <!------------------------------ profile en js ------------------------------>
- <script>
-document.addEventListener('DOMContentLoaded', function() {
-    var storedImage = localStorage.getItem('profilePicture');
-    if (storedImage) {
-        document.getElementById('profile').src = storedImage;
-    }
-});
-</script>
+    </script>
+    <!---------------------modéfier filiére--------------------->
+    <script>
+        function editFiliere(id, nom) {
+            document.getElementById('filiere_id').value = id;
+            document.getElementById('nom').value = nom;
+            var myModal = new bootstrap.Modal(document.getElementById('exampleModalToggle1'));
+            myModal.show();
+        }
+    </script>
+    <!------------------------------ profile en js ------------------------------>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var storedImage = localStorage.getItem('profilePicture');
+            if (storedImage) {
+                document.getElementById('profile').src = storedImage;
+            }
+        });
+    </script>
 
 </body>
 

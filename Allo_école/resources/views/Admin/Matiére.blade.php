@@ -1267,7 +1267,7 @@
                                 data-bs-auto-close="outside" aria-expanded="false">
                                 <div class="d-flex align-items-center">
                                     <div class="me-xxl-2 me-0">
-                                    <img src="{{ Auth::user()->picture ?? '../assets/images/faces/default.jpg' }}"
+                                        <img src="{{ Auth::user()->picture ?? '../assets/images/faces/default.jpg' }}"
                                             alt="img" width="32" height="32" class="rounded-circle" id="profile">
                                     </div>
                                     <div class="d-xxl-block d-none my-auto">
@@ -1570,58 +1570,60 @@
                                             <th scope="col">Année scolaire</th>
                                             <th scope="col">Filiére</th>
                                             <th scope="col">Matiére</th>
-                                            <th scope="col">Supprimer</th>
+                                            <th scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbod>
                                         @foreach($matieres as $matiere)
                                             <tr>
                                                 <td>{{ $matiere->niveauScolaire->nom }}</td>
-
                                                 <td>{{ $matiere->anneeScolaire->nom }}</td>
                                                 <td>{{ $matiere->filiere->nom }}</td>
                                                 <td>{{ $matiere->nom }}</td>
-                                                <td>
+                                                <td style="display:flex;">
                                                     <form id="deleteForm"
                                                         action="{{ route('matieres.destroy', $matiere->id) }}"
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger"
-                                                            onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette matière ?')">Supprimer</button>
+                                                        <button type="submit" class="btn  btn-danger"
+                                                            onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette matière ?')">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </button>
                                                     </form>
+
+                                                    <a href="" style="margin-left:5px;" class="btn btn-primary">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
                                                 </td>
-                                                <!-- <td>
-                                                        <a href="#" class="btn btn-primary">Modéfier</a>
-                                                    </td> -->
                                             </tr>
                                             <!-- <div class="modal fade" id="exampleModalToggle1" tabindex="-1"
-                                                    aria-labelledby="exampleModalToggleLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalToggleLabel">Modifier
-                                                                    Filière</h5>
-                                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                                    aria-label="Close"></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <form id="editForm" action="#" method="POST">
-                                                                    <input type="hidden" name="filiere_id" id="filiere_id">
-                                                                    <div class="group">
-                                                                        <input type="text" name="nom" id="nom"
-                                                                            class="form-control"
-                                                                            placeholder="Exemple : Science humaine" required>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="submit"
-                                                                            class="btn btn-primary">Sauvegarder</button>
-                                                                    </div>
-                                                                </form>
+                                                        aria-labelledby="exampleModalToggleLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalToggleLabel">Modifier
+                                                                        Filière</h5>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                        aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form id="editForm" action="#" method="POST">
+                                                                        <input type="hidden" name="filiere_id" id="filiere_id">
+                                                                        <div class="group">
+                                                                            <input type="text" name="nom" id="nom"
+                                                                                class="form-control"
+                                                                                placeholder="Exemple : Science humaine" required>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary">Sauvegarder</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div> -->
+                                                    </div> -->
                                             </tr>
                                         @endforeach
                                         </tbody>
@@ -1778,15 +1780,15 @@
             myModal.show();
         }
     </script>
- <!------------------------------ profile en js ------------------------------>
- <script>
-document.addEventListener('DOMContentLoaded', function() {
-    var storedImage = localStorage.getItem('profilePicture');
-    if (storedImage) {
-        document.getElementById('profile').src = storedImage;
-    }
-});
-</script>
+    <!------------------------------ profile en js ------------------------------>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var storedImage = localStorage.getItem('profilePicture');
+            if (storedImage) {
+                document.getElementById('profile').src = storedImage;
+            }
+        });
+    </script>
 
 </body>
 

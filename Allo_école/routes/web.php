@@ -85,6 +85,8 @@ Route::delete('/admin/{niveau}', [NiveauxScolaireController::class, 'destroy'])-
 //----------------------------Année Scolaire----------------------------//
 Route::post('/année_scolaire', [AnneeScolaireController::class, 'store'])->name('annees_scolaires.store');
 Route::get('/filter-annees', [AnneeScolaireController::class, 'filter'])->name('filter_annees');
+Route::delete('/admin/annee-scolaire/{id}', [AnneeScolaireController::class, 'destroy']);
+Route::put('/admin/annee-scolaire/{id}', [AnneeScolaireController::class, 'update']);
 
 //----------------------------Filiére----------------------------//
 Route::post('/Filiére', [FiliéreController::class, 'ajouterFiliere'])->name('ajouter_filiere');
@@ -107,7 +109,6 @@ Route::get('/files_course', function () {return view('Admin.filemanager-list');
 });
 Route::post('/courses', [CourseController::class, 'store'])->name('courses.store');
 Route::get('/files_course/{id}', [CourseController::class, 'show'])->name('filemanager.details');
-
 
 //----------------------------éducation----------------------------//
 Route::get('/education/niveau/{id}', [CourseController::class, 'coursesByNiveau'])->name('courses');

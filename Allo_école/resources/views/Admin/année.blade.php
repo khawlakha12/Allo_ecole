@@ -14,7 +14,8 @@
     <meta name="Author" content="Spruko Technologies Private Limited">
     <meta name="keywords"
         content="admin dashboard,dashboard design htmlbootstrap admin template,html admin panel,admin dashboard html,admin panel html template,bootstrap dashboard,html admin template,html dashboard,html admin dashboard template,bootstrap dashboard template,dashboard html template,bootstrap admin panel,dashboard admin bootstrap,bootstrap admin dashboard">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon -->
     <link rel="icon" href="../assets/images/brand-logos/favicon.ico" type="image/x-icon">
 
@@ -1464,31 +1465,61 @@
                                 <table class="table text-nowrap" id="année_scolaire">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Validation</th>
-                                            <th scope="col">Niveau Scolaire</th>
+                                            <th scope="col" style="margin-right:20px;">Niveau Scolaire</th>
                                             <th scope="col">Nom</th>
                                             <th scope="col">Date</th>
-                                            <th scope="col">Supprimer</th>
-                                            <th scope="col">Modifier</th>
+                                            <th scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach($annees as $annee)
                                             <tr>
-                                                <td>
-                                                    <input class="form-check-input" type="checkbox" {{ $annee->validation ? 'checked' : '' }} disabled>
-                                                </td>
                                                 <td>{{ $annee->niveauScolaire ? $annee->niveauScolaire->nom : 'N/A' }}</td>
-
                                                 <td>{{ $annee->nom }}</td>
                                                 <td>{{ $annee->created_at->format('d/m/Y') }}</td>
                                                 <td>
-                                                    <a href="#" class="btn btn-danger">Delete</a>
-                                                </td>
-                                                <td>
-                                                    <a href="#" class="btn btn-primary">Edit</a>
+                                                    <a href="#" class="btn btn-danger delete-annee"
+                                                        data-id="{{ $annee->id }}">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </a>
+                                                    <a href="#" class="btn btn-primary edit-annee"
+                                                        data-id="{{ $annee->id }}" data-nom="{{ $annee->nom }}">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
                                                 </td>
                                             </tr>
+                                            <div class="modal fade" id="editAnneeModal" tabindex="-1"
+                                                aria-labelledby="editAnneeModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="editAnneeModalLabel">Modifier Année
+                                                            </h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form id="editForm" method="POST">
+                                                                <input type="hidden" name="_method" value="PUT">
+                                                                <input type="hidden" name="_token"
+                                                                    value="{{ csrf_token() }}">
+                                                                <div class="mb-3">
+                                                                    <label for="editNom" class="form-label">Nom</label>
+                                                                    <input type="text" name="nom" id="editNom"
+                                                                        class="form-control"
+                                                                        placeholder="Exemple : Baccalaureat" required>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-bs-dismiss="modal">Fermer</button>
+                                                                    <button type="submit"
+                                                                        class="btn btn-primary">Sauvegarder</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         @endforeach
                                     </tbody>
                                 </table>
@@ -1569,9 +1600,10 @@
     <script src="../assets/js/prism-custom.js"></script>
     <!-- Modal JS -->
     <script src="../assets/js/modal.js"></script>
-
     <!-- Custom JS -->
     <script src="../assets/js/custom.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <!---------------------Pagination--------------------->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -1618,6 +1650,86 @@
             }
         });
     </script>
+    <!------------------------------ supprimer l'année ------------------------------>
+    <script>
+        $(document).ready(function () {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $('.delete-annee').on('click', function (event) {
+                event.preventDefault();
+                var anneeId = $(this).data('id');
+
+                if (confirm('Êtes-vous sûr de vouloir supprimer cette année scolaire ?')) {
+                    $.ajax({
+                        url: '/admin/annee-scolaire/' + anneeId,
+                        type: 'DELETE',
+                        data: {
+                            _token: $('meta[name="csrf-token"]').attr('content')
+                        },
+                        success: function (result) {
+                            $('a[data-id="' + anneeId + '"]').closest('.annee-item').remove();
+                            alert('Année scolaire supprimée avec succès.');
+                        },
+                        error: function (xhr) {
+                            console.error('Erreur:', xhr.responseText);
+                            alert('Une erreur s\'est produite. Veuillez réessayer.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+    <!------------------------------ Modéfier l'année Scolaire ------------------------------>
+    <script>
+        $(document).ready(function () {
+            var editForm = $('#editForm');
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $('.edit-annee').on('click', function (event) {
+                event.preventDefault();
+                var anneeId = $(this).data('id');
+                var anneeNom = $(this).data('nom');
+
+                $('#editNom').val(anneeNom);
+                editForm.attr('action', '/admin/annee-scolaire/' + anneeId);
+
+                $('#editAnneeModal').modal('show');
+            });
+            editForm.on('submit', function (event) {
+                event.preventDefault();
+
+                var formAction = $(this).attr('action');
+                var formData = $(this).serialize();
+
+                $.ajax({
+                    url: formAction,
+                    type: 'POST',
+                    data: formData,
+                    success: function (response) {
+                        if (response.success) {
+                            alert('Année scolaire modifiée avec succès.');
+                            $('a[data-id="' + response.id + '"]').data('nom', response.nom).closest('.annee-item').find('.annee-nom').text(response.nom);
+                            $('#editAnneeModal').modal('hide');
+                        } else {
+                            alert('Une erreur s\'est produite. Veuillez réessayer.');
+                        }
+                    },
+                    error: function (xhr) {
+                        alert('Une erreur s\'est produite. Veuillez réessayer.');
+                    }
+                });
+            });
+        });
+    </script>
+
 </body>
 
 </html>

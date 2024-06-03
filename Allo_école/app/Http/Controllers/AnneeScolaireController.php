@@ -35,5 +35,26 @@ class AnneeScolaireController extends Controller {
         $annees = $query->get();
         return view('Admin.année', compact('annees'));
     }
+    public function destroy($id)
+{
+    $annee = AnneeScolaire::findOrFail($id);
+    $annee->delete();
+
+    return response()->json(['success' => 'Année scolaire supprimée avec succès.']);
+}
+public function update(Request $request, $id)
+{
+    $validated = $request->validate([
+        'nom' => 'required|string|max:255',
+    ]);
+
+    $annee = AnneeScolaire::findOrFail($id);
+    $annee->nom = $validated['nom'];
+    $annee->save();
+
+    return response()->json(['success' => true, 'id' => $annee->id, 'nom' => $annee->nom]);
+}
+
+
     
 }
