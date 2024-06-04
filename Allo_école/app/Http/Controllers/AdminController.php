@@ -43,8 +43,9 @@ public function Courses()
 
 public function dashboard()
 {
-    $studentCount = User::where('role', 'étudiant')->count();
-    $studentsLastWeek = User::where('role', 'étudiant')
+    $étudients = User::where('role', 'étudient')->get();
+    $studentCount = User::where('role', 'étudient')->count();
+    $studentsLastWeek = User::where('role', 'étudient')
                             ->where('created_at', '>=', Carbon::now()->subWeek())
                             ->count();
 
@@ -54,8 +55,9 @@ public function dashboard()
         $percentageLastWeek = 100;
     } else {
         $percentageLastWeek = ($studentsLastWeek / $studentCount) * 100;
-    }
+    };
+    
 
-    return view('Admin.dashboard', compact('studentCount', 'studentsLastWeek', 'percentageLastWeek'));
+    return view('Admin.dashboard', compact('étudients','studentCount', 'studentsLastWeek', 'percentageLastWeek'));
 }
 }

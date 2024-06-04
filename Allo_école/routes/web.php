@@ -125,3 +125,9 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/année_scolaire', [AnneeScolaireController::class, 'index'])->name('annees.index');
     Route::get('/admin', [NiveauxScolaireController::class, 'index'])->name('niveaux.index');
 });
+
+
+
+Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+Route::delete('/admin/étudiants/{id}', [AdminController::class, 'destroy'])->name('étudiants.destroy');
+

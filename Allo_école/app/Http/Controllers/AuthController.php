@@ -21,7 +21,7 @@ class AuthController extends Controller
             'password' => 'required|string|min:8|confirmed',
         ]);
     
-        $role = User::count() === 0 ? 'admin' : 'étudiant';
+        $role = User::count() === 0 ? 'admin' : 'étudient';
         $user = User::create([
             'name' => $request->prenom . ' ' . $request->nom,
             'email' => $request->email,
@@ -60,4 +60,12 @@ class AuthController extends Controller
         Auth::logout();
         return redirect('/'); 
     }
+    public function destroy($id)
+{
+    $étudient = User::findOrFail($id);
+    $étudient->delete();
+
+    return response()->json(['success' => 'Étudiant supprimé avec succès.']);
+}
+
 }

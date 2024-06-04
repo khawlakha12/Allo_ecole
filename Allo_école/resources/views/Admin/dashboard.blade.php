@@ -1246,7 +1246,7 @@
                                 data-bs-auto-close="outside" aria-expanded="false">
                                 <div class="d-flex align-items-center">
                                     <div class="me-xxl-2 me-0">
-                                    <img src="{{ Auth::user()->picture ?? '../assets/images/faces/default.jpg' }}"
+                                        <img src="{{ Auth::user()->picture ?? '../assets/images/faces/default.jpg' }}"
                                             alt="img" width="32" height="32" class="rounded-circle" id="profile">
                                     </div>
                                     <div class="d-xxl-block d-none my-auto">
@@ -1348,12 +1348,7 @@
                                 <span class="side-menu__label">Home</span>
                             </a>
                         </li>
-                        <li class="slide">
-                            <a href="/profile" class="side-menu__item">
-                                <i class="fe fe-user side-menu__icon"></i>
-                                <span class="side-menu__label">Profile</span>
-                            </a>
-                        </li>
+
                         <!-- Start::slide__category -->
                         <li class="slide__category"><span class="category-name">les formations</span></li>
                         <!-- End::slide__category -->
@@ -1459,11 +1454,11 @@
 
                 <!-- PAGE-HEADER -->
                 <div class="page-header">
-                @if(session('success'))
-    <div class="alert alert-success w-100">
-        {{ session('success') }}
-    </div>
-@endif
+                    @if(session('success'))
+                        <div class="alert alert-success w-100">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                 </div>
                 <!-- PAGE-HEADER END -->
 
@@ -1486,7 +1481,7 @@
                                 </div>
                                 <span class="text-muted fs-12"><span class="text-secondary"><i
                                             class="fe fe-arrow-up-circle text-secondary"></i>:23%</span>
-                                            La semaine dernière</span>
+                                    La semaine dernière</span>
                             </div>
                         </div>
                     </div>
@@ -1692,20 +1687,22 @@
                                 </div>
                             </div>
                             <div class="card-body p-0 mt-2">
-    <form action="{{ route('annees_scolaires.store') }}" method="POST">
-        @csrf 
-        <div class="group">
-            <input placeholder="exemple : 1ére année" type="text" class="input" name="nom" required>
-            <select class="input" name="id_niveaux_scolaires" required>
-                <option value="">Select an option</option>
-                @foreach($niveaux as $niveau)
-                    <option value="{{ $niveau->id }}">{{ $niveau->nom }}</option>
-                @endforeach
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary" style="margin-top: 20px; margin-left: 5%;">Ajouter</button>
-    </form>
-</div>
+                                <form action="{{ route('annees_scolaires.store') }}" method="POST">
+                                    @csrf
+                                    <div class="group">
+                                        <input placeholder="exemple : 1ére année" type="text" class="input" name="nom"
+                                            required>
+                                        <select class="input" name="id_niveaux_scolaires" required>
+                                            <option value="">Select an option</option>
+                                            @foreach($niveaux as $niveau)
+                                                <option value="{{ $niveau->id }}">{{ $niveau->nom }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary"
+                                        style="margin-top: 20px; margin-left: 5%;">Ajouter</button>
+                                </form>
+                            </div>
 
                         </div>
                     </div>
@@ -1793,10 +1790,9 @@
                                 <div class="tabs-menu1 ms-auto border-0 p-0">
                                     <!-- Tabs -->
                                     <ul class="nav panel-tabs product-sale">
-                                        <li><a href="#tab5" class="active" data-bs-toggle="tab">All products</a></li>
-                                        <li><a href="#tab6" data-bs-toggle="tab">Shipped</a></li>
-                                        <li><a href="#tab7" data-bs-toggle="tab">Pending</a></li>
-                                        <li><a href="#tab8" data-bs-toggle="tab">Cancelled</a></li>
+
+                                        <li><a href="#tab6" data-bs-toggle="tab">étudients</a></li>
+                                        <li><a href="#tab7" data-bs-toggle="tab">Formateur</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -1821,616 +1817,65 @@
                                     </div>
                                 </div>
                                 <div class="tab-content">
-                                    <div class="tab-pane border-0 p-0 active" id="tab5">
+                                    <div class="tab-pane border-0 p-0 active" id="tab6">
                                         <div class="table-responsive">
                                             <table class="table table-bordered text-nowrap mb-0">
                                                 <thead class="border-top">
                                                     <tr>
                                                         <th scope="col" class="">Tracking Id</th>
-                                                        <th scope="col" class="">Product</th>
-                                                        <th scope="col" class="">Customer</th>
-                                                        <th scope="col" class="">Date</th>
-                                                        <th scope="col" class="">Amount</th>
-                                                        <th scope="col" class="">Payment Mode</th>
-                                                        <th scope="col" class="">Status</th>
+                                                        <th scope="col" class="">Nom</th>
+                                                        <th scope="col" class="">Role</th>
+                                                        <th scope="col" class="">Date création</th>
+                                                        <th scope="col" class="">Formation</th>
                                                         <th scope="col" class="">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #98765490</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/9.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">Headsets</h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Cherry Blossom</h6>
-                                                        </td>
-                                                        <td>30 Aug 2023</td>
-                                                        <td><span class="fw-semibold">$6.721.5</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> Online Payment</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-success-transparent rounded-pill text-success p-2 px-3">Shipped</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #76348798</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/11.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">Flower Pot
+                                                    @foreach($étudients as $étudient)
+                                                        <tr>
+                                                            <td>
+                                                                <h6 class="mb-0 fs-14 fw-semibold"> #{{ $étudient->id }}
                                                                 </h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Simon Sais</h6>
-                                                        </td>
-                                                        <td>15 Nov 2023</td>
-                                                        <td><span class="fw-semibold">$35,7863</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> Online Payment</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-danger-transparent rounded-pill text-danger p-2 px-3">Cancelled</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #23986456</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/4.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">Pen Drive
+                                                            </td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <span class="avatar cover-image avatar-sm"
+                                                                        data-bs-image-src="https://img.freepik.com/photos-premium/groupe-joyeux-jeunes-etudiants-dans-universite_85574-4531.jpg?size=626&ext=jpg"></span>
+                                                                    <h6 class="ms-3 my-auto fs-14 fw-semibold">
+                                                                        {{ $étudient->name }}</h6>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <h6 class="mb-0 fs-14 fw-semibold">{{ $étudient->role }}
                                                                 </h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Manny Jah</h6>
-                                                        </td>
-                                                        <td>27 Jan 2023</td>
-                                                        <td><span class="fw-semibold">$5,89,6437</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Cash on Delivery</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-warning-transparent rounded-pill text-warning p-2 px-3">Pending</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #87456325</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/8.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">New Bowl</h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Florinda Carasco</h6>
-                                                        </td>
-                                                        <td>19 Sep 2023</td>
-                                                        <td><span class="fw-semibold">$17.98</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Online Payment</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-success-transparent rounded-pill text-success p-2 px-3">Shipped</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #65783926</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/6.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">Leather Watch
-                                                                </h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Ivan Notheridiya</h6>
-                                                        </td>
-                                                        <td>06 Oct 2023</td>
-                                                        <td><span class="fw-semibold">$8.654.4</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Cash on Delivery</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-danger-transparent rounded-pill text-danger p-2 px-3">Cancelled</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #34654895</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/1.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">Digital
-                                                                    Camera</h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Willie Findit</h6>
-                                                        </td>
-                                                        <td>10 Jul 2023</td>
-                                                        <td><span class="fw-semibold">$8.654.4</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Cash on Delivery</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-warning-transparent rounded-pill text-warning p-2 px-3">Pending</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #98765345</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/10.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">Earphones
-                                                                </h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Addie Minstra</h6>
-                                                        </td>
-                                                        <td>25 Jun 2023</td>
-                                                        <td><span class="fw-semibold">$7,34,9768</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Online Payment</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-success-transparent rounded-pill text-success p-2 px-3">Shipped</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #67546577</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/2.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">Shoes</h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Laura Biding</h6>
-                                                        </td>
-                                                        <td>22 Feb 2023</td>
-                                                        <td><span class="fw-semibold">$7.76.654</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Cash on Delivery</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-warning-transparent rounded-pill text-warning p-2 px-3">Pending</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                            </td>
+                                                            <td>{{ $étudient->created_at->format('d M Y') }}</td>
+                                                            <td><span
+                                                                    class="fw-semibold">{{ $étudient->formation ?? 0 }}</span>
+                                                            </td>
+                                                            <td>
+                                                                <div class="g-2">
+                                                                    <a class="btn text-primary btn-sm"
+                                                                        data-bs-toggle="tooltip"
+                                                                        data-bs-original-title="Edit"><span
+                                                                            class="fe fe-edit fs-14"></span></a>
+                                                                            <form id="deleteForm{{$étudient->id}}" action="{{ route('étudiants.destroy', $étudient->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn text-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet étudiant ?')">
+            <span class="fe fe-trash-2 fs-14" data-bs-toggle="tooltip" data-bs-original-title="Delete"></span>
+        </button>
+    </form>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
-                                    <div class="tab-pane border-0 p-0" id="tab6">
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered text-nowrap mb-0">
-                                                <thead class="border-top">
-                                                    <tr>
-                                                        <th scope="col" class="">Tracking Id</th>
-                                                        <th scope="col" class="">Product</th>
-                                                        <th scope="col" class="">Customer</th>
-                                                        <th scope="col" class="">Date</th>
-                                                        <th scope="col" class="">Amount</th>
-                                                        <th scope="col" class="">Payment Mode</th>
-                                                        <th scope="col" class="">Status</th>
-                                                        <th scope="col" class="">Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #98765490</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/9.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">Headsets</h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Cherry Blossom</h6>
-                                                        </td>
-                                                        <td>30 Aug 2023</td>
-                                                        <td><span class="fw-semibold">$6.721.5</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> Online Payment</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-success-transparent rounded-pill text-success p-2 px-3">Shipped</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #76348798</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/11.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">Flower Pot
-                                                                </h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Simon Sais</h6>
-                                                        </td>
-                                                        <td>15 Nov 2023</td>
-                                                        <td><span class="fw-semibold">$35,7863</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> Online Payment</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-success-transparent rounded-pill text-success p-2 px-3">Shipped</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #23986456</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/4.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">Pen Drive
-                                                                </h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Manny Jah</h6>
-                                                        </td>
-                                                        <td>27 Jan 2023</td>
-                                                        <td><span class="fw-semibold">$5,89,6437</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Cash on Delivery</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-success-transparent rounded-pill text-success p-2 px-3">Shipped</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #87456325</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/8.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">New Bowl</h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Florinda Carasco</h6>
-                                                        </td>
-                                                        <td>19 Sep 2023</td>
-                                                        <td><span class="fw-semibold">$17.98</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Online Payment</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-success-transparent rounded-pill text-success p-2 px-3">Shipped</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #65783926</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/6.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">Leather Watch
-                                                                </h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Ivan Notheridiya</h6>
-                                                        </td>
-                                                        <td>06 Oct 2023</td>
-                                                        <td><span class="fw-semibold">$8.654.4</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Cash on Delivery</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-success-transparent rounded-pill text-success p-2 px-3">Shipped</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #34654895</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/1.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">Digital
-                                                                    Camera</h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Willie Findit</h6>
-                                                        </td>
-                                                        <td>10 Jul 2023</td>
-                                                        <td><span class="fw-semibold">$8.654.4</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Cash on Delivery</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-success-transparent rounded-pill text-success p-2 px-3">Shipped</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #98765345</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/10.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">Earphones
-                                                                </h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Addie Minstra</h6>
-                                                        </td>
-                                                        <td>25 Jun 2023</td>
-                                                        <td><span class="fw-semibold">$7,34,9768</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Online Payment</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-success-transparent rounded-pill text-success p-2 px-3">Shipped</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #67546577</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/2.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">Shoes</h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Laura Biding</h6>
-                                                        </td>
-                                                        <td>22 Feb 2023</td>
-                                                        <td><span class="fw-semibold">$7.76.654</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Cash on Delivery</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-success-transparent rounded-pill text-success p-2 px-3">Shipped</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
+
+
                                     <div class="tab-pane border-0 p-0" id="tab7">
                                         <div class="table-responsive">
                                             <table class="table table-bordered text-nowrap mb-0">
@@ -2442,261 +1887,10 @@
                                                         <th scope="col" class="">Date</th>
                                                         <th scope="col" class="">Amount</th>
                                                         <th scope="col" class="">Payment Mode</th>
-                                                        <th scope="col" class="">Status</th>
                                                         <th scope="col" class="">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #98765490</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/9.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">Headsets</h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Cherry Blossom</h6>
-                                                        </td>
-                                                        <td>30 Aug 2023</td>
-                                                        <td><span class="fw-semibold">$6.721.5</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> Online Payment</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-warning-transparent rounded-pill text-warning p-2 px-3">Pending</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #76348798</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/11.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">Flower Pot
-                                                                </h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Simon Sais</h6>
-                                                        </td>
-                                                        <td>15 Nov 2023</td>
-                                                        <td><span class="fw-semibold">$35,7863</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> Online Payment</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-warning-transparent rounded-pill text-warning p-2 px-3">Pending</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #23986456</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/4.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">Pen Drive
-                                                                </h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Manny Jah</h6>
-                                                        </td>
-                                                        <td>27 Jan 2023</td>
-                                                        <td><span class="fw-semibold">$5,89,6437</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Cash on Delivery</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-warning-transparent rounded-pill text-warning p-2 px-3">Pending</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #87456325</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/8.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">New Bowl</h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Florinda Carasco</h6>
-                                                        </td>
-                                                        <td>19 Sep 2023</td>
-                                                        <td><span class="fw-semibold">$17.98</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Online Payment</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-warning-transparent rounded-pill text-warning p-2 px-3">Pending</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #65783926</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/6.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">Leather Watch
-                                                                </h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Ivan Notheridiya</h6>
-                                                        </td>
-                                                        <td>06 Oct 2023</td>
-                                                        <td><span class="fw-semibold">$8.654.4</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Cash on Delivery</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-warning-transparent rounded-pill text-warning p-2 px-3">Pending</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #34654895</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/1.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">Digital
-                                                                    Camera</h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Willie Findit</h6>
-                                                        </td>
-                                                        <td>10 Jul 2023</td>
-                                                        <td><span class="fw-semibold">$8.654.4</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Cash on Delivery</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-warning-transparent rounded-pill text-warning p-2 px-3">Pending</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #98765345</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/10.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">Earphones
-                                                                </h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Addie Minstra</h6>
-                                                        </td>
-                                                        <td>25 Jun 2023</td>
-                                                        <td><span class="fw-semibold">$7,34,9768</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Online Payment</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-warning-transparent rounded-pill text-warning p-2 px-3">Pending</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
                                                     <tr>
                                                         <td>
                                                             <h6 class="mb-0 fs-14 fw-semibold"> #67546577</h6>
@@ -2715,314 +1909,6 @@
                                                         <td><span class="fw-semibold">$7.76.654</span></td>
                                                         <td>
                                                             <h6 class="mb-0 fs-14 fw-semibold">Cash on Delivery</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-warning-transparent rounded-pill text-warning p-2 px-3">Pending</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane border-0 p-0" id="tab8">
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered text-nowrap mb-0">
-                                                <thead class="border-top">
-                                                    <tr>
-                                                        <th scope="col" class="">Tracking Id</th>
-                                                        <th scope="col" class="">Product</th>
-                                                        <th scope="col" class="">Customer</th>
-                                                        <th scope="col" class="">Date</th>
-                                                        <th scope="col" class="">Amount</th>
-                                                        <th scope="col" class="">Payment Mode</th>
-                                                        <th scope="col" class="">Status</th>
-                                                        <th scope="col" class="">Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #98765490</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/9.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">Headsets</h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Cherry Blossom</h6>
-                                                        </td>
-                                                        <td>30 Aug 2023</td>
-                                                        <td><span class="fw-semibold">$6.721.5</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> Online Payment</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-danger-transparent rounded-pill text-danger p-2 px-3">Cancelled</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #76348798</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/11.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">Flower Pot
-                                                                </h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Simon Sais</h6>
-                                                        </td>
-                                                        <td>15 Nov 2023</td>
-                                                        <td><span class="fw-semibold">$35,7863</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> Online Payment</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-danger-transparent rounded-pill text-danger p-2 px-3">Cancelled</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #23986456</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/4.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">Pen Drive
-                                                                </h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Manny Jah</h6>
-                                                        </td>
-                                                        <td>27 Jan 2023</td>
-                                                        <td><span class="fw-semibold">$5,89,6437</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Cash on Delivery</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-danger-transparent rounded-pill text-danger p-2 px-3">Cancelled</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #87456325</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/8.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">New Bowl</h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Florinda Carasco</h6>
-                                                        </td>
-                                                        <td>19 Sep 2023</td>
-                                                        <td><span class="fw-semibold">$17.98</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Online Payment</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-danger-transparent rounded-pill text-danger p-2 px-3">Cancelled</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #65783926</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/6.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">Leather Watch
-                                                                </h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Ivan Notheridiya</h6>
-                                                        </td>
-                                                        <td>06 Oct 2023</td>
-                                                        <td><span class="fw-semibold">$8.654.4</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Cash on Delivery</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-danger-transparent rounded-pill text-danger p-2 px-3">Cancelled</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #34654895</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/1.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">Digital
-                                                                    Camera</h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Willie Findit</h6>
-                                                        </td>
-                                                        <td>10 Jul 2023</td>
-                                                        <td><span class="fw-semibold">$8.654.4</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Cash on Delivery</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-danger-transparent rounded-pill text-danger p-2 px-3">Cancelled</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #98765345</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/10.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">Earphones
-                                                                </h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Addie Minstra</h6>
-                                                        </td>
-                                                        <td>25 Jun 2023</td>
-                                                        <td><span class="fw-semibold">$7,34,9768</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Online Payment</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-danger-transparent rounded-pill text-danger p-2 px-3">Cancelled</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="g-2">
-                                                                <a class="btn text-primary btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Edit"><span
-                                                                        class="fe fe-edit fs-14"></span></a>
-                                                                <a class="btn text-danger btn-sm"
-                                                                    data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="Delete"><span
-                                                                        class="fe fe-trash-2 fs-14"></span></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold"> #67546577</h6>
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <span class="avatar cover-image avatar-sm"
-                                                                    data-bs-image-src="../assets/images/ecommerce/orders/2.jpg"></span>
-                                                                <h6 class="ms-3 my-auto fs-14 fw-semibold">Shoes</h6>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Laura Biding</h6>
-                                                        </td>
-                                                        <td>22 Feb 2023</td>
-                                                        <td><span class="fw-semibold">$7.76.654</span></td>
-                                                        <td>
-                                                            <h6 class="mb-0 fs-14 fw-semibold">Cash on Delivery</h6>
-                                                        </td>
-                                                        <td><span
-                                                                class="badge bg-danger-transparent rounded-pill text-danger p-2 px-3">Cancelled</span>
                                                         </td>
                                                         <td>
                                                             <div class="g-2">
@@ -3691,15 +2577,15 @@
     <script src="../assets/js/modal.js"></script>
     <!-- Custom JS -->
     <script src="../assets/js/custom.js"></script>
-<!------------------------------ profile en js ------------------------------>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var storedImage = localStorage.getItem('profilePicture');
-    if (storedImage) {
-        document.getElementById('profile').src = storedImage;
-    }
-});
-</script>
+    <!------------------------------ profile en js ------------------------------>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var storedImage = localStorage.getItem('profilePicture');
+            if (storedImage) {
+                document.getElementById('profile').src = storedImage;
+            }
+        });
+    </script>
 
 </body>
 

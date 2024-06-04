@@ -1368,12 +1368,7 @@
                                 <span class="side-menu__label">Home</span>
                             </a>
                         </li>
-                        <li class="slide">
-                            <a href="/profile" class="side-menu__item">
-                                <i class="fe fe-user side-menu__icon"></i>
-                                <span class="side-menu__label">Profile</span>
-                            </a>
-                        </li>
+                        
                         <!-- Start::slide__category -->
                         <li class="slide__category"><span class="category-name">les formations</span></li>
                         <!-- End::slide__category -->
