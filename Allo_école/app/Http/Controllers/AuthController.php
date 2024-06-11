@@ -67,5 +67,18 @@ class AuthController extends Controller
 
     return response()->json(['success' => 'Étudiant supprimé avec succès.']);
 }
+public function update(Request $request, $id)
+{
+    $request->validate([
+        'role' => 'required|string|in:étudiant,admin',
+    ]);
+
+    $étudient = User::findOrFail($id);
+    $étudient->role = $request->input('role');
+    $étudient->save();
+
+    return redirect()->back()->with('success', 'Rôle modifié avec succès.');
+}
+
 
 }

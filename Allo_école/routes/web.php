@@ -131,3 +131,4 @@ Route::middleware(['admin'])->group(function () {
 Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 Route::delete('/admin/étudiants/{id}', [AdminController::class, 'destroy'])->name('étudiants.destroy');
 
+Route::put('/admin/étudiants/{id}', [AuthController::class, 'update'])->name('étudiants.update');

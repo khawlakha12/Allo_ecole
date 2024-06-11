@@ -1811,15 +1811,16 @@
                                         </label>
                                     </div>
                                     <div class="col-sm-12 col-md-6">
-                                        <label class="mb-3 justify-content-end">
-                                            <input type="search" class="form-control" placeholder="Search...">
-                                        </label>
-                                    </div>
+    <label class="mb-3 justify-content-end">
+        <input type="search" id="searchStudent" class="form-control" placeholder="Search...">
+    </label>
+</div>
+
                                 </div>
                                 <div class="tab-content">
                                     <div class="tab-pane border-0 p-0 active" id="tab6">
                                         <div class="table-responsive">
-                                            <table class="table table-bordered text-nowrap mb-0">
+                                            <table class="table table-bordered text-nowrap mb-0"  id="studentTable">
                                                 <thead class="border-top">
                                                     <tr>
                                                         <th scope="col" class="">Tracking Id</th>
@@ -1841,8 +1842,9 @@
                                                                 <div class="d-flex">
                                                                     <span class="avatar cover-image avatar-sm"
                                                                         data-bs-image-src="https://img.freepik.com/photos-premium/groupe-joyeux-jeunes-etudiants-dans-universite_85574-4531.jpg?size=626&ext=jpg"></span>
-                                                                    <h6 class="ms-3 my-auto fs-14 fw-semibold">
-                                                                        {{ $étudient->name }}</h6>
+                                                                    <h6 class="ms-3 my-auto fs-14 fw-semibold student-name">
+                                                                        {{ $étudient->name }}
+                                                                    </h6>
                                                                 </div>
                                                             </td>
                                                             <td>
@@ -1854,18 +1856,68 @@
                                                                     class="fw-semibold">{{ $étudient->formation ?? 0 }}</span>
                                                             </td>
                                                             <td>
-                                                                <div class="g-2">
-                                                                    <a class="btn text-primary btn-sm"
-                                                                        data-bs-toggle="tooltip"
-                                                                        data-bs-original-title="Edit"><span
-                                                                            class="fe fe-edit fs-14"></span></a>
-                                                                            <form id="deleteForm{{$étudient->id}}" action="{{ route('étudiants.destroy', $étudient->id) }}" method="POST">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="btn text-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet étudiant ?')">
-            <span class="fe fe-trash-2 fs-14" data-bs-toggle="tooltip" data-bs-original-title="Delete"></span>
-        </button>
-    </form>
+                                                                <div class="g-2" style="display:flex;">
+                                                                    <!-- Edit Button -->
+                                                                    <a class="btn text-primary btn-sm btn-edit"
+                                                                        data-id="{{ $étudient->id }}"
+                                                                        data-name="{{ $étudient->name }}"
+                                                                        data-role="{{ $étudient->role }}"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#editRoleModal"
+                                                                        data-bs-original-title="Edit">
+                                                                        <span class="fe fe-edit fs-14"></span>
+                                                                    </a>
+
+                                                                    <!-- Edit Role Modal -->
+                                                                    <div class="modal fade" id="editRoleModal" tabindex="-1"
+                                                                        aria-labelledby="editRoleModalLabel"
+                                                                        aria-hidden="true">
+                                                                        <div class="modal-dialog">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                    <h5 class="modal-title"
+                                                                                        id="editRoleModalLabel">Modifier le
+                                                                                        rôle</h5>
+                                                                                    <button type="button" class="btn-close"
+                                                                                        data-bs-dismiss="modal"
+                                                                                        aria-label="Close"></button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <form id="editRoleForm" action="#"
+                                                                                        method="POST">
+                                                                                        @csrf
+                                                                                        @method('PUT')
+                                                                                        <div class="mb-3">
+                                                                                            <label for="editRole"
+                                                                                                class="form-label">Rôle</label>
+                                                                                            <select class="form-control"
+                                                                                                id="editRole" name="role">
+                                                                                                <option value="étudiant">
+                                                                                                    Étudiant</option>
+                                                                                                <option value="admin">Admin
+                                                                                                </option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                        <button type="submit"
+                                                                                            class="btn btn-primary">Sauvegarder</button>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <form id="deleteForm{{$étudient->id}}"
+                                                                        action="{{ route('étudiants.destroy', $étudient->id) }}"
+                                                                        method="POST">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button type="submit" class="btn text-danger btn-sm"
+                                                                            onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet étudiant ?')">
+                                                                            <span class="fe fe-trash-2 fs-14"
+                                                                                data-bs-toggle="tooltip"
+                                                                                data-bs-original-title="Delete"></span>
+                                                                        </button>
+                                                                    </form>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -1874,7 +1926,6 @@
                                             </table>
                                         </div>
                                     </div>
-
 
                                     <div class="tab-pane border-0 p-0" id="tab7">
                                         <div class="table-responsive">
@@ -2585,6 +2636,20 @@
                 document.getElementById('profile').src = storedImage;
             }
         });
+    </script>
+
+ <!------------------------------ recherche par nom ------------------------------>
+    <script>
+$(document).ready(function () {
+    $('#searchStudent').on('keyup', function () {
+        var value = $(this).val().toLowerCase();
+        $('#studentTable tbody tr').filter(function () {
+            $(this).toggle($(this).find('.student-name').text().toLowerCase().indexOf(value) > -1);
+        });
+    });
+});
+
+
     </script>
 
 </body>
